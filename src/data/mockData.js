@@ -98,7 +98,7 @@ export const COURSE_CATEGORIES = [
 export const FEATURED_COURSES = [
   {
     id: 'course-1',
-    image: 'public/course-digital-marketing.png',
+    image: 'course-digital-marketing.png',
     title: 'Digital Marketing in 90 Days!',
     price: '₹25,000',
     originalPrice: '₹45,000',
@@ -107,7 +107,7 @@ export const FEATURED_COURSES = [
   },
   {
     id: 'course-2',
-    image: 'public/course-excel-mastery.png',
+    image: 'course-excel-mastery.png',
     title: 'VISKOOL Advanced Excel Mastery',
     price: '₹500',
     originalPrice: '₹2,000',
@@ -116,7 +116,7 @@ export const FEATURED_COURSES = [
   },
   {
     id: 'course-3',
-    image: 'public/course-class12-maths.png',
+    image: 'course-class12-maths.png',
     title: 'School Tuition - Class12 CBSE (Subject wise)',
     price: '₹8,999',
     originalPrice: '₹12,000',
@@ -195,17 +195,17 @@ export const ACHIEVEMENTS = [
   {
     id: 1,
     name: 'RAHUL MENON',
-    cardImage: 'public/achievement-rahul.png',
+    cardImage: 'achievement-rahul.png',
   },
   {
     id: 2,
     name: 'APARNA SHARMA',
-    cardImage: 'public/achievement-aparna.png',
+    cardImage: 'achievement-aparna.png',
   },
   {
     id: 3,
     name: 'DIYA JACOB',
-    cardImage: 'public/achievement-diya.png',
+    cardImage: 'achievement-diya.png',
   },
 ];
 
@@ -215,7 +215,7 @@ export const TESTIMONIALS = [
     name: 'Aarav',
     role: 'Class 12 (NEET Aspirant)',
     quote: 'Viskool helped me fall in love with learning again! Their funny and code-based teaching style made Chemistry easy for me. I am now confident about cracking NEET.',
-    image: 'public/testimonial-aarav.png',
+    image: 'testimonial-aarav.png',
   },
   {
     id: 2,

@@ -147,7 +147,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
               className="flex items-center gap-2 group cursor-pointer"
             >
               <img 
-                src="public/viskool-logo.png" 
+                src="viskool-logo.png" 
                 alt="Viskool" 
                 className="h-5 sm:h-6 md:h-7 w-auto object-contain hover:opacity-90 transition-opacity"
               />

@@ -39,7 +39,7 @@ export const Testimonials = ({ testimonials, onActionClick }) => {
           <div className="md:col-span-5 flex justify-center md:justify-end">
             <div className="w-48 sm:w-56 rounded-[22px] overflow-hidden bg-white shadow-sm border border-gray-100 p-1">
               <img
-                src={item.image || 'public/testimonial-aarav.png'}
+                src={item.image || 'testimonial-aarav.png'}
                 alt={item.name}
                 className="w-full h-auto object-cover rounded-[18px]"
               />

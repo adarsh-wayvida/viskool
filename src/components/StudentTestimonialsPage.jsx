@@ -16,7 +16,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'Class 12 (School Tuition)',
     category: 'School Tuition',
     quote: 'My Class 12 board marks improved significantly with Viskool\'s structured classes and personal mentoring. The chapter-wise practice tests and 1-on-1 doubt clearing sessions gave me the conceptual confidence to score top marks in Mathematics and Physics.',
-    image: 'public/student-ananya.png',
+    image: 'student-ananya.png',
   },
   {
     id: 'st-2',
@@ -24,7 +24,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'NEET Aspirant',
     category: 'NEET/JEE',
     quote: 'The daily mock test analytics and dedicated NEET mentors at Viskool kept my preparation consistent throughout the year. The step-by-step revision modules helped me master high-weightage Biology and Chemistry topics quickly.',
-    image: 'public/student-rohit.png',
+    image: 'student-rohit.png',
   },
   {
     id: 'st-3',
@@ -32,7 +32,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'Digital Marketing (Upskilling)',
     category: 'Career Upskilling',
     quote: 'The Digital Marketing program was practical and industry-focused from day one. Learning performance marketing, SEO, and content strategy from active experts gave me the real portfolio skills to start taking freelance client projects.',
-    image: 'public/student-sneha.png',
+    image: 'student-sneha.png',
   },
   {
     id: 'st-4',
@@ -40,7 +40,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'JEE Aspirant',
     category: 'NEET/JEE',
     quote: 'Clear explanations, personal attention, and high-yield problem sets made a massive difference in my JEE preparation journey. The mentors always took extra time to explain tricky Physics numericals until I understood them completely.',
-    image: 'public/student-arjun.png',
+    image: 'student-arjun.png',
   },
   {
     id: 'st-5',
@@ -48,7 +48,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'High Court Assistant Aspirant',
     category: 'Competitive Exams',
     quote: 'Preparing for the High Court Assistant exam required structured speed and accuracy. Viskool\'s daily mock tests, live answer discussions, and updated GK study notes gave me the exact competitive edge needed to qualify.',
-    image: 'public/student-aparna.jpg',
+    image: 'student-aparna.jpg',
   },
   {
     id: 'st-6',
@@ -56,7 +56,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'Kerala PSC Aspirant',
     category: 'Competitive Exams',
     quote: 'Preparing for Kerala PSC alongside my full-time job was challenging, but Viskool\'s flexible evening live classes, downloadable revision summaries, and structured timetable made my routine smooth and manageable.',
-    image: 'public/student-rahul.jpg',
+    image: 'student-rahul.jpg',
   },
   {
     id: 'st-7',
@@ -64,7 +64,7 @@ const STUDENT_TESTIMONIALS_DATA = [
     tag: 'Class 11 (Physics & Chem)',
     category: 'School Tuition',
     quote: 'Physics used to be my weakest subject in Class 11. My 1-on-1 Viskool mentor broke down complex numericals and formulas into simple visual steps, turning my fear into a strong subject score.',
-    image: 'public/student-diya.jpg',
+    image: 'student-diya.jpg',
   },
   {
     id: 'st-8',
@@ -232,27 +232,27 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
 
                 {/* 1. Upper-Left Portrait (Overlapping Centre Card) */}
                 <div className="absolute top-[2%] left-[2%] sm:left-[3%] w-[130px] sm:w-[150px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_10px_25px_rgba(139,21,56,0.12)] -rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 z-10 group">
-                  <img src="public/student-rahul.jpg" alt="Viskool Student Rahul" className="w-full h-full object-cover object-top scale-110 transition-transform duration-300 group-hover:scale-115" />
+                  <img src="student-rahul.jpg" alt="Viskool Student Rahul" className="w-full h-full object-cover object-top scale-110 transition-transform duration-300 group-hover:scale-115" />
                 </div>
 
                 {/* 2. Upper-Right Portrait (Overlapping Centre Card) */}
                 <div className="absolute top-[5%] right-[2%] sm:right-[3%] w-[130px] sm:w-[150px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_10px_25px_rgba(139,21,56,0.12)] rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 z-10 group">
-                  <img src="public/student-ananya.png" alt="Viskool Student Ananya" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                  <img src="student-ananya.png" alt="Viskool Student Ananya" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
                 </div>
 
                 {/* 3. Center Dominant Featured Portrait (Aparna R. - 42% width, 68% height) */}
                 <div className="absolute top-[10%] left-[28%] sm:left-[29%] w-[205px] sm:w-[230px] aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden bg-white border-4 sm:border-[5px] border-white shadow-[0_20px_45px_rgba(139,21,56,0.20)] -rotate-1.5 hover:rotate-0 transition-all duration-300 hover:scale-105 z-20 group">
-                  <img src="public/student-aparna.jpg" alt="Viskool Student Aparna" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                  <img src="student-aparna.jpg" alt="Viskool Student Aparna" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
                 </div>
 
                 {/* 4. Lower-Left Portrait (Overlapping Centre Card) */}
                 <div className="absolute bottom-[3%] left-[7%] sm:left-[9%] w-[135px] sm:w-[155px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_12px_28px_rgba(139,21,56,0.14)] rotate-2 hover:rotate-0 transition-all duration-300 hover:scale-105 z-30 group">
-                  <img src="public/student-rohit.png" alt="Viskool Student Rohit" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                  <img src="student-rohit.png" alt="Viskool Student Rohit" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
                 </div>
 
                 {/* 5. Lower-Right Portrait (Overlapping Centre Card) */}
                 <div className="absolute bottom-[1%] right-[5%] sm:right-[7%] w-[135px] sm:w-[155px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_12px_28px_rgba(139,21,56,0.14)] -rotate-2.5 hover:rotate-0 transition-all duration-300 hover:scale-105 z-30 group">
-                  <img src="public/student-arjun.png" alt="Viskool Student Arjun" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                  <img src="student-arjun.png" alt="Viskool Student Arjun" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
                 </div>
 
                 {/* Small Accent Burgundy Circle Dot */}

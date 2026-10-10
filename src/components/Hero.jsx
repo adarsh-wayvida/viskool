@@ -7,7 +7,7 @@ export const ALL_HERO_SLIDES = [
     id: 1,
     isReady: true,
     video: null,
-    image: 'public/kerala-student-banner-1.png',
+    image: 'kerala-student-banner-1.png',
     badge: null,
     theme: 'dark',
     heading: 'From Class 1 to Career Goals: Your Complete Learning Partner',
@@ -28,7 +28,7 @@ export const ALL_HERO_SLIDES = [
     id: 2,
     isReady: true,
     video: null,
-    image: 'public/pexels-julia-m-cameron-4144295 (1).jpg',
+    image: 'pexels-julia-m-cameron-4144295 (1).jpg',
     badge: 'TUITION',
     theme: 'dark',
     heading: 'The Complete Learning Partner for Academic Excellence & Competitive Exam Success',
@@ -69,7 +69,7 @@ export const ALL_HERO_SLIDES = [
       hasPhoneIcon: true,
     },
     ctaSecondary: null,
-    image: 'public/pexels-tiger-lily-7108590 (2).jpg', // Provided background image covering entire banner
+    image: 'pexels-tiger-lily-7108590 (2).jpg', // Provided background image covering entire banner
     overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent', // Smooth left dark overlay fading right
   },
   {
