@@ -7,7 +7,7 @@ export const ALL_HERO_SLIDES = [
     id: 1,
     isReady: true,
     video: null,
-    image: 'kerala-student-banner-1.png',
+    image: 'public/kerala-student-banner-1.png',
     badge: null,
     theme: 'dark',
     heading: 'From Class 1 to Career Goals: Your Complete Learning Partner',

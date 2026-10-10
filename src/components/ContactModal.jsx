@@ -202,7 +202,7 @@ export const ContactModal = ({ isOpen, onClose, initialData, onSubmitSuccess }) 
         {/* Right Column: Visual Panel Image */}
         <div className="w-full md:w-1/2 relative bg-gray-100 hidden md:block overflow-hidden min-h-[420px]">
           <img
-            src="contact-panel-agent.jpg"
+            src="public/contact-panel-agent.jpg"
             alt="Viskool Customer Support Team"
             className="w-full h-full object-cover object-center"
           />

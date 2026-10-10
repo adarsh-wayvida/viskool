@@ -85,7 +85,7 @@ export const PARENT_VIDEOS_DATA = [
     tagline: 'Parent of Vridhi Vishal',
     course: 'CBSE Foundation Course',
     duration: '01:45',
-    thumbnail: 'parent-video-1.jpg',
+    thumbnail: 'public/parent-video-1.jpg',
     videoUrl: '',
     gradient: 'from-[#4A1525] via-[#2A101C] to-[#14080E]',
   },
@@ -95,7 +95,7 @@ export const PARENT_VIDEOS_DATA = [
     tagline: 'Parent of Class 10 Student',
     course: 'School Academic Mentorship',
     duration: '02:10',
-    thumbnail: 'parent-video-2.jpg',
+    thumbnail: 'public/parent-video-2.jpg',
     videoUrl: '',
     gradient: 'from-[#1E3A2B] via-[#12241A] to-[#0A140F]',
   },
@@ -105,7 +105,7 @@ export const PARENT_VIDEOS_DATA = [
     tagline: 'Parent of Kalyani',
     course: 'NEET Foundation Course',
     duration: '01:55',
-    thumbnail: 'parent-video-3.jpg',
+    thumbnail: 'public/parent-video-3.jpg',
     videoUrl: '',
     gradient: 'from-[#8B1538] via-[#590D24] to-[#26050F]',
   },
@@ -115,7 +115,7 @@ export const PARENT_VIDEOS_DATA = [
     tagline: 'Parent of Middle Schooler',
     course: 'Class 8 Foundation',
     duration: '02:30',
-    thumbnail: 'parent-video-4.jpg',
+    thumbnail: 'public/parent-video-4.jpg',
     videoUrl: '',
     gradient: 'from-[#3B2C42] via-[#231A28] to-[#100C13]',
   },
@@ -125,7 +125,7 @@ export const PARENT_VIDEOS_DATA = [
     tagline: 'Parent of Class 11 Student',
     course: 'JEE Main & Advanced',
     duration: '01:40',
-    thumbnail: 'parent-video-5.jpg',
+    thumbnail: 'public/parent-video-5.jpg',
     videoUrl: '',
     gradient: 'from-[#1F2937] via-[#111827] to-[#0B0F17]',
   },
@@ -135,7 +135,7 @@ export const PARENT_VIDEOS_DATA = [
     tagline: 'Parent of Class 12 Student',
     course: 'Board Exam Intensive',
     duration: '02:15',
-    thumbnail: 'parent-video-6.jpg',
+    thumbnail: 'public/parent-video-6.jpg',
     videoUrl: '',
     gradient: 'from-[#5C1B2E] via-[#38101C] to-[#19070D]',
   },
@@ -588,15 +588,15 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
                 <div className="absolute bottom-[-4px] left-[23%] sm:left-[25%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl bg-[#E5BFD0]/80 -rotate-3 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
 
                 <div className="absolute top-0 left-0 w-[235px] sm:w-[255px] h-[185px] sm:h-[200px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white -rotate-2 transition-all hover:rotate-0 duration-300 z-10">
-                  <img src="hero-mother-son.jpg" alt="Mother and son story" className="w-full h-full object-cover" />
+                  <img src="public/hero-mother-son.jpg" alt="Mother and son story" className="w-full h-full object-cover" />
                 </div>
 
                 <div className="absolute top-3 right-0 w-[225px] sm:w-[245px] h-[175px] sm:h-[190px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white rotate-2 transition-all hover:rotate-0 duration-300 z-10">
-                  <img src="hero-father-daughter.jpg" alt="Father and daughter story" className="w-full h-full object-cover" />
+                  <img src="public/hero-father-daughter.jpg" alt="Father and daughter story" className="w-full h-full object-cover" />
                 </div>
 
                 <div className="absolute bottom-0 left-[24%] sm:left-[26%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl overflow-hidden shadow-[0_16px_32px_rgba(139,21,56,0.18)] border-3 border-white z-20 transition-all hover:scale-102 duration-300">
-                  <img src="hero-mother-portrait.jpg" alt="Mother portrait" className="w-full h-full object-cover" />
+                  <img src="public/hero-mother-portrait.jpg" alt="Mother portrait" className="w-full h-full object-cover" />
                 </div>
 
               </div>
