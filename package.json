@@ -1,0 +1,10 @@
+{
+  "name": "viskool-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Viskool Online & Offline Coaching Platform Prototype",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
