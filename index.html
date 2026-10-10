@@ -1,0 +1,3659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viskool - India's Online Learning Platform (Prototype)</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+  <!-- Google Fonts: Inter for Primary Sans & Georgia for Accent Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+          },
+          colors: {
+            burgundy: {
+              50: '#FAF5F7',
+              100: '#F8F0F2',
+              200: '#F1E0E5',
+              700: '#A31942',
+              800: '#8B1538',
+              900: '#73152C',
+              950: '#540D22',
+            }
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideDown: {
+              '0%': { transform: 'translateY(-20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            scaleUp: {
+              '0%': { transform: 'scale(0.95)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            banner2GlowMotion: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)', opacity: '0.85' },
+              '100%': { transform: 'translate(-110px, 85px) scale(1.2)', opacity: '1' },
+            },
+            banner2RightSweep: {
+              '0%': { transform: 'translateX(-100%) rotate(20deg)', opacity: '0' },
+              '20%': { opacity: '0.5' },
+              '65%': { opacity: '0.5' },
+              '100%': { transform: 'translateX(200%) rotate(20deg)', opacity: '0' },
+            },
+          },
+          animation: {
+            marquee: 'marquee 35s linear infinite',
+            fadeIn: 'fadeIn 0.25s ease-out forwards',
+            slideDown: 'slideDown 0.3s ease-out forwards',
+            scaleUp: 'scaleUp 0.25s ease-out forwards',
+            banner2Glow: 'banner2GlowMotion 6.5s ease-in-out infinite alternate',
+            banner2Sweep: 'banner2RightSweep 7.5s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes banner2GlowMotion {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.85;
+      }
+      100% {
+        transform: translate(-110px, 85px) scale(1.2);
+        opacity: 1;
+      }
+    }
+    @keyframes banner2RightSweep {
+      0% {
+        transform: translateX(-100%) rotate(20deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.5;
+      }
+      65% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateX(200%) rotate(20deg);
+        opacity: 0;
+      }
+    }
+    .banner2-glow-anim {
+      animation: banner2GlowMotion 6.5s ease-in-out infinite alternate !important;
+    }
+    .banner2-sweep-anim {
+      animation: banner2RightSweep 7.5s ease-in-out infinite !important;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .banner2-glow-anim,
+      .banner2-sweep-anim {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- React 18, ReactDOM & Babel for zero-build live running -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F0F2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8B1538;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #73152C;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <div id="root"></div>
+
+  <!-- React Application Source -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // --- Mock Data ---
+    const ANNOUNCEMENT_ITEMS = [
+      { icon: '👩‍🏫', text: 'Learn from ', highlight: 'Expert Tutors' },
+      { icon: '🎓', highlight: 'Admissions Open', text: ' Now' },
+      { icon: '⚡', highlight: 'NEET Crash Course', text: ' 2026 Batch' },
+      { icon: '💯', highlight: '100%', text: ' Commitment & Personal Mentorship' },
+      { icon: '📅', text: 'Book Your ', highlight: 'Free Demo Class', suffix: ' Today' },
+      { icon: '🎉', highlight: 'Special offer', text: ' flat 10% off on all annual enrollments' },
+    ];
+
+    const NAV_LINKS = [
+      { label: 'Home', href: '#' },
+      { 
+        label: 'Courses', 
+        href: '#courses', 
+        hasDropdown: true,
+        dropdownType: 'mega',
+      },
+      { label: 'Blogs', href: '#blogs' },
+      { 
+        label: 'About Us', 
+        href: '#about',
+        hasDropdown: true,
+        dropdownType: 'simple',
+        items: [
+          { label: 'About the Founder', href: '#founder' },
+          { label: 'About Viskool', href: '#about-viskool' },
+          { label: 'Student Testimonial', href: '#student-testimonials' },
+          { label: 'Parent Testimonial', href: '#parent-testimonials' },
+          { label: 'Student Feedback', href: '#student-feedback' },
+        ]
+      },
+      { label: 'Career With Us', href: '#careers' },
+      { label: 'Contact Us', href: '#contact', isContactTrigger: true },
+    ];
+
+    const HERO_SLIDES = [
+      {
+        id: 1,
+        title: 'From Class 1 to Career Goals: Your Complete Learning Partner',
+        description: 'Whether mastering school subjects, cracking competitive exams, or building professional skills, Viskool gives learners of all ages the structure, guidance, and confidence to succeed.',
+        ctaPrimary: 'Explore Now',
+        ctaSecondary: 'Book Free Demo',
+        badge: '🚀 Admissions Open for 2026',
+        image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
+        stats: [
+          { label: 'Active Students', value: '15,000+' },
+          { label: 'Expert Tutors', value: '500+' },
+          { label: 'Success Rate', value: '98.4%' }
+        ]
+      },
+      {
+        id: 2,
+        title: 'Personalized 1-on-1 Mentorship for NEET & JEE Aspirants',
+        description: 'Master core concepts with top-tier subject specialists. Customized study plans, real-time doubt clearing, and continuous performance analytics tailored to maximize your competitive rank.',
+        ctaPrimary: 'Join Crash Course',
+        ctaSecondary: 'View Syllabus',
+        badge: '🏆 Proven Results & Top Ranks',
+        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+        stats: [
+          { label: 'Mock Tests Conducted', value: '10,000+' },
+          { label: 'NEET Qualifiers', value: '1,200+' },
+          { label: 'Avg Score Improvement', value: '+35%' }
+        ]
+      }
+    ];
+
+    const PROCESS_STEPS = [
+      {
+        number: '1',
+        title: '1. Explore All Courses',
+        description: 'Discover a wide range of academic and skill-building courses tailored to your goals. Expert curriculum designed for your success.',
+      },
+      {
+        number: '2',
+        title: '2. Choose Your Teacher',
+        description: 'Learn with verified, qualified experts. Choose by subject, rating, language preference, and schedule that suits your needs best.',
+      },
+      {
+        number: '3',
+        title: '3. Start Learning Anywhere',
+        description: 'Access live interactive sessions from the comfort of your home or on the go. Flexible learning schedules that fit your routine.',
+      },
+    ];
+
+    const COURSE_CATEGORIES = [
+      'All Courses',
+      'School Tuitions',
+      'NEET & JEE',
+      'Career Upskilling',
+      'Coding & Tech',
+    ];
+
+    const FEATURED_COURSES = [
+      {
+        id: 'course-1',
+        image: 'course-digital-marketing.png',
+        title: 'Digital Marketing in 90 Days!',
+        price: '₹25,000',
+        originalPrice: '₹45,000',
+        isPremium: true,
+        isLive: false,
+      },
+      {
+        id: 'course-2',
+        image: 'course-excel-mastery.png',
+        title: 'VISKOOL Advanced Excel Mastery',
+        price: '₹500',
+        originalPrice: '₹2,000',
+        isPremium: true,
+        isLive: true,
+      },
+      {
+        id: 'course-3',
+        image: 'course-class12-maths.png',
+        title: 'School Tuition - Class12 CBSE (Subject wise)',
+        price: '₹8,999',
+        originalPrice: '₹12,000',
+        isPremium: true,
+        isLive: true,
+      },
+    ];
+
+    const BENEFITS = [
+      {
+        id: 1,
+        title: 'Live and Recorded Online Classes',
+        description: 'Real-time mentorship with personalized attention and anytime access to high quality video learning resources and interactive notes.',
+        tag: '1-to-1 & Small Batches',
+        image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        id: 2,
+        title: 'From School Learning to Career Success',
+        description: 'Structured curriculum covering academic foundations from Class 1 to Class 12, competitive exams preparation, through advanced skill development.',
+        tag: 'Holistic Growth',
+      },
+      {
+        id: 3,
+        title: 'A Great Community',
+        description: 'Connect with mentors, peer learners, and industry alumni to foster a collaborative and motivating atmosphere.',
+        tag: 'Global Peer Network',
+        image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80',
+      },
+    ];
+
+    const FAQS = [
+      {
+        question: 'Which subjects and boards do you cover for NEET, JEE, or school tuitions?',
+        answer: 'Viskool covers all major national and state boards including CBSE, ICSE, IGCSE, IB, and State Boards from Class 1 through Class 12. For competitive exams, we offer dedicated high-yield modules in Physics, Chemistry, Biology (Botany & Zoology), and Mathematics for NEET, JEE Main/Advanced, and KEAM.',
+      },
+      {
+        question: 'What is the qualification and selection process of tutors at Viskool?',
+        answer: 'Every tutor undergoes a rigorous 4-stage vetting process including background verification, subject-matter expertise testing, pedagogical evaluation, and interactive demo class assessments. Only the top 3% of educator applicants are onboarded.',
+      },
+      {
+        question: 'What makes Viskool’s 1-on-1 and batch classes unique?',
+        answer: 'Viskool combines personalized learning paths with live interactive digital whiteboards, customized pace matching, instant real-time doubt resolution, and periodic progress reports shared directly with parents.',
+      },
+      {
+        question: 'Are upskilling and IT courses beginner-friendly?',
+        answer: 'Yes! Our career upskilling courses (including Power BI, Python, Data Analytics, Full Stack Web Development, and Digital Marketing) are designed with a zero-to-hero curriculum featuring practical hands-on projects and portfolio reviews.',
+      },
+      {
+        question: 'What devices and software do I need to attend classes?',
+        answer: 'You can join classes using any standard laptop, desktop computer, tablet, or smartphone with an active internet connection. All sessions run seamlessly inside modern web browsers with no complex software installation required.',
+      },
+      {
+        question: 'Do you provide study materials, mock tests, and revision notes?',
+        answer: 'Yes, all enrolled students receive comprehensive digital study materials, topic-wise practice question banks, chapter revision flashcards, and regular mock exams with detailed AI-driven performance breakdowns.',
+      },
+      {
+        question: 'How do I enroll or book a free demo session?',
+        answer: 'Simply click "Book Free Demo" or "Get In Touch", select your grade and target subject, and our academic advisor will schedule a complimentary 1-on-1 trial class at your preferred time slot.',
+      },
+      {
+        question: 'What is the typical class timing and schedule flexibility?',
+        answer: 'We offer highly flexible class timings including early morning, evening, and weekend batches to ensure classes do not clash with school or college hours.',
+      },
+      {
+        question: 'What makes Viskool different from other edtech platforms?',
+        answer: 'Unlike automated pre-recorded platforms, Viskool focuses on genuine human connection: 100% live interactive teaching, empathetic mentorship, small batch sizes, and continuous one-on-one accountability tracking.',
+      },
+    ];
+
+    const ACHIEVEMENTS = [
+      {
+        id: 1,
+        name: 'RAHUL MENON',
+        cardImage: 'achievement-rahul.png',
+      },
+      {
+        id: 2,
+        name: 'APARNA SHARMA',
+        cardImage: 'achievement-aparna.png',
+      },
+      {
+        id: 3,
+        name: 'DIYA JACOB',
+        cardImage: 'achievement-diya.png',
+      },
+    ];
+
+    const TESTIMONIALS = [
+      {
+        id: 1,
+        name: 'Adnan',
+        role: 'Grade 11, NEET Student',
+        quote: 'Viskool has completely transformed how I prepare for NEET. The teachers explain tough Physics and Chemistry concepts with crystal clarity. The personal attention and regular mock tests boosted my confidence and performance tremendously!',
+        image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80',
+        rating: 5,
+        location: 'Kochi, Kerala',
+      },
+      {
+        id: 2,
+        name: 'Rhea Nambiar',
+        role: 'Class 10 CBSE Student',
+        quote: 'The 1-to-1 math sessions helped me overcome my fear of trigonometry and algebra. My mentor was always patient and available to solve my doubts anytime. I scored 95% in my board exams thanks to Viskool!',
+        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+        rating: 5,
+        location: 'Bangalore, Karnataka',
+      },
+      {
+        id: 3,
+        name: 'Karthik Raja',
+        role: 'Power BI Upskilling Graduate',
+        quote: 'The 10-day Power BI workshop was intense, practical, and highly relevant. We built real-world executive dashboards from scratch. Within 3 weeks of finishing, I successfully transitioned into a Business Analyst role.',
+        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+        rating: 5,
+        location: 'Chennai, Tamil Nadu',
+      },
+    ];
+
+    const FOOTER_DATA = {
+      about: 'Viskool is India’s versatile online learning platform for interactive live classes, school tuitions, competitive exam preparation (NEET/JEE/KEAM), and professional career upskilling.',
+      quickLinks: [
+        { label: 'Home', href: '#' },
+        { label: 'All Courses', href: '#courses' },
+        { label: 'Privacy Policy', href: '#' },
+        { label: 'Terms & Conditions', href: '#' },
+        { label: 'Contact Us', href: '#' },
+      ],
+      socials: [
+        { name: 'Instagram' },
+        { name: 'Facebook' },
+        { name: 'Twitter' },
+        { name: 'LinkedIn' },
+        { name: 'YouTube' },
+      ],
+      copyright: '© 2026 Viskool. All rights reserved. Designed for excellence.',
+    };
+
+    // --- Component: AnnouncementBar ---
+    function AnnouncementBar({ items, onActionClick }) {
+      return (
+        <div 
+          className="w-full overflow-hidden border-b border-black/5 bg-[#F8F0F2] text-[#1A1A1A] py-2.5 text-xs sm:text-sm font-medium relative select-none"
+          role="region" 
+          aria-label="Site Announcements"
+        >
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused] cursor-pointer">
+            {[...items, ...items, ...items].map((item, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => onActionClick(`Announcement: ${item.highlight || item.text}`)}
+                className="flex items-center shrink-0 px-4 group gap-1"
+              >
+                <span className="text-sm">{item.icon}</span>
+                {item.text && <span>{item.text.trim()}</span>}
+                {item.highlight && (
+                  <strong className="text-[#8B1538] font-bold group-hover:underline">
+                    {item.highlight.trim()}
+                  </strong>
+                )}
+                {item.suffix && <span>{item.suffix.trim()}</span>}
+                <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-[#8B1538]/40" />
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    const COURSE_CATEGORIES_WITH_ITEMS = [
+      {
+        id: 'digital-marketing',
+        name: 'Digital Marketing',
+        items: [
+          '65-Day Performance Marketing Mastery',
+          '90 Days to Master Digital Marketing & Launch Your Dream Career!',
+          'Free Digital Marketing Pathway',
+          'LinkedIn Marketing',
+          'MAGIC WORDS FOR CONTENT CREATORS(E-BOOK)',
+          'Meta Ads in 30 Days. Learn Meta Ads Live. Run Them for Real',
+        ],
+      },
+      {
+        id: 'high-court-kerala',
+        name: 'High Court of Kerala',
+        items: [
+          'High Court Assistant Preparation Masterclass',
+          'Kerala High Court Office Attendant Live Batch',
+          'Legal Aptitude & General English Crash Course',
+        ],
+      },
+      {
+        id: 'jee',
+        name: 'JEE',
+        items: [
+          'JEE Main & Advanced 1-Year Master Program',
+          'Class 12 Physics & Chemistry JEE Intensive',
+          'JEE Mathematics Formula & Problem Solving Batch',
+        ],
+      },
+      {
+        id: 'kerala-psc',
+        name: 'Kerala PSC',
+        items: [
+          'Kerala PSC LDC / LGS Comprehensive Batch',
+          'KPSC Degree Level Preliminary & Mains',
+          'Kerala PSC GK & Malayalam Special Coaching',
+        ],
+      },
+      {
+        id: 'language-skill',
+        name: 'Language Skill',
+        items: [
+          'Spoken English Fluency & Communication Mastery',
+          'IELTS & TOEFL Band 8 Prep Course',
+          'Business English & Corporate Communication',
+        ],
+      },
+      {
+        id: 'neet',
+        name: 'NEET',
+        items: [
+          'Class 12 NEET Biology & Chemistry Live Batch',
+          'NEET 2025 Crash Course & Mock Test Series',
+          '1-on-1 Mentorship for NEET Aspirants',
+        ],
+      },
+      {
+        id: 'school-tuitions',
+        name: 'School Tuitions',
+        items: [
+          'Class 10 CBSE Maths & Science Live Classes',
+          'Class 12 Kerala State Board Physics & Chemistry',
+          'Class 8-10 Foundation Course for Competitive Exams',
+        ],
+      },
+      {
+        id: 'upskill-courses',
+        name: 'Upskill courses',
+        items: [
+          'Excel Mastery: Beginners to Advanced Analytics',
+          'Power BI & Data Visualization Bootcamp',
+          'Full Stack Web Development (React & Node)',
+        ],
+      },
+    ];
+
+    // --- Component: Header ---
+    function Header({ navLinks, onOpenContact, onActionClick, onNavigate, currentPage = 'home' }) {
+      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+      const [openDropdown, setOpenDropdown] = useState(null); // 'Courses' | 'About Us' | null
+      const [hoveredCategory, setHoveredCategory] = useState(null);
+      const [isScrolled, setIsScrolled] = useState(false);
+      const closeTimerRef = React.useRef(null);
+
+      useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key === 'Escape') {
+            if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+            setOpenDropdown(null);
+            setHoveredCategory(null);
+          }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+          window.removeEventListener('keydown', handleKeyDown);
+          if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+        };
+      }, []);
+
+      const handleMouseEnter = (label) => {
+        if (closeTimerRef.current) {
+          clearTimeout(closeTimerRef.current);
+          closeTimerRef.current = null;
+        }
+        setOpenDropdown(label);
+      };
+
+      const handleMouseLeave = () => {
+        if (closeTimerRef.current) {
+          clearTimeout(closeTimerRef.current);
+        }
+        closeTimerRef.current = setTimeout(() => {
+          setOpenDropdown(null);
+          setHoveredCategory(null);
+        }, 200); // 200ms smooth close delay
+      };
+
+      const handleTriggerClick = (label) => {
+        if (closeTimerRef.current) {
+          clearTimeout(closeTimerRef.current);
+          closeTimerRef.current = null;
+        }
+        setOpenDropdown((prev) => (prev === label ? null : label));
+      };
+
+      return (
+        <header className={`sticky top-0 z-50 w-full bg-white/80 backdrop-blur-lg transition-all duration-300 ${
+          isScrolled ? 'shadow-md border-b border-gray-100' : 'border-b border-gray-100/80'
+        }`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16 sm:h-20">
+              
+              {/* Logo */}
+              <div className="flex items-center">
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('home');
+                  }}
+                  className="flex items-center gap-2 group cursor-pointer"
+                >
+                  <img 
+                    src="viskool-logo.png" 
+                    alt="Viskool" 
+                    className="h-5 sm:h-6 md:h-7 w-auto object-contain hover:opacity-90 transition-opacity"
+                  />
+                </a>
+              </div>
+
+              {/* Desktop Navigation */}
+              <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-[#222222]">
+                {navLinks.map((link) => {
+                  if (link.hasDropdown) {
+                    const isOpen = openDropdown === link.label;
+
+                    return (
+                      <div 
+                        key={link.label}
+                        className="relative py-2"
+                        onMouseEnter={() => handleMouseEnter(link.label)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => handleTriggerClick(link.label)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              handleTriggerClick(link.label);
+                            }
+                          }}
+                          aria-expanded={isOpen}
+                          aria-haspopup="true"
+                          className="flex items-center gap-1.5 text-[14px] font-medium text-[#222222] hover:text-[#8B1538] py-1 transition-colors duration-200 cursor-pointer focus:outline-hidden focus:text-[#8B1538]"
+                        >
+                          <span>{link.label}</span>
+                          <svg 
+                            className={`w-3.5 h-3.5 text-[#8B1538] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+
+                        {/* Courses Mega Dropdown Menu */}
+                        {isOpen && link.label === 'Courses' && (
+                          <div className="absolute left-0 top-full pt-1.5 z-50 animate-fadeIn">
+                            <div className="flex bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                              
+                              {/* Left Panel: Categories */}
+                              <div className="w-52 bg-[#F7F2F4]/60 border-r border-gray-100 py-1.5">
+                                {COURSE_CATEGORIES_WITH_ITEMS.map((cat) => {
+                                  const isActive = hoveredCategory?.id === cat.id;
+                                  return (
+                                    <button
+                                      key={cat.id}
+                                      type="button"
+                                      onMouseEnter={() => setHoveredCategory(cat)}
+                                      onClick={() => {
+                                        setHoveredCategory(cat);
+                                        onActionClick(`Selected Category: ${cat.name}`);
+                                      }}
+                                      className={`w-full flex items-center justify-between px-4 py-2.5 text-[13.5px] text-left transition-colors duration-150 ${
+                                        isActive
+                                          ? 'bg-[#EFE2E6] text-[#8B1538] font-bold'
+                                          : 'text-gray-700 font-normal hover:bg-gray-100/80 hover:text-[#8B1538]'
+                                      }`}
+                                    >
+                                      <span>{cat.name}</span>
+                                      <span className={`text-xs ${isActive ? 'text-[#8B1538] font-bold' : 'text-gray-300'}`}>
+                                        ›
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+
+                              {/* Right Panel: Sub-items */}
+                              {hoveredCategory && (
+                                <div className="p-5 bg-white min-w-[380px] animate-fadeIn">
+                                  <h4 className="text-[12px] font-extrabold uppercase tracking-wider text-[#8B1538] mb-4 border-b border-gray-100 pb-2">
+                                    {hoveredCategory.name}
+                                  </h4>
+                                  <div className="space-y-3.5">
+                                    {hoveredCategory.items.map((itemTitle, idx) => (
+                                      <a
+                                        key={idx}
+                                        href="#courses"
+                                        onClick={(e) => {
+                                          e.preventDefault();
+                                          if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+                                          setOpenDropdown(null);
+                                          setHoveredCategory(null);
+                                          onActionClick(`Selected Course: ${itemTitle}`);
+                                        }}
+                                        className="block text-[13.5px] text-gray-700 hover:text-[#8B1538] font-normal leading-snug transition-colors"
+                                      >
+                                        {itemTitle}
+                                      </a>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                            </div>
+                          </div>
+                        )}
+
+                        {/* About Us Simple Dropdown Menu */}
+                        {isOpen && link.label === 'About Us' && (
+                          <div className="absolute left-0 top-full pt-1.5 z-50 animate-fadeIn">
+                            <div className="w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2">
+                              {link.items?.map((item) => (
+                                <a
+                                  key={item.label}
+                                  href={item.href}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+                                    setOpenDropdown(null);
+                                    if (item.label.toLowerCase().includes('parent testimonial') && onNavigate) {
+                                      onNavigate('parent-testimonials');
+                                    } else if (item.label.toLowerCase().includes('student testimonial') && onNavigate) {
+                                      onNavigate('student-testimonials');
+                                    } else {
+                                      if (onNavigate) onNavigate('home');
+                                      onActionClick(`Selected: ${item.label}`);
+                                    }
+                                  }}
+                                  className="block px-4 py-2.5 text-[13.5px] text-gray-700 hover:bg-[#F7F2F4] hover:text-[#8B1538] font-medium transition-colors cursor-pointer"
+                                >
+                                  {item.label}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                      </div>
+                    );
+                  }
+
+                  if (link.isContactTrigger) {
+                    return (
+                      <button
+                        key={link.label}
+                        type="button"
+                        onClick={() => onOpenContact('Contact Us')}
+                        className="text-[14px] text-[#222222] font-medium hover:text-[#8B1538] transition-colors cursor-pointer"
+                      >
+                        {link.label}
+                      </button>
+                    );
+                  }
+
+                  const isHome = link.label === 'Home';
+
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={(e) => {
+                        if (isHome) {
+                          e.preventDefault();
+                          if (onNavigate) onNavigate('home');
+                        }
+                      }}
+                      className={`text-[14px] transition-all duration-200 cursor-pointer ${
+                        (isHome && currentPage === 'home') || (!isHome && currentPage === link.href)
+                          ? 'text-[#8B1538] font-bold border-b-2 border-[#8B1538] pb-0.5'
+                          : 'text-[#222222] font-medium hover:text-[#8B1538]'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
+              </nav>
+
+              {/* Action CTAs */}
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                {/* Join Community Button */}
+                <button
+                  onClick={() => onActionClick('Join our WhatsApp Community')}
+                  className="inline-flex items-center justify-center border-2 border-[#15803D] text-[#15803D] hover:bg-[#15803D] hover:text-white font-bold text-xs sm:text-sm md:text-[15px] px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-200 active:scale-95 shadow-sm"
+                >
+                  Join our Community
+                </button>
+
+                {/* Get In Touch Button */}
+                <button
+                  onClick={() => onOpenContact('Get In Touch')}
+                  className="hidden sm:inline-flex items-center justify-center bg-[#8B1538] hover:bg-[#73152C] text-white font-bold text-xs sm:text-sm md:text-[15px] px-6 sm:px-7 py-2 sm:py-2.5 rounded-full transition-all duration-200 hover:shadow-md active:scale-95"
+                >
+                  Get In Touch
+                  <span className="ml-1.5 font-bold">›</span>
+                </button>
+
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="lg:hidden p-2 text-gray-700 hover:text-[#8B1538] hover:bg-gray-100 rounded-lg transition-colors"
+                  aria-label="Toggle navigation menu"
+                >
+                  {isMobileMenuOpen ? (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Mobile Drawer Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3 animate-fadeIn">
+              {navLinks.map((link) => (
+                <div key={link.label}>
+                  {link.hasDropdown ? (
+                    <div className="py-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#8B1538]">
+                        {link.label}
+                      </span>
+                      {link.items && (
+                        <div className="mt-1 pl-3 space-y-1.5 border-l-2 border-[#8B1538]/20">
+                          {link.items.map((subItem) => (
+                            <a
+                              key={subItem.label}
+                              href={subItem.href}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMobileMenuOpen(false);
+                                if (subItem.label.toLowerCase().includes('parent testimonial') && onNavigate) {
+                                  onNavigate('parent-testimonials');
+                                } else if (subItem.label.toLowerCase().includes('student testimonial') && onNavigate) {
+                                  onNavigate('student-testimonials');
+                                } else {
+                                  if (onNavigate) onNavigate('home');
+                                  onActionClick(`Selected: ${subItem.label}`);
+                                }
+                              }}
+                              className="block text-sm text-gray-700 hover:text-[#8B1538] py-1"
+                            >
+                              {subItem.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : link.isContactTrigger ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        onOpenContact('Contact Us');
+                      }}
+                      className="block w-full text-left py-2 text-base font-medium text-gray-800 hover:text-[#8B1538]"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block py-2 text-base font-medium ${
+                        link.active ? 'text-[#8B1538] font-bold' : 'text-gray-800'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </div>
+              ))}
+              <div className="pt-2">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onOpenContact('Get In Touch (Mobile)');
+                  }}
+                  className="w-full flex items-center justify-center bg-[#8B1538] text-white py-2.5 rounded-full font-semibold text-sm shadow-md"
+                >
+                  Get In Touch ›
+                </button>
+              </div>
+            </div>
+          )}
+        </header>
+      );
+    }
+
+    // Complete 5 Banner Slot Registry
+    const ALL_HERO_SLIDES = [
+      {
+        id: 1,
+        isReady: true,
+        video: null,
+        image: 'kerala-student-banner-1.png',
+        badge: null,
+        theme: 'dark',
+        heading: 'From Class 1 to Career Goals: Your Complete Learning Partner',
+        subheading: 'Whether mastering school subjects, cracking competitive exams, or building professional skills, Viskool gives learners of all ages the structure, guidance, and confidence to succeed.',
+        chips: null,
+        overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/25',
+        ctaPrimary: {
+          label: 'Explore Courses',
+          type: 'explore',
+        },
+        ctaSecondary: {
+          label: 'Talk to an Expert',
+          type: 'contact',
+          source: 'Hero Banner 1',
+        },
+      },
+      {
+        id: 2,
+        isReady: true,
+        video: null,
+        image: 'pexels-julia-m-cameron-4144295 (1).jpg',
+        badge: 'TUITION',
+        theme: 'dark',
+        heading: 'The Complete Learning Partner for Academic Excellence & Competitive Exam Success',
+        subheading: 'Get top-tier school tuition for Grades 5–12, expert NEET/JEE, PSC and High Court Assistant coaching, along with fluent English training—all under one roof.',
+        chips: [
+          'School Tuition · Grades 5–12',
+          'NEET/JEE · PSC · High Court Assistant',
+          'English Grammar & Spoken English',
+        ],
+        overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/25',
+        ctaPrimary: {
+          label: 'Book a Free Demo',
+          type: 'demo',
+          source: 'Hero Banner 2',
+        },
+        ctaSecondary: {
+          label: 'Talk to an Expert',
+          type: 'contact',
+          source: 'Hero Banner 2',
+        },
+      },
+      {
+        id: 3,
+        isReady: true, // Banner 3 — Upskill & Career Program
+        badge: 'UPSKILL',
+        theme: 'dark', // Dark theme for full background image with left dark overlay
+        heading: 'Launch a High-Paying Career with High-Demand Skills',
+        subheading: 'Master in-demand skills in Digital Marketing, Performance Marketing and Data Analytics through hands-on projects and expert mentorship.',
+        chips: [
+          'Digital Marketing',
+          'Performance Marketing',
+          'Data Analytics',
+        ],
+        ctaPrimary: {
+          label: 'Talk to an Expert',
+          type: 'contact',
+          source: 'Hero Banner 3',
+          hasPhoneIcon: true,
+        },
+        ctaSecondary: null,
+        image: 'pexels-tiger-lily-7108590 (2).jpg', // Provided background image covering entire banner
+        overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent', // Smooth left dark overlay fading right
+      },
+      {
+        id: 4,
+        isReady: false, // Reserved Banner 4
+      },
+      {
+        id: 5,
+        isReady: false, // Reserved Banner 5
+      },
+    ];
+
+    // --- Component: Hero ---
+    function Hero({ onActionClick, onOpenContact, onNavigate }) {
+      const [currentSlide, setCurrentSlide] = useState(0);
+      const [isHovered, setIsHovered] = useState(false);
+
+      // Active publicly visible slides (Banners 1, 2 & 3)
+      const activeSlides = ALL_HERO_SLIDES.filter((slide) => slide.isReady);
+
+      const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
+      };
+
+      const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + activeSlides.length) % activeSlides.length);
+      };
+
+      // Autoplay rotation every 6.5 seconds (paused on hover)
+      useEffect(() => {
+        if (isHovered || activeSlides.length <= 1) return;
+
+        const timer = setInterval(() => {
+          nextSlide();
+        }, 6500);
+
+        return () => clearInterval(timer);
+      }, [activeSlides.length, isHovered]);
+
+      const slide = activeSlides[currentSlide] || activeSlides[0];
+      const isLight = slide.theme === 'light';
+
+      const handlePrimaryClick = (cta) => {
+        if (cta.type === 'explore') {
+          if (onNavigate) {
+            onNavigate('courses');
+          } else {
+            const coursesSection = document.getElementById('courses');
+            if (coursesSection) {
+              coursesSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (onActionClick) {
+              onActionClick('Explore Courses');
+            }
+          }
+        } else if (cta.type === 'demo' || cta.type === 'contact') {
+          if (onOpenContact) {
+            onOpenContact(cta.label, { source: cta.source || 'Hero Banner' });
+          } else if (onActionClick) {
+            onActionClick(cta.label);
+          }
+        }
+      };
+
+      const handleSecondaryClick = (cta) => {
+        if (onOpenContact) {
+          onOpenContact(cta.label, { source: cta.source || 'Hero Banner' });
+        } else if (onActionClick) {
+          onActionClick(cta.label);
+        }
+      };
+
+      return (
+        <section 
+          className="relative w-full overflow-hidden bg-black select-none"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <style>{`
+            @keyframes slideContentFadeUp {
+              0% {
+                transform: translateY(16px);
+                opacity: 0;
+              }
+              100% {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+            .animate-banner-stagger-1 { animation: slideContentFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 60ms both; }
+            .animate-banner-stagger-2 { animation: slideContentFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 160ms both; }
+            .animate-banner-stagger-3 { animation: slideContentFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both; }
+            .animate-banner-stagger-4 { animation: slideContentFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 360ms both; }
+            .animate-banner-stagger-5 { animation: slideContentFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 460ms both; }
+
+            @media (prefers-reduced-motion: reduce) {
+              .animate-banner-stagger-1,
+              .animate-banner-stagger-2,
+              .animate-banner-stagger-3,
+              .animate-banner-stagger-4,
+              .animate-banner-stagger-5 {
+                animation: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+              }
+            }
+          `}</style>
+
+          <div className="relative w-full aspect-[16/9] min-h-[440px] sm:min-h-[520px] max-h-[640px] flex items-center overflow-hidden">
+            
+            {/* Background Visual Container */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
+              {slide.video ? (
+                /* Video Background */
+                <video 
+                  key={slide.id}
+                  src={slide.video}
+                  poster={slide.image}
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover object-center transition-opacity duration-700"
+                />
+              ) : slide.image ? (
+                /* Background Image */
+                <img 
+                  key={slide.id}
+                  src={slide.image} 
+                  alt={slide.heading}
+                  className="w-full h-full object-cover object-center transition-opacity duration-700"
+                />
+              ) : (
+                /* Static Base Viskool Gradient Background */
+                <div className="w-full h-full bg-gradient-to-br from-[#FFFDFE] via-[#FDF2F4] to-[#F3D0D7] relative overflow-hidden" />
+              )}
+
+              {/* Overlay for Video / Image Slides */}
+              {(slide.video || slide.image) && (
+                <div className={`absolute inset-0 ${slide.overlayClass || 'bg-black/55 sm:bg-black/45'}`} />
+              )}
+            </div>
+
+            {/* Left-Aligned Text Overlay Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-20 w-full flex items-center justify-start">
+              <div 
+                key={`banner-content-${slide.id}-${currentSlide}`}
+                className="max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-left space-y-3 sm:space-y-4"
+              >
+                
+                {/* Optional Badge Pill (Stagger 1) */}
+                {slide.badge && (
+                  <div className="animate-banner-stagger-1">
+                    <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-xs ${
+                      isLight 
+                        ? 'bg-[#8B1538]/10 border border-[#8B1538]/20 text-[#8B1538]' 
+                        : 'bg-white/15 backdrop-blur-md border border-white/25 text-white'
+                    }`}>
+                      <span className="w-2 h-2 rounded-full bg-[#8B1538] animate-pulse" />
+                      <span>{slide.badge}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Headline (Stagger 2) */}
+                <div className="animate-banner-stagger-2">
+                  <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-[38px] font-extrabold tracking-tight leading-[1.2] max-w-[360px] sm:max-w-[540px] md:max-w-[620px] ${
+                    isLight ? 'text-[#1A030C]' : 'text-white drop-shadow-md'
+                  }`}>
+                    {slide.heading}
+                  </h1>
+                </div>
+
+                {/* Description (Stagger 3) */}
+                <div className="animate-banner-stagger-3">
+                  <p className={`text-xs sm:text-sm md:text-[15px] font-normal leading-relaxed max-w-xl ${
+                    isLight ? 'text-gray-700' : 'text-gray-200 drop-shadow-sm'
+                  }`}>
+                    {slide.subheading}
+                  </p>
+                </div>
+
+                {/* Supporting Chips / Pills (Stagger 4) */}
+                {slide.chips && slide.chips.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-2 pt-1 pb-1 animate-banner-stagger-4">
+                    {slide.chips.map((chip, idx) => (
+                      <span 
+                        key={idx}
+                        className={`inline-block font-semibold text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full transition-all duration-200 ${
+                          slide.id === 3
+                            ? 'bg-white/90 backdrop-blur-md text-[#73152C] border border-[#8B1538]/25 shadow-sm hover:shadow-md'
+                            : isLight 
+                              ? 'bg-[#8B1538]/8 text-[#73152C] border border-[#8B1538]/15 shadow-xs' 
+                              : 'bg-white/15 backdrop-blur-md border border-white/20 text-white shadow-xs'
+                        }`}
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Banner CTA Buttons (Stagger 5) */}
+                <div className="pt-2 animate-banner-stagger-5">
+                  <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-4">
+                    {/* Primary Button */}
+                    {slide.ctaPrimary && (
+                      <button
+                        type="button"
+                        onClick={() => handlePrimaryClick(slide.ctaPrimary)}
+                        className="inline-flex items-center justify-center bg-[#8B1538] hover:bg-[#73152C] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-md transition-all duration-200 active:scale-95 cursor-pointer gap-2"
+                      >
+                        {slide.ctaPrimary.hasPhoneIcon && (
+                          <svg className="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                          </svg>
+                        )}
+                        <span>{slide.ctaPrimary.label}</span>
+                        {!slide.ctaPrimary.hasPhoneIcon && (
+                          <span className="ml-1.5 text-base leading-none">→</span>
+                        )}
+                      </button>
+                    )}
+
+                    {/* Secondary Button */}
+                    {slide.ctaSecondary && (
+                      <button
+                        type="button"
+                        onClick={() => handleSecondaryClick(slide.ctaSecondary)}
+                        className="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#8B1538] border border-[#8B1538] font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-sm transition-all duration-200 active:scale-95 cursor-pointer gap-2"
+                      >
+                        <svg className="w-4 h-4 text-[#8B1538] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <span>{slide.ctaSecondary.label}</span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Translucent Carousel Arrow Controls */}
+            {activeSlides.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                  }}
+                  aria-label="Previous Slide"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/40 hover:bg-white/70 text-gray-900 flex items-center justify-center backdrop-blur-xs transition-all duration-200 active:scale-95 cursor-pointer"
+                >
+                  <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                  }}
+                  aria-label="Next Slide"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/40 hover:bg-white/70 text-gray-900 flex items-center justify-center backdrop-blur-xs transition-all duration-200 active:scale-95 cursor-pointer"
+                >
+                  <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Carousel Indicators (Dots) */}
+            {activeSlides.length > 1 && (
+              <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+                {activeSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentSlide(idx);
+                    }}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`transition-all duration-300 cursor-pointer ${
+                      currentSlide === idx 
+                        ? 'w-5 sm:w-6 h-1 sm:h-1.5 bg-[#8B1538] rounded-full' 
+                        : 'w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white/70 hover:bg-white rounded-full'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: ProcessSteps ---
+    function ProcessSteps({ steps, onActionClick }) {
+      return (
+        <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+          <div className="absolute top-8 right-12 text-[#8B1538]/30 text-3xl pointer-events-none select-none">
+            ✦ ✧
+          </div>
+
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Main Section Headline - Exact 2-Line Structure */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[33px] xl:text-[36px] font-bold italic tracking-tight leading-snug max-w-6xl mx-auto mb-6 text-[#1A1A1A]">
+              <span className="block">
+                India's Online learning platform for,{' '}
+                <span className="text-[#8B1538]">
+                  School Tuition, NEET, JEE,
+                </span>
+              </span>
+              <span className="text-[#8B1538] block mt-1 sm:mt-2">
+                KEAM &amp; Career Upskilling
+              </span>
+            </h2>
+
+            {/* Informative Subtext matching screenshot */}
+            <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-3xl mx-auto mb-6 font-normal">
+              Learn from expert educators through live and recorded classes designed to improve marks, crack competitive exams, and build real career skills. From school tuition to NEET, JEE, KEAM, and professional upskilling, Viskool helps students and professionals achieve better results with structured learning and personal guidance.
+            </p>
+
+            {/* Sub-tagline with Burgundy Accent */}
+            <p className="text-sm sm:text-base md:text-[17px] font-medium text-[#8B1538] tracking-normal mb-14 sm:mb-16">
+              Explore Courses. Enroll with Confidence. Learn with Results.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+              {steps.map((step, idx) => (
+                <div 
+                  key={idx}
+                  onClick={() => onActionClick(`Step clicked: ${step.title}`)}
+                  className="group relative bg-[#FCF8F9] hover:bg-[#F8F0F2] border border-[#F1E0E5] rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg cursor-pointer flex flex-col items-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-[#8B1538] text-white flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform duration-300 mb-6">
+                    {step.number === '1' && '📖'}
+                    {step.number === '2' && '👥'}
+                    {step.number === '3' && '💻'}
+                  </div>
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#8B1538] transition-colors">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: CourseSection ---
+    function CourseSection({ courses, onSelectCourse, onEnrollCourse, onActionClick }) {
+      return (
+        <section id="courses" className="py-16 lg:py-24 bg-[#FAFAFA] relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            {/* Section Header */}
+            <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-extrabold text-gray-900 tracking-tight mb-4 sm:whitespace-nowrap">
+                Find the Right Course for Your{' '}
+                <span className="italic text-[#8B1538] font-extrabold">
+                  Future
+                </span>
+              </h2>
+
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                Choose from a wide range of courses designed to support school learning, competitive exam success, and career growth.
+              </p>
+            </div>
+
+            {/* "View all courses" Button - Below Heading, Aligned to the Right */}
+            <div className="flex justify-end max-w-6xl mx-auto mb-5">
+              <button
+                onClick={() => onActionClick('View all courses')}
+                className="bg-white hover:bg-gray-50 text-gray-800 text-xs sm:text-sm font-medium px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-gray-300 transition-colors shadow-sm"
+              >
+                View all courses
+              </button>
+            </div>
+
+            {/* Courses Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+              {courses.map((course) => (
+                <div
+                  key={course.id}
+                  className="bg-white rounded-2xl overflow-hidden border border-gray-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group"
+                >
+                  {/* Card Image Thumbnail Banner */}
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100">
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Badges Row (Premium & Live) */}
+                      <div className="flex items-center gap-2 mb-3">
+                        {course.isPremium && (
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#FFF9E6] text-[#A06C00] border border-[#F5E6B8]">
+                            <svg className="w-3.5 h-3.5 text-[#B8860B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 18h18M3 18l3-12 6 6 6-6 3 12H3z" />
+                            </svg>
+                            Premium
+                          </span>
+                        )}
+
+                        {course.isLive && (
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#E8F8F0] text-[#15803D] border border-[#C6F0D9]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                            Live
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Course Title */}
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-4 leading-snug">
+                        {course.title}
+                      </h3>
+                    </div>
+
+                    {/* Price and Share Row */}
+                    <div>
+                      <div className="flex items-center justify-between mb-5 pt-2">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-xl sm:text-2xl font-bold text-[#8B1538]">
+                            {course.price}
+                          </span>
+                          {course.originalPrice && (
+                            <span className="text-xs sm:text-sm text-gray-400 line-through">
+                              {course.originalPrice}
+                            </span>
+                          )}
+                        </div>
+
+                        <button
+                          onClick={() => onActionClick(`Share ${course.title}`)}
+                          className="text-gray-400 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition-colors"
+                          aria-label="Share Course"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                          </svg>
+                        </button>
+                      </div>
+
+                      {/* Action Buttons: Solid Burgundy Enroll Now + Outline Burgundy Get Details */}
+                      <div className="grid grid-cols-2 gap-3">
+                        <button
+                          onClick={() => onEnrollCourse(course)}
+                          className="w-full bg-[#8B1538] hover:bg-[#72112D] text-white font-semibold text-xs sm:text-sm py-2.5 rounded-full transition-colors text-center active:scale-95 shadow-sm"
+                        >
+                          Enroll Now
+                        </button>
+                        <button
+                          onClick={() => onSelectCourse(course)}
+                          className="w-full bg-white hover:bg-[#FAF0F3] text-[#8B1538] border border-[#8B1538] font-semibold text-xs sm:text-sm py-2.5 rounded-full transition-colors text-center active:scale-95"
+                        >
+                          Get Details
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: WhyChooseUs ---
+    function WhyChooseUs({ benefits, onActionClick }) {
+      return (
+        <section className="py-16 lg:py-24 bg-white relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+                Why Students Choose{' '}
+                <span className="font-serif italic text-[#8B1538] font-bold">
+                  Viskool
+                </span>
+              </h2>
+
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                Learn from experienced mentors through structured courses, interactive classes, and personalized support that make learning simple, effective, and accessible.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+              
+              <div 
+                onClick={() => onActionClick('Benefit: Live and Recorded Online Classes')}
+                className="lg:col-span-6 bg-[#FCF8F9] border border-[#F1E0E5] rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:shadow-xl transition-all duration-300 cursor-pointer"
+              >
+                <div className="rounded-2xl overflow-hidden mb-6 h-64 sm:h-80 relative shadow-md">
+                  <img
+                    src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80"
+                    alt="Live and Recorded Online Classes"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 bg-[#8B1538] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                    Interactive Live &amp; HD Video
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-[#8B1538]/10 text-[#8B1538] flex items-center justify-center font-bold text-lg">
+                      📹
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#8B1538] transition-colors">
+                      Live and Recorded Online Classes
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Real-time mentorship with personalized attention and anytime access to high quality video learning resources, class recordings, and chapter notes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6 flex flex-col justify-between gap-8">
+                
+                <div 
+                  onClick={() => onActionClick('Benefit: School Learning to Career Success')}
+                  className="bg-[#FCF8F9] border border-[#F1E0E5] rounded-3xl p-6 sm:p-8 group hover:shadow-xl transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#8B1538] text-white flex items-center justify-center text-xl shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                      🎓
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#8B1538] transition-colors mb-2">
+                        From School Learning to Career Success
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Structured curriculum covering academic foundations from Class 1 to Class 12, competitive exams preparation (NEET/JEE/KEAM), through advanced career skill development.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div 
+                  onClick={() => onActionClick('Benefit: A Great Community')}
+                  className="bg-[#FCF8F9] border border-[#F1E0E5] rounded-3xl p-6 sm:p-8 group hover:shadow-xl transition-all duration-300 cursor-pointer flex-1 flex flex-col justify-between"
+                >
+                  <div className="rounded-2xl overflow-hidden mb-6 h-48 relative shadow-md">
+                    <img
+                      src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+                      alt="A Great Community"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 rounded-full bg-[#8B1538]/10 text-[#8B1538] flex items-center justify-center font-bold text-lg">
+                        👥
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#8B1538] transition-colors">
+                        A Great Community
+                      </h3>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Connect with mentors, peer learners, and industry alumni to foster a collaborative and motivating atmosphere.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: SuccessCTA ---
+    function SuccessCTA({ onOpenContact }) {
+      return (
+        <section className="py-16 sm:py-20 bg-[#FAF5F6] relative">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-extrabold text-[#8B1538] tracking-tight mb-5 leading-snug">
+              Ready for Academic and Career Success?
+            </h2>
+
+            <p className="text-[#555555] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              Whether you want better academic performance, success in competitive exams, or career growth through new skills, Viskool provides the right guidance, expert support, and flexible learning experience to help you move forward with confidence.
+            </p>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: FAQSection ---
+    function FAQSection({ faqs, onActionClick }) {
+      const [openIndex, setOpenIndex] = useState(0);
+
+      const toggleFAQ = (index) => {
+        setOpenIndex(openIndex === index ? -1 : index);
+      };
+
+      return (
+        <section className="py-16 lg:py-24 bg-white relative">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+                Got Questions? We've Got{' '}
+                <span className="font-serif italic text-[#8B1538] font-bold">
+                  Answers
+                </span>
+              </h2>
+
+              <p className="text-gray-600 text-sm sm:text-base">
+                Find everything you need to know about our courses, tutors, and learning platform.
+              </p>
+            </div>
+
+            <div className="space-y-3.5">
+              {faqs.map((faq, idx) => {
+                const isOpen = openIndex === idx;
+
+                return (
+                  <div
+                    key={idx}
+                    className={`border rounded-2xl transition-all duration-200 overflow-hidden ${
+                      isOpen 
+                        ? 'border-[#8B1538]/30 bg-[#FCF8F9] shadow-sm' 
+                        : 'border-gray-200 bg-white hover:border-gray-300'
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        toggleFAQ(idx);
+                        onActionClick(`FAQ toggled: ${faq.question}`);
+                      }}
+                      className="w-full py-4 sm:py-5 px-5 sm:px-6 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 focus:outline-none"
+                    >
+                      <span className={`text-sm sm:text-base ${isOpen ? 'text-[#8B1538]' : 'text-gray-800'}`}>
+                        {faq.question}
+                      </span>
+
+                      <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 bg-[#8B1538] text-white' : 'bg-gray-100 text-gray-600'
+                      }`}>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-[#8B1538]/10 animate-fadeIn">
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: Achievements ---
+    function Achievements({ achievements, onActionClick }) {
+      const marqueeItems = [...achievements, ...achievements, ...achievements, ...achievements];
+
+      return (
+        <section className="py-12 sm:py-16 bg-[#FAFAFA] relative overflow-hidden">
+          
+          <style>{`
+            @keyframes achievementsMarquee {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-achievements-marquee {
+              display: flex;
+              width: max-content;
+              animation: achievementsMarquee 35s linear infinite;
+            }
+            .animate-achievements-marquee:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
+            <div className="text-center">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                Students{' '}
+                <span className="italic text-[#8B1538] font-extrabold">
+                  Achievements
+                </span>
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-500 mt-1.5">
+                Celebrating our top rankers and exam achievers from Kerala
+              </p>
+            </div>
+          </div>
+
+          <div className="relative w-full overflow-hidden py-4">
+            
+            <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-[#FAFAFA] to-transparent z-20 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-[#FAFAFA] to-transparent z-20 pointer-events-none" />
+
+            <div className="animate-achievements-marquee gap-6 sm:gap-8 px-4 items-center">
+              {marqueeItems.map((item, index) => (
+                <div
+                  key={`${item.id}-${index}`}
+                  onClick={() => onActionClick && onActionClick(`Achievement clicked: ${item.name}`)}
+                  className="w-[280px] sm:w-[320px] aspect-[706/838] shrink-0 rounded-[28px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none border border-black/5 bg-transparent"
+                >
+                  <img
+                    src={item.cardImage}
+                    alt={item.name}
+                    className="w-full h-full object-cover block rounded-[28px]"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </section>
+      );
+    }
+
+    // --- Component: Testimonials ---
+    function Testimonials({ testimonials, onActionClick }) {
+      const [currentIndex, setCurrentIndex] = useState(0);
+
+      const prevReview = () => {
+        setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      };
+
+      const nextReview = () => {
+        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      };
+
+      const item = testimonials[currentIndex] || testimonials[0];
+
+      return (
+        <section className="py-12 sm:py-16 bg-[#FAF5F6] relative">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            
+            {/* Section Header */}
+            <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+                What Our{' '}
+                <span className="italic text-[#8B1538] font-extrabold">
+                  Students
+                </span>{' '}
+                Say
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-500">
+                Hear from our learners about their transformative experiences with Viskool.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center max-w-3xl mx-auto">
+              
+              <div className="md:col-span-5 flex justify-center md:justify-end">
+                <div className="w-48 sm:w-56 rounded-[22px] overflow-hidden bg-white shadow-sm border border-gray-100 p-1">
+                  <img
+                    src={item.image || 'testimonial-aarav.png'}
+                    alt={item.name}
+                    className="w-full h-auto object-cover rounded-[18px]"
+                  />
+                </div>
+              </div>
+
+              <div className="md:col-span-7 flex flex-col justify-center text-left">
+                
+                <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight mb-0.5">
+                  {item.name}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-gray-500 font-normal mb-4 sm:mb-5">
+                  {item.role}
+                </p>
+
+                <p className="text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed mb-6 font-normal max-w-md">
+                  {item.quote}
+                </p>
+
+                <div className="flex items-center gap-2.5">
+                  <button
+                    onClick={prevReview}
+                    aria-label="Previous testimonial"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#8B1538] hover:bg-[#73152C] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <button
+                    onClick={nextReview}
+                    aria-label="Previous testimonial"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#8B1538] hover:bg-[#73152C] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: LearningJourneyForm ---
+    const CATEGORY_COURSES_MAP = {
+      'School Tuitions': [
+        'Class 10 CBSE Board Exam Batch',
+        'Class 12 Physics & Chemistry',
+        'Class 8-12 Interactive Tuitions',
+      ],
+      'NEET / JEE Prep': [
+        'NEET UG 1-Year Master Batch',
+        'JEE Main & Advanced 1-Year Program',
+        'NEET 2026 Intensive Crash Course',
+      ],
+      'Digital Marketing': [
+        'Digital Marketing Course for Freshers',
+        'Advanced Performance Marketing & SEO',
+        'Social Media & Content Strategy',
+      ],
+      'Upskill Courses': [
+        'Full Stack Web Development',
+        'Python Programming & AI Basics',
+        'Data Analytics & Excel Masterclass',
+      ],
+    };
+
+    function LearningJourneyForm({ onSubmitSuccess }) {
+      const [formData, setFormData] = useState({
+        fullName: '',
+        phone: '',
+        email: '',
+        category: '',
+        course: '',
+        message: '',
+        agreePrivacy: false,
+      });
+
+      const [isSubmitted, setIsSubmitted] = useState(false);
+
+      const availableCourses = formData.category ? CATEGORY_COURSES_MAP[formData.category] || [] : [];
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!formData.agreePrivacy) {
+          alert('Please agree to the privacy policy before submitting.');
+          return;
+        }
+        setIsSubmitted(true);
+        if (onSubmitSuccess) {
+          onSubmitSuccess(`Enquiry submitted successfully for ${formData.fullName || 'your request'}!`);
+        }
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            fullName: '',
+            phone: '',
+            email: '',
+            category: '',
+            course: '',
+            message: '',
+            agreePrivacy: false,
+          });
+        }, 4000);
+      };
+
+      return (
+        <section className="py-16 sm:py-20 bg-gradient-to-b from-[#FBF7F9] to-[#F5ECF2] px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            
+            {/* Section Heading */}
+            <div className="text-center mb-8 sm:mb-10">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+                Start your{' '}
+                <span className="italic text-[#8B1538] font-extrabold">
+                  Learning Journey
+                </span>
+              </h2>
+            </div>
+
+            {/* Form Card */}
+            <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-10 border border-gray-100/80">
+              {isSubmitted ? (
+                <div className="text-center py-10 space-y-3">
+                  <div className="w-16 h-16 bg-[#8B1538]/10 text-[#8B1538] rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                    ✓
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Enquiry Received!</h3>
+                  <p className="text-gray-600 text-sm max-w-md mx-auto">
+                    Thank you for contacting Viskool. Our academic advisor will reach out to you within 24 hours.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  
+                  {/* Full Name */}
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">
+                      FULL NAME
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="John Doe"
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      className="w-full bg-[#F3EEF4] border-0 rounded-2xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#8B1538] focus:bg-white transition-all outline-none"
+                    />
+                  </div>
+
+                  {/* Phone & Email Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">
+                        PHONE NUMBER
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="9876543210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full bg-[#F3EEF4] border-0 rounded-2xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#8B1538] focus:bg-white transition-all outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">
+                        EMAIL ADDRESS
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="john@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-[#F3EEF4] border-0 rounded-2xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#8B1538] focus:bg-white transition-all outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Category & Course Dropdowns Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">
+                        CATEGORY
+                      </label>
+                      <select
+                        value={formData.category}
+                        onChange={(e) => setFormData({ ...formData, category: e.target.value, course: '' })}
+                        className="w-full bg-[#F3EEF4] border-0 rounded-2xl px-4 py-3.5 text-sm text-gray-800 focus:ring-2 focus:ring-[#8B1538] focus:bg-white transition-all outline-none cursor-pointer appearance-none"
+                      >
+                        <option value="">Select category</option>
+                        {Object.keys(CATEGORY_COURSES_MAP).map((cat) => (
+                          <option key={cat} value={cat}>{cat}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">
+                        COURSE
+                      </label>
+                      <select
+                        disabled={!formData.category}
+                        value={formData.course}
+                        onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                        className="w-full bg-[#F3EEF4] border-0 rounded-2xl px-4 py-3.5 text-sm text-gray-800 disabled:opacity-60 focus:ring-2 focus:ring-[#8B1538] focus:bg-white transition-all outline-none cursor-pointer appearance-none"
+                      >
+                        <option value="">
+                          {formData.category ? 'Select course' : 'Select category first'}
+                        </option>
+                        {availableCourses.map((c) => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">
+                      MESSAGE
+                    </label>
+                    <textarea
+                      rows="3.5"
+                      placeholder="Tell us more about your requirements..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full bg-[#F3EEF4] border-0 rounded-2xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#8B1538] focus:bg-white transition-all outline-none resize-none"
+                    ></textarea>
+                  </div>
+
+                  {/* Checkbox / Privacy Policy */}
+                  <div className="flex items-center gap-2.5 pt-1">
+                    <input
+                      type="checkbox"
+                      id="privacy-check"
+                      checked={formData.agreePrivacy}
+                      onChange={(e) => setFormData({ ...formData, agreePrivacy: e.target.checked })}
+                      className="w-4 h-4 text-[#8B1538] border-gray-300 rounded focus:ring-[#8B1538] cursor-pointer"
+                    />
+                    <label htmlFor="privacy-check" className="text-xs text-gray-600 cursor-pointer select-none">
+                      I agree to the{' '}
+                      <a href="#privacy" className="text-gray-900 font-medium underline hover:text-[#8B1538]">
+                        privacy policy
+                      </a>
+                    </label>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full bg-[#8B1538] hover:bg-[#73152C] text-white font-bold py-4 rounded-2xl transition-all shadow-md hover:shadow-lg active:scale-[0.99] text-sm sm:text-base cursor-pointer"
+                  >
+                    Send Enquiry
+                  </button>
+
+                </form>
+              )}
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- Component: Footer ---
+    function Footer() {
+      return (
+        <footer className="w-full bg-[#F5E6FB] overflow-hidden">
+          <img 
+            src="footer-img.png" 
+            alt="Viskool Footer" 
+            className="w-full h-auto object-cover block"
+          />
+        </footer>
+      );
+    }
+
+    // --- Component: FloatingActions ---
+    function FloatingActions({ onWhatsAppClick, onPhoneClick }) {
+      return (
+        <div className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3">
+          
+          {/* WhatsApp Quick Chat Button */}
+          <button
+            onClick={onWhatsAppClick}
+            aria-label="Chat on WhatsApp"
+            className="w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 relative group cursor-pointer"
+          >
+            <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white fill-current" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            
+            {/* Tooltip */}
+            <span className="absolute right-full mr-3 bg-gray-900 text-white text-xs font-semibold py-1 px-2.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
+              Chat on WhatsApp
+            </span>
+          </button>
+
+          {/* Phone / Callback Trigger Button */}
+          <button
+            onClick={onPhoneClick}
+            aria-label="Call Support"
+            className="w-12 h-12 sm:w-14 sm:h-14 bg-[#8B1538] hover:bg-[#73152C] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 relative group cursor-pointer"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            
+            {/* Tooltip */}
+            <span className="absolute right-full mr-3 bg-gray-900 text-white text-xs font-semibold py-1 px-2.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
+              Request Callback
+            </span>
+          </button>
+
+        </div>
+      );
+    }
+
+    // --- Component: ContactModal ---
+    function ContactModal({ isOpen, onClose, initialData, onSubmitSuccess }) {
+      const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+
+      const [isSubmitted, setIsSubmitted] = useState(false);
+      const previousActiveElementRef = React.useRef(null);
+      const firstNameInputRef = React.useRef(null);
+
+      React.useEffect(() => {
+        if (isOpen) {
+          previousActiveElementRef.current = document.activeElement;
+          document.body.style.overflow = 'hidden';
+
+          const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+              onClose();
+            }
+          };
+
+          window.addEventListener('keydown', handleKeyDown);
+
+          setTimeout(() => {
+            if (firstNameInputRef.current) {
+              firstNameInputRef.current.focus();
+            }
+          }, 50);
+
+          return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleKeyDown);
+            if (previousActiveElementRef.current && typeof previousActiveElementRef.current.focus === 'function') {
+              previousActiveElementRef.current.focus();
+            }
+          };
+        }
+      }, [isOpen, onClose]);
+
+      if (!isOpen) return null;
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+        setTimeout(() => {
+          if (onSubmitSuccess) {
+            onSubmitSuccess('Thank you! Our friendly team will contact you shortly.');
+          }
+          setIsSubmitted(false);
+          onClose();
+        }, 1500);
+      };
+
+      return (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+          onClick={onClose}
+          aria-modal="true"
+          role="dialog"
+          aria-labelledby="modal-title"
+        >
+          <div 
+            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-gray-100 flex flex-col md:flex-row relative transition-all duration-300 transform scale-100"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close modal"
+              className="absolute top-4 right-4 md:top-5 md:right-5 z-30 w-9 h-9 rounded-full bg-gray-100/90 hover:bg-gray-200 text-gray-700 flex items-center justify-center text-lg font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              ✕
+            </button>
+
+            {/* Left Column: Form Section */}
+            <div className="w-full md:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-between overflow-y-auto bg-white">
+              <div>
+                {/* Header */}
+                <h2 id="modal-title" className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-1.5">
+                  Get in touch
+                </h2>
+                <p className="text-xs sm:text-sm text-gray-500 font-normal mb-6">
+                  Our friendly team would love to hear from you.
+                </p>
+
+            {isSubmitted ? (
+              <div className="py-12 text-center flex flex-col items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">
+                  ✓
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                <p className="text-xs sm:text-sm text-gray-600 max-w-xs leading-relaxed">
+                  Thank you for reaching out. Our academic team will get in touch with you shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* First Name & Last Name (Side by side) */}
+                <div className="grid grid-cols-2 gap-3.5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-800 mb-1">
+                      First name
+                    </label>
+                    <input
+                      ref={firstNameInputRef}
+                      type="text"
+                      required
+                      placeholder="First name"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      className="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 outline-none transition-all placeholder:text-gray-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-800 mb-1">
+                      Last name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Last name"
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      className="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 outline-none transition-all placeholder:text-gray-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="you@company.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 outline-none transition-all placeholder:text-gray-400"
+                  />
+                </div>
+
+                {/* Phone Number with IN +91 Prefix */}
+                <div>
+                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                    Phone number
+                  </label>
+                  <div className="flex">
+                    <span className="bg-gray-50 border border-gray-200 border-r-0 rounded-l-xl px-3 py-2.5 text-xs font-semibold text-gray-600 flex items-center justify-center shrink-0">
+                      IN +91
+                    </span>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="9876543210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-r-xl border border-gray-200 focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 outline-none transition-all placeholder:text-gray-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    rows={3}
+                    required
+                    placeholder="Leave us a message..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 outline-none transition-all resize-none placeholder:text-gray-400"
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full bg-[#F5BA31] hover:bg-[#E5AC25] text-gray-900 font-extrabold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-sm transition-all duration-200 active:scale-[0.99] cursor-pointer"
+                  >
+                    Send message
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+
+        {/* Right Column: Visual Panel Image */}
+        <div className="w-full md:w-1/2 relative bg-gray-100 hidden md:block overflow-hidden min-h-[420px]">
+          <img
+            src="contact-panel-agent.jpg"
+            alt="Viskool Customer Support Team"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+    // --- Component: Parent Testimonials Page ---
+    const TESTIMONIAL_SLIDE_1 = [
+      {
+        id: 's1-1',
+        mediaType: 'image',
+        quote: '"Viskool has helped my daughter become significantly more organized, disciplined, and confident in her studies."',
+        description: 'The teachers are remarkably approachable and patient. The weekly structured practice sessions, conceptual clarity, and regular mentor feedback have brought a positive shift in her academic performance.',
+        parentRole: 'Parent of Class 10 Student',
+        courseName: 'CBSE Foundation Course',
+      },
+      {
+        id: 's1-2',
+        mediaType: 'image',
+        quote: '"My son genuinely looks forward to his interactive live classes every single evening now."',
+        description: 'The complex concepts in Mathematics and Science are explained with great clarity. The teachers provide dedicated individual attention, which has made a noticeable difference in his problem-solving speed.',
+        parentRole: 'Parent of Class 11 Student',
+        courseName: 'JEE Preparation Course',
+      },
+      {
+        id: 's1-3',
+        mediaType: 'image',
+        quote: '"The overall learning environment at home has become much more positive, structured, and encouraging."',
+        description: "Viskool's structured live classes and weekly progress reviews have helped my son stay accountable, avoid exam stress, and develop strong independent study habits for his competitive prep.",
+        parentRole: 'Parent of Class 12 Student',
+        courseName: 'NEET Preparation Course',
+      },
+      {
+        id: 's1-4',
+        mediaType: 'image',
+        quote: '"We\'ve seen a real, lasting improvement in her study consistency and genuine interest in learning."',
+        description: 'The comprehensive study materials, practice worksheets, and continuous teacher support are excellent. She now approaches tests with a calm, well-prepared, and self-assured mindset.',
+        parentRole: 'Parent of Class 9 Student',
+        courseName: 'CBSE Foundation Course',
+      },
+    ];
+
+    const TESTIMONIAL_SLIDE_2 = [
+      {
+        id: 's2-1',
+        mediaType: 'none',
+        quote: '"Viskool\'s holistic approach to school academics completely transformed our routine. The structured daily practice and patient mentorship helped my daughter build genuine interest in her studies without any exam stress."',
+        description: 'We appreciate how accessible teachers are whenever she has doubts. It feels like having a dedicated mentor right at home guiding her through every subject.',
+        parentRole: 'Parent of Class 8 Student',
+        courseName: 'CBSE All-Subjects Foundation',
+      },
+      {
+        id: 's2-2',
+        mediaType: 'video',
+        image: 'parent-card-father-son.jpg',
+        videoDuration: '01:45',
+        quote: '"Watch how Viskool helped our son crack JEE with 1-on-1 mentorship and weekly mock analytics."',
+        description: 'Hear directly from Mr. Suresh about his son\'s journey from Class 11 core concepts to achieving a top percentile in competitive national test preparation.',
+        parentRole: 'Parent of Class 12 JEE Aspirant',
+        courseName: 'JEE Main & Advanced Mentorship',
+      },
+      {
+        id: 's2-3',
+        mediaType: 'image',
+        quote: '"Viskool has been wonderful for my daughter. Her confidence in Mathematics has improved so much in just two months!"',
+        description: 'The interactive live sessions, step-by-step problem breakdown, and patient teaching style made learning enjoyable, clear, and thoroughly engaging.',
+        parentRole: 'Parent of Class 7 Student',
+        courseName: 'Middle School Mathematics',
+      },
+      {
+        id: 's2-4',
+        mediaType: 'image',
+        quote: '"When my son started preparing for Class 12 board exams and NEET, we were overwhelmed by the vast syllabus and pressure. Viskool transformed his routine completely."',
+        description: 'The continuous performance reports and personal mentor calls kept us informed every week, allowing us to support his goals effectively and calmly.',
+        parentRole: 'Parent of Class 12 NEET Aspirant',
+        courseName: 'NEET Biology & Chemistry Intensive',
+      },
+    ];
+
+    const PARENT_CAROUSEL_SLIDES = [TESTIMONIAL_SLIDE_1, TESTIMONIAL_SLIDE_2];
+
+    function TestimonialCardItem({ item, onPlayVideo }) {
+      const isVideo = item.mediaType === 'video';
+
+      return (
+        <div 
+          className={`bg-white border border-gray-100 hover:border-[#8B1538]/20 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-200 relative overflow-hidden h-full group ${
+            isVideo ? 'cursor-pointer' : ''
+          }`}
+          onClick={() => isVideo && onPlayVideo && onPlayVideo(item)}
+        >
+          {/* Top Section: Graphic Accent Icon & Quote Content */}
+          <div className="space-y-2">
+            
+            {/* Top Header Row with Tasteful Quote Icon Accent & Rating Badge */}
+            <div className="flex items-center justify-between">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#8B1538]/5 border border-[#8B1538]/10 flex items-center justify-center text-[#8B1538] shrink-0 transition-colors group-hover:bg-[#8B1538]/10">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+
+              {/* Right Header Chip */}
+              {isVideo ? (
+                <div className="inline-flex items-center gap-1 bg-[#8B1538] hover:bg-[#73152C] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs transition-colors">
+                  <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <span>Watch Video ({item.videoDuration || '01:45'})</span>
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-0.5 text-[#F5BA31] text-[10px] sm:text-xs font-bold bg-[#FAF2F5] border border-[#8B1538]/10 px-2 py-0.5 rounded-full">
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                </div>
+              )}
+            </div>
+
+            {/* Quote & Description Content */}
+            <div className="space-y-1 pt-0.5">
+              <p className="text-xs sm:text-sm font-semibold text-gray-900 leading-snug font-serif italic">
+                {item.quote}
+              </p>
+              
+              {item.description && (
+                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed font-normal">
+                  {item.description}
+                </p>
+              )}
+            </div>
+
+          </div>
+
+          {/* Bottom Section: Author Metadata */}
+          <div className="pt-2.5 sm:pt-3 mt-auto">
+            <div className="w-8 h-[1px] bg-[#8B1538]/20 mb-1.5" />
+            
+            {/* Author Role / Name preceded by em-dash */}
+            <div className="text-[11px] sm:text-xs font-semibold text-gray-900 font-serif italic">
+              — {item.parentRole}
+            </div>
+            
+            {/* Course Name */}
+            {item.courseName && (
+              <div className="text-[10px] sm:text-[11px] text-gray-500 font-normal italic mt-0.5">
+                {item.courseName}
+              </div>
+            )}
+          </div>
+
+        </div>
+      );
+    }
+
+    const PARENT_VIDEOS_DATA = [
+      {
+        id: 'pv-1',
+        name: 'Gayathri Vishal',
+        tagline: 'Parent of Vridhi Vishal',
+        course: 'CBSE Foundation Course',
+        duration: '01:45',
+        thumbnail: 'parent-video-1.jpg',
+        videoUrl: '',
+        gradient: 'from-[#4A1525] via-[#2A101C] to-[#14080E]',
+      },
+      {
+        id: 'pv-2',
+        name: 'Shilpa Bala',
+        tagline: 'Parent of Class 10 Student',
+        course: 'School Academic Mentorship',
+        duration: '02:10',
+        thumbnail: 'parent-video-2.jpg',
+        videoUrl: '',
+        gradient: 'from-[#1E3A2B] via-[#12241A] to-[#0A140F]',
+      },
+      {
+        id: 'pv-3',
+        name: 'Gayathri Arun',
+        tagline: 'Parent of Kalyani',
+        course: 'NEET Foundation Course',
+        duration: '01:55',
+        thumbnail: 'parent-video-3.jpg',
+        videoUrl: '',
+        gradient: 'from-[#8B1538] via-[#590D24] to-[#26050F]',
+      },
+      {
+        id: 'pv-4',
+        name: 'Shamna Kasim',
+        tagline: 'Parent of Middle Schooler',
+        course: 'Class 8 Foundation',
+        duration: '02:30',
+        thumbnail: 'parent-video-4.jpg',
+        videoUrl: '',
+        gradient: 'from-[#3B2C42] via-[#231A28] to-[#100C13]',
+      },
+      {
+        id: 'pv-5',
+        name: 'Muktha',
+        tagline: 'Parent of Class 11 Student',
+        course: 'JEE Main & Advanced',
+        duration: '01:40',
+        thumbnail: 'parent-video-5.jpg',
+        videoUrl: '',
+        gradient: 'from-[#1F2937] via-[#111827] to-[#0B0F17]',
+      },
+      {
+        id: 'pv-6',
+        name: 'Suresh Kumar',
+        tagline: 'Parent of Class 12 Student',
+        course: 'Board Exam Intensive',
+        duration: '02:15',
+        thumbnail: 'parent-video-6.jpg',
+        videoUrl: '',
+        gradient: 'from-[#5C1B2E] via-[#38101C] to-[#19070D]',
+      },
+    ];
+
+    function ParentVideoSlider({ onPlayVideo, isModalOpen = false }) {
+      const sliderRef = React.useRef(null);
+      const autoplayTimerRef = React.useRef(null);
+      const resumeTimerRef = React.useRef(null);
+
+      const [canScrollLeft, setCanScrollLeft] = useState(false);
+      const [canScrollRight, setCanScrollRight] = useState(true);
+      const [isDragging, setIsDragging] = useState(false);
+      const [startX, setStartX] = useState(0);
+      const [scrollLeftPos, setScrollLeftPos] = useState(0);
+
+      const [isHovered, setIsHovered] = useState(false);
+      const [isFocused, setIsFocused] = useState(false);
+      const [isInteracting, setIsInteracting] = useState(false);
+      const [isTabInactive, setIsTabInactive] = useState(false);
+      const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+      const checkScroll = () => {
+        if (!sliderRef.current) return;
+        const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+        setCanScrollLeft(scrollLeft > 5);
+        setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+      };
+
+      React.useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setPrefersReducedMotion(mediaQuery.matches);
+
+        const handleMotionChange = (e) => setPrefersReducedMotion(e.matches);
+        if (mediaQuery.addEventListener) {
+          mediaQuery.addEventListener('change', handleMotionChange);
+        } else {
+          mediaQuery.addListener(handleMotionChange);
+        }
+
+        const handleVisibilityChange = () => {
+          setIsTabInactive(document.hidden);
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        return () => {
+          if (mediaQuery.removeEventListener) {
+            mediaQuery.removeEventListener('change', handleMotionChange);
+          } else {
+            mediaQuery.removeListener(handleMotionChange);
+          }
+          document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+      }, []);
+
+      // Continuous smooth scrolling ticker (rAF at ~60fps)
+      React.useEffect(() => {
+        let animFrameId = null;
+        let lastTime = performance.now();
+
+        const isPaused = 
+          isHovered || 
+          isFocused || 
+          isDragging || 
+          isInteracting || 
+          isTabInactive || 
+          isModalOpen || 
+          prefersReducedMotion;
+
+        const smoothScrollStep = (currentTime) => {
+          const slider = sliderRef.current;
+          if (slider && !isPaused) {
+            const delta = Math.min((currentTime - lastTime) / 1000, 0.1);
+            const speed = 26; // pixels per second (slightly gentler pace)
+            
+            slider.scrollLeft += speed * delta;
+
+            // Infinite wrap-around check
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+              slider.scrollLeft = 0;
+            }
+          }
+          lastTime = currentTime;
+          if (!isPaused) {
+            animFrameId = requestAnimationFrame(smoothScrollStep);
+          }
+        };
+
+        if (!isPaused) {
+          lastTime = performance.now();
+          animFrameId = requestAnimationFrame(smoothScrollStep);
+        }
+
+        return () => {
+          if (animFrameId) cancelAnimationFrame(animFrameId);
+        };
+      }, [isHovered, isFocused, isDragging, isInteracting, isTabInactive, isModalOpen, prefersReducedMotion]);
+
+      const triggerInteractionPause = () => {
+        setIsInteracting(true);
+        if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+        resumeTimerRef.current = setTimeout(() => {
+          setIsInteracting(false);
+        }, 2000);
+      };
+
+      React.useEffect(() => {
+        checkScroll();
+        const slider = sliderRef.current;
+        if (slider) {
+          slider.addEventListener('scroll', checkScroll);
+          window.addEventListener('resize', checkScroll);
+        }
+        return () => {
+          if (slider) slider.removeEventListener('scroll', checkScroll);
+          window.removeEventListener('resize', checkScroll);
+          if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+        };
+      }, []);
+
+      const scroll = (direction) => {
+        if (!sliderRef.current) return;
+        triggerInteractionPause();
+        const scrollAmount = sliderRef.current.clientWidth * 0.75;
+
+        if (direction === 'left') {
+          if (sliderRef.current.scrollLeft <= 5) {
+            sliderRef.current.scrollTo({
+              left: sliderRef.current.scrollWidth - sliderRef.current.clientWidth,
+              behavior: 'smooth',
+            });
+          } else {
+            sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          }
+        } else {
+          if (sliderRef.current.scrollLeft + sliderRef.current.clientWidth >= sliderRef.current.scrollWidth - 10) {
+            sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        }
+      };
+
+      const handleMouseDown = (e) => {
+        setIsDragging(true);
+        triggerInteractionPause();
+        setStartX(e.pageX - sliderRef.current.offsetLeft);
+        setScrollLeftPos(sliderRef.current.scrollLeft);
+      };
+
+      const handleMouseLeave = () => {
+        setIsDragging(false);
+        setIsHovered(false);
+      };
+
+      const handleMouseEnter = () => {
+        setIsHovered(true);
+      };
+
+      const handleMouseUp = () => {
+        setIsDragging(false);
+        triggerInteractionPause();
+      };
+
+      const handleMouseMove = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - sliderRef.current.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        sliderRef.current.scrollLeft = scrollLeftPos - walk;
+      };
+
+      return (
+        <div className="w-full py-8 sm:py-10 border-t border-b border-gray-100 my-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-6 gap-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 bg-[#8B1538]/10 border border-[#8B1538]/15 px-3 py-0.5 rounded-full mb-2">
+                <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8B1538]">
+                  VIDEO STORIES
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                Hear It From the{' '}
+                <span className="font-serif italic text-[#8B1538] font-bold">
+                  Parents
+                </span>
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 font-normal pt-1">
+                Real experiences, shared in their own words.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-auto">
+              <button
+                type="button"
+                onClick={() => scroll('left')}
+                aria-label="Scroll left video testimonials"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs bg-[#8B1538] hover:bg-[#73152C] text-white active:scale-95"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scroll('right')}
+                aria-label="Scroll right video testimonials"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs bg-[#8B1538] hover:bg-[#73152C] text-white active:scale-95"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={sliderRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            className={`flex items-center gap-4 sm:gap-5 overflow-x-auto scrollbar-none pb-3 select-none ${
+              isDragging ? 'cursor-grabbing' : 'cursor-grab'
+            }`}
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {PARENT_VIDEOS_DATA.map((video) => (
+              <div
+                key={video.id}
+                onClick={() => onPlayVideo && onPlayVideo(video)}
+                className="w-[210px] sm:w-[240px] md:w-[255px] aspect-[4/5] shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden relative shadow-md hover:shadow-xl border border-white/60 transition-all duration-300 hover:scale-[1.02] cursor-pointer group bg-gray-900"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${video.gradient} flex items-center justify-center`}>
+                  <img
+                    src={video.thumbnail}
+                    alt={video.name}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-30 group-hover:opacity-20 transition-opacity">
+                    <svg className="w-16 h-16 text-white/50" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="absolute top-3 left-3 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </div>
+
+                <div className="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md text-[10px] font-medium text-white/90 border border-white/10">
+                  {video.duration || '01:45'}
+                </div>
+
+                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/25 border border-white/50 backdrop-blur-md flex items-center justify-center text-white shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:bg-[#8B1538] group-hover:border-[#8B1538]">
+                    <svg className="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="absolute inset-x-0 bottom-0 z-10 p-3.5 sm:p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end pt-12">
+                  <h4 className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-snug drop-shadow-xs">
+                    {video.name}
+                  </h4>
+                  <p className="text-[11px] sm:text-xs text-gray-200/90 font-medium mt-0.5 line-clamp-1 drop-shadow-xs">
+                    {video.tagline}
+                  </p>
+                  <span className="text-[10px] text-[#F8DFE6] font-semibold mt-1 inline-block opacity-90">
+                    {video.course}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    function ParentTestimonialsPage({ onOpenContact }) {
+      const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+      const [activeVideo, setActiveVideo] = useState(null);
+
+      React.useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key === 'Escape') setActiveVideo(null);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, []);
+
+      const currentCards = PARENT_CAROUSEL_SLIDES[currentSlideIndex];
+
+      const nextSlide = () => {
+        setCurrentSlideIndex((prev) => (prev + 1) % PARENT_CAROUSEL_SLIDES.length);
+      };
+
+      const prevSlide = () => {
+        setCurrentSlideIndex((prev) => (prev - 1 + PARENT_CAROUSEL_SLIDES.length) % PARENT_CAROUSEL_SLIDES.length);
+      };
+
+      return (
+        <div className="w-full bg-[#FAF4F7] min-h-screen">
+          
+          {/* 1. HERO SECTION */}
+          <section className="relative overflow-hidden bg-gradient-to-b from-[#FBF4F7] via-[#FAF2F6] to-[#FAF4F7] py-12 lg:py-16 border-b border-[#8B1538]/5">
+            <div className="absolute inset-0 bg-[radial-gradient(#8B1538_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+                
+                <div className="relative space-y-4">
+                  <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full border border-[#8B1538]/10 pointer-events-none" />
+                  <div className="absolute -top-8 -left-8 w-60 h-60 rounded-full border border-[#8B1538]/5 pointer-events-none" />
+
+                  <div className="relative inline-flex items-center gap-2">
+                    <span className="text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.2em] text-[#8B1538]">
+                      PARENT TESTIMONIALS.
+                    </span>
+                    <span className="text-[#8B1538]/30 font-serif text-sm">✦</span>
+                  </div>
+                  
+                  <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold text-gray-900 tracking-tight leading-[1.08] relative sm:whitespace-nowrap">
+                    What Our{' '}
+                    <span className="font-serif italic text-[#8B1538] font-bold relative inline-block">
+                      Parents
+                      <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#8B1538]/20" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="3">
+                        <path d="M2 8 C 30 2, 70 10, 98 4" />
+                      </svg>
+                    </span>{' '}
+                    Say
+                  </h1>
+
+                  <p className="text-base sm:text-[16px] text-gray-600 font-normal max-w-xl leading-relaxed pt-1 space-y-2 relative z-10">
+                    Hear from parents about their child's learning journey with Viskool. Discover how our interactive live classes and dedicated mentors build genuine academic confidence. Read real experiences of families who have seen consistent progress in board exams and competitive test prep. Our personalized attention ensures every student receives tailored guidance according to their learning pace. Partner with us to create a structured and encouraging learning environment right at home.
+                  </p>
+                </div>
+
+                <div className="relative flex justify-center lg:justify-end">
+                  <div className="relative w-full max-w-[520px] h-[300px] sm:h-[320px]">
+                    <div className="absolute top-1 -left-2 w-[235px] sm:w-[255px] h-[185px] sm:h-[200px] rounded-2xl bg-[#EED5E2]/80 -rotate-6 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
+                    <div className="absolute top-4 right-[-6px] w-[225px] sm:w-[245px] h-[175px] sm:h-[190px] rounded-2xl bg-[#E8C2D3]/70 rotate-6 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
+                    <div className="absolute bottom-[-4px] left-[23%] sm:left-[25%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl bg-[#E5BFD0]/80 -rotate-3 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
+
+                    <div className="absolute top-0 left-0 w-[235px] sm:w-[255px] h-[185px] sm:h-[200px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white -rotate-2 transition-all hover:rotate-0 duration-300 z-10">
+                      <img src="hero-mother-son.jpg" alt="Mother and son story" className="w-full h-full object-cover" />
+                    </div>
+
+                    <div className="absolute top-3 right-0 w-[225px] sm:w-[245px] h-[175px] sm:h-[190px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white rotate-2 transition-all hover:rotate-0 duration-300 z-10">
+                      <img src="hero-father-daughter.jpg" alt="Father and daughter story" className="w-full h-full object-cover" />
+                    </div>
+
+                    <div className="absolute bottom-0 left-[24%] sm:left-[26%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl overflow-hidden shadow-[0_16px_32px_rgba(139,21,56,0.18)] border-3 border-white z-20 transition-all hover:scale-102 duration-300">
+                      <img src="hero-mother-portrait.jpg" alt="Mother portrait" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* MAIN CONTENT CONTAINER */}
+          <div className="w-full bg-[#FCFCFD] py-6 sm:py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 sm:space-y-6">
+              
+              <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                  Every family has a{' '}
+                  <span className="font-serif italic text-[#8B1538] font-bold">
+                    story
+                  </span>
+                </h2>
+
+                {/* Navigation Arrow Buttons */}
+                <div className="flex items-center gap-2.5 shrink-0">
+                  <button
+                    type="button"
+                    onClick={prevSlide}
+                    aria-label="Previous testimonial slide"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1538] hover:bg-[#73152C] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm cursor-pointer"
+                  >
+                    <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <button
+                    type="button"
+                    onClick={nextSlide}
+                    aria-label="Next testimonial slide"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1538] hover:bg-[#73152C] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm cursor-pointer"
+                  >
+                    <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* 4 TESTIMONIAL CARDS GRID */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 sm:gap-8">
+                {currentCards.map((item) => (
+                  <TestimonialCardItem 
+                    key={item.id} 
+                    item={item} 
+                    onPlayVideo={(v) => setActiveVideo(v)} 
+                  />
+                ))}
+              </div>
+
+              {/* Parent Video Testimonials Slider */}
+              <ParentVideoSlider onPlayVideo={(v) => setActiveVideo(v)} isModalOpen={!!activeVideo} />
+
+              {/* BLUSH CTA PANEL */}
+              <div className="bg-gradient-to-r from-[#FDF5F8] via-[#FBF0F5] to-[#F5E6EC] rounded-3xl p-8 sm:p-12 border border-[#8B1538]/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+                <div className="space-y-2 max-w-xl">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
+                    Let's talk about your child's{' '}
+                    <span className="font-serif italic text-[#8B1538] font-bold block sm:inline">
+                      learning goals.
+                    </span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 font-normal pt-1">
+                    Understand how Viskool can support your child's journey with a personalized conversation.
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => onOpenContact && onOpenContact('Talk to Our Team', { source: 'Parent Testimonials CTA' })}
+                  className="bg-[#8B1538] hover:bg-[#73152C] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base shadow-md transition-all hover:shadow-lg active:scale-98 flex items-center gap-2.5 shrink-0 cursor-pointer"
+                >
+                  <span>Talk to Our Team</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Video Lightbox Modal */}
+          {activeVideo && (
+            <div 
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fadeIn"
+              onClick={() => setActiveVideo(null)}
+            >
+              <div 
+                className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative border border-gray-100"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setActiveVideo(null)}
+                  aria-label="Close video"
+                  className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center text-lg font-bold transition-all cursor-pointer"
+                >
+                  ✕
+                </button>
+                <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
+                  <img src={activeVideo.image} alt="Video cover" className="w-full h-full object-cover opacity-60" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+                    <div className="w-16 h-16 rounded-full bg-[#F5BA31] text-gray-900 flex items-center justify-center text-2xl font-bold mb-3 shadow-lg">
+                      ▶
+                    </div>
+                    <h4 className="text-lg font-bold">{activeVideo.parentRole}</h4>
+                    <p className="text-xs text-gray-200 mt-1 max-w-md">{activeVideo.quote}</p>
+                  </div>
+                </div>
+                <div className="p-5 bg-white flex items-center justify-between">
+                  <div>
+                    <span className="text-xs font-bold text-[#8B1538] uppercase tracking-wider">{activeVideo.courseName}</span>
+                    <p className="text-xs text-gray-500 mt-0.5">Parent Video Story • Duration {activeVideo.videoDuration}</p>
+                  </div>
+                  <button
+                    onClick={() => setActiveVideo(null)}
+                    className="px-4 py-2 bg-[#8B1538] hover:bg-[#73152C] text-white text-xs font-bold rounded-xl cursor-pointer"
+                  >
+                    Close Video
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    // --- Component: Student Testimonials Page ---
+    const STUDENT_CATEGORIES = [
+      'All',
+      'School Tuition',
+      'NEET/JEE',
+      'Competitive Exams',
+      'Career Upskilling',
+    ];
+
+    const STUDENT_TESTIMONIALS_DATA = [
+      {
+        id: 'st-1',
+        name: 'Ananya S.',
+        tag: 'Class 12 (School Tuition)',
+        category: 'School Tuition',
+        quote: 'My Class 12 board marks improved significantly with Viskool\'s structured classes and personal mentoring. The chapter-wise practice tests and 1-on-1 doubt clearing sessions gave me the conceptual confidence to score top marks in Mathematics and Physics.',
+        image: 'student-ananya.png',
+      },
+      {
+        id: 'st-2',
+        name: 'Rohit K.',
+        tag: 'NEET Aspirant',
+        category: 'NEET/JEE',
+        quote: 'The daily mock test analytics and dedicated NEET mentors at Viskool kept my preparation consistent throughout the year. The step-by-step revision modules helped me master high-weightage Biology and Chemistry topics quickly.',
+        image: 'student-rohit.png',
+      },
+      {
+        id: 'st-3',
+        name: 'Sneha M.',
+        tag: 'Digital Marketing (Upskilling)',
+        category: 'Career Upskilling',
+        quote: 'The Digital Marketing program was practical and industry-focused from day one. Learning performance marketing, SEO, and content strategy from active experts gave me the real portfolio skills to start taking freelance client projects.',
+        image: 'student-sneha.png',
+      },
+      {
+        id: 'st-4',
+        name: 'Arjun P.',
+        tag: 'JEE Aspirant',
+        category: 'NEET/JEE',
+        quote: 'Clear explanations, personal attention, and high-yield problem sets made a massive difference in my JEE preparation journey. The mentors always took extra time to explain tricky Physics numericals until I understood them completely.',
+        image: 'student-arjun.png',
+      },
+      {
+        id: 'st-5',
+        name: 'Aparna R.',
+        tag: 'High Court Assistant Aspirant',
+        category: 'Competitive Exams',
+        quote: 'Preparing for the High Court Assistant exam required structured speed and accuracy. Viskool\'s daily mock tests, live answer discussions, and updated GK study notes gave me the exact competitive edge needed to qualify.',
+        image: 'student-aparna.jpg',
+      },
+      {
+        id: 'st-6',
+        name: 'Rahul V.',
+        tag: 'Kerala PSC Aspirant',
+        category: 'Competitive Exams',
+        quote: 'Preparing for Kerala PSC alongside my full-time job was challenging, but Viskool\'s flexible evening live classes, downloadable revision summaries, and structured timetable made my routine smooth and manageable.',
+        image: 'student-rahul.jpg',
+      },
+      {
+        id: 'st-7',
+        name: 'Diya M.',
+        tag: 'Class 11 (Physics & Chem)',
+        category: 'School Tuition',
+        quote: 'Physics used to be my weakest subject in Class 11. My 1-on-1 Viskool mentor broke down complex numericals and formulas into simple visual steps, turning my fear into a strong subject score.',
+        image: 'student-diya.jpg',
+      },
+      {
+        id: 'st-8',
+        name: 'Faris K.',
+        tag: 'Data Analytics (Upskilling)',
+        category: 'Career Upskilling',
+        quote: 'The Data Analytics bootcamp provided hands-on SQL, Excel, and Power BI practice. The portfolio guidance and mock technical interview sessions directly helped me succeed in my job placement.',
+        image: null,
+      },
+    ];
+
+    function StudentAchievementIcon({ type }) {
+      if (type === 'chart') {
+        return (
+          <svg className="w-4 h-4 text-[#8B1538] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        );
+      }
+      if (type === 'trophy') {
+        return (
+          <svg className="w-4 h-4 text-[#8B1538] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4a5 5 0 005 5h4a5 5 0 005-5V3M5 3h14M5 3H3v4a7 7 0 007 7h.01M19 3h2v4a7 7 0 01-7 7m-4 0v4m0 0H8m4 0h4m-4 4v-4" />
+          </svg>
+        );
+      }
+      if (type === 'trending') {
+        return (
+          <svg className="w-4 h-4 text-[#8B1538] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        );
+      }
+      if (type === 'briefcase') {
+        return (
+          <svg className="w-4 h-4 text-[#8B1538] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        );
+      }
+      return (
+        <svg className="w-4 h-4 text-[#8B1538] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+        </svg>
+      );
+    }
+
+    function StudentFacelessAvatar() {
+      return (
+        <div className="w-full h-full bg-gradient-to-b from-gray-50 to-gray-100 flex items-center justify-center p-4">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center shadow-xs">
+            <svg className="w-10 h-10 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      );
+    }
+
+    function StudentStarRating({ rating = 5 }) {
+      return (
+        <div className="flex items-center gap-0.5 text-amber-400 shrink-0" aria-label={`${rating} out of 5 stars`}>
+          {[...Array(5)].map((_, i) => (
+            <svg 
+              key={i} 
+              className={`w-3.5 h-3.5 ${i < rating ? 'fill-amber-400 text-amber-400' : 'fill-gray-200 text-gray-200'}`} 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+      );
+    }
+
+    function StudentTestimonialsPage({ onOpenContact, onNavigate }) {
+      const [selectedCategory, setSelectedCategory] = useState('All');
+      const [activeModalStudent, setActiveModalStudent] = useState(null);
+
+      const filteredTestimonials = selectedCategory === 'All'
+        ? STUDENT_TESTIMONIALS_DATA
+        : STUDENT_TESTIMONIALS_DATA.filter((item) => item.category === selectedCategory);
+
+      React.useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key === 'Escape') setActiveModalStudent(null);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, []);
+
+      const scrollToGrid = () => {
+        const el = document.getElementById('student-testimonials-grid');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      return (
+        <div className="w-full bg-[#FAF4F7] min-h-screen selection:bg-[#8B1538] selection:text-white">
+          
+          {/* 1. HERO SECTION */}
+          <section className="relative overflow-hidden bg-gradient-to-b from-[#FBF4F7] via-[#FAF2F6] to-[#FAF4F7] py-6 sm:py-8 lg:py-10 border-b border-[#8B1538]/5">
+            <div className="absolute top-12 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-[#EED5E2]/35 -rotate-1 rounded-3xl pointer-events-none blur-[1px]" />
+            <div className="absolute top-14 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-[#E8C2D3]/25 rotate-1 rounded-3xl pointer-events-none" />
+
+            <div className="absolute -top-16 -right-16 w-96 h-96 rounded-full border border-[#8B1538]/10 pointer-events-none" />
+            <div className="absolute -top-8 -right-8 w-72 h-72 rounded-full border border-[#8B1538]/15 pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                
+                <div className="space-y-5">
+                  <div className="inline-flex items-center gap-2 bg-[#8B1538]/10 border border-[#8B1538]/15 px-3.5 py-1 rounded-full">
+                    <span className="text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.2em] text-[#8B1538]">
+                      STUDENT TESTIMONIALS
+                    </span>
+                    <span className="text-[#8B1538]/30 font-serif text-sm">✦</span>
+                  </div>
+                  
+                  <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-bold text-gray-900 tracking-tight leading-[1.1]">
+                    Inspiring Journeys from Our Classrooms to{' '}
+                    <span className="font-serif italic text-[#8B1538] font-bold relative inline-block">
+                      Top Careers
+                      <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#8B1538]/20" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="3">
+                        <path d="M2 8 C 30 2, 70 10, 98 4" />
+                      </svg>
+                    </span>
+                  </h1>
+
+                  <p className="text-base sm:text-[16px] text-gray-600 font-normal max-w-xl leading-relaxed pt-1">
+                    From higher marks to dream college admissions and new career opportunities—meet the Viskool students who turned their goals into real progress with the right guidance and support. Discover how personalized 1-on-1 mentorship and structured learning schedules helped them overcome every academic challenge. Their journeys highlight what is possible when dedicated effort meets expert direction.
+                  </p>
+                </div>
+
+                <div className="relative flex justify-center lg:justify-end">
+                  <div className="relative w-full max-w-[500px] sm:max-w-[540px] h-[380px] sm:h-[420px] select-none">
+                    
+                    {/* Soft Organic Blush Backdrop Shapes */}
+                    <div className="absolute top-[-25px] right-[-20px] w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] bg-[#FDEDF2]/80 rounded-full blur-2xl pointer-events-none -z-10" />
+                    <div className="absolute bottom-[-10px] left-[8%] w-[240px] sm:w-[280px] h-[240px] sm:h-[280px] bg-[#FAF0F4]/90 rounded-full blur-xl pointer-events-none -z-10" />
+
+                    {/* Giant Faded Georgia Quotation Mark Behind Portraits */}
+                    <div className="absolute -top-12 right-2 font-serif text-[140px] sm:text-[180px] leading-none text-[#F8DFE6] opacity-90 select-none pointer-events-none z-0">
+                      “
+                    </div>
+
+                    {/* Subtle Burgundy Curved Vector Line Accents */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="0 0 540 420" fill="none">
+                      <path d="M 270 30 C 370 5, 470 70, 500 130" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.25" strokeDasharray="4 4" />
+                      <path d="M 50 270 Q 15 310 0 370" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.2" />
+                      <path d="M 35 320 C 15 300, 25 280, 55 290 C 45 310, 30 320, 35 320 Z" fill="#8B1538" fillOpacity="0.08" stroke="#8B1538" strokeWidth="1" strokeOpacity="0.2" />
+                      <path d="M 320 40 L 325 30 M 335 48 L 345 45" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round" />
+                      <path d="M 340 360 L 345 370 M 352 352 L 362 357" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round" />
+                    </svg>
+
+                    {/* 1. Upper-Left Portrait (Overlapping Centre Card) */}
+                    <div className="absolute top-[2%] left-[2%] sm:left-[3%] w-[130px] sm:w-[150px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_10px_25px_rgba(139,21,56,0.12)] -rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 z-10 group">
+                      <img src="student-rahul.jpg" alt="Viskool Student Rahul" className="w-full h-full object-cover object-top scale-110 transition-transform duration-300 group-hover:scale-115" />
+                    </div>
+
+                    {/* 2. Upper-Right Portrait (Overlapping Centre Card) */}
+                    <div className="absolute top-[5%] right-[2%] sm:right-[3%] w-[130px] sm:w-[150px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_10px_25px_rgba(139,21,56,0.12)] rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 z-10 group">
+                      <img src="student-ananya.png" alt="Viskool Student Ananya" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+
+                    {/* 3. Center Dominant Featured Portrait (Aparna R. - 42% width, 68% height) */}
+                    <div className="absolute top-[10%] left-[28%] sm:left-[29%] w-[205px] sm:w-[230px] aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden bg-white border-4 sm:border-[5px] border-white shadow-[0_20px_45px_rgba(139,21,56,0.20)] -rotate-1.5 hover:rotate-0 transition-all duration-300 hover:scale-105 z-20 group">
+                      <img src="student-aparna.jpg" alt="Viskool Student Aparna" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+
+                    {/* 4. Lower-Left Portrait (Overlapping Centre Card) */}
+                    <div className="absolute bottom-[3%] left-[7%] sm:left-[9%] w-[135px] sm:w-[155px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_12px_28px_rgba(139,21,56,0.14)] rotate-2 hover:rotate-0 transition-all duration-300 hover:scale-105 z-30 group">
+                      <img src="student-rohit.png" alt="Viskool Student Rohit" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+
+                    {/* 5. Lower-Right Portrait (Overlapping Centre Card) */}
+                    <div className="absolute bottom-[1%] right-[5%] sm:right-[7%] w-[135px] sm:w-[155px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_12px_28px_rgba(139,21,56,0.14)] -rotate-2.5 hover:rotate-0 transition-all duration-300 hover:scale-105 z-30 group">
+                      <img src="student-arjun.png" alt="Viskool Student Arjun" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+
+                    {/* Small Accent Burgundy Circle Dot */}
+                    <div className="absolute bottom-3 right-1 w-3.5 h-3.5 rounded-full bg-[#8B1538] shadow-xs z-30 pointer-events-none" />
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* 2. TESTIMONIAL CONTENT SECTION */}
+          <section id="student-testimonials-grid" className="w-full bg-[#FCFCFD] py-10 sm:py-14 border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+              
+              <div className="flex items-center justify-center sm:justify-start flex-wrap gap-2.5 sm:gap-3">
+                {STUDENT_CATEGORIES.map((category) => {
+                  const isSelected = selectedCategory === category;
+                  return (
+                    <button
+                      key={category}
+                      type="button"
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs ${
+                        isSelected
+                          ? 'bg-[#8B1538] text-white shadow-md scale-102'
+                          : 'bg-white text-gray-700 hover:bg-[#FDF2F4] hover:text-[#8B1538] border border-gray-200/80'
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Testimonial Desktop 2-Column Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 min-h-[300px] transition-all duration-300">
+                {filteredTestimonials.length > 0 ? (
+                  filteredTestimonials.map((item, index) => {
+                    const isAlternate = index % 2 === 1;
+                    return (
+                      <div 
+                        key={item.id}
+                        className={`rounded-2xl p-4 sm:p-5 lg:p-5.5 flex flex-col sm:flex-row gap-4 sm:gap-5 shadow-xs hover:shadow-md transition-all duration-300 relative overflow-hidden group min-h-[210px] sm:h-[220px] border ${
+                          isAlternate 
+                            ? 'bg-[#FDF5F8]/70 border-[#8B1538]/12 hover:border-[#8B1538]/30' 
+                            : 'bg-[#FFFDFE] border-gray-200/80 hover:border-[#8B1538]/30'
+                        }`}
+                      >
+                        
+                        {/* Left Side: Fixed Head-and-Shoulders Photo Container */}
+                        <div className="w-full sm:w-[155px] md:w-[165px] lg:w-[175px] shrink-0 h-44 sm:h-full rounded-xl overflow-hidden bg-gray-100 relative flex items-center justify-center">
+                          {item.image ? (
+                            <img 
+                              src={item.image} 
+                              alt={item.name} 
+                              className="w-full h-full object-cover object-top scale-110 group-hover:scale-115 transition-transform duration-500"
+                            />
+                          ) : (
+                            <StudentFacelessAvatar />
+                          )}
+                        </div>
+
+                        {/* Right Side: Content Area */}
+                        <div className="flex-1 flex flex-col justify-between space-y-2 relative z-10 py-0.5">
+                          
+                          {/* Top Meta: Name, Star Rating & Secondary Class Badge */}
+                          <div className="space-y-1">
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <h4 className="font-extrabold text-gray-900 text-base sm:text-lg tracking-tight leading-snug">
+                                {item.name}
+                              </h4>
+                              <StudentStarRating rating={item.rating || 5} />
+                            </div>
+                            <div>
+                              <span className="text-[11px] font-semibold text-[#8B1538] bg-[#8B1538]/8 border border-[#8B1538]/12 px-2.5 py-0.5 rounded-full inline-block">
+                                {item.tag}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Middle: Quotation Mark Accent & 4-Line Truncated Quote */}
+                          <div className="relative flex-1 flex flex-col justify-center">
+                            <span className="font-serif text-[#8B1538]/15 text-4xl sm:text-5xl leading-none absolute -top-2 -left-1 select-none pointer-events-none z-0">
+                              “
+                            </span>
+                            <p className="text-xs sm:text-[13px] font-normal text-gray-700 leading-relaxed line-clamp-3 sm:line-clamp-4 relative z-10 pt-1">
+                              {item.quote}
+                            </p>
+                          </div>
+
+                          {/* Bottom Action: Read Full Story Link */}
+                          <div className="pt-0.5 flex items-center justify-between">
+                            <button
+                              type="button"
+                              onClick={() => setActiveModalStudent(item)}
+                              className="text-[12px] font-bold text-[#8B1538] hover:text-[#73152C] hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
+                            >
+                              <span>Read full story</span>
+                              <span className="text-xs transition-transform group-hover:translate-x-0.5">→</span>
+                            </button>
+
+                            {/* Optional Achievement Mini Tag */}
+                            {item.achievement && (
+                              <span className="text-[10px] font-extrabold uppercase text-[#8B1538]/80 bg-white/80 border border-[#8B1538]/10 px-2 py-0.5 rounded-md shadow-2xs">
+                                {item.achievement.type}
+                              </span>
+                            )}
+                          </div>
+
+                        </div>
+
+                      </div>
+                    );
+                  })
+                ) : (
+                  /* Clean Empty State */
+                  <div className="col-span-full py-12 px-6 bg-white border border-gray-100 rounded-3xl text-center space-y-3.5 shadow-xs">
+                    <div className="w-12 h-12 rounded-full bg-[#8B1538]/10 text-[#8B1538] mx-auto flex items-center justify-center">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 tracking-tight">No stories found in this category right now</h3>
+                    <p className="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto">
+                      Try selecting another category filter above to read more inspiring student stories.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedCategory('All')}
+                      className="inline-block text-xs font-bold text-[#8B1538] bg-[#8B1538]/10 hover:bg-[#8B1538]/15 px-4 py-2 rounded-full transition-colors cursor-pointer"
+                    >
+                      View All Stories
+                    </button>
+                  </div>
+                )}
+              </div>
+
+            </div>
+          </section>
+
+          {/* 3. BOTTOM CTA SECTION */}
+          <section className="w-full bg-gradient-to-r from-[#FFFDFE] via-[#FDF2F4] to-[#F8E1E7] py-12 sm:py-16 border-t border-[#8B1538]/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 text-center md:text-left">
+                <div className="space-y-2 max-w-2xl">
+                  <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extrabold text-gray-900 tracking-tight leading-tight">
+                    Your Story Could Be{' '}
+                    <span className="font-serif italic text-[#8B1538] font-bold">
+                      Next
+                    </span>
+                  </h2>
+                  <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
+                    Get personalised guidance and take the next step towards your goals with Viskool.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shrink-0 w-full sm:w-auto">
+                  <button
+                    type="button"
+                    onClick={() => onOpenContact && onOpenContact('Talk to an Expert', { source: 'Student Testimonials Bottom CTA' })}
+                    className="w-full sm:w-auto inline-flex items-center justify-center bg-[#8B1538] hover:bg-[#73152C] text-white font-bold text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 cursor-pointer gap-2"
+                  >
+                    <span>Talk to an Expert</span>
+                    <span className="text-base leading-none">→</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onNavigate) onNavigate('home');
+                      setTimeout(() => {
+                        const el = document.getElementById('courses');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }}
+                    className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-[#FDF2F4] text-[#8B1538] border border-[#8B1538]/30 font-bold text-sm px-6 py-3 rounded-full shadow-xs transition-all duration-200 active:scale-95 cursor-pointer"
+                  >
+                    <span>Explore Courses</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* 4. READ FULL STORY MODAL */}
+          {activeModalStudent && (
+            <div 
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fadeIn"
+              onClick={() => setActiveModalStudent(null)}
+            >
+              <div 
+                className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-[#8B1538]/15 space-y-5 max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setActiveModalStudent(null)}
+                  aria-label="Close modal"
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-[#8B1538] hover:text-white flex items-center justify-center text-gray-500 transition-colors cursor-pointer"
+                >
+                  ✕
+                </button>
+
+                {/* Header Profile */}
+                <div className="flex items-center gap-4 border-b border-gray-100 pb-4">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
+                    {activeModalStudent.image ? (
+                      <img src={activeModalStudent.image} alt={activeModalStudent.name} className="w-full h-full object-cover object-top scale-110" />
+                    ) : (
+                      <StudentFacelessAvatar />
+                    )}
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#8B1538] bg-[#8B1538]/10 border border-[#8B1538]/15 px-2.5 py-0.5 rounded-full inline-block">
+                        {activeModalStudent.category}
+                      </span>
+                      <StudentStarRating rating={activeModalStudent.rating || 5} />
+                    </div>
+                    <h3 className="text-xl font-extrabold text-gray-900 tracking-tight">{activeModalStudent.name}</h3>
+                    <p className="text-xs font-semibold text-gray-500">{activeModalStudent.tag}</p>
+                  </div>
+                </div>
+
+                {/* Full Testimonial Quote */}
+                <div className="relative pt-2">
+                  <div className="text-[#8B1538]/15 font-serif text-5xl leading-none absolute -top-3 -left-2 pointer-events-none">“</div>
+                  <p className="text-sm text-gray-700 leading-relaxed relative z-10 font-normal italic">
+                    {activeModalStudent.quote}
+                  </p>
+                </div>
+
+                {/* Achievement Tag if available */}
+                {activeModalStudent.achievement && (
+                  <div className="bg-[#FAF2F5] border border-[#8B1538]/15 rounded-2xl p-3.5 flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-white shadow-2xs shrink-0">
+                      <StudentAchievementIcon type={activeModalStudent.achievement.type} />
+                    </div>
+                    <div>
+                      <span className="block text-[10px] font-extrabold uppercase tracking-widest text-[#8B1538]">
+                        KEY ACHIEVEMENT
+                      </span>
+                      <span className="block text-xs font-bold text-gray-900">
+                        {activeModalStudent.achievement.label}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Footer Action */}
+                <div className="pt-2 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setActiveModalStudent(null)}
+                    className="bg-[#8B1538] hover:bg-[#73152C] text-white font-bold text-xs px-5 py-2.5 rounded-full transition-colors cursor-pointer"
+                  >
+                    Close Story
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    // --- Main Root Component ---
+    function MainApp() {
+      const [currentPage, setCurrentPage] = useState('home');
+      const [modalState, setModalState] = useState({
+        isOpen: false,
+        initialData: null,
+      });
+
+      const [toastMessage, setToastMessage] = useState(null);
+
+      const showToast = (message) => {
+        setToastMessage(message);
+        setTimeout(() => setToastMessage(null), 3500);
+      };
+
+      const handleOpenContact = (actionTitle = 'Inquiry', extraData = null) => {
+        setModalState({
+          isOpen: true,
+          initialData: extraData || { title: actionTitle },
+        });
+      };
+
+      const handleCloseContact = () => setModalState({ isOpen: false, initialData: null });
+      const handleActionClick = (actionName) => showToast(`Clicked: ${actionName}`);
+      const handleEnrollCourse = (course) => handleOpenContact(course.title, course);
+      const handleSelectCourse = (course) => {
+        showToast(`Viewing Syllabus for "${course.title}"`);
+        handleOpenContact(course.title, course);
+      };
+      const handleWhatsApp = () => showToast('Connecting to Viskool WhatsApp Support (+91 94000 00000)...');
+      const handlePhone = () => handleOpenContact('Request Callback');
+      const handleNavigate = (page) => {
+        setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      return (
+        <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-[#8B1538] selection:text-white antialiased">
+          
+          {toastMessage && (
+            <div className="fixed top-5 right-5 z-50 bg-gray-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs sm:text-sm font-medium border border-gray-700 animate-slideDown">
+              <span className="text-[#8B1538] bg-white w-5 h-5 rounded-full flex items-center justify-center font-bold text-xs">✓</span>
+              <span>{toastMessage}</span>
+            </div>
+          )}
+
+          {/* 1. Header */}
+          <Header 
+            navLinks={NAV_LINKS} 
+            onOpenContact={handleOpenContact}
+            onActionClick={handleActionClick}
+            onNavigate={handleNavigate}
+            currentPage={currentPage}
+          />
+
+          {/* 2. Announcement Bar (below header) */}
+          <AnnouncementBar 
+            items={ANNOUNCEMENT_ITEMS} 
+            onActionClick={handleActionClick} 
+          />
+
+          {/* Main Sections */}
+          <main>
+            {currentPage === 'parent-testimonials' ? (
+              <ParentTestimonialsPage onOpenContact={handleOpenContact} />
+            ) : currentPage === 'student-testimonials' ? (
+              <StudentTestimonialsPage onOpenContact={handleOpenContact} onNavigate={handleNavigate} />
+            ) : (
+              <>
+                {/* 3. Hero Carousel */}
+                <Hero 
+                  slides={HERO_SLIDES} 
+                  onActionClick={handleActionClick}
+                  onOpenContact={handleOpenContact}
+                />
+
+                {/* 4. Process Steps & Value Proposition */}
+                <ProcessSteps 
+                  steps={PROCESS_STEPS} 
+                  onActionClick={handleActionClick}
+                />
+
+                {/* 5. Featured Courses */}
+                <CourseSection 
+                  categories={COURSE_CATEGORIES}
+                  courses={FEATURED_COURSES}
+                  onSelectCourse={handleSelectCourse}
+                  onEnrollCourse={handleEnrollCourse}
+                  onActionClick={handleActionClick}
+                />
+
+                {/* 6. Why Choose Us */}
+                <WhyChooseUs 
+                  benefits={BENEFITS} 
+                  onActionClick={handleActionClick}
+                />
+
+                {/* 7. Success CTA */}
+                <SuccessCTA 
+                  onOpenContact={handleOpenContact}
+                />
+
+                {/* 8. Achievements */}
+                <Achievements 
+                  achievements={ACHIEVEMENTS} 
+                  onActionClick={handleActionClick}
+                />
+
+                {/* 9. Testimonials */}
+                <Testimonials 
+                  testimonials={TESTIMONIALS} 
+                  onActionClick={handleActionClick}
+                />
+
+                {/* 10. Start Your Learning Journey Lead Form */}
+                <LearningJourneyForm 
+                  onSubmitSuccess={showToast}
+                />
+
+                {/* 11. FAQ Accordion (Above Footer) */}
+                <FAQSection 
+                  faqs={FAQS} 
+                  onActionClick={handleActionClick}
+                />
+              </>
+            )}
+          </main>
+
+          {/* 11. Footer */}
+          <Footer 
+            onActionClick={handleActionClick}
+            onOpenContact={handleOpenContact}
+          />
+
+          {/* 12. Floating Quick Actions */}
+          <FloatingActions 
+            onWhatsAppClick={handleWhatsApp}
+            onPhoneClick={handlePhone}
+          />
+
+          {/* Interactive Modal */}
+          <ContactModal 
+            isOpen={modalState.isOpen}
+            onClose={handleCloseContact}
+            initialData={modalState.initialData}
+            onSubmitSuccess={showToast}
+          />
+
+        </div>
+      );
+    }
+
+    // Mount to DOM
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<MainApp />);
+  </script>
+</body>
+</html>
