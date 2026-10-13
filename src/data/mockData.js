@@ -28,7 +28,6 @@ export const NAV_LINKS = [
       { label: 'About the Founder', href: '#founder' },
       { label: 'Student Testimonial', href: '#student-testimonials' },
       { label: 'Parent Testimonial', href: '#parent-testimonials' },
-      { label: 'Student Feedback', href: '#student-feedback' },
     ]
   },
   { label: 'Career With Us', href: '#careers' },

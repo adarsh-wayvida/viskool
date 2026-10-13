@@ -1,10 +1,12 @@
 // Parent Testimonials Page Component - Desktop Web Version with Rich Content-Led Cards
 import React, { useState } from 'react';
+import { TestimonialStoryDialog } from './TestimonialStoryDialog.jsx';
 
 // Slide 1: Original 4 Parent Stories (Enriched content to fill card proportion cleanly)
 const TESTIMONIAL_SLIDE_1 = [
   {
     id: 's1-1',
+    avatar: 'parent-video-1.jpg',
     mediaType: 'image',
     quote: '"Viskool has helped my daughter become significantly more organized, disciplined, and confident in her studies."',
     description: 'The teachers are remarkably approachable and patient. The weekly structured practice sessions, conceptual clarity, and regular mentor feedback have brought a positive shift in her academic performance.',
@@ -13,6 +15,7 @@ const TESTIMONIAL_SLIDE_1 = [
   },
   {
     id: 's1-2',
+    avatar: 'parent-video-2.jpg',
     mediaType: 'image',
     quote: '"My son genuinely looks forward to his interactive live classes every single evening now."',
     description: 'The complex concepts in Mathematics and Science are explained with great clarity. The teachers provide dedicated individual attention, which has made a noticeable difference in his problem-solving speed.',
@@ -21,6 +24,7 @@ const TESTIMONIAL_SLIDE_1 = [
   },
   {
     id: 's1-3',
+    avatar: 'parent-video-3.jpg',
     mediaType: 'image',
     quote: '"The overall learning environment at home has become much more positive, structured, and encouraging."',
     description: "Viskool's structured live classes and weekly progress reviews have helped my son stay accountable, avoid exam stress, and develop strong independent study habits for his competitive prep.",
@@ -29,6 +33,7 @@ const TESTIMONIAL_SLIDE_1 = [
   },
   {
     id: 's1-4',
+    avatar: 'parent-video-4.jpg',
     mediaType: 'image',
     quote: '"We\'ve seen a real, lasting improvement in her study consistency and genuine interest in learning."',
     description: 'The comprehensive study materials, practice worksheets, and continuous teacher support are excellent. She now approaches tests with a calm, well-prepared, and self-assured mindset.',
@@ -41,6 +46,7 @@ const TESTIMONIAL_SLIDE_1 = [
 const TESTIMONIAL_SLIDE_2 = [
   {
     id: 's2-1',
+    avatar: 'parent-video-5.jpg',
     mediaType: 'none',
     quote: '"Viskool\'s holistic approach to school academics completely transformed our routine. The structured daily practice and patient mentorship helped my daughter build genuine interest in her studies without any exam stress."',
     description: 'We appreciate how accessible teachers are whenever she has doubts. It feels like having a dedicated mentor right at home guiding her through every subject.',
@@ -49,6 +55,7 @@ const TESTIMONIAL_SLIDE_2 = [
   },
   {
     id: 's2-2',
+    avatar: 'parent-video-6.jpg',
     mediaType: 'video',
     image: 'parent-card-father-son.jpg',
     videoDuration: '01:45',
@@ -59,6 +66,7 @@ const TESTIMONIAL_SLIDE_2 = [
   },
   {
     id: 's2-3',
+    avatar: 'parent-video-1.jpg',
     mediaType: 'image',
     quote: '"Viskool has been wonderful for my daughter. Her confidence in Mathematics has improved so much in just two months!"',
     description: 'The interactive live sessions, step-by-step problem breakdown, and patient teaching style made learning enjoyable, clear, and thoroughly engaging.',
@@ -67,6 +75,7 @@ const TESTIMONIAL_SLIDE_2 = [
   },
   {
     id: 's2-4',
+    avatar: 'parent-video-2.jpg',
     mediaType: 'image',
     quote: '"When my son started preparing for Class 12 board exams and NEET, we were overwhelmed by the vast syllabus and pressure. Viskool transformed his routine completely."',
     description: 'The continuous performance reports and personal mentor calls kept us informed every week, allowing us to support his goals effectively and calmly.',
@@ -439,15 +448,34 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
 };
 
 // Clean, Content-Led Section-Isolated Testimonial Card Component
-export const TestimonialCard = ({ item, onPlayVideo }) => {
+export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
+  const quoteRef = React.useRef(null);
+  const descriptionRef = React.useRef(null);
+  const [isTruncated, setIsTruncated] = useState(false);
+  React.useEffect(() => {
+    if (!onReadMore) return;
+    const checkOverflow = () => setIsTruncated([quoteRef.current, descriptionRef.current].some((element) => element && element.scrollHeight > element.clientHeight + 1));
+    checkOverflow();
+    const observer = new ResizeObserver(checkOverflow);
+    [quoteRef.current, descriptionRef.current].forEach((element) => element && observer.observe(element));
+    document.fonts.ready.then(checkOverflow);
+    return () => observer.disconnect();
+  }, [item.quote, item.description, onReadMore]);
+
   const isVideo = item.mediaType === 'video';
 
   return (
-    <div 
+    <div
       className={`bg-white border border-gray-100 hover:border-[#8B1538]/20 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-200 relative overflow-hidden h-full group ${
-        isVideo ? 'cursor-pointer' : ''
+        onReadMore || isVideo ? 'cursor-pointer' : ''
       }`}
-      onClick={() => isVideo && onPlayVideo && onPlayVideo(item)}
+      role={onReadMore ? 'button' : undefined}
+      tabIndex={onReadMore ? 0 : undefined}
+      aria-label={onReadMore ? `Read full story from ${item.parentRole}` : undefined}
+      onKeyDown={(event) => {
+        if (event.target === event.currentTarget && onReadMore && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onReadMore(); }
+      }}
+      onClick={() => onReadMore ? onReadMore() : isVideo && onPlayVideo && onPlayVideo(item)}
     >
       {/* Top Section: Graphic Accent Icon & Quote Content */}
       <div className="space-y-2">
@@ -481,12 +509,12 @@ export const TestimonialCard = ({ item, onPlayVideo }) => {
 
         {/* Quote & Description Content */}
         <div className="space-y-1 pt-0.5">
-          <p className="text-xs sm:text-sm font-semibold text-gray-900 leading-snug font-serif italic">
+          <p ref={quoteRef} className={`text-xs sm:text-sm font-semibold text-gray-900 leading-snug font-serif italic ${onReadMore ? 'line-clamp-2' : ''}`}>
             {item.quote}
           </p>
           
           {item.description && (
-            <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed font-normal">
+            <p ref={descriptionRef} className={`text-[11px] sm:text-xs text-gray-600 leading-relaxed font-normal ${onReadMore ? 'line-clamp-3' : ''}`}>
               {item.description}
             </p>
           )}
@@ -496,19 +524,29 @@ export const TestimonialCard = ({ item, onPlayVideo }) => {
 
       {/* Bottom Section: Author Metadata */}
       <div className="pt-2.5 sm:pt-3 mt-auto">
+        {onReadMore && isTruncated && (
+          <button type="button" onClick={(event) => { event.stopPropagation(); onReadMore(); }} className="text-xs font-semibold text-[#8B1538] underline underline-offset-4 hover:text-[#73152C] mb-3 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B1538]">More</button>
+        )}
         <div className="w-8 h-[1px] bg-[#8B1538]/20 mb-1.5" />
         
-        {/* Author Role / Name preceded by em-dash */}
-        <div className="text-[11px] sm:text-xs font-semibold text-gray-900 font-serif italic">
-          — {item.parentRole}
-        </div>
-        
-        {/* Course Name */}
-        {item.courseName && (
-          <div className="text-[10px] sm:text-[11px] text-gray-500 font-normal italic mt-0.5">
-            {item.courseName}
+        <div className="flex items-center gap-2.5">
+          <img
+            src={item.avatar}
+            alt={item.parentRole}
+            loading="lazy"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover object-top shrink-0 border border-[#8B1538]/10"
+          />
+          <div className="min-w-0">
+            <div className="text-[11px] sm:text-xs font-semibold text-gray-900 font-serif italic">
+              — {item.parentRole}
+            </div>
+            {item.courseName && (
+              <div className="text-[10px] sm:text-[11px] text-gray-500 font-normal italic mt-0.5">
+                {item.courseName}
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
     </div>
@@ -518,6 +556,7 @@ export const TestimonialCard = ({ item, onPlayVideo }) => {
 export const ParentTestimonialsPage = ({ onOpenContact }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [activeStory, setActiveStory] = useState(null);
 
   React.useEffect(() => {
     const handleKeyDown = (e) => {
@@ -588,15 +627,15 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
                 <div className="absolute bottom-[-4px] left-[23%] sm:left-[25%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl bg-[#E5BFD0]/80 -rotate-3 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
 
                 <div className="absolute top-0 left-0 w-[235px] sm:w-[255px] h-[185px] sm:h-[200px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white -rotate-2 transition-all hover:rotate-0 duration-300 z-10">
-                  <img src="hero-mother-son.jpg" alt="Mother and son story" className="w-full h-full object-cover" />
+                  <img src="mother-and-son-landscape.webp" alt="Mother and son story" className="w-full h-full object-cover" />
                 </div>
 
                 <div className="absolute top-3 right-0 w-[225px] sm:w-[245px] h-[175px] sm:h-[190px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white rotate-2 transition-all hover:rotate-0 duration-300 z-10">
-                  <img src="hero-father-daughter.jpg" alt="Father and daughter story" className="w-full h-full object-cover" />
+                  <img src="father-and-daughter-landscape.webp" alt="Father and daughter story" className="w-full h-full object-cover" />
                 </div>
 
                 <div className="absolute bottom-0 left-[24%] sm:left-[26%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl overflow-hidden shadow-[0_16px_32px_rgba(139,21,56,0.18)] border-3 border-white z-20 transition-all hover:scale-102 duration-300">
-                  <img src="hero-mother-portrait.jpg" alt="Mother portrait" className="w-full h-full object-cover" />
+                  <img src="mother-and-daughter-landscape.webp" alt="Mother and daughter story" className="w-full h-full object-cover" />
                 </div>
 
               </div>
@@ -647,7 +686,8 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
             {currentCards.map((item) => (
               <TestimonialCard 
                 key={item.id} 
-                item={item} 
+                item={item}
+                onReadMore={() => setActiveStory({ image: item.avatar, name: item.parentRole, tag: item.courseName, category: 'Parent Testimonial', quote: [item.quote, item.description].filter(Boolean).join('\n\n') })}
                 onPlayVideo={(v) => setActiveVideo(v)} 
               />
             ))}
@@ -684,12 +724,14 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
         </div>
       </div>
 
+      <TestimonialStoryDialog story={activeStory} onClose={() => setActiveStory(null)} />
+
       {activeVideo && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fadeIn"
           onClick={() => setActiveVideo(null)}
         >
-          <div 
+          <div
             className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative border border-gray-100"
             onClick={(e) => e.stopPropagation()}
           >

@@ -1,6 +1,7 @@
 // Student Testimonials Page Component - Desktop Web Version matching Reference UI
 import React, { useState } from 'react';
-import { ParentVideoSlider } from './ParentTestimonialsPage.jsx';
+import { TestimonialStoryDialog } from './TestimonialStoryDialog.jsx';
+import { ParentVideoSlider, TestimonialCard } from './ParentTestimonialsPage.jsx';
 
 const CATEGORIES = [
   'All',
@@ -145,12 +146,15 @@ const StarRating = ({ rating = 5 }) => (
 
 export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [reviewPage, setReviewPage] = useState(0);
   const [activeModalStudent, setActiveModalStudent] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
 
   const filteredTestimonials = selectedCategory === 'All'
     ? STUDENT_TESTIMONIALS_DATA
     : STUDENT_TESTIMONIALS_DATA.filter((item) => item.category === selectedCategory);
+
+  const reviewPageCount = Math.max(1, Math.ceil(filteredTestimonials.length / 4));
 
   React.useEffect(() => {
     const handleKeyDown = (e) => {
@@ -271,6 +275,39 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
       <section id="student-testimonials-grid" className="w-full bg-[#FCFCFD] py-10 sm:py-14 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
           
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+              Every student has a{' '}
+              <span className="font-serif italic text-[#8B1538] font-bold">
+                story
+              </span>
+            </h2>
+
+            <div className="flex items-center gap-2.5 shrink-0">
+              <button
+                type="button"
+                onClick={() => setReviewPage((page) => (page - 1 + reviewPageCount) % reviewPageCount)}
+                aria-label="Previous testimonial slide"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1538] hover:bg-[#73152C] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm cursor-pointer"
+              >
+                <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setReviewPage((page) => (page + 1) % reviewPageCount)}
+                aria-label="Next testimonial slide"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1538] hover:bg-[#73152C] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm cursor-pointer"
+              >
+                <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
           {/* Category Filter Chips Bar */}
           <div className="flex items-center justify-center sm:justify-start flex-wrap gap-2.5 sm:gap-3">
             {CATEGORIES.map((category) => {
@@ -279,7 +316,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
                 <button
                   key={category}
                   type="button"
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => { setSelectedCategory(category); setReviewPage(0); }}
                   className={`px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs ${
                     isSelected
                       ? 'bg-[#8B1538] text-white shadow-md scale-102'
@@ -292,88 +329,32 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
             })}
           </div>
 
-          {/* Testimonial Desktop 2-Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 min-h-[300px] transition-all duration-300">
-            {filteredTestimonials.length > 0 ? (
-              filteredTestimonials.map((item, index) => {
-                const isAlternate = index % 2 === 1;
-                return (
-                  <div 
-                    key={item.id}
-                    className={`rounded-2xl p-4 sm:p-5 lg:p-5.5 flex flex-col sm:flex-row gap-4 sm:gap-5 shadow-xs hover:shadow-md transition-all duration-300 relative overflow-hidden group min-h-[210px] sm:h-[220px] border ${
-                      isAlternate 
-                        ? 'bg-[#FDF5F8]/70 border-[#8B1538]/12 hover:border-[#8B1538]/30' 
-                        : 'bg-[#FFFDFE] border-gray-200/80 hover:border-[#8B1538]/30'
-                    }`}
-                  >
-                    
-                    {/* Left Side: Fixed Head-and-Shoulders Photo Container */}
-                    <div className="w-full sm:w-[155px] md:w-[165px] lg:w-[175px] shrink-0 h-44 sm:h-full rounded-xl overflow-hidden bg-gray-100 relative flex items-center justify-center">
-                      {item.image ? (
-                        <img 
-                          src={item.image} 
-                          alt={item.name} 
-                          className="w-full h-full object-cover object-top scale-110 group-hover:scale-115 transition-transform duration-500"
-                        />
-                      ) : (
-                        <FacelessStudentPlaceholder />
-                      )}
-                    </div>
-
-                    {/* Right Side: Content Area */}
-                    <div className="flex-1 flex flex-col justify-between space-y-2 relative z-10 py-0.5">
-                      
-                      {/* Top Meta: Name, Star Rating & Secondary Class Badge */}
-                      <div className="space-y-1">
-                        <div className="flex items-center justify-between gap-2 flex-wrap">
-                          <h4 className="font-extrabold text-gray-900 text-base sm:text-lg tracking-tight leading-snug">
-                            {item.name}
-                          </h4>
-                          <StarRating rating={item.rating || 5} />
-                        </div>
-                        <div>
-                          <span className="text-[11px] font-semibold text-[#8B1538] bg-[#8B1538]/8 border border-[#8B1538]/12 px-2.5 py-0.5 rounded-full inline-block">
-                            {item.tag}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Middle: Quotation Mark Accent & 4-Line Truncated Quote */}
-                      <div className="relative flex-1 flex flex-col justify-center">
-                        <span className="font-serif text-[#8B1538]/15 text-4xl sm:text-5xl leading-none absolute -top-2 -left-1 select-none pointer-events-none z-0">
-                          “
-                        </span>
-                        <p className="text-xs sm:text-[13px] font-normal text-gray-700 leading-relaxed line-clamp-3 sm:line-clamp-4 relative z-10 pt-1">
-                          {item.quote}
-                        </p>
-                      </div>
-
-                      {/* Bottom Action: Read Full Story Link */}
-                      <div className="pt-0.5 flex items-center justify-between">
-                        <button
-                          type="button"
-                          onClick={() => setActiveModalStudent(item)}
-                          className="text-[12px] font-bold text-[#8B1538] hover:text-[#73152C] hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
-                        >
-                          <span>Read full story</span>
-                          <span className="text-xs transition-transform group-hover:translate-x-0.5">→</span>
-                        </button>
-
-                        {/* Optional Achievement Mini Tag */}
-                        {item.achievement && (
-                          <span className="text-[10px] font-extrabold uppercase text-[#8B1538]/80 bg-white/80 border border-[#8B1538]/10 px-2 py-0.5 rounded-md shadow-2xs">
-                            {item.achievement.type}
-                          </span>
-                        )}
-                      </div>
-
-                    </div>
-
-                  </div>
-                );
-              })
-            ) : (
-              /* Clean Empty State */
+          {filteredTestimonials.length > 0 ? (
+            <>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7">
+            {filteredTestimonials.slice(reviewPage * 4, reviewPage * 4 + 4).map((student) => {
+              const sentenceEnd = student.quote.search(/[.!?](?:\s|$)/);
+              const quote = sentenceEnd >= 0 ? student.quote.slice(0, sentenceEnd + 1) : student.quote;
+              const description = sentenceEnd >= 0 ? student.quote.slice(sentenceEnd + 1).trim() : '';
+              return (
+                <TestimonialCard
+                  onReadMore={() => setActiveModalStudent(student)}
+                  key={student.id}
+                  item={{
+                    mediaType: 'image',
+                    quote: `"${quote}"`,
+                    description,
+                    avatar: student.image || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"%3E%3Crect width="48" height="48" fill="%23F1E0E5"/%3E%3Ccircle cx="24" cy="17" r="8" fill="%238B1538"/%3E%3Cpath d="M8 46v-6a16 16 0 0132 0v6" fill="%238B1538"/%3E%3C/svg%3E',
+                    parentRole: student.name,
+                    courseName: student.tag,
+                  }}
+                />
+              );
+            })}
+          </div>
+            </>
+          ) : (
+/* Clean Empty State */
               <div className="col-span-full py-12 px-6 bg-white border border-gray-100 rounded-3xl text-center space-y-3.5 shadow-xs">
                 <div className="w-12 h-12 rounded-full bg-[#8B1538]/10 text-[#8B1538] mx-auto flex items-center justify-center">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -392,13 +373,11 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
                   View All Stories
                 </button>
               </div>
-            )}
-          </div>
-
+          )}
         </div>
       </section>
 
-      <section className="w-full bg-[#FCFCFD]">
+<section className="w-full bg-[#FCFCFD]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ParentVideoSlider
             videos={STUDENT_TESTIMONIALS_DATA.filter((student) => student.image).map((student) => ({
@@ -507,85 +486,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
         </div>
       </section>
 
-      {/* 4. READ FULL STORY MODAL */}
-      {activeModalStudent && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fadeIn"
-          onClick={() => setActiveModalStudent(null)}
-        >
-          <div 
-            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-[#8B1538]/15 space-y-5 max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={() => setActiveModalStudent(null)}
-              aria-label="Close modal"
-              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-[#8B1538] hover:text-white flex items-center justify-center text-gray-500 transition-colors cursor-pointer"
-            >
-              ✕
-            </button>
-
-            {/* Header Profile */}
-            <div className="flex items-center gap-4 border-b border-gray-100 pb-4">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
-                {activeModalStudent.image ? (
-                  <img src={activeModalStudent.image} alt={activeModalStudent.name} className="w-full h-full object-cover object-top scale-110" />
-                ) : (
-                  <FacelessStudentPlaceholder />
-                )}
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#8B1538] bg-[#8B1538]/10 border border-[#8B1538]/15 px-2.5 py-0.5 rounded-full inline-block">
-                    {activeModalStudent.category}
-                  </span>
-                  <StarRating rating={activeModalStudent.rating || 5} />
-                </div>
-                <h3 className="text-xl font-extrabold text-gray-900 tracking-tight">{activeModalStudent.name}</h3>
-                <p className="text-xs font-semibold text-gray-500">{activeModalStudent.tag}</p>
-              </div>
-            </div>
-
-            {/* Full Testimonial Quote */}
-            <div className="relative pt-2">
-              <div className="text-[#8B1538]/15 font-serif text-5xl leading-none absolute -top-3 -left-2 pointer-events-none">“</div>
-              <p className="text-sm text-gray-700 leading-relaxed relative z-10 font-normal italic">
-                {activeModalStudent.quote}
-              </p>
-            </div>
-
-            {/* Achievement Tag if available */}
-            {activeModalStudent.achievement && (
-              <div className="bg-[#FAF2F5] border border-[#8B1538]/15 rounded-2xl p-3.5 flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-white shadow-2xs shrink-0">
-                  <AchievementIcon type={activeModalStudent.achievement.type} />
-                </div>
-                <div>
-                  <span className="block text-[10px] font-extrabold uppercase tracking-widest text-[#8B1538]">
-                    KEY ACHIEVEMENT
-                  </span>
-                  <span className="block text-xs font-bold text-gray-900">
-                    {activeModalStudent.achievement.label}
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {/* Footer Action */}
-            <div className="pt-2 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setActiveModalStudent(null)}
-                className="bg-[#8B1538] hover:bg-[#73152C] text-white font-bold text-xs px-5 py-2.5 rounded-full transition-colors cursor-pointer"
-              >
-                Close Story
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <TestimonialStoryDialog story={activeModalStudent} onClose={() => setActiveModalStudent(null)} />
 
     </div>
   );
