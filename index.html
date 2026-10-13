@@ -2280,7 +2280,7 @@
         id: 's1-1',
         avatar: 'parent-video-1.jpg',
         mediaType: 'image',
-        quote: '"Viskool has helped my daughter become significantly more organized, disciplined, and confident in her studies."',
+        quote: 'Viskool has helped my daughter become significantly more organized, disciplined, and confident in her studies.',
         description: 'The teachers are remarkably approachable and patient. The weekly structured practice sessions, conceptual clarity, and regular mentor feedback have brought a positive shift in her academic performance.',
         parentRole: 'Parent of Class 10 Student',
         courseName: 'CBSE Foundation Course',
@@ -2289,7 +2289,7 @@
         id: 's1-2',
         avatar: 'parent-video-2.jpg',
         mediaType: 'image',
-        quote: '"My son genuinely looks forward to his interactive live classes every single evening now."',
+        quote: 'My son genuinely looks forward to his interactive live classes every single evening now.',
         description: 'The complex concepts in Mathematics and Science are explained with great clarity. The teachers provide dedicated individual attention, which has made a noticeable difference in his problem-solving speed.',
         parentRole: 'Parent of Class 11 Student',
         courseName: 'JEE Preparation Course',
@@ -2298,7 +2298,7 @@
         id: 's1-3',
         avatar: 'parent-video-3.jpg',
         mediaType: 'image',
-        quote: '"The overall learning environment at home has become much more positive, structured, and encouraging."',
+        quote: 'The overall learning environment at home has become much more positive, structured, and encouraging.',
         description: "Viskool's structured live classes and weekly progress reviews have helped my son stay accountable, avoid exam stress, and develop strong independent study habits for his competitive prep.",
         parentRole: 'Parent of Class 12 Student',
         courseName: 'NEET Preparation Course',
@@ -2307,7 +2307,7 @@
         id: 's1-4',
         avatar: 'parent-video-4.jpg',
         mediaType: 'image',
-        quote: '"We\'ve seen a real, lasting improvement in her study consistency and genuine interest in learning."',
+        quote: 'We\'ve seen a real, lasting improvement in her study consistency and genuine interest in learning.',
         description: 'The comprehensive study materials, practice worksheets, and continuous teacher support are excellent. She now approaches tests with a calm, well-prepared, and self-assured mindset.',
         parentRole: 'Parent of Class 9 Student',
         courseName: 'CBSE Foundation Course',
@@ -2319,7 +2319,7 @@
         id: 's2-1',
         avatar: 'parent-video-5.jpg',
         mediaType: 'none',
-        quote: '"Viskool\'s holistic approach to school academics completely transformed our routine. The structured daily practice and patient mentorship helped my daughter build genuine interest in her studies without any exam stress."',
+        quote: 'Viskool\'s holistic approach to school academics completely transformed our routine. The structured daily practice and patient mentorship helped my daughter build genuine interest in her studies without any exam stress.',
         description: 'We appreciate how accessible teachers are whenever she has doubts. It feels like having a dedicated mentor right at home guiding her through every subject.',
         parentRole: 'Parent of Class 8 Student',
         courseName: 'CBSE All-Subjects Foundation',
@@ -2330,7 +2330,7 @@
         mediaType: 'video',
         image: 'parent-card-father-son.jpg',
         videoDuration: '01:45',
-        quote: '"Watch how Viskool helped our son crack JEE with 1-on-1 mentorship and weekly mock analytics."',
+        quote: 'Watch how Viskool helped our son crack JEE with 1-on-1 mentorship and weekly mock analytics.',
         description: 'Hear directly from Mr. Suresh about his son\'s journey from Class 11 core concepts to achieving a top percentile in competitive national test preparation.',
         parentRole: 'Parent of Class 12 JEE Aspirant',
         courseName: 'JEE Main & Advanced Mentorship',
@@ -2339,7 +2339,7 @@
         id: 's2-3',
         avatar: 'parent-video-1.jpg',
         mediaType: 'image',
-        quote: '"Viskool has been wonderful for my daughter. Her confidence in Mathematics has improved so much in just two months!"',
+        quote: 'Viskool has been wonderful for my daughter. Her confidence in Mathematics has improved so much in just two months!',
         description: 'The interactive live sessions, step-by-step problem breakdown, and patient teaching style made learning enjoyable, clear, and thoroughly engaging.',
         parentRole: 'Parent of Class 7 Student',
         courseName: 'Middle School Mathematics',
@@ -2348,7 +2348,7 @@
         id: 's2-4',
         avatar: 'parent-video-2.jpg',
         mediaType: 'image',
-        quote: '"When my son started preparing for Class 12 board exams and NEET, we were overwhelmed by the vast syllabus and pressure. Viskool transformed his routine completely."',
+        quote: 'When my son started preparing for Class 12 board exams and NEET, we were overwhelmed by the vast syllabus and pressure. Viskool transformed his routine completely.',
         description: 'The continuous performance reports and personal mentor calls kept us informed every week, allowing us to support his goals effectively and calmly.',
         parentRole: 'Parent of Class 12 NEET Aspirant',
         courseName: 'NEET Biology & Chemistry Intensive',
@@ -2398,14 +2398,7 @@
               </div>
 
               {/* Right Header Chip */}
-              {isVideo ? (
-                <div className="inline-flex items-center gap-1 bg-[#8B1538] hover:bg-[#73152C] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs transition-colors">
-                  <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  <span>Watch Video ({item.videoDuration || '01:45'})</span>
-                </div>
-              ) : (
+              {isVideo ? null : (
                 <div className="inline-flex items-center gap-0.5 text-[#F5BA31] text-[10px] sm:text-xs font-bold bg-[#FAF2F5] border border-[#8B1538]/10 px-2 py-0.5 rounded-full">
                   <span>★</span>
                   <span>★</span>
@@ -3053,7 +3046,7 @@ const TestimonialStoryDialog = ({ story, onClose }) => {
                   <TestimonialCardItem 
                     key={item.id} 
                     item={item}
-                    onReadMore={() => setActiveStory({ image: item.avatar, name: item.parentRole, tag: item.courseName, category: 'Parent Testimonial', quote: [item.quote, item.description].filter(Boolean).join('\n\n') })}
+                    onReadMore={() => setActiveStory({ image: item.avatar, name: item.parentRole, tag: item.courseName, category: 'Parent Testimonial', quote: [item.quote, item.description].filter(Boolean).join(' ') })}
                     onPlayVideo={(v) => setActiveVideo(v)} 
                   />
                 ))}
