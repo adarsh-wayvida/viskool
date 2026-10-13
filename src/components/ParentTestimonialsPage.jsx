@@ -450,14 +450,13 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
 // Clean, Content-Led Section-Isolated Testimonial Card Component
 export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
   const quoteRef = React.useRef(null);
-  const descriptionRef = React.useRef(null);
   const [isTruncated, setIsTruncated] = useState(false);
   React.useEffect(() => {
     if (!onReadMore) return;
-    const checkOverflow = () => setIsTruncated([quoteRef.current, descriptionRef.current].some((element) => element && element.scrollHeight > element.clientHeight + 1));
+    const checkOverflow = () => setIsTruncated([quoteRef.current].some((element) => element && element.scrollHeight > element.clientHeight + 1));
     checkOverflow();
     const observer = new ResizeObserver(checkOverflow);
-    [quoteRef.current, descriptionRef.current].forEach((element) => element && observer.observe(element));
+    [quoteRef.current].forEach((element) => element && observer.observe(element));
     document.fonts.ready.then(checkOverflow);
     return () => observer.disconnect();
   }, [item.quote, item.description, onReadMore]);
@@ -466,7 +465,8 @@ export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
 
   return (
     <div
-      className={`bg-white border border-gray-100 hover:border-[#8B1538]/20 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-200 relative overflow-hidden h-full group ${
+      style={{ fontFamily: 'Inter, sans-serif' }}
+      className={`not-italic bg-white border border-gray-100 hover:border-[#8B1538]/20 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-200 relative overflow-hidden h-full group ${
         onReadMore || isVideo ? 'cursor-pointer' : ''
       }`}
       role={onReadMore ? 'button' : undefined}
@@ -509,15 +509,9 @@ export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
 
         {/* Quote & Description Content */}
         <div className="space-y-1 pt-0.5">
-          <p ref={quoteRef} className={`text-xs sm:text-sm font-semibold text-gray-900 leading-snug font-serif italic ${onReadMore ? 'line-clamp-2' : ''}`}>
-            {item.quote}
+          <p style={{ fontFamily: 'Inter, sans-serif' }} ref={quoteRef} className={`text-[15px] text-[#2B2B2B] leading-[1.5] font-normal not-italic ${onReadMore ? 'line-clamp-5' : ''}`}>
+            {[item.quote, item.description].filter(Boolean).join(' ')}
           </p>
-          
-          {item.description && (
-            <p ref={descriptionRef} className={`text-[11px] sm:text-xs text-gray-600 leading-relaxed font-normal ${onReadMore ? 'line-clamp-3' : ''}`}>
-              {item.description}
-            </p>
-          )}
         </div>
 
       </div>
@@ -537,11 +531,11 @@ export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover object-top shrink-0 border border-[#8B1538]/10"
           />
           <div className="min-w-0">
-            <div className="text-[11px] sm:text-xs font-semibold text-gray-900 font-serif italic">
+            <div style={{ fontFamily: 'Inter, sans-serif' }} className="text-[14px] font-semibold text-gray-900 not-italic">
               — {item.parentRole}
             </div>
             {item.courseName && (
-              <div className="text-[10px] sm:text-[11px] text-gray-500 font-normal italic mt-0.5">
+              <div style={{ fontFamily: 'Inter, sans-serif' }} className="text-[13px] text-gray-500 font-normal not-italic mt-0.5">
                 {item.courseName}
               </div>
             )}
