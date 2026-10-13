@@ -141,7 +141,7 @@ export const PARENT_VIDEOS_DATA = [
   },
 ];
 
-export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false }) => {
+export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = PARENT_VIDEOS_DATA, audience = 'Parents' }) => {
   const sliderRef = React.useRef(null);
   const autoplayTimerRef = React.useRef(null);
   const resumeTimerRef = React.useRef(null);
@@ -325,7 +325,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false }) => {
           <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
             Hear It From the{' '}
             <span className="font-serif italic text-[#8B1538] font-bold">
-              Parents
+              {audience}
             </span>
           </h3>
           <p className="text-xs sm:text-sm text-gray-600 font-normal pt-1">
@@ -374,7 +374,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false }) => {
         }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {PARENT_VIDEOS_DATA.map((video) => (
+        {videos.map((video) => (
           <div
             key={video.id}
             onClick={() => onPlayVideo && onPlayVideo(video)}
