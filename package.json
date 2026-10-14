@@ -14,7 +14,6 @@
     "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true}); console.log('removed .next')\"",
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/print-e2e-hints.mjs",
     "start": "next start",
     "build:dev": "next build",
     "lint": "eslint .",
