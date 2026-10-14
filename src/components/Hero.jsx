@@ -69,14 +69,14 @@ export const ALL_HERO_SLIDES = [
       hasPhoneIcon: true,
     },
     ctaSecondary: null,
-    image: 'pexels-tiger-lily-7108590 (2).jpg', // Provided background image covering entire banner
+    image: '/banner-3.webp', // Provided background image covering entire banner
     overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent', // Smooth left dark overlay fading right
   },
   {
     id: 4,
     isReady: true,
     video: null,
-    image: null,
+    image: '/banner-4.webp',
     badge: 'COMPETITIVE EXAMS',
     theme: 'dark',
     heading: 'Expert Coaching for NEET, JEE, PSC & High Court Assistant Success',
@@ -85,7 +85,7 @@ export const ALL_HERO_SLIDES = [
       'Entrance Coaching · NEET/JEE',
       'Kerala PSC & Government Exams',
     ],
-    overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/25',
+    overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent',
     ctaPrimary: {
       label: 'Book a Free Demo',
       type: 'demo',

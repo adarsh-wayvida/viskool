@@ -1,3 +1,6 @@
+import tailwindcssAnimate from 'tailwindcss-animate';
+import tailwindTypography from '@tailwindcss/typography';
+
 export default {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -58,7 +61,7 @@ export default {
     }
   },
   plugins: [
-    require('tailwindcss-animate'),
-    require('@tailwindcss/typography')
+    tailwindcssAnimate,
+    tailwindTypography
   ],
 }
