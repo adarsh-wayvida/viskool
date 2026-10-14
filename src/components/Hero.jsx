@@ -31,12 +31,12 @@ export const ALL_HERO_SLIDES = [
     image: 'pexels-julia-m-cameron-4144295 (1).jpg',
     badge: 'TUITION',
     theme: 'dark',
-    heading: 'The Complete Learning Partner for Academic Excellence & Competitive Exam Success',
-    subheading: 'Get top-tier school tuition for Grades 5–12, expert NEET/JEE, PSC and High Court Assistant coaching, along with fluent English training—all under one roof.',
+    heading: 'Complete Learning Partner for School Academic Excellence',
+    subheading: 'Get expert one-to-one school tuition for Grades 5–12 across Kerala State, CBSE, ICSE, and IGCSE.',
     chips: [
-      'School Tuition · Grades 5–12',
-      'NEET/JEE · PSC · High Court Assistant',
-      'English Grammar & Spoken English',
+      'All Subjects · Grades 5–12',
+      'CBSE · ICSE · STATE · IGCSE',
+      'Doubt Clearing & Regular Tests',
     ],
     overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/25',
     ctaPrimary: {
@@ -74,7 +74,28 @@ export const ALL_HERO_SLIDES = [
   },
   {
     id: 4,
-    isReady: false, // Reserved Banner 4
+    isReady: true,
+    video: null,
+    image: null,
+    badge: 'COMPETITIVE EXAMS',
+    theme: 'dark',
+    heading: 'Expert Coaching for NEET, JEE, PSC & High Court Assistant Success',
+    subheading: 'Expert mentors, regular practice tests, and personal guidance at every step. Walk into the exam with confidence.',
+    chips: [
+      'Entrance Coaching · NEET/JEE',
+      'Kerala PSC & Government Exams',
+    ],
+    overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/25',
+    ctaPrimary: {
+      label: 'Book a Free Demo',
+      type: 'demo',
+      source: 'Hero Banner 4',
+    },
+    ctaSecondary: {
+      label: 'Talk to an Expert',
+      type: 'contact',
+      source: 'Hero Banner 4 - Request Free Assessment',
+    },
   },
   {
     id: 5,
