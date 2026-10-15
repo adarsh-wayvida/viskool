@@ -103,6 +103,7 @@ export const FEATURED_COURSES = [
     originalPrice: '₹45,000',
     isPremium: true,
     isLive: false,
+    category: 'Upskill Programs',
   },
   {
     id: 'course-2',
@@ -112,6 +113,7 @@ export const FEATURED_COURSES = [
     originalPrice: '₹2,000',
     isPremium: true,
     isLive: true,
+    category: 'Upskill Programs',
   },
   {
     id: 'course-3',
@@ -121,6 +123,16 @@ export const FEATURED_COURSES = [
     originalPrice: '₹12,000',
     isPremium: true,
     isLive: true,
+    category: 'School',
+  },
+  {
+    id: 'course-temp-1',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+    title: 'Data Analytics Mastery',
+    price: '₹7,000',
+    isPremium: true,
+    isLive: true,
+    category: 'Upskill Programs',
   },
 ];
 
@@ -153,40 +165,20 @@ export const BENEFITS = [
 
 export const FAQS = [
   {
-    question: 'Which subjects and boards do you cover for NEET, JEE, or school tuitions?',
-    answer: 'Viskool covers all major national and state boards including CBSE, ICSE, IGCSE, IB, and State Boards from Class 1 through Class 12. For competitive exams, we offer dedicated high-yield modules in Physics, Chemistry, Biology (Botany & Zoology), and Mathematics for NEET, JEE Main/Advanced, and KEAM.',
+    question: 'How are Viskool classes conducted?',
+    answer: 'We conduct interactive live online sessions with real-time screen sharing, live chat for doubt resolution, and recorded session access for revision.',
   },
   {
-    question: 'What is the qualification and selection process of tutors at Viskool?',
-    answer: 'Every tutor undergoes a rigorous 4-stage vetting process including background verification, subject-matter expertise testing, pedagogical evaluation, and interactive demo class assessments. Only the top 3% of educator applicants are onboarded.',
+    question: 'Can I request a free demo class before enrolling?',
+    answer: 'Absolutely! You can book a free demo session or student assessment for any course by clicking the “Book a Free Demo” button.',
   },
   {
-    question: 'What makes Viskool’s 1-on-1 and batch classes unique?',
-    answer: 'Viskool combines personalized learning paths with live interactive digital whiteboards, customized pace matching, instant real-time doubt resolution, and periodic progress reports shared directly with parents.',
+    question: 'How do you track student progress?',
+    answer: 'We provide weekly assessment tests, automated performance dashboards, and monthly parent–mentor review meetings to ensure continuous progress.',
   },
   {
-    question: 'Are upskilling and IT courses beginner-friendly?',
-    answer: 'Yes! Our career upskilling courses (including Power BI, Python, Data Analytics, Full Stack Web Development, and Digital Marketing) are designed with a zero-to-hero curriculum featuring practical hands-on projects and portfolio reviews.',
-  },
-  {
-    question: 'What devices and software do I need to attend classes?',
-    answer: 'You can join classes using any standard laptop, desktop computer, tablet, or smartphone with an active internet connection. All sessions run seamlessly inside modern web browsers with no complex software installation required.',
-  },
-  {
-    question: 'Do you provide study materials, mock tests, and revision notes?',
-    answer: 'Yes, all enrolled students receive comprehensive digital study materials, topic-wise practice question banks, chapter revision flashcards, and regular mock exams with detailed AI-driven performance breakdowns.',
-  },
-  {
-    question: 'How do I enroll or book a free demo session?',
-    answer: 'Simply click "Book Free Demo" or "Get In Touch", select your grade and target subject, and our academic advisor will schedule a complimentary 1-on-1 trial class at your preferred time slot.',
-  },
-  {
-    question: 'What is the typical class timing and schedule flexibility?',
-    answer: 'We offer highly flexible class timings including early morning, evening, and weekend batches to ensure classes do not clash with school or college hours.',
-  },
-  {
-    question: 'What makes Viskool different from other edtech platforms?',
-    answer: 'Unlike automated pre-recorded platforms, Viskool focuses on genuine human connection: 100% live interactive teaching, empathetic mentorship, small batch sizes, and continuous one-on-one accountability tracking.',
+    question: 'Do you offer placement support for professional upskilling courses?',
+    answer: 'Yes! Our career programs include résumé building, portfolio creation, mock interviews, and direct referral connections to hiring partners.',
   },
 ];
 

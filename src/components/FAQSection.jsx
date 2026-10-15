@@ -10,7 +10,7 @@ export const FAQSection = ({ faqs, onActionClick }) => {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white relative">
+    <section className="py-10 lg:py-14 bg-white relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -21,10 +21,6 @@ export const FAQSection = ({ faqs, onActionClick }) => {
               Answers
             </span>
           </h2>
-
-          <p className="text-gray-600 text-sm sm:text-base">
-            Find everything you need to know about our courses, tutors, and learning platform.
-          </p>
         </div>
 
         {/* Accordion Container */}

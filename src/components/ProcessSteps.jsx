@@ -3,7 +3,7 @@ import React from 'react';
 
 export const ProcessSteps = ({ steps, onActionClick }) => {
   return (
-    <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section className="pt-16 pb-10 lg:pt-24 lg:pb-16 bg-white relative overflow-hidden">
       
       {/* Decorative Sparkles Top Right */}
       <div className="absolute top-8 right-12 text-[#8B1538]/30 text-3xl pointer-events-none select-none">
@@ -30,14 +30,9 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
           Master your goals with live and recorded classes taught by expert educators. Whether you are aiming for top marks in school, clearing competitive exams like NEET, JEE, KEAM and PSC, or advancing your career, Viskool delivers structured learning and personal guidance to ensure your success.
         </p>
 
-        {/* Sub-tagline with Burgundy Accent */}
-        <p className="text-sm sm:text-base md:text-[17px] font-medium text-[#8B1538] tracking-normal mb-14 sm:mb-16">
-          Explore Courses. Enroll with Confidence. Learn with Results.
-        </p>
 
-        {/* Featured in Media - Placeholders */}
         <div className="mt-8 sm:mt-10 mb-2">
-          <h3 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#242424] leading-[1.3] tracking-normal mb-8">
+          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-4">
             Featured in Leading Media Platforms
           </h3>
           <div className="relative overflow-hidden group">

@@ -150,7 +150,7 @@ export const PARENT_VIDEOS_DATA = [
   },
 ];
 
-export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = PARENT_VIDEOS_DATA, audience = 'Parents' }) => {
+export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = PARENT_VIDEOS_DATA, audience = 'Parents', title, subtitle, hideLabel, onViewAll, centerHeader = false, containerClassName = "py-8 sm:py-10 my-6" }) => {
   const sliderRef = React.useRef(null);
   const autoplayTimerRef = React.useRef(null);
   const resumeTimerRef = React.useRef(null);
@@ -322,66 +322,74 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
   };
 
   return (
-    <div className="w-full py-8 sm:py-10 border-t border-b border-gray-100 my-6">
+    <div className={`w-full ${containerClassName} border-t border-b border-gray-100`}>
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-6 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-1.5 bg-[#8B1538]/10 border border-[#8B1538]/15 px-3 py-0.5 rounded-full mb-2">
-            <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8B1538]">
-              VIDEO STORIES
-            </span>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            Hear It From the{' '}
-            <span className="font-serif italic text-[#8B1538] font-bold">
-              {audience}
-            </span>
-          </h3>
-          <p className="text-xs sm:text-sm text-gray-600 font-normal pt-1">
-            Real experiences, shared in their own words.
+      <div className={`flex flex-col ${centerHeader ? 'gap-3' : 'sm:flex-row items-start sm:items-end justify-between gap-4'} mb-4 sm:mb-5`}>
+        <div className={centerHeader ? 'flex flex-col items-center text-center w-full' : ''}>
+          {!hideLabel && (
+            <div className="inline-flex items-center gap-1.5 bg-[#8B1538]/10 border border-[#8B1538]/15 px-3 py-0.5 rounded-full mb-2">
+              <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8B1538]">
+                VIDEO STORIES
+              </span>
+            </div>
+          )}
+          {title ? (
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-gray-900 tracking-tight mb-2">
+              {title}
+            </h2>
+          ) : (
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+              Hear It From the{' '}
+              <span className="font-serif italic text-[#8B1538] font-bold">
+                {audience}
+              </span>
+            </h3>
+          )}
+          <p className={`text-xs sm:text-sm lg:text-base text-gray-600 font-normal pt-1 ${centerHeader ? 'max-w-2xl' : 'max-w-xl'}`}>
+            {subtitle || 'Real experiences, shared in their own words.'}
           </p>
-        </div>
-
-        {/* Navigation Arrow Controls */}
-        <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-auto">
-          <button
-            type="button"
-            onClick={() => scroll('left')}
-            aria-label="Scroll left video testimonials"
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs bg-[#8B1538] hover:bg-[#73152C] text-white active:scale-95"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scroll('right')}
-            aria-label="Scroll right video testimonials"
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs bg-[#8B1538] hover:bg-[#73152C] text-white active:scale-95"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
         </div>
       </div>
 
       {/* Video Cards Horizontal Slider Container */}
-      <div
-        ref={sliderRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        className={`flex items-center gap-4 sm:gap-5 overflow-x-auto scrollbar-none pb-3 select-none ${
-          isDragging ? 'cursor-grabbing' : 'cursor-grab'
-        }`}
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      <div className="relative group/slider px-4 sm:px-8">
+        {/* Left Navigation Arrow */}
+        <button
+          type="button"
+          onClick={() => scroll('left')}
+          aria-label="Scroll left video testimonials"
+          className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg bg-white border border-gray-100 text-[#8B1538] hover:bg-[#8B1538] hover:text-white hover:border-[#8B1538] active:scale-95 disabled:opacity-0"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Right Navigation Arrow */}
+        <button
+          type="button"
+          onClick={() => scroll('right')}
+          aria-label="Scroll right video testimonials"
+          className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg bg-white border border-gray-100 text-[#8B1538] hover:bg-[#8B1538] hover:text-white hover:border-[#8B1538] active:scale-95 disabled:opacity-0"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <div
+          ref={sliderRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          className={`flex items-center gap-4 sm:gap-5 overflow-x-auto scrollbar-none pb-4 pt-2 px-1 sm:px-2 select-none ${
+            isDragging ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {videos.map((video) => (
           <div
@@ -407,13 +415,6 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
               </div>
             </div>
 
-            {/* Top-Left Social/Video Badge Icon */}
-            <div className="absolute top-3 left-3 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
-              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-            </div>
-
             {/* Top-Right Duration Pill Badge */}
             <div className="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md text-[10px] font-medium text-white/90 border border-white/10">
               {video.duration || '01:45'}
@@ -428,12 +429,12 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
               </div>
             </div>
 
-            {/* Bottom Gradient Card Info Overlay */}
-            <div className="absolute inset-x-0 bottom-0 z-10 p-3.5 sm:p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end pt-12">
-              <h4 className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-snug drop-shadow-xs">
+            {/* Bottom Gradient Card Info Overlay - Strengthened background */}
+            <div className="absolute inset-x-0 bottom-0 z-10 p-3.5 sm:p-4 bg-gradient-to-t from-black/90 via-black/80 to-transparent flex flex-col justify-end pt-20">
+              <h4 className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-snug drop-shadow-md">
                 {video.name}
               </h4>
-              <p className="text-[11px] sm:text-xs text-gray-200/90 font-medium mt-0.5 line-clamp-1 drop-shadow-xs">
+              <p className="text-[11px] sm:text-xs text-gray-200/90 font-medium mt-0.5 line-clamp-1 drop-shadow-md">
                 {video.tagline}
               </p>
               <span className="text-[10px] text-[#F8DFE6] font-semibold mt-1 inline-block opacity-90">
@@ -443,6 +444,20 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
           </div>
         ))}
       </div>
+      </div>
+
+      {/* Bottom Centered CTA */}
+      {onViewAll && (
+        <div className="flex justify-center mt-8 sm:mt-10">
+          <button
+            type="button"
+            onClick={onViewAll}
+            className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold text-gray-900 bg-[#F5BA31] hover:bg-[#F4B41A] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer"
+          >
+            View All
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -525,7 +540,7 @@ export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
           />
           <div className="min-w-0">
             <div style={{ fontFamily: 'Inter, sans-serif' }} className="text-[14px] font-semibold text-gray-900 not-italic">
-              — {item.parentRole}
+              {item.parentRole}
             </div>
             {item.courseName && (
               <div style={{ fontFamily: 'Inter, sans-serif' }} className="text-[13px] text-gray-500 font-normal not-italic mt-0.5">

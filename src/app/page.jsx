@@ -16,6 +16,9 @@ import { Hero } from '../components/Hero.jsx';
 import { ProcessSteps } from '../components/ProcessSteps.jsx';
 import { CourseSection } from '../components/CourseSection.jsx';
 import { WhyChooseUs } from '../components/WhyChooseUs.jsx';
+import { Statistics } from '../components/Statistics.jsx';
+import { HomeParentVideoTestimonials } from '../components/HomeParentVideoTestimonials.jsx';
+import { HomeStudentTestimonials } from '../components/HomeStudentTestimonials.jsx';
 import { SuccessCTA } from '../components/SuccessCTA.jsx';
 import { FAQSection } from '../components/FAQSection.jsx';
 import { Achievements } from '../components/Achievements.jsx';
@@ -50,6 +53,13 @@ export default function HomePage() {
         steps={PROCESS_STEPS} 
         onActionClick={handleActionClick}
       />
+      <WhyChooseUs 
+        benefits={BENEFITS} 
+        onActionClick={handleActionClick}
+      />
+      <Statistics />
+      <HomeParentVideoTestimonials />
+      <HomeStudentTestimonials />
       <CourseSection 
         categories={COURSE_CATEGORIES}
         courses={FEATURED_COURSES}
@@ -57,8 +67,8 @@ export default function HomePage() {
         onEnrollCourse={handleEnrollCourse}
         onActionClick={handleActionClick}
       />
-      <WhyChooseUs 
-        benefits={BENEFITS} 
+      <FAQSection 
+        faqs={FAQS} 
         onActionClick={handleActionClick}
       />
       <SuccessCTA 
@@ -74,10 +84,6 @@ export default function HomePage() {
       />
       <LearningJourneyForm 
         onSubmitSuccess={showToast}
-      />
-      <FAQSection 
-        faqs={FAQS} 
-        onActionClick={handleActionClick}
       />
     </>
   );

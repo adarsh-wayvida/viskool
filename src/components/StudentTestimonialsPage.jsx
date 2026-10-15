@@ -11,7 +11,7 @@ const CATEGORIES = [
   'Career Upskilling',
 ];
 
-const STUDENT_TESTIMONIALS_DATA = [
+export const STUDENT_TESTIMONIALS_DATA = [
   {
     id: 'st-1',
     name: 'Ananya S.',
