@@ -17,13 +17,13 @@ export const Statistics = () => {
     {
       value: "65%",
       title: "Career & Score Growth",
-      subtitle: "AVERAGE SALARY HIKE / RANK BOOST",
+      subtitle: "SALARY HIKE / RANK BOOST",
       bgColor: "bg-[#F5F2F8]" // Pale muted lavender
     },
     {
       value: "4.9/5 ★",
       title: "Rated Across Programs",
-      subtitle: "PARENT & STUDENT SATISFACTION",
+      subtitle: "PARENT & STUDENT RATING",
       bgColor: "bg-[#FCF5F0]" // Pale warm apricot
     }
   ];
@@ -56,7 +56,7 @@ export const Statistics = () => {
               <div className="text-[#1A1A1A] text-[15px] sm:text-base font-bold leading-snug mb-2.5 relative z-10">
                 {stat.title}
               </div>
-              <div className="text-[#666666] text-[11px] font-bold tracking-widest uppercase relative z-10">
+              <div className="text-[#666666] text-[11px] font-bold tracking-widest uppercase relative z-10 lg:whitespace-nowrap">
                 {stat.subtitle}
               </div>
             </div>

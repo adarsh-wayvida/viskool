@@ -69,9 +69,9 @@ export const LearningJourneyForm = ({ onSubmitSuccess }) => {
         
         {/* Section Heading */}
         <div className="text-center mb-8 sm:mb-10 max-w-3xl mx-auto">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-4 sm:mb-5">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5">
             Ready to Transform Your
-            <span className="block text-[#8B1538] italic mt-1 md:mt-2">
+            <span className="block text-[#8B1538] italic mt-1 md:mt-2 leading-[1.2]">
               Academic & Professional Journey?
             </span>
           </h2>

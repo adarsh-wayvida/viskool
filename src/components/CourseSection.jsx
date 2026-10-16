@@ -13,8 +13,8 @@ export const CourseSection = ({ courses, onSelectCourse, onEnrollCourse, onActio
         
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-8 sm:whitespace-nowrap">
-            Explore Our <span className="text-[#8B1538] italic">Top-Rated Programs</span>
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8 sm:whitespace-nowrap">
+            Explore Our <span className="text-[#8B1538] italic leading-[1.2]">Top-Rated Programs</span>
           </h2>
 
           {/* Filter Chips */}

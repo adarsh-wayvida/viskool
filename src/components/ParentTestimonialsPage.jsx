@@ -334,7 +334,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
             </div>
           )}
           {title ? (
-            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-2">
+            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-2">
               {title}
             </h2>
           ) : (

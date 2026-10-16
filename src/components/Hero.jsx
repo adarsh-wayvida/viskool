@@ -63,12 +63,15 @@ export const ALL_HERO_SLIDES = [
       'Data Analytics',
     ],
     ctaPrimary: {
+      label: 'Book a Free Demo',
+      type: 'demo',
+      source: 'Hero Banner 3',
+    },
+    ctaSecondary: {
       label: 'Talk to an Expert',
       type: 'contact',
       source: 'Hero Banner 3',
-      hasPhoneIcon: true,
     },
-    ctaSecondary: null,
     image: '/banner-3.webp', // Provided background image covering entire banner
     overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent', // Smooth left dark overlay fading right
   },
@@ -79,11 +82,11 @@ export const ALL_HERO_SLIDES = [
     image: '/banner-4.webp',
     badge: 'COMPETITIVE EXAMS',
     theme: 'dark',
-    heading: 'Expert Coaching for NEET, JEE, PSC & High Court Assistant Success',
+    heading: 'Expert Coaching for NEET, JEE & High Court Assistant Success',
     subheading: 'Expert mentors, regular practice tests, and personal guidance at every step. Walk into the exam with confidence.',
     chips: [
       'Entrance Coaching · NEET/JEE',
-      'Kerala PSC & Government Exams',
+      'Government Exams',
     ],
     overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent',
     ctaPrimary: {
@@ -275,7 +278,7 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
 
             {/* Headline (Stagger 2) */}
             <div className="animate-banner-stagger-2">
-              <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-[38px] font-extrabold tracking-tight leading-[1.2] max-w-[360px] sm:max-w-[540px] md:max-w-[620px] ${
+              <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-[38px] font-extrabold tracking-tight !leading-[1.2] max-w-[360px] sm:max-w-[540px] md:max-w-[620px] ${
                 isLight ? 'text-[#1A030C]' : 'text-white drop-shadow-md'
               }`}>
                 {slide.heading}
