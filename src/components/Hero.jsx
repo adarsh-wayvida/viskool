@@ -298,11 +298,9 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
                   <span 
                     key={idx}
                     className={`inline-block font-semibold text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full transition-all duration-200 ${
-                      slide.id === 3
-                        ? 'bg-white/90 backdrop-blur-md text-[#73152C] border border-[#8B1538]/25 shadow-sm hover:shadow-md'
-                        : isLight 
-                          ? 'bg-[#8B1538]/8 text-[#73152C] border border-[#8B1538]/15 shadow-xs' 
-                          : 'bg-white/15 backdrop-blur-md border border-white/20 text-white shadow-xs'
+                      isLight 
+                        ? 'bg-[#8B1538]/8 text-[#73152C] border border-[#8B1538]/15 shadow-xs' 
+                        : 'bg-white/15 backdrop-blur-md border border-white/20 text-white shadow-xs'
                     }`}
                   >
                     {chip}

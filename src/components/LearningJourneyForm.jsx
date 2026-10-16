@@ -68,13 +68,16 @@ export const LearningJourneyForm = ({ onSubmitSuccess }) => {
       <div className="max-w-4xl mx-auto">
         
         {/* Section Heading */}
-        <div className="text-center mb-8 sm:mb-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-            Start your{' '}
-            <span className="italic text-[#8B1538] font-extrabold">
-              Learning Journey
+        <div className="text-center mb-8 sm:mb-10 max-w-3xl mx-auto">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-4 sm:mb-5">
+            Ready to Transform Your
+            <span className="block text-[#8B1538] italic mt-1 md:mt-2">
+              Academic & Professional Journey?
             </span>
           </h2>
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Join thousands of successful learners today. Book your free counselling session now!
+          </p>
         </div>
 
         {/* Form Card */}
@@ -223,3 +226,4 @@ export const LearningJourneyForm = ({ onSubmitSuccess }) => {
     </section>
   );
 };
+

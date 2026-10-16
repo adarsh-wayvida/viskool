@@ -27,9 +27,9 @@ export const HomeParentVideoTestimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ParentVideoSlider 
           title={
-            <span className="text-[#0f172a] font-extrabold tracking-tight text-3xl sm:text-4xl lg:text-[40px]">
-              Hear What Parents <span className="italic font-extrabold text-[#0f172a]">Have to Say</span>
-            </span>
+            <>
+              Hear What Parents <span className="text-[#8B1538] italic">Have to Say</span>
+            </>
           }
           subtitle={
             <span className="text-gray-500 text-sm sm:text-base font-medium">

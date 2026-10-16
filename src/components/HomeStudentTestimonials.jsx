@@ -196,8 +196,8 @@ export const HomeStudentTestimonials = () => {
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-gray-900 tracking-tight mb-8">
-              Inspiring Journeys from Our Classrooms to <span className="text-[#8B1538]">Top Careers</span>
+            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-8">
+              Inspiring Journeys from Our Classrooms to <span className="text-[#8B1538] italic">Top Careers</span>
             </h2>
 
             <div className="mt-2">
@@ -273,3 +273,4 @@ export const HomeStudentTestimonials = () => {
     </section>
   );
 };
+

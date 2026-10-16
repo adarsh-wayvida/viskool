@@ -13,14 +13,14 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Main Section Headline - Exact 2-Line Structure */}
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-[34px] font-bold italic tracking-tight leading-snug max-w-6xl mx-auto mb-6 text-[#1A1A1A]">
+        <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight max-w-6xl mx-auto mb-6">
           <span className="block">
             India’s Online Learning & Education Platform for{' '}
-            <span className="text-[#8B1538]">
+            <span className="text-[#8B1538] italic">
               School Tuition,
             </span>
           </span>
-          <span className="text-[#8B1538] block mt-1 sm:mt-2">
+          <span className="text-[#8B1538] italic block mt-1 sm:mt-2">
             NEET, JEE, KEAM, PSC &amp; Career Upskilling
           </span>
         </h2>
@@ -64,3 +64,4 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
     </section>
   );
 };
+

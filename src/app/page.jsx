@@ -71,17 +71,6 @@ export default function HomePage() {
         faqs={FAQS} 
         onActionClick={handleActionClick}
       />
-      <SuccessCTA 
-        onOpenContact={handleOpenContact}
-      />
-      <Achievements 
-        achievements={ACHIEVEMENTS} 
-        onActionClick={handleActionClick}
-      />
-      <Testimonials 
-        testimonials={TESTIMONIALS} 
-        onActionClick={handleActionClick}
-      />
       <LearningJourneyForm 
         onSubmitSuccess={showToast}
       />

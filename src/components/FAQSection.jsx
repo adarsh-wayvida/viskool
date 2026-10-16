@@ -10,14 +10,14 @@ export const FAQSection = ({ faqs, onActionClick }) => {
   };
 
   return (
-    <section className="py-10 lg:py-14 bg-white relative">
+    <section className="py-6 lg:py-10 bg-white relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+        <div className="text-center mb-8">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-3">
             Got Questions? We've Got{' '}
-            <span className="font-serif italic text-[#8B1538] font-bold">
+            <span className="text-[#8B1538] italic">
               Answers
             </span>
           </h2>
@@ -75,3 +75,4 @@ export const FAQSection = ({ faqs, onActionClick }) => {
     </section>
   );
 };
+

@@ -36,8 +36,8 @@ export const WhyChooseUs = ({ onActionClick }) => {
           <div className="w-full lg:w-[57%] flex flex-col justify-center">
             
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#1A1A1A] leading-[1.25] tracking-tight mb-5">
-              <span className="text-[#8B1538]">Viskool</span>: Where Personal Mentorship Meets Proven Success
+            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.25] md:leading-[1.2] tracking-tight mb-5">
+              <span className="text-[#8B1538] italic">Viskool</span>: Where Personal Mentorship Meets Proven Success
             </h2>
 
             {/* Description */}
@@ -77,3 +77,4 @@ export const WhyChooseUs = ({ onActionClick }) => {
     </section>
   );
 };
+
