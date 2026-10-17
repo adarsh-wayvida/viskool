@@ -29,6 +29,7 @@ export const ALL_HERO_SLIDES = [
     isReady: true,
     video: null,
     image: '/banner-student-banner3-style-black-left.webp',
+    imagePosition: 'object-top',
     badge: 'TUITION',
     theme: 'dark',
     heading: 'Complete Learning Partner for School Academic Excellence',
@@ -242,7 +243,7 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
               key={slide.id}
               src={slide.image} 
               alt={slide.heading}
-              className="hero-background-image w-full h-full object-cover object-center transition-opacity duration-700"
+              className={`hero-background-image w-full h-full object-cover transition-opacity duration-700 ${slide.imagePosition || 'object-center'}`}
             />
           ) : (
             /* Static Base Viskool Gradient Background */
