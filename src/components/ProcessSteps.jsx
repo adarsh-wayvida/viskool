@@ -17,7 +17,7 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
           <span className="block lg:whitespace-nowrap">
             India’s Online Learning & Education Platform for
           </span>
-          <span className="text-[#8B1538] italic block mt-1 sm:mt-2 lg:whitespace-nowrap leading-[1.2]">
+          <span className="text-[#8B1538] block mt-1 sm:mt-2 lg:whitespace-nowrap leading-[1.2]">
             School Tuition, NEET, JEE, KEAM, PSC &amp; Career Upskilling
           </span>
         </h2>

@@ -103,7 +103,28 @@ export const ALL_HERO_SLIDES = [
   },
   {
     id: 5,
-    isReady: false, // Reserved Banner 5
+    isReady: true,
+    video: null,
+    image: '/banner-5-gov-exam.webp',
+    badge: 'Government Exam',
+    theme: 'dark',
+    heading: 'Your Kerala PSC Government Job Journey Starts Here',
+    subheading: 'Prepare for Kerala PSC exams with expert live classes, structured study plans, regular mock tests, and personalised guidance.',
+    chips: [
+      'Expert Mentorship',
+      'Live & Recorded Classes',
+    ],
+    overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent',
+    ctaPrimary: {
+      label: 'Book a Free Demo',
+      type: 'demo',
+      source: 'Hero Banner 5',
+    },
+    ctaSecondary: {
+      label: 'Talk to an Expert',
+      type: 'contact',
+      source: 'Hero Banner 5 - Request Free Assessment',
+    },
   },
 ];
 
@@ -111,7 +132,7 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Active publicly visible slides (Banners 1, 2 & 3)
+  // Active publicly visible slides
   const activeSlides = ALL_HERO_SLIDES.filter((slide) => slide.isReady);
 
   const nextSlide = () => {

@@ -37,7 +37,7 @@ export const WhyChooseUs = ({ onActionClick }) => {
             
             {/* Headline */}
             <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
-              <span className="text-[#8B1538] italic leading-[1.2]">Viskool</span>: Where Personal Mentorship Meets Proven Success
+              <span className="text-[#8B1538] leading-[1.2]">Viskool</span>: Where Personal Mentorship Meets Proven Success
             </h2>
 
             {/* Description */}

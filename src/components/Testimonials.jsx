@@ -22,7 +22,7 @@ export const Testimonials = ({ testimonials, onActionClick }) => {
         <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
             What Our{' '}
-            <span className="italic text-[#8B1538] font-extrabold">
+            <span className="text-[#8B1538] font-extrabold">
               Students
             </span>{' '}
             Say

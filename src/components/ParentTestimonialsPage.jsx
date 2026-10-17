@@ -340,7 +340,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
           ) : (
             <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
               Hear It From the{' '}
-              <span className="font-serif italic text-[#8B1538] font-bold">
+              <span className="font-serif text-[#8B1538] font-bold">
                 {audience}
               </span>
             </h3>
@@ -607,7 +607,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
               
               <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold text-gray-900 tracking-tight leading-[1.08] relative sm:whitespace-nowrap">
                 What Our{' '}
-                <span className="font-serif italic text-[#8B1538] font-bold relative inline-block">
+                <span className="font-serif text-[#8B1538] font-bold relative inline-block">
                   Parents
                   <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#8B1538]/20" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="3">
                     <path d="M2 8 C 30 2, 70 10, 98 4" />
@@ -654,7 +654,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               Every family has a{' '}
-              <span className="font-serif italic text-[#8B1538] font-bold">
+              <span className="font-serif text-[#8B1538] font-bold">
                 story
               </span>
             </h2>
@@ -702,7 +702,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
             <div className="space-y-2 max-w-xl">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
                 Let's talk about your child's{' '}
-                <span className="font-serif italic text-[#8B1538] font-bold block sm:inline">
+                <span className="font-serif text-[#8B1538] font-bold block sm:inline">
                   learning goals.
                 </span>
               </h3>

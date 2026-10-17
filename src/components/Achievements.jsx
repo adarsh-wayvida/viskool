@@ -29,7 +29,7 @@ export const Achievements = ({ achievements, onActionClick }) => {
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
             Students{' '}
-            <span className="italic text-[#8B1538] font-extrabold">
+            <span className="text-[#8B1538] font-extrabold">
               Achievements
             </span>
           </h2>

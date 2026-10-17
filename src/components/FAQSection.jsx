@@ -17,7 +17,7 @@ export const FAQSection = ({ faqs, onActionClick }) => {
         <div className="text-center mb-8">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-3">
             Got Questions? We've Got{' '}
-            <span className="text-[#8B1538] italic leading-[1.2]">
+            <span className="text-[#8B1538] leading-[1.2]">
               Answers
             </span>
           </h2>
