@@ -16,9 +16,6 @@ export const Footer = ({ footerData }) => {
               alt="Viskool" 
               className="h-8 w-auto object-contain self-start"
             />
-            <p className="text-sm text-gray-700 leading-relaxed">
-              {footerData.about}
-            </p>
             <div className="pt-2 flex flex-col space-y-3">
               <h3 className="text-lg font-bold text-gray-900">Download The App</h3>
               <p className="text-sm text-gray-700">
@@ -41,12 +38,7 @@ export const Footer = ({ footerData }) => {
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Column 2 - Stay Connected */}
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-lg font-bold text-gray-900">Stay Connected</h3>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pt-2">
               {footerData.socials.map((social) => (
                 <a 
                   key={social.name} 
@@ -58,6 +50,19 @@ export const Footer = ({ footerData }) => {
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* Column 2 - Courses */}
+          <div className="flex flex-col space-y-4">
+            <h3 className="text-lg font-bold text-gray-900">Courses</h3>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">School Tuition</a></li>
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">Digital Marketing</a></li>
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">Kerala PSC</a></li>
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">Upskill</a></li>
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">NEET</a></li>
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">JEE</a></li>
+            </ul>
           </div>
 
           {/* Column 3 - Quick Links */}
@@ -84,11 +89,11 @@ export const Footer = ({ footerData }) => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 opacity-70">✉️</span>
-                <span>hello@viskool.com</span>
+                <a href="mailto:info@viskool.com" className="hover:text-[#8B1538] transition-colors">info@viskool.com</a>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 opacity-70">📍</span>
-                <span>Viskool Education Pvt Ltd,<br/>Kerala, India</span>
+                <span>3rd Floor, Capital Towers, Opposite Secretariat, Statue, Palayam, Thiruvananthapuram, Keralam 695001</span>
               </li>
             </ul>
           </div>
@@ -96,7 +101,7 @@ export const Footer = ({ footerData }) => {
         </div>
 
         {/* Divider & Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-300/60 text-center">
+        <div className="mt-8 pt-8 border-t border-gray-300/60 text-center">
           <p className="text-sm text-gray-600">
             {footerData.copyright}
           </p>
