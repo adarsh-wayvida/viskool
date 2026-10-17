@@ -1,4 +1,97 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
+
+function parseStatValue(str) {
+  const match = str.match(/^([^\d]*)([\d,.]+)(.*)$/);
+  if (!match) return { prefix: '', num: 0, suffix: str, isFloat: false };
+  const prefix = match[1];
+  const numStr = match[2].replace(/,/g, '');
+  const num = parseFloat(numStr);
+  const suffix = match[3];
+  const isFloat = match[2].includes('.');
+  return { prefix, num, suffix, isFloat };
+}
+
+function formatValue(currentNum, parsed) {
+  let numStr;
+  if (parsed.isFloat) {
+    numStr = currentNum.toFixed(1);
+  } else {
+    numStr = Math.floor(currentNum).toLocaleString('en-US');
+  }
+  return `${parsed.prefix}${numStr}${parsed.suffix}`;
+}
+
+const AnimatedStatValue = ({ value, index }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const prefersReducedMotion = useReducedMotion();
+  const [displayValue, setDisplayValue] = useState(value);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted || prefersReducedMotion) return;
+
+    if (!inView) {
+      const parsed = parseStatValue(value);
+      setDisplayValue(formatValue(0, parsed));
+      return;
+    }
+
+    const parsed = parseStatValue(value);
+    const duration = 1500; // 1.5s
+    const delay = index * 100;
+    let startTime = null;
+    let animationFrameId;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime - delay;
+
+      if (progress < 0) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+
+      const percentage = Math.min(progress / duration, 1);
+      const easeOut = 1 - Math.pow(1 - percentage, 3);
+      const currentNum = parsed.num * easeOut;
+
+      setDisplayValue(formatValue(currentNum, parsed));
+
+      if (percentage < 1) {
+        animationFrameId = requestAnimationFrame(animate);
+      } else {
+        setDisplayValue(value);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [inView, value, index, prefersReducedMotion, hasMounted]);
+
+  return (
+    <div ref={ref} className="relative inline-flex justify-center items-center w-full whitespace-nowrap" aria-label={value}>
+      <span className="invisible select-none pointer-events-none whitespace-nowrap" aria-hidden="true">{value}</span>
+      <motion.span 
+        className="absolute inset-0 flex justify-center items-center whitespace-nowrap"
+        initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+        animate={inView || prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+        transition={{ duration: 1.2, delay: index * 0.1, ease: "easeOut" }}
+        aria-hidden="true"
+      >
+        {hasMounted ? displayValue : value}
+      </motion.span>
+    </div>
+  );
+};
 
 export const Statistics = () => {
   const stats = [
@@ -51,7 +144,7 @@ export const Statistics = () => {
               <div className="absolute inset-0 rounded-3xl border-t-2 border-white/80 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="text-4xl lg:text-[42px] font-extrabold text-[#8B1538] mb-4 tracking-tight leading-none relative z-10 group-hover:scale-105 transition-transform duration-300">
-                {stat.value}
+                <AnimatedStatValue value={stat.value} index={idx} />
               </div>
               <div className="text-[#1A1A1A] text-[15px] sm:text-base font-bold leading-snug mb-2.5 relative z-10">
                 {stat.title}
