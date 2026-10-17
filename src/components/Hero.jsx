@@ -28,7 +28,7 @@ export const ALL_HERO_SLIDES = [
     id: 2,
     isReady: true,
     video: null,
-    image: '/banner-student-thumbs-up-black-left.webp',
+    image: '/banner-student-thumbs-up-final.webp',
     imagePosition: 'object-top',
     badge: 'TUITION',
     theme: 'dark',
