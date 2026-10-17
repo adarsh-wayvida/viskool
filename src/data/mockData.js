@@ -244,9 +244,10 @@ export const FOOTER_DATA = {
   socials: [
     { name: 'Instagram', icon: 'instagram', href: '#' },
     { name: 'Facebook', icon: 'facebook', href: '#' },
-    { name: 'Twitter', icon: 'twitter', href: '#' },
+    { name: 'Twitter/X', icon: 'twitter', href: '#' },
     { name: 'LinkedIn', icon: 'linkedin', href: '#' },
     { name: 'YouTube', icon: 'youtube', href: '#' },
+    { name: 'Pinterest', icon: 'pinterest', href: '#' },
   ],
   copyright: '© 2026 Viskool. All rights reserved. Designed for excellence.',
 };

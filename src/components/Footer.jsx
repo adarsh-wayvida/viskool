@@ -1,5 +1,25 @@
 // Footer Component - Replaced with user provided image asset
 import React from 'react';
+import { 
+  IconBrandInstagram,
+  IconBrandFacebook,
+  IconBrandX,
+  IconBrandLinkedin,
+  IconBrandYoutube,
+  IconBrandPinterest
+} from '@tabler/icons-react';
+
+const getSocialIcon = (iconName) => {
+  switch (iconName) {
+    case 'instagram': return <IconBrandInstagram size={20} stroke={2} />;
+    case 'facebook': return <IconBrandFacebook size={20} stroke={2} />;
+    case 'twitter': return <IconBrandX size={20} stroke={2} />;
+    case 'linkedin': return <IconBrandLinkedin size={20} stroke={2} />;
+    case 'youtube': return <IconBrandYoutube size={20} stroke={2} />;
+    case 'pinterest': return <IconBrandPinterest size={20} stroke={2} />;
+    default: return null;
+  }
+};
 
 export const Footer = ({ footerData }) => {
   return (
@@ -44,9 +64,11 @@ export const Footer = ({ footerData }) => {
                   key={social.name} 
                   href={social.href} 
                   aria-label={social.name}
-                  className="w-8 h-8 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center hover:bg-[#8B1538] hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white text-[#8B1538] flex items-center justify-center hover:bg-[#8B1538] hover:text-white transition-colors"
                 >
-                  <span className="text-xs font-bold">{social.name.charAt(0)}</span>
+                  {getSocialIcon(social.icon)}
                 </a>
               ))}
             </div>
