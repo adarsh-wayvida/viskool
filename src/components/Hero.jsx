@@ -28,7 +28,7 @@ export const ALL_HERO_SLIDES = [
     id: 2,
     isReady: true,
     video: null,
-    image: 'pexels-julia-m-cameron-4144295 (1).jpg',
+    image: '/banner-student-banner3-style-black-left.webp',
     badge: 'TUITION',
     theme: 'dark',
     heading: 'Complete Learning Partner for School Academic Excellence',
@@ -38,7 +38,7 @@ export const ALL_HERO_SLIDES = [
       'CBSE · ICSE · STATE · IGCSE',
       'Doubt Clearing & Regular Tests',
     ],
-    overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/25',
+    overlayClass: '',
     ctaPrimary: {
       label: 'Book a Free Demo',
       type: 'demo',
