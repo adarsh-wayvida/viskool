@@ -72,8 +72,8 @@ export const ALL_HERO_SLIDES = [
       type: 'contact',
       source: 'Hero Banner 3',
     },
-    image: '/banner-3.webp', // Provided background image covering entire banner
-    overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent', // Smooth left dark overlay fading right
+    image: '/banner-3-upskill-gradient.webp',
+    overlayClass: '',
   },
   {
     id: 4,
