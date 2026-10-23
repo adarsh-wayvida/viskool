@@ -185,6 +185,13 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
         <div className="absolute -top-8 -right-8 w-72 h-72 rounded-full border border-[#8B1538]/15 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <nav className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-6">
+            <a href="/" className="hover:text-[#8B1538] transition-colors cursor-pointer">Home</a>
+            <span>&gt;</span>
+            <a href="#" className="hover:text-[#8B1538] transition-colors cursor-pointer">About Us</a>
+            <span>&gt;</span>
+            <span className="text-gray-500 cursor-default">Student Testimonials</span>
+          </nav>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             

@@ -81,10 +81,10 @@ export function SiteLayout({ children }) {
         currentPage={currentPage}
       />
 
-      <AnnouncementBar 
+      {pathname === '/' && (<AnnouncementBar 
         items={ANNOUNCEMENT_ITEMS} 
         onActionClick={handleActionClick} 
-      />
+      />)}
 
       <main>{children}</main>
 

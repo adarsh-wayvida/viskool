@@ -204,7 +204,7 @@ export const HomeStudentTestimonials = () => {
               <button
                 type="button"
                 onClick={() => router.push('/student-testimonials')}
-                className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold text-gray-900 bg-[#F5BA31] hover:bg-[#F4B41A] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer w-fit"
+                className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold bg-white text-[#15803D] border border-[#15803D] hover:bg-[#F0FDF4] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer w-fit"
               >
                 View All
               </button>

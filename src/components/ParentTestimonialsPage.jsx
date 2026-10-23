@@ -452,7 +452,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
           <button
             type="button"
             onClick={onViewAll}
-            className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold text-gray-900 bg-[#F5BA31] hover:bg-[#F4B41A] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer"
+            className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold bg-white text-[#15803D] border border-[#15803D] hover:bg-[#15803D] hover:text-white rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer"
           >
             View All
           </button>
@@ -593,6 +593,13 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
         <div className="absolute -top-8 -right-8 w-72 h-72 rounded-full border border-[#8B1538]/15 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <nav className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-6">
+            <a href="/" className="hover:text-[#8B1538] transition-colors cursor-pointer">Home</a>
+            <span>&gt;</span>
+            <a href="#" className="hover:text-[#8B1538] transition-colors cursor-pointer">About Us</a>
+            <span>&gt;</span>
+            <span className="text-gray-500 cursor-default">Parent Testimonials</span>
+          </nav>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             

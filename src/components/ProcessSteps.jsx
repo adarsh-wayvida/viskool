@@ -1,6 +1,15 @@
 // ProcessSteps Component - Value Proposition & 3 Steps
 import React from 'react';
 
+const MEDIA_LOGOS = [
+  { id: 2, src: '/logos/benchmark.webp', alt: 'Benchmark' },
+  { id: 3, src: '/logos/big-news-network.webp', alt: 'Big News Network' },
+  { id: 4, src: '/logos/edex-digital-logo.webp', alt: 'Edex Digital' },
+  { id: 5, src: '/logos/ET.webp', alt: 'Economic Times' },
+  { id: 6, src: '/logos/Tribune.webp', alt: 'The Tribune' },
+  { id: 7, src: '/logos/zeebiz_logo_new.webp', alt: 'Zee Business' },
+];
+
 export const ProcessSteps = ({ steps, onActionClick }) => {
   return (
     <section className="pt-16 pb-10 lg:pt-24 lg:pb-16 bg-white relative overflow-hidden">
@@ -32,23 +41,21 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
           <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-4">
             Featured in Leading Media Platforms
           </h3>
-          <div className="relative overflow-hidden group">
+          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2">
             {/* The scrolling container with smooth animation. 
                 Pauses on hover. Uses motion-reduce for accessibility. */}
             <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full">
-              {/* Duplicate the array of 8 items twice to ensure a seamless infinite loop */}
-              {[...Array(2)].map((_, groupIdx) => (
+              {[...Array(4)].map((_, groupIdx) => (
                 <div 
                   key={groupIdx} 
-                  className="flex items-center gap-4 sm:gap-5 md:gap-6 pr-4 sm:pr-5 md:pr-6"
+                  className="flex items-center gap-8 sm:gap-12 md:gap-16 pr-8 sm:pr-12 md:pr-16"
                 >
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                  {MEDIA_LOGOS.map((logo) => (
                     <div 
-                      key={num} 
-                      className="w-[140px] h-[62px] sm:w-[160px] sm:h-[71px] lg:w-[180px] lg:h-[80px] bg-[#DADCE0] border border-[#C7C9CD] rounded-lg flex items-center justify-center p-3 sm:p-4 shrink-0"
+                      key={logo.id} 
+                      className="w-[140px] h-[40px] sm:w-[160px] sm:h-[48px] lg:w-[180px] lg:h-[56px] flex items-center justify-center shrink-0"
                     >
-                      {/* Image placeholder ready for object-contain webp images */}
-                      {/* <img src="" alt="" className="w-full h-full object-contain" /> */}
+                      <img src={logo.src} alt={logo.alt} className="max-w-full h-full object-contain" />
                     </div>
                   ))}
                 </div>

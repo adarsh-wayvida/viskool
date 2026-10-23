@@ -118,7 +118,7 @@ export const CourseSection = ({ courses, onSelectCourse, onEnrollCourse, onActio
                       </button>
                       <button
                         onClick={() => onSelectCourse(course)}
-                        className="w-full bg-white hover:bg-[#FAF0F3] text-[#8B1538] border border-[#8B1538] font-semibold text-xs sm:text-sm py-2.5 rounded-full transition-colors text-center active:scale-95"
+                        className="w-full bg-white hover:bg-[#F0FDF4] text-[#15803D] border border-[#15803D] font-semibold text-xs sm:text-sm py-2.5 rounded-full transition-colors text-center active:scale-95"
                       >
                         Get Details
                       </button>
@@ -143,10 +143,8 @@ export const CourseSection = ({ courses, onSelectCourse, onEnrollCourse, onActio
         <div className="flex justify-center max-w-6xl mx-auto mt-8 sm:mt-10">
           <button
             onClick={() => onActionClick('View all courses')}
-            className="bg-white hover:bg-gray-50 text-gray-800 text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full border border-gray-300 transition-colors shadow-sm"
-          >
-            View all courses
-          </button>
+            className="text-[#15803D] font-semibold text-[15px] hover:underline flex items-center justify-center gap-1 transition-all"
+          >View all courses <span className="text-lg leading-none" aria-hidden="true">&rarr;</span></button>
         </div>
 
       </div>
