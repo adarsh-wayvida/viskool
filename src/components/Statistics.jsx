@@ -122,7 +122,7 @@ export const Statistics = () => {
   ];
 
   return (
-    <section className="pt-4 pb-6 lg:pt-6 lg:pb-8 bg-white relative z-0">
+    <section className="py-6 lg:py-8 bg-white relative z-0">
       
       {/* Decorative ambient background glows for depth */}
       <div className="absolute top-1/2 left-0 sm:left-1/4 -translate-y-1/2 w-[30rem] h-[30rem] bg-[#8B1538]/[0.03] rounded-full blur-[80px] pointer-events-none -z-10"></div>

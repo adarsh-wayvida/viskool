@@ -12,7 +12,7 @@ const MEDIA_LOGOS = [
 
 export const ProcessSteps = ({ steps, onActionClick }) => {
   return (
-    <section className="pt-16 pb-10 lg:pt-24 lg:pb-16 bg-white relative overflow-hidden">
+    <section className="pt-6 lg:pt-8 bg-white relative overflow-hidden">
       
       {/* Decorative Sparkles Top Right */}
       <div className="absolute top-8 right-12 text-[#8B1538]/30 text-3xl pointer-events-none select-none">
@@ -32,16 +32,16 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
         </h2>
 
         {/* Informative Subtext matching screenshot */}
-        <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-3xl mx-auto mb-6 font-normal">
+        <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-3xl mx-auto font-normal">
           Master your goals with live and recorded classes taught by expert educators. Whether you are aiming for top marks in school, clearing competitive exams like NEET, JEE, KEAM and PSC, or advancing your career, Viskool delivers structured learning and personal guidance to ensure your success.
         </p>
 
 
-        <div className="mt-8 sm:mt-10 mb-2">
-          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-4">
+        <div className="mt-8 lg:mt-10 mb-8 lg:mb-10">
+          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-6">
             Featured in Leading Media Platforms
           </h3>
-          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2">
+          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2 py-4">
             {/* The scrolling container with smooth animation. 
                 Pauses on hover. Uses motion-reduce for accessibility. */}
             <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full">

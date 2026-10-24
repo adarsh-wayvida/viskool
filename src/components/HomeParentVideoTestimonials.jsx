@@ -23,7 +23,7 @@ export const HomeParentVideoTestimonials = () => {
   };
 
   return (
-    <section className="bg-white relative">
+    <section className="py-6 lg:py-8 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ParentVideoSlider 
           title={
@@ -38,7 +38,7 @@ export const HomeParentVideoTestimonials = () => {
           }
           hideLabel={true}
           centerHeader={true}
-          containerClassName="py-2 mt-2 mb-4"
+          containerClassName=""
           onViewAll={handleViewAll}
           onPlayVideo={(v) => setActiveVideo(v)}
           isModalOpen={!!activeVideo}

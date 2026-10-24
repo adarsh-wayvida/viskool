@@ -180,7 +180,7 @@ export const HomeStudentTestimonials = () => {
   };
 
   return (
-    <section className="bg-[#FAFDFB] py-12 sm:py-16 overflow-hidden">
+    <section className="py-6 lg:py-8 bg-[#FAFDFB] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
           

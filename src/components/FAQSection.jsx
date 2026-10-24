@@ -10,7 +10,7 @@ export const FAQSection = ({ faqs, onActionClick }) => {
   };
 
   return (
-    <section className="py-6 lg:py-10 bg-white relative">
+    <section className="py-6 lg:py-8 bg-white relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -8,7 +8,7 @@ export const CourseSection = ({ courses, onSelectCourse, onEnrollCourse, onActio
   const filteredCourses = courses.filter(course => course.category === activeFilter);
 
   return (
-    <section id="courses" className="py-10 lg:py-14 bg-[#FAFAFA] relative">
+    <section id="courses" className="py-6 lg:py-8 bg-[#FAFAFA] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

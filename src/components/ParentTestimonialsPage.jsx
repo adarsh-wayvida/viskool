@@ -584,75 +584,36 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
     <div className="w-full bg-[#FAF4F7] min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FBF4F7] via-[#FAF2F6] to-[#FAF4F7] py-12 lg:py-16 border-b border-[#8B1538]/5">
-        
-        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-[#EED5E2]/35 -rotate-1 rounded-3xl pointer-events-none blur-[1px]" />
-        <div className="absolute top-14 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-[#E8C2D3]/25 rotate-1 rounded-3xl pointer-events-none" />
-
-        <div className="absolute -top-16 -right-16 w-96 h-96 rounded-full border border-[#8B1538]/10 pointer-events-none" />
-        <div className="absolute -top-8 -right-8 w-72 h-72 rounded-full border border-[#8B1538]/15 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <nav className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-6">
-            <a href="/" className="hover:text-[#8B1538] transition-colors cursor-pointer">Home</a>
-            <span>&gt;</span>
-            <a href="#" className="hover:text-[#8B1538] transition-colors cursor-pointer">About Us</a>
-            <span>&gt;</span>
-            <span className="text-gray-500 cursor-default">Parent Testimonials</span>
-          </nav>
+        <section 
+          className="relative overflow-hidden py-16 sm:py-20 w-full bg-cover bg-[center_30%] bg-no-repeat"
+          style={{ backgroundImage: "url('/parent-testimonial-background.webp')" }}
+        >
+          {/* Semi-transparent burgundy gradient overlay (65% opacity) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#8B1538]/65 to-[#73152C]/65"></div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+          {/* Subtle radial dark overlay behind text to improve readability without a visible box */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.3)_0%,_transparent_65%)] pointer-events-none"></div>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center text-center">
             
-            <div className="space-y-4">
-              
-              <div className="inline-flex items-center gap-2 bg-[#8B1538]/10 border border-[#8B1538]/15 px-3.5 py-1 rounded-full">
-                <span className="text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.2em] text-[#8B1538]">
-                  PARENT TESTIMONIALS.
-                </span>
-                <span className="text-[#8B1538]/30 font-serif text-sm">✦</span>
-              </div>
-              
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold text-gray-900 tracking-tight leading-[1.08] relative sm:whitespace-nowrap">
-                What Our{' '}
-                <span className="font-serif text-[#8B1538] font-bold relative inline-block">
-                  Parents
-                  <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#8B1538]/20" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="3">
-                    <path d="M2 8 C 30 2, 70 10, 98 4" />
-                  </svg>
-                </span>{' '}
-                Say
-              </h1>
-
-              <p className="text-base sm:text-[16px] text-gray-600 font-normal max-w-xl leading-relaxed pt-1 space-y-2 relative z-10">
-                Hear from parents about their child's learning journey with Viskool. Discover how our interactive live classes and dedicated mentors build genuine academic confidence. Read real experiences of families who have seen consistent progress in board exams and competitive test prep. Our personalized attention ensures every student receives tailored guidance according to their learning pace. Partner with us to create a structured and encouraging learning environment right at home.
-              </p>
-            </div>
-
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[520px] h-[300px] sm:h-[320px]">
-                
-                <div className="absolute top-1 -left-2 w-[235px] sm:w-[255px] h-[185px] sm:h-[200px] rounded-2xl bg-[#EED5E2]/80 -rotate-6 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
-                <div className="absolute top-4 right-[-6px] w-[225px] sm:w-[245px] h-[175px] sm:h-[190px] rounded-2xl bg-[#E8C2D3]/70 rotate-6 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
-                <div className="absolute bottom-[-4px] left-[23%] sm:left-[25%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl bg-[#E5BFD0]/80 -rotate-3 transform border border-[#8B1538]/10 pointer-events-none shadow-sm" />
-
-                <div className="absolute top-0 left-0 w-[235px] sm:w-[255px] h-[185px] sm:h-[200px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white -rotate-2 transition-all hover:rotate-0 duration-300 z-10">
-                  <img src="mother-and-son-landscape.webp" alt="Mother and son story" className="w-full h-full object-cover" />
-                </div>
-
-                <div className="absolute top-3 right-0 w-[225px] sm:w-[245px] h-[175px] sm:h-[190px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(139,21,56,0.12)] border-2 border-white rotate-2 transition-all hover:rotate-0 duration-300 z-10">
-                  <img src="father-and-daughter-landscape.webp" alt="Father and daughter story" className="w-full h-full object-cover" />
-                </div>
-
-                <div className="absolute bottom-0 left-[24%] sm:left-[26%] w-[205px] sm:w-[225px] h-[145px] sm:h-[160px] rounded-2xl overflow-hidden shadow-[0_16px_32px_rgba(139,21,56,0.18)] border-3 border-white z-20 transition-all hover:scale-102 duration-300">
-                  <img src="mother-and-daughter-landscape.webp" alt="Mother and daughter story" className="w-full h-full object-cover" />
-                </div>
-
-              </div>
-            </div>
+            <nav className="flex items-center justify-center gap-2 text-sm font-medium text-white/80 mb-6 drop-shadow-sm">
+              <a href="/" className="hover:text-white transition-colors cursor-pointer">Home</a>
+              <span>&gt;</span>
+              <a href="#" className="hover:text-white transition-colors cursor-pointer">About Us</a>
+              <span>&gt;</span>
+              <span className="text-white cursor-default">Parent Testimonials</span>
+            </nav>
+            
+            <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4 font-sans drop-shadow-md">
+              Hear What Parents Have to Say
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-white/95 font-normal max-w-2xl font-sans drop-shadow-md">
+              Trusted by thousands of parents for academic improvement and career growth.
+            </p>
 
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* 2. MAIN CONTENT CONTAINER — "Every Family Has a Story" SECTION */}
       <div className="w-full bg-[#FCFCFD] py-6 sm:py-8">

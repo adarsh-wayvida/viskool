@@ -174,109 +174,37 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
   return (
     <div className="w-full bg-[#FAF4F7] min-h-screen selection:bg-[#8B1538] selection:text-white">
       
-      {/* 1. HERO SECTION (Reused structure from Parent Testimonials) */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FBF4F7] via-[#FAF2F6] to-[#FAF4F7] py-6 sm:py-8 lg:py-10 border-b border-[#8B1538]/5">
-        
-        {/* Layered Decorative Shapes */}
-        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-[#EED5E2]/35 -rotate-1 rounded-3xl pointer-events-none blur-[1px]" />
-        <div className="absolute top-14 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-[#E8C2D3]/25 rotate-1 rounded-3xl pointer-events-none" />
-
-        <div className="absolute -top-16 -right-16 w-96 h-96 rounded-full border border-[#8B1538]/10 pointer-events-none" />
-        <div className="absolute -top-8 -right-8 w-72 h-72 rounded-full border border-[#8B1538]/15 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <nav className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-6">
-            <a href="/" className="hover:text-[#8B1538] transition-colors cursor-pointer">Home</a>
-            <span>&gt;</span>
-            <a href="#" className="hover:text-[#8B1538] transition-colors cursor-pointer">About Us</a>
-            <span>&gt;</span>
-            <span className="text-gray-500 cursor-default">Student Testimonials</span>
-          </nav>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+      {/* 1. HERO SECTION */}
+          <section 
+            className="relative overflow-hidden py-16 sm:py-20 w-full bg-cover bg-[center_35%] bg-no-repeat"
+            style={{ backgroundImage: "url('/student-testimonial-background-100kb.webp')" }}
+          >
+            {/* Semi-transparent burgundy gradient overlay (65% opacity) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#8B1538]/65 to-[#73152C]/65"></div>
             
-            {/* Left Column: Heading & Description */}
-            <div className="space-y-5">
+            {/* Subtle radial dark overlay behind text to improve readability without a visible box */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.3)_0%,_transparent_65%)] pointer-events-none"></div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center text-center">
               
-              <div className="inline-flex items-center gap-2 bg-[#8B1538]/10 border border-[#8B1538]/15 px-3.5 py-1 rounded-full">
-                <span className="text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.2em] text-[#8B1538]">
-                  STUDENT TESTIMONIALS
-                </span>
-                <span className="text-[#8B1538]/30 font-serif text-sm">✦</span>
-              </div>
+              <nav className="flex items-center justify-center gap-2 text-sm font-medium text-white/80 mb-6 drop-shadow-sm">
+                <a href="/" className="hover:text-white transition-colors cursor-pointer">Home</a>
+                <span>&gt;</span>
+                <a href="#" className="hover:text-white transition-colors cursor-pointer">About Us</a>
+                <span>&gt;</span>
+                <span className="text-white cursor-default">Student Testimonials</span>
+              </nav>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-bold text-gray-900 tracking-tight leading-[1.1]">
-                Inspiring Journeys from Our Classrooms to{' '}
-                <span className="font-serif text-[#8B1538] font-bold relative inline-block">
-                  Top Careers
-                  <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#8B1538]/20" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="3">
-                    <path d="M2 8 C 30 2, 70 10, 98 4" />
-                  </svg>
-                </span>
+              <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4 font-sans drop-shadow-md">
+                Hear From Our Students
               </h1>
-
-              <p className="text-base sm:text-[16px] text-gray-600 font-normal max-w-xl leading-relaxed pt-1">
-                From higher marks to dream college admissions and new career opportunities—meet the Viskool students who turned their goals into real progress with the right guidance and support. Discover how personalized 1-on-1 mentorship and structured learning schedules helped them overcome every academic challenge. Their journeys highlight what is possible when dedicated effort meets expert direction.
+              
+              <p className="text-lg sm:text-xl text-white/95 font-normal max-w-2xl font-sans drop-shadow-md">
+                Real stories of learning, growth, and success from Viskool students.
               </p>
-
+  
             </div>
-
-            {/* Right Column: Layered "Wall of Student Stories" Overlapping Editorial Collage */}
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[500px] sm:max-w-[540px] h-[380px] sm:h-[420px] select-none">
-                
-                {/* Soft Organic Blush Backdrop Shapes */}
-                <div className="absolute top-[-25px] right-[-20px] w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] bg-[#FDEDF2]/80 rounded-full blur-2xl pointer-events-none -z-10" />
-                <div className="absolute bottom-[-10px] left-[8%] w-[240px] sm:w-[280px] h-[240px] sm:h-[280px] bg-[#FAF0F4]/90 rounded-full blur-xl pointer-events-none -z-10" />
-
-                {/* Giant Faded Georgia Quotation Mark Behind Portraits */}
-                <div className="absolute -top-12 right-2 font-serif text-[140px] sm:text-[180px] leading-none text-[#F8DFE6] opacity-90 select-none pointer-events-none z-0">
-                  “
-                </div>
-
-                {/* Subtle Burgundy Curved Vector Line Accents */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="0 0 540 420" fill="none">
-                  <path d="M 270 30 C 370 5, 470 70, 500 130" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.25" strokeDasharray="4 4" />
-                  <path d="M 50 270 Q 15 310 0 370" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.2" />
-                  <path d="M 35 320 C 15 300, 25 280, 55 290 C 45 310, 30 320, 35 320 Z" fill="#8B1538" fillOpacity="0.08" stroke="#8B1538" strokeWidth="1" strokeOpacity="0.2" />
-                  <path d="M 320 40 L 325 30 M 335 48 L 345 45" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round" />
-                  <path d="M 340 360 L 345 370 M 352 352 L 362 357" stroke="#8B1538" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round" />
-                </svg>
-
-                {/* 1. Upper-Left Portrait (Overlapping Centre Card) */}
-                <div className="absolute top-[2%] left-[2%] sm:left-[3%] w-[130px] sm:w-[150px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_10px_25px_rgba(139,21,56,0.12)] -rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 z-10 group">
-                  <img src="student-rahul.jpg" alt="Viskool Student Rahul" className="w-full h-full object-cover object-top scale-110 transition-transform duration-300 group-hover:scale-115" />
-                </div>
-
-                {/* 2. Upper-Right Portrait (Overlapping Centre Card) */}
-                <div className="absolute top-[5%] right-[2%] sm:right-[3%] w-[130px] sm:w-[150px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_10px_25px_rgba(139,21,56,0.12)] rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 z-10 group">
-                  <img src="student-ananya.png" alt="Viskool Student Ananya" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
-                </div>
-
-                {/* 3. Center Dominant Featured Portrait (Aparna R. - 42% width, 68% height) */}
-                <div className="absolute top-[10%] left-[28%] sm:left-[29%] w-[205px] sm:w-[230px] aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden bg-white border-4 sm:border-[5px] border-white shadow-[0_20px_45px_rgba(139,21,56,0.20)] -rotate-1.5 hover:rotate-0 transition-all duration-300 hover:scale-105 z-20 group">
-                  <img src="student-aparna.jpg" alt="Viskool Student Aparna" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
-                </div>
-
-                {/* 4. Lower-Left Portrait (Overlapping Centre Card) */}
-                <div className="absolute bottom-[3%] left-[7%] sm:left-[9%] w-[135px] sm:w-[155px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_12px_28px_rgba(139,21,56,0.14)] rotate-2 hover:rotate-0 transition-all duration-300 hover:scale-105 z-30 group">
-                  <img src="student-rohit.png" alt="Viskool Student Rohit" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
-                </div>
-
-                {/* 5. Lower-Right Portrait (Overlapping Centre Card) */}
-                <div className="absolute bottom-[1%] right-[5%] sm:right-[7%] w-[135px] sm:w-[155px] aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border-3 border-white shadow-[0_12px_28px_rgba(139,21,56,0.14)] -rotate-2.5 hover:rotate-0 transition-all duration-300 hover:scale-105 z-30 group">
-                  <img src="student-arjun.png" alt="Viskool Student Arjun" className="w-full h-full object-cover object-top scale-105 transition-transform duration-300 group-hover:scale-110" />
-                </div>
-
-                {/* Small Accent Burgundy Circle Dot */}
-                <div className="absolute bottom-3 right-1 w-3.5 h-3.5 rounded-full bg-[#8B1538] shadow-xs z-30 pointer-events-none" />
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+          </section>
 
       {/* 2. TESTIMONIAL CONTENT SECTION WITH FILTER CHIPS */}
       <section id="student-testimonials-grid" className="w-full bg-[#FCFCFD] py-10 sm:py-14 border-b border-gray-100">
