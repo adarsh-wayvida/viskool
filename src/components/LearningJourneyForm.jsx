@@ -33,7 +33,15 @@ const DEFAULT_HEADING = (
   </>
 );
 
-export const LearningJourneyForm = ({ onSubmitSuccess, heading = DEFAULT_HEADING }) => {
+export const LearningJourneyForm = ({
+  onSubmitSuccess,
+  heading = DEFAULT_HEADING,
+  headingSizeClassName = "text-[28px] md:text-[34px] lg:text-[40px]",
+  headingClassName = "",
+  headingContainerClassName = "max-w-3xl",
+  subheadingWidthClassName = "max-w-2xl",
+  subheadingClassName = "",
+}) => {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -77,11 +85,11 @@ export const LearningJourneyForm = ({ onSubmitSuccess, heading = DEFAULT_HEADING
       <div className="max-w-4xl mx-auto">
         
         {/* Section Heading */}
-        <div className="text-center mb-8 sm:mb-10 max-w-3xl mx-auto">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5">
+        <div className={`text-center mb-8 sm:mb-10 mx-auto ${headingContainerClassName}`}>
+          <h2 className={`${headingSizeClassName} font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5 ${headingClassName}`}>
             {heading}
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className={`text-gray-600 text-sm sm:text-base md:text-lg mx-auto leading-relaxed ${subheadingWidthClassName} ${subheadingClassName}`}>
             Join thousands of successful learners today. Book your free counselling session now!
           </p>
         </div>

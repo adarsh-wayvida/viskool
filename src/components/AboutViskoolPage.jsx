@@ -603,7 +603,17 @@ export const AboutViskoolPage = () => {
       </section>
 
       <LearningJourneyForm
-        heading="Let’s Plan Your Learning Journey Together"
+        heading={
+          <>
+            <span className="text-[#8B1538]">Let’s Plan Your Learning</span>{" "}
+            <span>Journey Together</span>
+          </>
+        }
+        headingSizeClassName="text-[28px] md:text-[32px] lg:text-[36px]"
+        headingClassName="md:whitespace-nowrap"
+        headingContainerClassName="max-w-4xl"
+        subheadingWidthClassName="md:max-w-none"
+        subheadingClassName="md:whitespace-nowrap"
         onSubmitSuccess={handleCourseAction}
       />
     </div>
