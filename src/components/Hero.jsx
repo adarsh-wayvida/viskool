@@ -108,7 +108,8 @@ export const ALL_HERO_SLIDES = [
     id: 5,
     isReady: true,
     video: null,
-    image: '/banner-5-gov-exam.webp',
+    image: '/banner-5-government-exam-indian-1920x760.webp',
+    imagePosition: 'object-[85%_top] sm:object-[90%_center]',
     badge: 'Government Exam',
     theme: 'dark',
     heading: 'Your Kerala PSC Government Job Journey Starts Here',
@@ -117,7 +118,7 @@ export const ALL_HERO_SLIDES = [
       'Expert Mentorship',
       'Live & Recorded Classes',
     ],
-    overlayClass: 'bg-gradient-to-r from-black/85 via-black/50 to-transparent sm:from-black/75 sm:via-black/40 sm:to-transparent',
+    overlayClass: '',
     ctaPrimary: {
       label: 'Book a Free Demo',
       type: 'demo',

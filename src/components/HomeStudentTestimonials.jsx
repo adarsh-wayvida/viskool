@@ -6,7 +6,16 @@ import { STUDENT_TESTIMONIALS_DATA } from './StudentTestimonialsPage.jsx';
 import { TestimonialCard } from './ParentTestimonialsPage.jsx';
 import { TestimonialStoryDialog } from './TestimonialStoryDialog.jsx';
 
-export const HomeStudentTestimonials = () => {
+const DEFAULT_HEADING = (
+  <>Inspiring Journeys from Our Classrooms to <span className="text-[#8B1538] leading-[1.2]">Top Careers</span></>
+);
+
+export const HomeStudentTestimonials = ({
+  testimonials = STUDENT_TESTIMONIALS_DATA,
+  eyebrowLabel = 'STUDENT REVIEWS',
+  heading = DEFAULT_HEADING,
+  subheading = null,
+}) => {
   const router = useRouter();
   const sliderRef = useRef(null);
   const resumeTimerRef = useRef(null);
@@ -93,7 +102,7 @@ export const HomeStudentTestimonials = () => {
         const firstChild = slider.children[0];
         if (firstChild) {
           const itemWidth = firstChild.offsetWidth + gap;
-          const resetWidth = itemWidth * STUDENT_TESTIMONIALS_DATA.length;
+          const resetWidth = itemWidth * testimonials.length;
 
           // When we've scrolled exactly one set's width, snap back to the start seamlessly
           if (slider.scrollLeft >= resetWidth) {
@@ -116,7 +125,7 @@ export const HomeStudentTestimonials = () => {
     return () => {
       if (animFrameId) cancelAnimationFrame(animFrameId);
     };
-  }, [isHovered, isFocused, isInteracting, isTabInactive, prefersReducedMotion, activeModalStudent]);
+  }, [isHovered, isFocused, isInteracting, isTabInactive, prefersReducedMotion, activeModalStudent, testimonials.length]);
 
   // Handle manual interaction pause & auto-resume after 2s
   const triggerInteractionPause = () => {
@@ -190,15 +199,23 @@ export const HomeStudentTestimonials = () => {
               “
             </div>
             
-            <div className="inline-flex items-center gap-1.5 mb-4">
-              <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-gray-500">
-                STUDENT REVIEWS
-              </span>
-            </div>
+            {eyebrowLabel && (
+              <div className="inline-flex items-center gap-1.5 mb-4">
+                <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-gray-500">
+                  {eyebrowLabel}
+                </span>
+              </div>
+            )}
             
-            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8">
-              Inspiring Journeys from Our Classrooms to <span className="text-[#8B1538] leading-[1.2]">Top Careers</span>
+            <h2 className={`text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight ${subheading ? 'mb-4' : 'mb-8'}`}>
+              {heading}
             </h2>
+
+            {subheading && (
+              <h3 className="text-base sm:text-lg font-semibold text-gray-600 leading-relaxed mb-8">
+                {subheading}
+              </h3>
+            )}
 
             <div className="mt-2">
               <button
@@ -226,7 +243,7 @@ export const HomeStudentTestimonials = () => {
               {/* Duplicate multiple times for seamless infinite loop on any screen width */}
               {[1, 2, 3, 4, 5, 6].map((setIdx) => (
                 <React.Fragment key={setIdx}>
-                  {STUDENT_TESTIMONIALS_DATA.map((student, index) => {
+                  {testimonials.map((student, index) => {
                     const sentenceEnd = student.quote.search(/[.!?](?:\s|$)/);
                     const quote = sentenceEnd >= 0 ? student.quote.slice(0, sentenceEnd + 1) : student.quote;
                     const description = sentenceEnd >= 0 ? student.quote.slice(sentenceEnd + 1).trim() : '';

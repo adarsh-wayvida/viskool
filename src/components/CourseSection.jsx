@@ -1,17 +1,27 @@
 // CourseSection Component - Featured Courses Matching Design Reference
 import React, { useState } from 'react';
 
-export const CourseSection = ({ courses, onSelectCourse, onEnrollCourse, onActionClick }) => {
+export const CourseSection = ({
+  courses,
+  onSelectCourse,
+  onEnrollCourse,
+  onActionClick,
+  hideHeader = false,
+  filterCourses = true,
+}) => {
   const [activeFilter, setActiveFilter] = useState('Upskill Programs');
   const filters = ['Upskill Programs', 'School', 'Competitive Exams', 'Kids & Next-Gen Tech'];
 
-  const filteredCourses = courses.filter(course => course.category === activeFilter);
+  const filteredCourses = filterCourses
+    ? courses.filter(course => course.category === activeFilter)
+    : courses;
 
   return (
-    <section id="courses" className="py-6 lg:py-8 bg-[#FAFAFA] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="courses" className={hideHeader ? "relative" : "py-6 lg:py-8 bg-[#FAFAFA] relative"}>
+      <div className={hideHeader ? "w-full" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"}>
         
         {/* Section Header */}
+        {!hideHeader && (
         <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8 sm:whitespace-nowrap">
             Explore Our <span className="text-[#8B1538] leading-[1.2]">Top-Rated Programs</span>
@@ -37,6 +47,8 @@ export const CourseSection = ({ courses, onSelectCourse, onEnrollCourse, onActio
             ))}
           </div>
         </div>
+
+        )}
 
         {/* Courses Cards Grid */}
         {filteredCourses.length > 0 ? (

@@ -605,7 +605,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
             </nav>
             
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4 font-sans drop-shadow-md">
-              Hear What Parents Have to Say
+              Hear from Our Parents
             </h1>
             
             <p className="text-lg sm:text-xl text-white/95 font-normal max-w-2xl font-sans drop-shadow-md">

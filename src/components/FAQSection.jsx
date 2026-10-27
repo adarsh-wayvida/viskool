@@ -1,9 +1,12 @@
 // FAQSection Component - Interactive Expandable Accordion
 import React, { useState } from 'react';
 
-export const FAQSection = ({ faqs, onActionClick }) => {
-  // First item open by default
-  const [openIndex, setOpenIndex] = useState(0);
+const DEFAULT_TITLE = (
+  <>Got Questions? We've Got{' '}<span className="text-[#8B1538] leading-[1.2]">Answers</span></>
+);
+
+export const FAQSection = ({ faqs, onActionClick, title = DEFAULT_TITLE, initialOpenIndex = 0 }) => {
+  const [openIndex, setOpenIndex] = useState(initialOpenIndex);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -16,10 +19,7 @@ export const FAQSection = ({ faqs, onActionClick }) => {
         {/* Section Header */}
         <div className="text-center mb-8">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-3">
-            Got Questions? We've Got{' '}
-            <span className="text-[#8B1538] leading-[1.2]">
-              Answers
-            </span>
+            {title}
           </h2>
         </div>
 

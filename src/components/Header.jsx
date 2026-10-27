@@ -264,18 +264,16 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                               key={item.label}
                               href={item.href}
                               onClick={(e) => {
-                                e.preventDefault();
-                                if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
-                                setOpenDropdown(null);
-                                if (item.label.toLowerCase().includes('parent testimonial') && onNavigate) {
-                                  onNavigate('parent-testimonials');
-                                } else if (item.label.toLowerCase().includes('student testimonial') && onNavigate) {
-                                  onNavigate('student-testimonials');
-                                } else {
-                                  if (onNavigate) onNavigate('home');
-                                  onActionClick(`Selected: ${item.label}`);
-                                }
-                              }}
+                                  if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+                                  setOpenDropdown(null);
+                                  if (item.href && item.href.startsWith('/')) {
+                                    e.preventDefault();
+                                    if (onNavigate) {
+                                      const route = item.href.substring(1);
+                                      onNavigate(route || 'home');
+                                    }
+                                  }
+                                }}
                               className="block px-4 py-2.5 text-[13.5px] text-gray-700 hover:bg-[#F7F2F4] hover:text-[#8B1538] font-medium transition-colors cursor-pointer"
                             >
                               {item.label}
@@ -309,9 +307,11 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                   key={link.label}
                   href={link.href}
                   onClick={(e) => {
+                    e.preventDefault();
                     if (isHome) {
-                      e.preventDefault();
                       if (onNavigate) onNavigate('home');
+                    } else if (link.href.startsWith('/')) {
+                      if (onNavigate) onNavigate(link.href.slice(1));
                     }
                   }}
                   className={`text-[14px] transition-all duration-200 cursor-pointer ${
@@ -381,17 +381,15 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                           key={subItem.label}
                           href={subItem.href}
                           onClick={(e) => {
-                            e.preventDefault();
-                            setIsMobileMenuOpen(false);
-                            if (subItem.label.toLowerCase().includes('parent testimonial') && onNavigate) {
-                              onNavigate('parent-testimonials');
-                            } else if (subItem.label.toLowerCase().includes('student testimonial') && onNavigate) {
-                              onNavigate('student-testimonials');
-                            } else {
-                              if (onNavigate) onNavigate('home');
-                              onActionClick(`Selected: ${subItem.label}`);
-                            }
-                          }}
+                              setIsMobileMenuOpen(false);
+                              if (subItem.href && subItem.href.startsWith('/')) {
+                                e.preventDefault();
+                                if (onNavigate) {
+                                  const route = subItem.href.substring(1);
+                                  onNavigate(route || 'home');
+                                }
+                              }
+                            }}
                           className="block text-sm text-gray-700 hover:text-[#8B1538] py-1"
                         >
                           {subItem.label}
@@ -414,7 +412,15 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
               ) : (
                 <a
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    if (link.href.startsWith('/')) {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      if (onNavigate) onNavigate(link.href.slice(1));
+                    } else {
+                      setIsMobileMenuOpen(false);
+                    }
+                  }}
                   className={`block py-2 text-base font-medium ${
                     link.active ? 'text-[#8B1538] font-bold' : 'text-gray-800'
                   }`}

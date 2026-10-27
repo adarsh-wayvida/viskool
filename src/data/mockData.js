@@ -20,14 +20,14 @@ export const NAV_LINKS = [
   { label: 'Blogs', href: '#blogs' },
   { 
     label: 'About Us', 
-    href: '#about',
+    href: '#',
     hasDropdown: true,
     dropdownType: 'simple',
     items: [
-      { label: 'About Viskool', href: '#about-viskool' },
+      { label: 'About Viskool', href: '/about-viskool' },
       { label: 'About the Founder', href: '#founder' },
-      { label: 'Student Testimonial', href: '#student-testimonials' },
-      { label: 'Parent Testimonial', href: '#parent-testimonials' },
+      { label: 'Student Testimonial', href: '/student-testimonials' },
+      { label: 'Parent Testimonial', href: '/parent-testimonials' }
     ]
   },
   { label: 'Career With Us', href: '#careers' },

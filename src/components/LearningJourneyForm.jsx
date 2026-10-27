@@ -24,7 +24,16 @@ const CATEGORY_COURSES_MAP = {
   ],
 };
 
-export const LearningJourneyForm = ({ onSubmitSuccess }) => {
+const DEFAULT_HEADING = (
+  <>
+    Ready to Transform Your
+    <span className="block text-[#8B1538] mt-1 md:mt-2 leading-[1.2]">
+      Academic &amp; Professional Journey?
+    </span>
+  </>
+);
+
+export const LearningJourneyForm = ({ onSubmitSuccess, heading = DEFAULT_HEADING }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -70,10 +79,7 @@ export const LearningJourneyForm = ({ onSubmitSuccess }) => {
         {/* Section Heading */}
         <div className="text-center mb-8 sm:mb-10 max-w-3xl mx-auto">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5">
-            Ready to Transform Your
-            <span className="block text-[#8B1538] mt-1 md:mt-2 leading-[1.2]">
-              Academic & Professional Journey?
-            </span>
+            {heading}
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Join thousands of successful learners today. Book your free counselling session now!
