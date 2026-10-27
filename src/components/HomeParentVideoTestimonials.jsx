@@ -38,7 +38,7 @@ export const HomeParentVideoTestimonials = () => {
           }
           hideLabel={true}
           centerHeader={true}
-          containerClassName=""
+          containerClassName="py-6"
           onViewAll={handleViewAll}
           onPlayVideo={(v) => setActiveVideo(v)}
           isModalOpen={!!activeVideo}

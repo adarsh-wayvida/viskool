@@ -6,6 +6,7 @@ import { CourseSection } from "./CourseSection.jsx";
 import { HomeStudentTestimonials } from "./HomeStudentTestimonials.jsx";
 import { FAQSection } from "./FAQSection.jsx";
 import { LearningJourneyForm } from "./LearningJourneyForm.jsx";
+import { IconMapPin } from "@tabler/icons-react";
 
 const ABOUT_TESTIMONIALS = [
   {
@@ -155,9 +156,8 @@ export const AboutViskoolPage = () => {
             One Platform for Every Learning Goal.
           </h1>
 
-          <p className="text-lg sm:text-xl text-white/95 font-normal max-w-2xl font-sans drop-shadow-md mb-10 sm:mb-12">
-            One trusted platform for academics, competitive exams and job-ready
-            skills, with personal mentoring.
+          <p className="text-lg sm:text-xl lg:text-lg text-white/95 font-normal max-w-2xl lg:max-w-4xl lg:whitespace-nowrap font-sans drop-shadow-md mb-10 sm:mb-12">
+            One trusted platform for academics, competitive exams and job-ready skills, with personal mentoring.
           </p>
 
           {/* Static Banner Statistics Row */}
@@ -194,26 +194,23 @@ export const AboutViskoolPage = () => {
       {/* 2. WELCOME TO VISKOOL SECTION */}
       <section className="pt-12 sm:pt-16 lg:pt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16">
-            {/* Left Column: Heading and Image */}
-            <div className="w-full lg:w-[45%] flex flex-col">
-              <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-6 sm:mb-8">
-                <span className="text-[#8B1538]">Welcome to Viskool</span>{" "}
-                Learning
-              </h2>
+          <div className="grid grid-cols-1 gap-y-6 sm:gap-y-8 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:items-center lg:gap-x-12 xl:gap-x-16">
+            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight text-center lg:col-span-2 lg:row-start-1 lg:whitespace-nowrap">
+              <span className="text-[#8B1538]">Welcome to Viskool</span>{" "}
+              Learning
+            </h2>
 
-              {/* Image Container */}
-              <div className="w-full aspect-[4/3] bg-[#F3F4F6] rounded-3xl overflow-hidden shadow-sm">
-                <img
-                  src="/about-viskool-learning-section.webp"
-                  alt="Viskool learners collaborating through online learning"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
+            {/* Image Container */}
+            <div className="w-full aspect-[4/3] bg-[#F3F4F6] rounded-3xl overflow-hidden shadow-sm lg:col-start-1 lg:row-start-2">
+              <img
+                src="/images/about/students-laptop.webp"
+                alt="Viskool learners collaborating through online learning"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
 
             {/* Right Column: Content */}
-            <div className="w-full lg:w-[55%] flex flex-col pt-1 lg:pt-2">
+            <div className="w-full lg:col-start-2 lg:row-start-2">
               <div className="text-gray-700 text-[15px] sm:text-base leading-relaxed space-y-5 sm:space-y-6">
                 <p>
                   Welcome to Viskool, an online learning platform that gives
@@ -410,12 +407,12 @@ export const AboutViskoolPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Vision */}
-            <div className="bg-[#F6DF72] rounded-2xl p-6 sm:p-8 flex flex-col relative overflow-hidden min-h-[280px] sm:min-h-[320px]">
-              <div className="relative z-10">
+            <div className="bg-[#F6DF72] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 h-full overflow-hidden">
+              <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Our Vision
                 </h3>
-                <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base pr-8">
+                <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base">
                   To make quality, personalized learning accessible to every
                   learner, everywhere.
                 </p>
@@ -423,17 +420,17 @@ export const AboutViskoolPage = () => {
               <img
                 src="/illustration-vision.svg"
                 alt=""
-                className="absolute bottom-2 right-2 w-32 h-32 sm:w-40 sm:h-40 object-contain pointer-events-none"
+                className="w-[110px] h-[110px] object-contain pointer-events-none shrink-0 self-end md:self-auto"
               />
             </div>
 
             {/* Mission */}
-            <div className="bg-[#9EDDDC] rounded-2xl p-6 sm:p-8 flex flex-col relative overflow-hidden min-h-[280px] sm:min-h-[320px]">
-              <div className="relative z-10">
+            <div className="bg-[#9EDDDC] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 h-full overflow-hidden">
+              <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Our Mission
                 </h3>
-                <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base pr-8">
+                <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base">
                   To give every learner a mentor, a plan, and the tools to turn
                   effort into results.
                 </p>
@@ -441,17 +438,17 @@ export const AboutViskoolPage = () => {
               <img
                 src="/illustration-mission.svg"
                 alt=""
-                className="absolute bottom-2 right-2 w-32 h-32 sm:w-40 sm:h-40 object-contain pointer-events-none"
+                className="w-[110px] h-[110px] object-contain pointer-events-none shrink-0 self-end md:self-auto"
               />
             </div>
 
             {/* Values */}
-            <div className="bg-[#E5BFD0] rounded-2xl p-6 sm:p-8 flex flex-col relative overflow-hidden min-h-[280px] sm:min-h-[320px]">
-              <div className="relative z-10">
+            <div className="bg-[#E5BFD0] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 h-full overflow-hidden">
+              <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Our Values
                 </h3>
-                <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base pr-8">
+                <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base">
                   We measure success by what learners achieve. We keep
                   improving, just as we ask our learners to.
                 </p>
@@ -459,7 +456,7 @@ export const AboutViskoolPage = () => {
               <img
                 src="/illustration-values.svg"
                 alt=""
-                className="absolute bottom-2 right-2 w-32 h-32 sm:w-40 sm:h-40 object-contain pointer-events-none"
+                className="w-[110px] h-[110px] object-contain pointer-events-none shrink-0 self-end md:self-auto"
               />
             </div>
           </div>
@@ -508,25 +505,37 @@ export const AboutViskoolPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
-            <div className="relative aspect-square overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-sm">
-              <img
-                src="/images/about/about-across-india.webp"
-                alt="Student receiving one-to-one online mentoring in India"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute bottom-4 left-4 z-10 rounded-lg bg-[#8B1538]/90 px-4 py-2 text-sm sm:text-base font-semibold text-white shadow-sm">
+            <div className="h-full rounded-2xl border border-black/5 bg-[#F6DF72] p-5 sm:p-6 shadow-sm">
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
                 Across India
+              </h4>
+              <div className="flex flex-wrap gap-2.5">
+                {["Kerala", "Bangalore", "Chennai", "Coimbatore", "Hyderabad"].map((location) => (
+                  <span
+                    key={location}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white/65 px-3 py-2 text-sm font-medium text-gray-700"
+                  >
+                    <IconMapPin className="h-4 w-4 shrink-0 text-[#7C3AED]" stroke={2} aria-hidden="true" />
+                    {location}
+                  </span>
+                ))}
               </div>
             </div>
 
-            <div className="relative aspect-square overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-sm">
-              <img
-                src="/images/about/about-across-gulf.webp"
-                alt="Student receiving one-to-one online mentoring in the Gulf"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute bottom-4 left-4 z-10 rounded-lg bg-[#8B1538]/90 px-4 py-2 text-sm sm:text-base font-semibold text-white shadow-sm">
+            <div className="h-full rounded-2xl border border-black/5 bg-[#9EDDDC] p-5 sm:p-6 shadow-sm">
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
                 Across the Gulf
+              </h4>
+              <div className="flex flex-wrap gap-2.5">
+                {["Dubai (UAE)", "Qatar", "Saudi Arabia", "Oman"].map((location) => (
+                  <span
+                    key={location}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white/65 px-3 py-2 text-sm font-medium text-gray-700"
+                  >
+                    <IconMapPin className="h-4 w-4 shrink-0 text-[#F06A5B]" stroke={2} aria-hidden="true" />
+                    {location}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -567,10 +576,10 @@ export const AboutViskoolPage = () => {
       <section className="bg-white py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div
-            className="relative overflow-hidden bg-[#9EDDDC] rounded-3xl shadow-sm"
+            className="relative overflow-hidden bg-[#E4B9C6] rounded-3xl shadow-sm"
             style={{
               backgroundImage:
-                "repeating-radial-gradient(circle at 12% 115%, transparent 0, transparent 22px, rgba(31,41,55,0.045) 23px, transparent 24px)",
+                "repeating-radial-gradient(circle at 12% 115%, transparent 0, transparent 22px, rgba(31,41,55,0.045) 23px, transparent 24px), linear-gradient(110deg, #E4B9C6 0%, #EDCFD7 55%, #F3E1E6 100%)",
             }}
           >
             <div
@@ -592,7 +601,7 @@ export const AboutViskoolPage = () => {
               <div className="border-t border-gray-800/10 md:border-t-0 md:border-l flex flex-row items-center justify-center gap-4 px-6 py-7 sm:px-8 md:py-9 text-center">
                 <a
                   href="tel:+919876543210"
-                  className="inline-flex min-w-36 items-center justify-center rounded-full bg-[#15803D] px-7 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all duration-200 hover:bg-[#166534] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15803D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#9EDDDC] active:scale-95"
+                  className="inline-flex min-w-36 items-center justify-center rounded-full bg-[#15803D] px-7 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all duration-200 hover:bg-[#166534] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15803D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F3E5E9] active:scale-95"
                 >
                   Call Now
                 </a>

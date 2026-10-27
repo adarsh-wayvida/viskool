@@ -25,7 +25,7 @@ export const NAV_LINKS = [
     dropdownType: 'simple',
     items: [
       { label: 'About Viskool', href: '/about-viskool' },
-      { label: 'About the Founder', href: '#founder' },
+      { label: 'About the Founder', href: '/about-founder' },
       { label: 'Student Testimonial', href: '/student-testimonials' },
       { label: 'Parent Testimonial', href: '/parent-testimonials' }
     ]
