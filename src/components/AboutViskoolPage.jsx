@@ -323,9 +323,9 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Why Learners Choose Viskool Section */}
-      <section className="bg-[#F9F8F6] py-10 sm:py-12 px-5 sm:px-8">
+      <section className="bg-[#F9F8F6] py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-10 sm:mb-14 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8 sm:mb-10 text-center">
             <span className="block text-[#8B1538]">
               Why Learners Choose Viskool:
             </span>
@@ -399,9 +399,9 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Vision, Mission, Values Section */}
-      <section className="bg-white py-12 sm:py-16 lg:py-20 px-5 sm:px-8">
+      <section className="bg-white py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#8B1538] leading-[1.2] tracking-tight mb-10 sm:mb-14 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#8B1538] leading-[1.2] tracking-tight mb-8 sm:mb-10 text-center">
             Our Vision, Our Mission, Our Values
           </h2>
 
@@ -464,9 +464,9 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Our Courses Section */}
-      <section className="bg-[#FAFAFA] py-12 sm:py-16 lg:py-20 px-5 sm:px-8">
+      <section className="bg-[#FAFAFA] py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-10 sm:mb-14 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8 sm:mb-10 text-center">
             <span className="text-[#8B1538]">Our</span> Courses
           </h2>
 
@@ -482,7 +482,7 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Learning Across India and the Gulf Section */}
-      <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20 px-5 sm:px-8">
+      <section className="relative overflow-hidden bg-white py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
         <div
           className="absolute -top-16 -left-20 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#F8F0F2] pointer-events-none"
           aria-hidden="true"
@@ -493,7 +493,7 @@ export const AboutViskoolPage = () => {
         ></div>
 
         <div className="relative z-10 max-w-6xl mx-auto w-full">
-          <div className="text-center max-w-6xl mx-auto mb-8 sm:mb-10">
+          <div className="text-center max-w-6xl mx-auto mb-6 sm:mb-8">
             <h2 className="text-[28px] md:text-[34px] lg:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 lg:whitespace-nowrap">
               <span className="text-[#8B1538]">Wherever You Are,</span> Your
               Mentor Is Just a Click Away
