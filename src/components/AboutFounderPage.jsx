@@ -1,5 +1,13 @@
 import React from 'react';
 import { Allura } from 'next/font/google';
+import {
+  IconBrandYoutube,
+  IconBrandFacebook,
+  IconBrandLinkedin,
+  IconBrandInstagram,
+  IconBrandX,
+  IconBrandPinterest
+} from '@tabler/icons-react';
 
 const allura = Allura({
   weight: '400',
@@ -76,9 +84,32 @@ export const AboutFounderPage = () => {
                 “Hello, students and parents. Education should not depend on where you live or what you can afford to travel for. Viskool is built for every learner who wants to move ahead, from a Class 5 student to a graduate looking for a better career. Our mentors, regular evaluations, and progress tracking exist so that no learner is left behind. Thank you for letting us be part of your learning journey.”
               </blockquote>
 
-              <div className="font-sans">
-                <p className="text-base font-bold text-[#102A43] sm:text-lg">Adv. Gireesh Neyyar</p>
-                <p className="mt-1 text-sm font-medium text-[#1769D2] sm:text-base">Founder, Viskool</p>
+              <div className="font-sans max-w-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-4 mt-2">
+                <div>
+                  <p className="text-base font-bold text-[#102A43] sm:text-lg">Adv. Gireesh Neyyar</p>
+                  <p className="mt-1 text-sm font-medium text-[#1769D2] sm:text-base">Founder, Viskool</p>
+                </div>
+                
+                {/* Social Icons */}
+                <div className="flex items-center justify-center sm:justify-end gap-3">
+                  {[
+                    { icon: <IconBrandYoutube size={20} stroke={2} />, name: 'YouTube', href: '#' },
+                    { icon: <IconBrandFacebook size={20} stroke={2} />, name: 'Facebook', href: '#' },
+                    { icon: <IconBrandLinkedin size={20} stroke={2} />, name: 'LinkedIn', href: '#' },
+                    { icon: <IconBrandInstagram size={20} stroke={2} />, name: 'Instagram', href: '#' },
+                    { icon: <IconBrandX size={20} stroke={2} />, name: 'X', href: '#' },
+                    { icon: <IconBrandPinterest size={20} stroke={2} />, name: 'Pinterest', href: '#' },
+                  ].map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#8B1538] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#8B1538] hover:text-white hover:shadow-md"
+                      aria-label={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
