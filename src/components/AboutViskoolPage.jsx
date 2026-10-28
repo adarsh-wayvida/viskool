@@ -213,27 +213,10 @@ export const AboutViskoolPage = () => {
             <div className="w-full lg:col-start-2 lg:row-start-2">
               <div className="text-gray-700 text-[15px] sm:text-base leading-relaxed space-y-5 sm:space-y-6">
                 <p>
-                  Welcome to Viskool, an online learning platform that gives
-                  every student personal attention. We offer one-to-one school
-                  tuition for Classes 5 to 12 across Kerala State, CBSE, ICSE,
-                  and IGCSE syllabi, along with focused commerce tuition for CA
-                  and CMA aspirants. For competitive exams, our expert mentors
-                  prepare students for NEET, JEE, PSC, and High Court Assistant,
-                  with regular tests and feedback that show exactly where to
-                  improve.
+                  Welcome to Viskool, an online learning platform that gives every student personal attention. We offer one-to-one school tuition for Classes 5 to 12 across Kerala State, CBSE, ICSE, and IGCSE syllabus, along with focused commerce tuition for CA and CMA aspirants. For competitive exams, our expert mentors prepare students for NEET, JEE, PSC, and High Court Assistant, with regular tests and feedback that show exactly where to improve.
                 </p>
                 <p>
-                  Beyond academics, Viskool helps learners build job-ready
-                  skills in Digital Marketing, Performance Marketing, Data
-                  Analytics, AI Tools, Power BI, and Coding, Robotics & Game
-                  Development, plus English grammar and spoken English for
-                  everyday confidence. Every course comes with personal
-                  mentoring, regular evaluations, and progress tracking, so
-                  learners and parents always know how far they have come. With
-                  over 70,000 enrollments and learners in 70+ countries, Viskool
-                  is committed to making quality education accessible,
-                  supportive, and result-focused for every student, wherever
-                  they are.
+                  Beyond academics, Viskool helps learners build job-ready skills in Digital Marketing, Performance Marketing, Data Analytics, AI Tools, Power BI, and Coding, Robotics & Game Development, plus English grammar and spoken English for everyday confidence. Every course comes with personal mentoring, regular evaluations, and progress tracking, so learners and parents always know how far they have come. With over 70,000 enrollments and learners in 70+ countries, Viskool is committed to making quality education accessible, supportive, and result-focused for every student, wherever they are.
                 </p>
               </div>
             </div>
