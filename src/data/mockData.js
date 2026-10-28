@@ -17,7 +17,7 @@ export const NAV_LINKS = [
     hasDropdown: true,
     dropdownType: 'mega',
   },
-  { label: 'Blogs', href: '#blogs' },
+  { label: 'Blogs', href: '/blogs' },
   { 
     label: 'About Us', 
     href: '#',

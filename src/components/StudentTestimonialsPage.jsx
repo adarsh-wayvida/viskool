@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { TestimonialStoryDialog } from './TestimonialStoryDialog.jsx';
 import { ParentVideoSlider, TestimonialCard } from './ParentTestimonialsPage.jsx';
+import { PageBanner } from './PageBanner.jsx';
 
 const CATEGORIES = [
   'All',
@@ -175,36 +176,16 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
     <div className="w-full bg-[#FAF4F7] min-h-screen selection:bg-[#8B1538] selection:text-white">
       
       {/* 1. HERO SECTION */}
-          <section 
-            className="relative overflow-hidden py-16 sm:py-20 w-full bg-cover bg-[center_35%] bg-no-repeat"
-            style={{ backgroundImage: "url('/student-testimonial-background-100kb.webp')" }}
-          >
-            {/* Semi-transparent burgundy gradient overlay (65% opacity) */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#8B1538]/65 to-[#73152C]/65"></div>
-            
-            {/* Subtle radial dark overlay behind text to improve readability without a visible box */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.3)_0%,_transparent_65%)] pointer-events-none"></div>
-            
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center text-center">
-              
-              <nav className="flex items-center justify-center gap-2 text-sm font-medium text-white/80 mb-6 drop-shadow-sm">
-                <a href="/" className="hover:text-white transition-colors cursor-pointer">Home</a>
-                <span>&gt;</span>
-                <a href="#" className="hover:text-white transition-colors cursor-pointer">About Us</a>
-                <span>&gt;</span>
-                <span className="text-white cursor-default">Student Testimonials</span>
-              </nav>
-              
-              <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4 font-sans drop-shadow-md">
-                Hear From Our Students
-              </h1>
-              
-              <p className="text-lg sm:text-xl text-white/95 font-normal max-w-2xl font-sans drop-shadow-md">
-                Real stories of learning, growth, and success from Viskool students.
-              </p>
-  
-            </div>
-          </section>
+          <PageBanner 
+            backgroundImage="/student-testimonial-background-100kb.webp"
+            breadcrumbs={[
+              { label: 'Home', href: '/' },
+              { label: 'About Us', href: '#' },
+              { label: 'Student Testimonials' }
+            ]}
+            title="Hear From Our Students"
+            subtitle="Real stories of learning, growth, and success from Viskool students."
+          />
 
       {/* 2. TESTIMONIAL CONTENT SECTION WITH FILTER CHIPS */}
       <section id="student-testimonials-grid" className="w-full bg-[#FCFCFD] py-10 sm:py-14 border-b border-gray-100">

@@ -159,6 +159,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
             {navLinks.map((link) => {
               if (link.hasDropdown) {
                 const isOpen = openDropdown === link.label;
+                const isChildActive = link.items && link.items.some(item => item.href === currentPage);
 
                 return (
                   <div 
@@ -178,7 +179,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                       }}
                       aria-expanded={isOpen}
                       aria-haspopup="true"
-                      className="flex items-center gap-1.5 text-[14px] font-medium text-[#222222] hover:text-[#8B1538] py-1 transition-colors duration-200 cursor-pointer focus:outline-hidden focus:text-[#8B1538]"
+                      className={`flex items-center gap-1.5 text-[14px] transition-colors duration-200 cursor-pointer focus:outline-hidden ${isChildActive ? 'text-[#8B1538] font-bold border-b-2 border-[#8B1538] pb-0.5' : 'font-medium text-[#222222] hover:text-[#8B1538] py-1 focus:text-[#8B1538]'}`}
                     >
                       <span>{link.label}</span>
                       <svg 
@@ -446,3 +447,4 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
     </header>
   );
 };
+

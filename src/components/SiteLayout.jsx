@@ -15,10 +15,8 @@ export function SiteLayout({ children }) {
   const router = useRouter();
 
   // Map Next.js pathname to the old 'currentPage' state for Header active state
-  let currentPage = 'home';
-  if (pathname === '/parent-testimonials') currentPage = 'parent-testimonials';
-  else if (pathname === '/student-testimonials') currentPage = 'student-testimonials';
-  
+  let currentPage = pathname === '/' ? 'home' : pathname;
+
   const [modalState, setModalState] = useState({
     isOpen: false,
     initialData: null,
@@ -107,3 +105,5 @@ export function SiteLayout({ children }) {
     </>
   );
 }
+
+
