@@ -111,7 +111,7 @@ export function ContactUsPage() {
             {/* Right: Map Placeholder */}
             <div className="w-full h-full min-h-[400px] lg:min-h-full bg-gray-100 rounded-3xl overflow-hidden border border-gray-200 relative flex flex-col items-center justify-center group">
               <img 
-                src="/images/contact-map.webp" 
+                src="/images/contact-map.jpg" 
                 alt="Viskool Head Office Map Location" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
