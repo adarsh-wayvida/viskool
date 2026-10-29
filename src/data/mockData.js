@@ -31,7 +31,7 @@ export const NAV_LINKS = [
     ]
   },
   { label: 'Career With Us', href: '#careers' },
-  { label: 'Contact Us', href: '#contact', isContactTrigger: true },
+  { label: 'Contact Us', href: '/contact-us' },
 ];
 
 export const HERO_SLIDES = [
