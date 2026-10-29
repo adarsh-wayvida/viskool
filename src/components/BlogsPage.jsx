@@ -5,6 +5,7 @@ import { PageBanner } from './PageBanner.jsx';
 import { IconSearch, IconCalendarEvent, IconArrowRight, IconMail } from '@tabler/icons-react';
 
 const CATEGORIES = [
+  'All',
   'Digital Marketing',
   'High Court of Kerala',
   'JEE',
@@ -67,7 +68,7 @@ const MOCK_BLOGS = [
 ];
 
 export function BlogsPage() {
-  const [activeCategory, setActiveCategory] = useState('Digital Marketing');
+  const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
