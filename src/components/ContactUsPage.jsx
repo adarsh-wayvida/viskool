@@ -14,15 +14,15 @@ export function ContactUsPage() {
         ]}
         title={
           <>
-            Get in Touch With Us
+            Contact Viskool for Online Courses & Learning Support
           </>
         }
         subtitle={
           <>
-            Have questions about our courses or need assistance? Reach out to our team<br className="hidden sm:block" /> and we'll get back to you as soon as possible.
+            Talk to our experts about school tuition, exam coaching or career skills, and find the right course for your goal.
           </>
         }
-        titleClassName="leading-[1.15] sm:leading-[1.2]"
+        titleClassName="leading-[1.15] sm:leading-[1.2] lg:whitespace-nowrap"
         subtitleClassName="max-w-[1050px] leading-[1.5] sm:leading-[1.6]"
       />
 
