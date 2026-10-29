@@ -2,7 +2,43 @@
 
 import React from 'react';
 import { PageBanner } from './PageBanner.jsx';
-import { IconMapPin, IconPhone, IconMail, IconWorld, IconClock, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube } from '@tabler/icons-react';
+import { FAQSection } from './FAQSection.jsx';
+import { IconMapPin, IconPhone, IconMail, IconWorld, IconClock, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconBrandLinkedin } from '@tabler/icons-react';
+
+const contactFAQs = [
+  {
+    question: "Where is Viskool's head office located?",
+    answer: "Our head office is at 3rd Floor, Capital Towers, Statue, Opp. Secretariat, Trivandrum, Kerala 695001. You can find it on the map above."
+  },
+  {
+    question: "Are Viskool's classes online or offline?",
+    answer: "All classes are live and online, so you can learn from home anywhere in India or the Gulf. The office is for counselling and enquiries."
+  },
+  {
+    question: "Can I visit the office to speak to someone in person?",
+    answer: "Yes. Call us to fix a time, and a counsellor will meet you, explain the courses, and answer your questions."
+  },
+  {
+    question: "What are your office and support hours?",
+    answer: "We are available Monday to Saturday, 10:00 AM to 6:00 PM (Sunday: Closed). You can also reach us by phone, WhatsApp, or email outside these hours, and we'll get back to you."
+  },
+  {
+    question: "I live outside of Kerala. Can I still join?",
+    answer: "Yes. We teach students across India and the GCC, including Dubai (UAE), Qatar, Saudi Arabia, and Oman, with timings that suit your region."
+  },
+  {
+    question: "Do you have centres in other cities?",
+    answer: "Viskool is an online learning platform, so students in every city learn with the same mentors through live classes."
+  },
+  {
+    question: "How can I reach Viskool quickly?",
+    answer: "Call or WhatsApp us on +91 8943384338, email info@viskool.com, or fill in the form below, and we will call you back."
+  },
+  {
+    question: "Can I attend a free demo class without visiting the office?",
+    answer: "Yes. Book it online through the form below, and we'll share the class link."
+  }
+];
 
 export function ContactUsPage() {
   return (
@@ -27,12 +63,12 @@ export function ContactUsPage() {
         subtitleClassName="max-w-[1050px] leading-[1.5] sm:leading-[1.6]"
       />
 
-      <section className="w-full bg-white py-12 sm:py-16 lg:py-20 font-sans border-b border-gray-100">
+      <section className="w-full py-12 sm:py-16 lg:py-20 font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
             {/* Left: Contact Info */}
-            <div className="bg-[#FAF4F7] rounded-3xl p-8 sm:p-10 lg:p-12 shadow-sm border border-gray-100 flex flex-col h-full justify-center">
+            <div className="bg-[#FAF4F7] rounded-3xl p-6 sm:p-7 lg:p-8 shadow-sm border border-gray-100 flex flex-col h-full justify-center">
               <h2 className="text-2xl sm:text-[28px] lg:text-[32px] font-bold text-[#102A43] mb-8 lg:mb-10 leading-tight">
                 Our Head Office Address
               </h2>
@@ -122,43 +158,125 @@ export function ContactUsPage() {
       </section>
 
       {/* Social Media Section */}
-      <section className="w-full bg-[#FAF4F7] pb-16 sm:pb-20 lg:pb-24 font-sans">
+      <section className="w-full pt-2 sm:pt-2.5 lg:pt-3 pb-16 sm:pb-20 lg:pb-24 font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             
             {/* Facebook Card */}
-            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-16 h-16 rounded-full bg-[#FAF4F7] flex items-center justify-center mb-6 group-hover:bg-[#8B1538] transition-colors duration-300">
-                <IconBrandFacebook size={32} className="text-[#8B1538] group-hover:text-white transition-colors duration-300" stroke={1.5} />
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#1877F2] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                <IconBrandFacebook size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-xl font-bold text-[#102A43] mb-6">Follow On Facebook</h3>
-              <a href="#" className="mt-auto px-8 py-3 bg-[#FCF8F9] text-[#8B1538] font-bold text-sm rounded-full transition-all duration-200 hover:bg-[#8B1538] hover:text-white border border-[#F4E1E6] hover:border-[#8B1538]">
+              <h3 className="text-lg font-bold text-[#102A43] mb-6">Follow On Facebook</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#1877F2] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#0C5DC7]">
                 FOLLOW
               </a>
             </div>
 
             {/* Instagram Card */}
-            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-16 h-16 rounded-full bg-[#FAF4F7] flex items-center justify-center mb-6 group-hover:bg-[#8B1538] transition-colors duration-300">
-                <IconBrandInstagram size={32} className="text-[#8B1538] group-hover:text-white transition-colors duration-300" stroke={1.5} />
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#E1306C] to-[#833AB4] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                <IconBrandInstagram size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-xl font-bold text-[#102A43] mb-6">Follow On Instagram</h3>
-              <a href="#" className="mt-auto px-8 py-3 bg-[#FCF8F9] text-[#8B1538] font-bold text-sm rounded-full transition-all duration-200 hover:bg-[#8B1538] hover:text-white border border-[#F4E1E6] hover:border-[#8B1538]">
+              <h3 className="text-lg font-bold text-[#102A43] mb-6">Follow On Instagram</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-gradient-to-br from-[#E1306C] to-[#833AB4] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:opacity-90">
                 FOLLOW
               </a>
             </div>
 
             {/* YouTube Card */}
-            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-16 h-16 rounded-full bg-[#FAF4F7] flex items-center justify-center mb-6 group-hover:bg-[#8B1538] transition-colors duration-300">
-                <IconBrandYoutube size={32} className="text-[#8B1538] group-hover:text-white transition-colors duration-300" stroke={1.5} />
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#FF0000] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                <IconBrandYoutube size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-xl font-bold text-[#102A43] mb-6">Subscribe On Youtube</h3>
-              <a href="#" className="mt-auto px-8 py-3 bg-[#FCF8F9] text-[#8B1538] font-bold text-sm rounded-full transition-all duration-200 hover:bg-[#8B1538] hover:text-white border border-[#F4E1E6] hover:border-[#8B1538]">
+              <h3 className="text-lg font-bold text-[#102A43] mb-6">Subscribe On Youtube</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#FF0000] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#CC0000]">
                 SUBSCRIBE
               </a>
             </div>
 
+            {/* LinkedIn Card */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#0A66C2] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                <IconBrandLinkedin size={28} className="text-white" stroke={1.5} />
+              </div>
+              <h3 className="text-lg font-bold text-[#102A43] mb-6">Follow On LinkedIn</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#0A66C2] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#004182]">
+                FOLLOW
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={contactFAQs} 
+        onActionClick={(action) => console.log(action)} 
+        title={<>Frequently Asked <span className="text-[#8B1538] leading-[1.2]">Questions</span></>} 
+      />
+
+      {/* Registration Form Section */}
+      <section className="w-full py-16 sm:py-20 lg:py-24 font-sans bg-[#FAF4F7]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight">
+              Ready To Get Started? <span className="text-[#8B1538]">Register Today</span>
+            </h2>
+          </div>
+
+          <div className="bg-white rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-sm border border-gray-100">
+            <form className="space-y-6 lg:space-y-8">
+              
+              {/* Name - Full Width */}
+              <div className="space-y-2.5">
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Name <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Your Name" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none placeholder:text-gray-400" />
+              </div>
+
+              {/* Email & Phone Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <div className="space-y-2.5">
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Email</label>
+                  <input type="email" placeholder="Enter valid email id" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none placeholder:text-gray-400" />
+                </div>
+                
+                {/* Phone Group */}
+                <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] gap-4">
+                  <div className="space-y-2.5">
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Code <span className="text-red-500">*</span></label>
+                    <input type="text" placeholder="+91" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none placeholder:text-gray-400" />
+                  </div>
+                  <div className="space-y-2.5">
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Phone Number <span className="text-red-500">*</span></label>
+                    <input type="tel" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none" />
+                  </div>
+                </div>
+              </div>
+
+              {/* District & Courses Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <div className="space-y-2.5">
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">District <span className="text-red-500">*</span></label>
+                  <select defaultValue="" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none text-gray-500 appearance-none">
+                    <option value="" disabled>Select District</option>
+                  </select>
+                </div>
+                <div className="space-y-2.5">
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Courses <span className="text-red-500">*</span></label>
+                  <select defaultValue="" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none text-gray-500 appearance-none">
+                    <option value="" disabled>Select Class</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <button type="button" className="w-full px-10 py-4 bg-[#8B1538] text-white font-bold text-[15px] rounded-2xl hover:bg-[#73122E] transition-colors duration-200 shadow-sm">
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
