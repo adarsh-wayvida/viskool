@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PageBanner } from './PageBanner.jsx';
-import { IconMapPin, IconPhone, IconMail, IconWorld, IconClock } from '@tabler/icons-react';
+import { IconMapPin, IconPhone, IconMail, IconWorld, IconClock, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube } from '@tabler/icons-react';
 
 export function ContactUsPage() {
   return (
@@ -115,6 +115,48 @@ export function ContactUsPage() {
                 alt="Viskool Head Office Map Location" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Section */}
+      <section className="w-full bg-[#FAF4F7] pb-16 sm:pb-20 lg:pb-24 font-sans">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+            
+            {/* Facebook Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-16 h-16 rounded-full bg-[#FAF4F7] flex items-center justify-center mb-6 group-hover:bg-[#8B1538] transition-colors duration-300">
+                <IconBrandFacebook size={32} className="text-[#8B1538] group-hover:text-white transition-colors duration-300" stroke={1.5} />
+              </div>
+              <h3 className="text-xl font-bold text-[#102A43] mb-6">Follow On Facebook</h3>
+              <a href="#" className="mt-auto px-8 py-3 bg-[#FCF8F9] text-[#8B1538] font-bold text-sm rounded-full transition-all duration-200 hover:bg-[#8B1538] hover:text-white border border-[#F4E1E6] hover:border-[#8B1538]">
+                FOLLOW
+              </a>
+            </div>
+
+            {/* Instagram Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-16 h-16 rounded-full bg-[#FAF4F7] flex items-center justify-center mb-6 group-hover:bg-[#8B1538] transition-colors duration-300">
+                <IconBrandInstagram size={32} className="text-[#8B1538] group-hover:text-white transition-colors duration-300" stroke={1.5} />
+              </div>
+              <h3 className="text-xl font-bold text-[#102A43] mb-6">Follow On Instagram</h3>
+              <a href="#" className="mt-auto px-8 py-3 bg-[#FCF8F9] text-[#8B1538] font-bold text-sm rounded-full transition-all duration-200 hover:bg-[#8B1538] hover:text-white border border-[#F4E1E6] hover:border-[#8B1538]">
+                FOLLOW
+              </a>
+            </div>
+
+            {/* YouTube Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-16 h-16 rounded-full bg-[#FAF4F7] flex items-center justify-center mb-6 group-hover:bg-[#8B1538] transition-colors duration-300">
+                <IconBrandYoutube size={32} className="text-[#8B1538] group-hover:text-white transition-colors duration-300" stroke={1.5} />
+              </div>
+              <h3 className="text-xl font-bold text-[#102A43] mb-6">Subscribe On Youtube</h3>
+              <a href="#" className="mt-auto px-8 py-3 bg-[#FCF8F9] text-[#8B1538] font-bold text-sm rounded-full transition-all duration-200 hover:bg-[#8B1538] hover:text-white border border-[#F4E1E6] hover:border-[#8B1538]">
+                SUBSCRIBE
+              </a>
             </div>
 
           </div>
