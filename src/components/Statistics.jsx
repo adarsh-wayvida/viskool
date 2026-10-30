@@ -24,7 +24,7 @@ function formatValue(currentNum, parsed) {
   return `${parsed.prefix}${numStr}${parsed.suffix}`;
 }
 
-const AnimatedStatValue = ({ value, index }) => {
+export const AnimatedStatValue = ({ value, index }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   const prefersReducedMotion = useReducedMotion();
