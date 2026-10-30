@@ -7,7 +7,7 @@ export const HeroMentorship = ({ onActionClick }) => {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
           {/* Left Side: Content */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left order-1">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left order-1 lg:order-2">
             <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight mb-5">
               <span className="text-[#8B1538]">VISKOOL:</span> Where Personal Mentorship Meets Proven Success
             </h2>
@@ -47,7 +47,7 @@ export const HeroMentorship = ({ onActionClick }) => {
           </div>
 
           {/* Right Side: Image */}
-          <div className="w-full lg:w-1/2 order-2">
+          <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <div className="w-full aspect-[4/3] sm:aspect-video lg:aspect-[16/10] bg-[#ECEDEF] rounded-3xl overflow-hidden shadow-sm relative">
               <img 
                 src="/viskool-personal-mentorship-student-new.webp" 

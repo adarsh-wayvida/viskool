@@ -7,6 +7,7 @@ import { HomeStudentTestimonials } from "./HomeStudentTestimonials.jsx";
 import { FAQSection } from "./FAQSection.jsx";
 import { LearningJourneyForm } from "./LearningJourneyForm.jsx";
 import { IconMapPin } from "@tabler/icons-react";
+import { AnimatedStatValue } from "./Statistics.jsx";
 
 const ABOUT_TESTIMONIALS = [
   {
@@ -166,21 +167,14 @@ export const AboutViskoolPage = () => {
               { value: "15,000+", label: "ACTIVE LEARNERS" },
               { value: "95%", label: "COURSE COMPLETION RATE" },
               { value: "65%", label: "SALARY HIKE / RANK BOOST" },
-              {
-                value: (
-                  <span className="inline-flex items-center gap-1">
-                    4.9/5 {"\u2605"}
-                  </span>
-                ),
-                label: "PARENT & STUDENT RATING",
-              },
+              { value: "4.9/5 \u2605", label: "PARENT & STUDENT RATING" },
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-black/35 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 shadow-2xl flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5"
+                className="bg-black/35 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 shadow-2xl flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5"
               >
                 <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1.5 drop-shadow-sm whitespace-nowrap">
-                  {stat.value}
+                  <AnimatedStatValue value={stat.value} index={idx} />
                 </div>
                 <div className="text-[9.5px] sm:text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest leading-tight">
                   {stat.label}
@@ -192,9 +186,9 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* 2. WELCOME TO VISKOOL SECTION */}
-      <section className="pt-6 sm:pt-8 lg:pt-10 bg-white">
+      <section className="pt-8 sm:pt-10 lg:pt-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-y-3 sm:gap-y-4 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:items-center lg:gap-x-6 xl:gap-x-8">
+          <div className="grid grid-cols-1 gap-y-4 sm:gap-y-5 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:items-center lg:gap-x-8 xl:gap-x-10">
             <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight text-center lg:col-span-2 lg:row-start-1 lg:whitespace-nowrap">
               <span className="text-[#8B1538]">Welcome to Viskool</span>{" "}
               Learning
@@ -225,15 +219,15 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* 3. OUR STORY SECTION */}
-      <section className="pt-3 lg:pt-4 pb-6 sm:pb-8 lg:pb-10 bg-[#FCFAFB]">
+      <section className="pt-4 lg:pt-5 pb-8 sm:pb-10 lg:pb-12 bg-[#FCFAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight mb-5 sm:mb-7 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight mt-6 sm:mt-8 mb-5 sm:mb-7 text-center">
             <span className="text-[#8B1538]">Discover</span> Our Story
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
             {/* Card 1: Soft Burgundy */}
-            <div className="flex flex-col items-start bg-[#FDF3F5] border border-[#F4E1E6] rounded-2xl p-4 sm:p-5 h-full">
+            <div className="flex flex-col items-start bg-[#FDF3F5] border border-[#F4E1E6] rounded-2xl p-5 sm:p-6 h-full">
               <div className="w-12 h-1 bg-[#8B1538] rounded-full mb-3"></div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 How Viskool Began
@@ -253,7 +247,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 2: Warm Cream */}
-            <div className="flex flex-col items-start bg-[#FCF9F2] border border-[#F2E8D5] rounded-2xl p-4 sm:p-5 h-full">
+            <div className="flex flex-col items-start bg-[#FCF9F2] border border-[#F2E8D5] rounded-2xl p-5 sm:p-6 h-full">
               <div className="w-12 h-1 bg-[#D4A373] rounded-full mb-3"></div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 Why We Started
@@ -269,7 +263,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 3: Sage Green */}
-            <div className="flex flex-col items-start bg-[#F4F7F5] border border-[#E3EDE7] rounded-2xl p-4 sm:p-5 h-full">
+            <div className="flex flex-col items-start bg-[#F4F7F5] border border-[#E3EDE7] rounded-2xl p-5 sm:p-6 h-full">
               <div className="w-12 h-1 bg-[#4A7C59] rounded-full mb-3"></div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 What Keeps Us Going
@@ -284,7 +278,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 4: Muted Blue-Grey */}
-            <div className="flex flex-col items-start bg-[#F4F6F9] border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 h-full">
+            <div className="flex flex-col items-start bg-[#F4F6F9] border border-[#E2E8F0] rounded-2xl p-5 sm:p-6 h-full">
               <div className="w-12 h-1 bg-[#64748B] rounded-full mb-3"></div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 Where It Has Led
@@ -306,7 +300,7 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Why Learners Choose Viskool Section */}
-      <section className="bg-[#F9F8F6] py-4 sm:py-5 lg:py-6 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#F9F8F6] py-5 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-10 sm:mb-12 text-center">
             <span className="block text-[#8B1538]">
@@ -317,7 +311,7 @@ export const AboutViskoolPage = () => {
             </span>
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {/* Card 1 */}
             <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
@@ -382,15 +376,15 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Vision, Mission, Values Section */}
-      <section className="bg-white py-4 sm:py-6 lg:py-7 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-5 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#8B1538] leading-[1.2] tracking-tight mb-4 sm:mb-5 text-center">
             Our Vision, Our Mission, Our Values
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {/* Vision */}
-            <div className="bg-[#F6DF72] rounded-2xl p-2.5 sm:p-3 flex flex-col md:flex-row md:items-center gap-1.5 md:gap-2 h-full overflow-hidden">
+            <div className="bg-[#F6DF72] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-2 md:gap-3 h-full overflow-hidden">
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Our Vision
@@ -408,7 +402,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Mission */}
-            <div className="bg-[#9EDDDC] rounded-2xl p-2.5 sm:p-3 flex flex-col md:flex-row md:items-center gap-1.5 md:gap-2 h-full overflow-hidden">
+            <div className="bg-[#9EDDDC] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-2 md:gap-3 h-full overflow-hidden">
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Our Mission
@@ -426,7 +420,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Values */}
-            <div className="bg-[#E5BFD0] rounded-2xl p-2.5 sm:p-3 flex flex-col md:flex-row md:items-center gap-1.5 md:gap-2 h-full overflow-hidden">
+            <div className="bg-[#E5BFD0] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-2 md:gap-3 h-full overflow-hidden">
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Our Values
@@ -447,7 +441,7 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Our Courses Section */}
-      <section className="bg-[#FAFAFA] py-4 sm:py-6 lg:py-7 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#FAFAFA] py-5 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5 text-center">
             <span className="text-[#8B1538]">Our</span> Courses
@@ -465,7 +459,7 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Learning Across India and the Gulf Section */}
-      <section className="relative overflow-hidden bg-white py-4 sm:py-6 lg:py-7 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white py-5 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8">
         <div
           className="absolute -top-16 -left-20 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#F8F0F2] pointer-events-none"
           aria-hidden="true"
@@ -487,8 +481,8 @@ export const AboutViskoolPage = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4 max-w-4xl mx-auto">
-            <div className="h-full rounded-2xl border border-[#8B1538]/20 bg-[#F7E8ED] p-3 sm:p-4 shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-4 lg:gap-5 max-w-4xl mx-auto">
+            <div className="h-full rounded-2xl border border-[#8B1538]/20 bg-[#F7E8ED] p-4 sm:p-5 shadow-sm">
               <h4 className="text-lg sm:text-xl font-bold text-[#102A43] mb-2">
                 Across India
               </h4>
@@ -505,7 +499,7 @@ export const AboutViskoolPage = () => {
               </div>
             </div>
 
-            <div className="h-full rounded-2xl border border-[#8B1538]/20 bg-[#F7E8ED] p-3 sm:p-4 shadow-sm">
+            <div className="h-full rounded-2xl border border-[#8B1538]/20 bg-[#F7E8ED] p-4 sm:p-5 shadow-sm">
               <h4 className="text-lg sm:text-xl font-bold text-[#102A43] mb-2">
                 Across the Gulf
               </h4>
@@ -556,7 +550,7 @@ export const AboutViskoolPage = () => {
       />
 
       {/* Final Call to Action Section */}
-      <section className="bg-white py-3 lg:py-4 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-4 lg:py-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div
             className="relative overflow-hidden bg-[#E4B9C6] rounded-3xl shadow-sm"
