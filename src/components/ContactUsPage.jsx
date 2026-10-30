@@ -164,7 +164,7 @@ export function ContactUsPage() {
             
             {/* Facebook Card */}
             <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-white border-2 border-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
+              <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandFacebook size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
               <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On Facebook</h3>
@@ -175,7 +175,7 @@ export function ContactUsPage() {
 
             {/* Instagram Card */}
             <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-white border-2 border-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
+              <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandInstagram size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
               <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On Instagram</h3>
@@ -186,7 +186,7 @@ export function ContactUsPage() {
 
             {/* YouTube Card */}
             <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-white border-2 border-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
+              <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandYoutube size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
               <h3 className="text-lg font-bold text-[#102A43] mb-3">Subscribe On YouTube</h3>
@@ -197,7 +197,7 @@ export function ContactUsPage() {
 
             {/* LinkedIn Card */}
             <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-white border-2 border-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
+              <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandLinkedin size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
               <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On LinkedIn</h3>
