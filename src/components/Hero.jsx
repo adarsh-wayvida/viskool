@@ -108,7 +108,7 @@ export const ALL_HERO_SLIDES = [
     id: 5,
     isReady: true,
     video: null,
-    image: '/VISKOOL_Kerala_PSC_Blank_Template.webp',
+    image: '/Near-black fade into consultant portrait.webp',
     imagePosition: 'object-[85%_top] sm:object-[90%_center]',
     badge: 'Government Exam',
     theme: 'dark',
