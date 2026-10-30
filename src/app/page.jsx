@@ -15,7 +15,7 @@ import {
 import { Hero } from '../components/Hero.jsx';
 import { ProcessSteps } from '../components/ProcessSteps.jsx';
 import { CourseSection } from '../components/CourseSection.jsx';
-import { WhyChooseUs } from '../components/WhyChooseUs.jsx';
+import { HeroMentorship } from '../components/HeroMentorship.jsx';
 import { Statistics } from '../components/Statistics.jsx';
 import { HomeParentVideoTestimonials } from '../components/HomeParentVideoTestimonials.jsx';
 import { HomeStudentTestimonials } from '../components/HomeStudentTestimonials.jsx';
@@ -53,8 +53,7 @@ export default function HomePage() {
         steps={PROCESS_STEPS} 
         onActionClick={handleActionClick}
       />
-      <WhyChooseUs 
-        benefits={BENEFITS} 
+      <HeroMentorship 
         onActionClick={handleActionClick}
       />
       <Statistics />

@@ -13,7 +13,15 @@ const CATEGORIES = [
   'Language Skill',
   'NEET',
   'School Tuitions',
-  'Upskill courses'
+  'Upskill courses',
+  'Performance Marketing',
+  'Meta Ads',
+  'SEO',
+  'Data Analysis',
+  'Google Ads',
+  'Power BI',
+  'Advanced Excel',
+  'AI Tools'
 ];
 
 const MOCK_BLOGS = [
@@ -130,20 +138,37 @@ export function BlogsPage() {
           </div>
 
           {/* Category Pills */}
-          <div className="flex flex-wrap xl:flex-nowrap justify-center gap-2 sm:gap-3 w-full mx-auto">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 outline-none focus:outline-none focus:ring-0 [-webkit-tap-highlight-color:transparent] border ${
-                  activeCategory === category
-                    ? 'bg-[#8B1538] text-white border-[#8B1538] shadow-md'
-                    : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="flex flex-col gap-2 sm:gap-3 items-center w-full mx-auto">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {CATEGORIES.slice(0, 9).map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 outline-none focus:outline-none focus:ring-0 [-webkit-tap-highlight-color:transparent] border ${
+                    activeCategory === category
+                      ? 'bg-[#8B1538] text-white border-[#8B1538] shadow-md'
+                      : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {CATEGORIES.slice(9).map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 outline-none focus:outline-none focus:ring-0 [-webkit-tap-highlight-color:transparent] border ${
+                    activeCategory === category
+                      ? 'bg-[#8B1538] text-white border-[#8B1538] shadow-md'
+                      : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
 
         </div>

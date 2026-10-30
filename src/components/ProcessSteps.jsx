@@ -37,11 +37,11 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
         </p>
 
 
-        <div className="mt-8 lg:mt-10 mb-8 lg:mb-10">
-          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-6">
+        <div className="mt-8 lg:mt-10">
+          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-12 lg:mb-16">
             Featured in Leading Media Platforms
           </h3>
-          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2 py-8">
+          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2 pt-0 pb-4 lg:pb-6">
             {/* The scrolling container with smooth animation. 
                 Pauses on hover. Uses motion-reduce for accessibility. */}
             <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full">

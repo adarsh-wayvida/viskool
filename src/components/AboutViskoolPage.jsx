@@ -133,7 +133,7 @@ export const AboutViskoolPage = () => {
         }}
       >
         {/* Semi-transparent burgundy gradient overlay (65% opacity treatment preserved) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#8B1538]/65 to-[#73152C]/65"></div>
+        <div className="absolute inset-0 bg-[#111111]/70"></div>
 
         {/* Subtle radial dark overlay behind text to improve readability without a visible box */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.3)_0%,_transparent_65%)] pointer-events-none"></div>
@@ -192,9 +192,9 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* 2. WELCOME TO VISKOOL SECTION */}
-      <section className="pt-12 sm:pt-16 lg:pt-20 bg-white">
+      <section className="pt-6 sm:pt-8 lg:pt-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-y-6 sm:gap-y-8 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:items-center lg:gap-x-12 xl:gap-x-16">
+          <div className="grid grid-cols-1 gap-y-3 sm:gap-y-4 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:items-center lg:gap-x-6 xl:gap-x-8">
             <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight text-center lg:col-span-2 lg:row-start-1 lg:whitespace-nowrap">
               <span className="text-[#8B1538]">Welcome to Viskool</span>{" "}
               Learning
@@ -211,7 +211,7 @@ export const AboutViskoolPage = () => {
 
             {/* Right Column: Content */}
             <div className="w-full lg:col-start-2 lg:row-start-2">
-              <div className="text-gray-700 text-[15px] sm:text-base leading-relaxed space-y-5 sm:space-y-6">
+              <div className="text-gray-700 text-[15px] sm:text-base leading-relaxed space-y-2.5 sm:space-y-3">
                 <p>
                   Welcome to Viskool, an online learning platform that gives every student personal attention. We offer one-to-one school tuition for Classes 5 to 12 across Kerala State, CBSE, ICSE, and IGCSE syllabus, along with focused commerce tuition for CA and CMA aspirants. For competitive exams, our expert mentors prepare students for NEET, JEE, PSC, and High Court Assistant, with regular tests and feedback that show exactly where to improve.
                 </p>
@@ -225,20 +225,20 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* 3. OUR STORY SECTION */}
-      <section className="pt-6 lg:pt-8 pb-12 sm:pb-16 lg:pb-20 bg-[#FCFAFB]">
+      <section className="pt-3 lg:pt-4 pb-6 sm:pb-8 lg:pb-10 bg-[#FCFAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-10 sm:mb-14 text-center">
-            <span className="text-[#8B1538]">Our</span> Story
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight mb-5 sm:mb-7 text-center">
+            <span className="text-[#8B1538]">Discover</span> Our Story
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
             {/* Card 1: Soft Burgundy */}
-            <div className="flex flex-col items-start bg-[#FDF3F5] border border-[#F4E1E6] rounded-2xl p-8 sm:p-10 h-full">
-              <div className="w-12 h-1 bg-[#8B1538] rounded-full mb-6"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+            <div className="flex flex-col items-start bg-[#FDF3F5] border border-[#F4E1E6] rounded-2xl p-4 sm:p-5 h-full">
+              <div className="w-12 h-1 bg-[#8B1538] rounded-full mb-3"></div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 How Viskool Began
               </h3>
-              <p className="text-gray-700 text-[15px] sm:text-base leading-relaxed mb-4">
+              <p className="text-gray-700 text-[15px] sm:text-base leading-relaxed mb-2">
                 Viskool was founded in 2023 by Adv. Gireesh Neyyar, an
                 entrepreneur with over 20 years of experience in education,
                 technology, and management. Every learner deserves a mentor who
@@ -246,16 +246,16 @@ export const AboutViskoolPage = () => {
               </p>
               <a
                 href="#founder"
-                className="text-[#8B1538] font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-all mt-auto pt-4"
+                className="text-[#8B1538] font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-all mt-auto pt-2"
               >
                 Read About Our Founder <span>&rarr;</span>
               </a>
             </div>
 
             {/* Card 2: Warm Cream */}
-            <div className="flex flex-col items-start bg-[#FCF9F2] border border-[#F2E8D5] rounded-2xl p-8 sm:p-10 h-full">
-              <div className="w-12 h-1 bg-[#D4A373] rounded-full mb-6"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+            <div className="flex flex-col items-start bg-[#FCF9F2] border border-[#F2E8D5] rounded-2xl p-4 sm:p-5 h-full">
+              <div className="w-12 h-1 bg-[#D4A373] rounded-full mb-3"></div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 Why We Started
               </h3>
               <p className="text-gray-700 text-[15px] sm:text-base leading-relaxed">
@@ -269,9 +269,9 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 3: Sage Green */}
-            <div className="flex flex-col items-start bg-[#F4F7F5] border border-[#E3EDE7] rounded-2xl p-8 sm:p-10 h-full">
-              <div className="w-12 h-1 bg-[#4A7C59] rounded-full mb-6"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+            <div className="flex flex-col items-start bg-[#F4F7F5] border border-[#E3EDE7] rounded-2xl p-4 sm:p-5 h-full">
+              <div className="w-12 h-1 bg-[#4A7C59] rounded-full mb-3"></div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 What Keeps Us Going
               </h3>
               <p className="text-gray-700 text-[15px] sm:text-base leading-relaxed">
@@ -284,9 +284,9 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 4: Muted Blue-Grey */}
-            <div className="flex flex-col items-start bg-[#F4F6F9] border border-[#E2E8F0] rounded-2xl p-8 sm:p-10 h-full">
-              <div className="w-12 h-1 bg-[#64748B] rounded-full mb-6"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+            <div className="flex flex-col items-start bg-[#F4F6F9] border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 h-full">
+              <div className="w-12 h-1 bg-[#64748B] rounded-full mb-3"></div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 Where It Has Led
               </h3>
               <p className="text-gray-700 text-[15px] sm:text-base leading-relaxed">
@@ -306,20 +306,20 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Why Learners Choose Viskool Section */}
-      <section className="bg-[#F9F8F6] py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#F9F8F6] py-4 sm:py-5 lg:py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8 sm:mb-10 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-10 sm:mb-12 text-center">
             <span className="block text-[#8B1538]">
               Why Learners Choose Viskool:
             </span>
-            <span className="block mt-1 sm:mt-2">
+            <span className="block mt-0.5 sm:mt-1">
               Academics and Careers Under One Roof
             </span>
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
             {/* Card 1 */}
-            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 sm:p-5 flex items-center h-full gap-4">
+            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
                 01
               </span>
@@ -329,7 +329,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 sm:p-5 flex items-center h-full gap-4">
+            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
                 02
               </span>
@@ -339,7 +339,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 sm:p-5 flex items-center h-full gap-4">
+            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
                 03
               </span>
@@ -349,7 +349,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 sm:p-5 flex items-center h-full gap-4">
+            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
                 04
               </span>
@@ -359,7 +359,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 5 */}
-            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 sm:p-5 flex items-center h-full gap-4">
+            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
                 05
               </span>
@@ -369,7 +369,7 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Card 6 */}
-            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 sm:p-5 flex items-center h-full gap-4">
+            <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-2 sm:p-2.5 flex items-center h-full gap-2">
               <span className="flex-shrink-0 w-10 h-10 bg-[#8B1538] text-white rounded-lg flex items-center justify-center font-bold text-sm">
                 06
               </span>
@@ -382,17 +382,17 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Vision, Mission, Values Section */}
-      <section className="bg-white py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-4 sm:py-6 lg:py-7 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#8B1538] leading-[1.2] tracking-tight mb-8 sm:mb-10 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#8B1538] leading-[1.2] tracking-tight mb-4 sm:mb-5 text-center">
             Our Vision, Our Mission, Our Values
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
             {/* Vision */}
-            <div className="bg-[#F6DF72] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 h-full overflow-hidden">
+            <div className="bg-[#F6DF72] rounded-2xl p-2.5 sm:p-3 flex flex-col md:flex-row md:items-center gap-1.5 md:gap-2 h-full overflow-hidden">
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Our Vision
                 </h3>
                 <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base">
@@ -408,9 +408,9 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Mission */}
-            <div className="bg-[#9EDDDC] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 h-full overflow-hidden">
+            <div className="bg-[#9EDDDC] rounded-2xl p-2.5 sm:p-3 flex flex-col md:flex-row md:items-center gap-1.5 md:gap-2 h-full overflow-hidden">
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Our Mission
                 </h3>
                 <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base">
@@ -426,9 +426,9 @@ export const AboutViskoolPage = () => {
             </div>
 
             {/* Values */}
-            <div className="bg-[#E5BFD0] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 h-full overflow-hidden">
+            <div className="bg-[#E5BFD0] rounded-2xl p-2.5 sm:p-3 flex flex-col md:flex-row md:items-center gap-1.5 md:gap-2 h-full overflow-hidden">
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Our Values
                 </h3>
                 <p className="text-gray-900/80 leading-relaxed text-[15px] sm:text-base">
@@ -447,9 +447,9 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Our Courses Section */}
-      <section className="bg-[#FAFAFA] py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#FAFAFA] py-4 sm:py-6 lg:py-7 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8 sm:mb-10 text-center">
+          <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5 text-center">
             <span className="text-[#8B1538]">Our</span> Courses
           </h2>
 
@@ -465,7 +465,7 @@ export const AboutViskoolPage = () => {
       </section>
 
       {/* Learning Across India and the Gulf Section */}
-      <section className="relative overflow-hidden bg-white py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white py-4 sm:py-6 lg:py-7 px-4 sm:px-6 lg:px-8">
         <div
           className="absolute -top-16 -left-20 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#F8F0F2] pointer-events-none"
           aria-hidden="true"
@@ -476,8 +476,8 @@ export const AboutViskoolPage = () => {
         ></div>
 
         <div className="relative z-10 max-w-6xl mx-auto w-full">
-          <div className="text-center max-w-6xl mx-auto mb-6 sm:mb-8">
-            <h2 className="text-[28px] md:text-[34px] lg:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 lg:whitespace-nowrap">
+          <div className="text-center max-w-6xl mx-auto mb-3 sm:mb-4">
+            <h2 className="text-[28px] md:text-[34px] lg:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-2 lg:whitespace-nowrap">
               <span className="text-[#8B1538]">Wherever You Are,</span> Your
               Mentor Is Just a Click Away
             </h2>
@@ -487,35 +487,35 @@ export const AboutViskoolPage = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
-            <div className="h-full rounded-2xl border border-black/5 bg-[#F6DF72] p-5 sm:p-6 shadow-sm">
-              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4 max-w-4xl mx-auto">
+            <div className="h-full rounded-2xl border border-[#8B1538]/20 bg-[#F7E8ED] p-3 sm:p-4 shadow-sm">
+              <h4 className="text-lg sm:text-xl font-bold text-[#102A43] mb-2">
                 Across India
               </h4>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-1.5">
                 {["Kerala", "Bangalore", "Chennai", "Coimbatore", "Hyderabad"].map((location) => (
                   <span
                     key={location}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-white/65 px-3 py-2 text-sm font-medium text-gray-700"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-sm font-medium text-[#102A43] border border-[#8B1538]/10"
                   >
-                    <IconMapPin className="h-4 w-4 shrink-0 text-[#7C3AED]" stroke={2} aria-hidden="true" />
+                    <IconMapPin className="h-4 w-4 shrink-0 text-[#8B1538]" stroke={2} aria-hidden="true" />
                     {location}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="h-full rounded-2xl border border-black/5 bg-[#9EDDDC] p-5 sm:p-6 shadow-sm">
-              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
+            <div className="h-full rounded-2xl border border-[#8B1538]/20 bg-[#F7E8ED] p-3 sm:p-4 shadow-sm">
+              <h4 className="text-lg sm:text-xl font-bold text-[#102A43] mb-2">
                 Across the Gulf
               </h4>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-1.5">
                 {["Dubai (UAE)", "Qatar", "Saudi Arabia", "Oman"].map((location) => (
                   <span
                     key={location}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-white/65 px-3 py-2 text-sm font-medium text-gray-700"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-sm font-medium text-[#102A43] border border-[#8B1538]/10"
                   >
-                    <IconMapPin className="h-4 w-4 shrink-0 text-[#F06A5B]" stroke={2} aria-hidden="true" />
+                    <IconMapPin className="h-4 w-4 shrink-0 text-[#8B1538]" stroke={2} aria-hidden="true" />
                     {location}
                   </span>
                 ))}
@@ -556,7 +556,7 @@ export const AboutViskoolPage = () => {
       />
 
       {/* Final Call to Action Section */}
-      <section className="bg-white py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-3 lg:py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div
             className="relative overflow-hidden bg-[#E4B9C6] rounded-3xl shadow-sm"
@@ -571,8 +571,8 @@ export const AboutViskoolPage = () => {
             ></div>
 
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-[minmax(0,3fr)_minmax(260px,1fr)]">
-              <div className="px-6 py-9 sm:px-10 sm:py-10 lg:px-12 lg:py-11 flex flex-col justify-center">
-                <h2 className="text-[28px] md:text-[34px] lg:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 lg:whitespace-nowrap">
+              <div className="px-4 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-6 flex flex-col justify-center">
+                <h2 className="text-[28px] md:text-[34px] lg:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-2 lg:whitespace-nowrap">
                   Take the First Step Towards Better Learning
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg font-medium text-gray-800/80 leading-relaxed max-w-2xl">
@@ -581,10 +581,10 @@ export const AboutViskoolPage = () => {
                 </p>
               </div>
 
-              <div className="border-t border-gray-800/10 md:border-t-0 md:border-l flex flex-row items-center justify-center gap-4 px-6 py-7 sm:px-8 md:py-9 text-center">
+              <div className="border-t border-gray-800/10 md:border-t-0 md:border-l flex flex-row items-center justify-center gap-2 px-4 py-4 sm:px-5 md:py-5 text-center">
                 <a
                   href="tel:+919876543210"
-                  className="inline-flex min-w-36 items-center justify-center rounded-full bg-[#15803D] px-7 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all duration-200 hover:bg-[#166534] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15803D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F3E5E9] active:scale-95"
+                  className="inline-flex min-w-36 items-center justify-center rounded-full bg-[#8B1538] px-7 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all duration-200 hover:bg-[#73152C] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1538] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F3E5E9] active:scale-95"
                 >
                   Call Now
                 </a>

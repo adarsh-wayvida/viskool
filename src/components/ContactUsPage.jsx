@@ -63,17 +63,17 @@ export function ContactUsPage() {
         subtitleClassName="max-w-[1050px] leading-[1.5] sm:leading-[1.6]"
       />
 
-      <section className="w-full py-12 sm:py-16 lg:py-20 font-sans">
+      <section className="w-full py-6 sm:py-8 lg:py-10 font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-stretch">
             
             {/* Left: Contact Info */}
-            <div className="bg-[#FAF4F7] rounded-3xl p-6 sm:p-7 lg:p-8 shadow-sm border border-gray-100 flex flex-col h-full justify-center">
-              <h2 className="text-2xl sm:text-[28px] lg:text-[32px] font-bold text-[#102A43] mb-8 lg:mb-10 leading-tight">
+            <div className="bg-[#FAF4F7] rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-sm border border-gray-100 flex flex-col h-full justify-center">
+              <h2 className="text-2xl sm:text-[28px] lg:text-[32px] font-bold text-[#102A43] mb-4 lg:mb-5 leading-tight">
                 Our Head Office Address
               </h2>
               
-              <div className="space-y-6 sm:space-y-8">
+              <div className="space-y-3 sm:space-y-4">
                 {/* Address */}
                 <div className="flex items-start gap-4 sm:gap-5">
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
@@ -158,50 +158,50 @@ export function ContactUsPage() {
       </section>
 
       {/* Social Media Section */}
-      <section className="w-full pt-2 sm:pt-2.5 lg:pt-3 pb-16 sm:pb-20 lg:pb-24 font-sans">
+      <section className="w-full pt-1 sm:pt-1 lg:pt-1.5 pb-8 sm:pb-10 lg:pb-12 font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             
             {/* Facebook Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-[#1877F2] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+            <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandFacebook size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-6">Follow On Facebook</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#1877F2] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#0C5DC7]">
+              <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On Facebook</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 FOLLOW
               </a>
             </div>
 
             {/* Instagram Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#E1306C] to-[#833AB4] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+            <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandInstagram size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-6">Follow On Instagram</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-gradient-to-br from-[#E1306C] to-[#833AB4] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:opacity-90">
+              <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On Instagram</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 FOLLOW
               </a>
             </div>
 
             {/* YouTube Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-[#FF0000] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+            <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandYoutube size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-6">Subscribe On Youtube</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#FF0000] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#CC0000]">
+              <h3 className="text-lg font-bold text-[#102A43] mb-3">Subscribe On YouTube</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 SUBSCRIBE
               </a>
             </div>
 
             {/* LinkedIn Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
-              <div className="w-14 h-14 rounded-full bg-[#0A66C2] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+            <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
+              <div className="w-14 h-14 rounded-full bg-[#8B1538] flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandLinkedin size={28} className="text-white" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-6">Follow On LinkedIn</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#0A66C2] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#004182]">
+              <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On LinkedIn</h3>
+              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 FOLLOW
               </a>
             </div>
@@ -218,16 +218,16 @@ export function ContactUsPage() {
       />
 
       {/* Registration Form Section */}
-      <section className="w-full py-16 sm:py-20 lg:py-24 font-sans bg-[#FAF4F7]">
+      <section className="w-full py-8 sm:py-10 lg:py-12 font-sans bg-[#FAF4F7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-12">
+          <div className="text-center mb-5 sm:mb-6">
             <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight">
               Ready To Get Started? <span className="text-[#8B1538]">Register Today</span>
             </h2>
           </div>
 
-          <div className="bg-white rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-sm border border-gray-100">
-            <form className="space-y-6 lg:space-y-8">
+          <div className="bg-white rounded-[32px] p-3 sm:p-5 lg:p-6 shadow-sm border border-gray-100">
+            <form className="space-y-3 lg:space-y-4">
               
               {/* Name - Full Width */}
               <div className="space-y-2.5">
@@ -236,14 +236,14 @@ export function ContactUsPage() {
               </div>
 
               {/* Email & Phone Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
                 <div className="space-y-2.5">
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Email</label>
                   <input type="email" placeholder="Enter valid email id" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none placeholder:text-gray-400" />
                 </div>
                 
                 {/* Phone Group */}
-                <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] gap-4">
+                <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] gap-2">
                   <div className="space-y-2.5">
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Code <span className="text-red-500">*</span></label>
                     <input type="text" placeholder="+91" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none placeholder:text-gray-400" />
@@ -256,7 +256,7 @@ export function ContactUsPage() {
               </div>
 
               {/* District & Courses Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
                 <div className="space-y-2.5">
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">District <span className="text-red-500">*</span></label>
                   <select defaultValue="" className="w-full px-5 py-4 rounded-2xl bg-[#F6F4F7] border-transparent focus:bg-white focus:border-[#8B1538] focus:ring-2 focus:ring-[#8B1538]/20 transition-all outline-none text-gray-500 appearance-none">

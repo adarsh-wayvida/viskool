@@ -589,7 +589,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
           style={{ backgroundImage: "url('/parent-testimonial-background.webp')" }}
         >
           {/* Semi-transparent burgundy gradient overlay (65% opacity) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#8B1538]/65 to-[#73152C]/65"></div>
+          <div className="absolute inset-0 bg-[#111111]/70"></div>
           
           {/* Subtle radial dark overlay behind text to improve readability without a visible box */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.3)_0%,_transparent_65%)] pointer-events-none"></div>
