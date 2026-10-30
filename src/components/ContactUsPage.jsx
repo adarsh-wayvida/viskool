@@ -136,7 +136,7 @@ export function ContactUsPage() {
                   <div>
                     <h3 className="font-semibold text-[#102A43] text-lg mb-1.5">Working Hours</h3>
                     <p className="text-gray-600 leading-relaxed text-[15px] sm:text-base">
-                      Monday - Saturday: 9:00 AM - 6:00 PM<br />
+                      Monday - Saturday: 9:00 AM - 9:00 PM<br />
                       Sunday: Closed
                     </p>
                   </div>
