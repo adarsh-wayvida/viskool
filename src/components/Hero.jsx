@@ -108,7 +108,7 @@ export const ALL_HERO_SLIDES = [
     id: 5,
     isReady: true,
     video: null,
-    image: '/banner-5-government-exam-indian-1920x760.webp',
+    image: '/VISKOOL_Kerala_PSC_Blank_Template.webp',
     imagePosition: 'object-[85%_top] sm:object-[90%_center]',
     badge: 'Government Exam',
     theme: 'dark',
