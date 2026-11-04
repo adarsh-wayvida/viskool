@@ -1,3 +1,5 @@
+"use client";
+
 // Parent Testimonials Page Component - Desktop Web Version with Rich Content-Led Cards
 import React, { useState } from 'react';
 import { TestimonialStoryDialog } from './TestimonialStoryDialog.jsx';
@@ -340,7 +342,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
           ) : (
             <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
               Hear It From the{' '}
-              <span className="font-serif text-[#8B1538] font-bold">
+              <span className="text-[#8B1538] font-bold">
                 {audience}
               </span>
             </h3>
@@ -463,7 +465,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
 };
 
 // Clean, Content-Led Section-Isolated Testimonial Card Component
-export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
+export const TestimonialCard = ({ item, onPlayVideo, onReadMore, truncateQuote = false }) => {
   const quoteRef = React.useRef(null);
   const [isTruncated, setIsTruncated] = useState(false);
   React.useEffect(() => {
@@ -517,7 +519,7 @@ export const TestimonialCard = ({ item, onPlayVideo, onReadMore }) => {
 
         {/* Quote & Description Content */}
         <div className="space-y-1 pt-0.5">
-          <p style={{ fontFamily: 'Inter, sans-serif' }} ref={quoteRef} className={`text-[15px] text-[#2B2B2B] leading-[1.5] font-normal not-italic ${onReadMore ? 'line-clamp-5' : ''}`}>
+          <p style={{ fontFamily: 'Inter, sans-serif' }} ref={quoteRef} className={`text-[15px] text-[#2B2B2B] leading-[1.5] font-normal not-italic ${onReadMore ? 'line-clamp-5' : truncateQuote ? 'line-clamp-4' : ''}`}>
             {[item.quote, item.description].filter(Boolean).join(' ')}
           </p>
         </div>
@@ -620,12 +622,12 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 sm:space-y-6">
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+            <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight">
               Every family has a{' '}
-              <span className="font-serif text-[#8B1538] font-bold">
+              <span className="text-[#8B1538] font-bold">
                 story
               </span>
-            </h2>
+            </h3>
 
             <div className="flex items-center gap-2.5 shrink-0">
               <button
@@ -667,14 +669,11 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
           <ParentVideoSlider onPlayVideo={(v) => setActiveVideo(v)} isModalOpen={!!activeVideo} />
 
           <div className="bg-gradient-to-r from-[#FDF5F8] via-[#FBF0F5] to-[#F5E6EC] rounded-3xl p-8 sm:p-12 border border-[#8B1538]/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
-            <div className="space-y-2 max-w-xl">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
-                Let's talk about your child's{' '}
-                <span className="font-serif text-[#8B1538] font-bold block sm:inline">
-                  learning goals.
-                </span>
+            <div className="space-y-2 max-w-full overflow-hidden">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight truncate">
+                Let's talk about your child's <span className="text-[#8B1538]">learning goals.</span>
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 font-normal pt-1">
+              <p className="text-xs sm:text-sm text-gray-600 font-normal pt-1 truncate">
                 Understand how Viskool can support your child's journey with a personalized conversation.
               </p>
             </div>
