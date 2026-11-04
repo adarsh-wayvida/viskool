@@ -6,9 +6,11 @@ const COURSE_CATEGORIES_WITH_ITEMS = [
     id: 'digital-marketing',
     name: 'Digital Marketing',
     items: [
-      'Digital Marketing Course for Freshers',
-      'Advanced Performance Marketing & SEO',
-      'Social Media & Content Strategy',
+      'Free Digital Marketing Pathway',
+      'LinkedIn Marketing',
+      'MAGIC WORDS FOR CONTENT CREATORS (E-BOOK)',
+      'AI Integrated Digital Marketing',
+      'Meta Ads in 30 Days. Learn Meta Ads Live. Run Them for Real',
     ]
   },
   {
@@ -147,7 +149,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
               className="flex items-center gap-2 group cursor-pointer"
             >
               <img 
-                src="viskool-logo.png" 
+                src="/viskool-logo.png" 
                 alt="Viskool" 
                 className="h-5 sm:h-6 md:h-7 w-auto object-contain hover:opacity-90 transition-opacity"
               />
@@ -235,12 +237,16 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                                 {hoveredCategory.items.map((itemTitle, idx) => (
                                   <a
                                     key={idx}
-                                    href="#courses"
+                                    href={itemTitle === 'AI Integrated Digital Marketing' ? '/courses/ai-integrated-digital-marketing' : '#courses'}
                                     onClick={(e) => {
                                       e.preventDefault();
                                       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
                                       setOpenDropdown(null);
                                       setHoveredCategory(null);
+                                      if (itemTitle === 'AI Integrated Digital Marketing' && onNavigate) {
+                                        onNavigate('courses/ai-integrated-digital-marketing');
+                                        return;
+                                      }
                                       onActionClick(`Selected Course: ${itemTitle}`);
                                     }}
                                     className="block text-[13.5px] text-gray-700 hover:text-[#8B1538] font-normal leading-snug transition-colors"

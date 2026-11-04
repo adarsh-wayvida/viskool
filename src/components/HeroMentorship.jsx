@@ -2,14 +2,14 @@ import React from 'react';
 
 export const HeroMentorship = ({ onActionClick }) => {
   return (
-    <section className="py-8 lg:py-10 bg-white relative">
+    <section className="pb-8 pt-16 lg:pb-10 lg:pt-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
           {/* Left Side: Content */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left order-1 lg:order-2">
-            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight mb-5">
-              <span className="text-[#8B1538]">VISKOOL:</span> Where Personal Mentorship Meets Proven Success
+            <h2 className="text-[26px] md:text-3xl lg:text-[34px] font-semibold text-gray-500 leading-relaxed tracking-tight mb-5">
+              Viskool: Where Personal Mentorship Meets Proven Success
             </h2>
             
             <p className="text-[#555555] text-sm sm:text-base lg:text-lg leading-relaxed mb-6 max-w-2xl mx-auto lg:mx-0 font-normal">

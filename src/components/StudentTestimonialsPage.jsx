@@ -1,3 +1,5 @@
+"use client";
+
 // Student Testimonials Page Component - Desktop Web Version matching Reference UI
 import React, { useState } from 'react';
 import { TestimonialStoryDialog } from './TestimonialStoryDialog.jsx';
@@ -192,12 +194,12 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+            <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight">
               Every student has a{' '}
-              <span className="font-serif text-[#8B1538] font-bold">
+              <span className="text-[#8B1538] font-bold">
                 story
               </span>
-            </h2>
+            </h3>
 
             <div className="flex items-center gap-2.5 shrink-0">
               <button
@@ -361,12 +363,12 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
             
             {/* Left Content */}
             <div className="space-y-2 max-w-2xl">
-              <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extrabold text-gray-900 tracking-tight leading-tight">
+              <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
                 Your Story Could Be{' '}
-                <span className="font-serif text-[#8B1538] font-bold">
+                <span className="text-[#8B1538] font-bold">
                   Next
                 </span>
-              </h2>
+              </h3>
               <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
                 Get personalised guidance and take the next step towards your goals with Viskool.
               </p>

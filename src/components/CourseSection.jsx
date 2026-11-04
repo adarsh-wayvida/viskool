@@ -155,7 +155,7 @@ export const CourseSection = ({
         <div className="flex justify-center max-w-6xl mx-auto mt-8 sm:mt-10">
           <button
             onClick={() => onActionClick('View all courses')}
-            className="text-[#15803D] font-semibold text-[15px] hover:underline flex items-center justify-center gap-1 transition-all"
+            className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold bg-white text-[#15803D] border border-[#15803D] hover:bg-[#F0FDF4] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer w-fit"
           >View all courses <span className="text-lg leading-none" aria-hidden="true">&rarr;</span></button>
         </div>
 

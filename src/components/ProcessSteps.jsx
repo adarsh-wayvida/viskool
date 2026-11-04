@@ -12,7 +12,7 @@ const MEDIA_LOGOS = [
 
 export const ProcessSteps = ({ steps, onActionClick }) => {
   return (
-    <section className="pt-6 lg:pt-8 bg-white relative overflow-hidden">
+    <section className="pt-12 lg:pt-14 bg-white relative overflow-hidden">
       
       {/* Decorative Sparkles Top Right */}
       <div className="absolute top-8 right-12 text-[#8B1538]/30 text-3xl pointer-events-none select-none">
@@ -21,27 +21,27 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Main Section Headline - Exact 2-Line Structure */}
-        <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight max-w-6xl mx-auto mb-6">
-          <span className="block lg:whitespace-nowrap">
+        {/* Main Section Headline - 2-Line Structure */}
+        <h3 className="mb-6 max-w-6xl mx-auto text-[26px] font-bold leading-[1.3] tracking-tight text-gray-900 md:text-3xl lg:text-[34px]">
+          <span className="block">
             India’s Online Learning & Education Platform for
           </span>
-          <span className="text-[#8B1538] block mt-1 sm:mt-2 lg:whitespace-nowrap leading-[1.2]">
+          <span className="mt-3 block text-[#8B1538]">
             School Tuition, NEET, JEE, KEAM, PSC &amp; Career Upskilling
           </span>
-        </h2>
+        </h3>
 
         {/* Informative Subtext matching screenshot */}
-        <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-3xl mx-auto font-normal">
+        <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-6xl mx-auto font-normal">
           Master your goals with live and recorded classes taught by expert educators. Whether you are aiming for top marks in school, clearing competitive exams like NEET, JEE, KEAM and PSC, or advancing your career, Viskool delivers structured learning and personal guidance to ensure your success.
         </p>
 
 
-        <div className="mt-8 lg:mt-10">
-          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-12 lg:mb-16">
+        <div className="mt-16 lg:mt-20">
+          <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest mb-4">
             Featured in Leading Media Platforms
           </h3>
-          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2 pt-0 pb-4 lg:pb-6">
+          <div className="relative overflow-hidden group w-screen left-1/2 -translate-x-1/2 pt-0 pb-0">
             {/* The scrolling container with smooth animation. 
                 Pauses on hover. Uses motion-reduce for accessibility. */}
             <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full">

@@ -32,7 +32,7 @@ export const Footer = ({ footerData }) => {
           {/* Column 1 - Viskool */}
           <div className="flex flex-col space-y-4">
             <img 
-              src="viskool-logo.png" 
+              src="/viskool-logo.png" 
               alt="Viskool" 
               className="h-8 w-auto object-contain self-start"
             />

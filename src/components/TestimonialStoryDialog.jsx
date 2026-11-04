@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 
 // Helper component to render achievement icons

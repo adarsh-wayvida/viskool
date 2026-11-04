@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 function parseStatValue(str) {
   const match = str.match(/^([^\d]*)([\d,.]+)(.*)$/);
@@ -26,69 +25,82 @@ function formatValue(currentNum, parsed) {
 
 export const AnimatedStatValue = ({ value, index }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-  const prefersReducedMotion = useReducedMotion();
+  // Start with the final value so the number is always present in the DOM
+  // (including the server-rendered HTML) and never stuck at opacity 0.
   const [displayValue, setDisplayValue] = useState(value);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    const node = ref.current;
+    if (!node) return;
 
-  useEffect(() => {
-    if (!hasMounted || prefersReducedMotion) return;
-
-    if (!inView) {
-      const parsed = parseStatValue(value);
-      setDisplayValue(formatValue(0, parsed));
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setDisplayValue(value);
       return;
     }
 
     const parsed = parseStatValue(value);
-    const duration = 1500; // 1.5s
+    const duration = 1500;
     const delay = index * 100;
+    let rafId = null;
+    let started = false;
     let startTime = null;
-    let animationFrameId;
 
     const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
+      if (startTime === null) startTime = timestamp;
       const progress = timestamp - startTime - delay;
 
       if (progress < 0) {
-        animationFrameId = requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(animate);
         return;
       }
 
       const percentage = Math.min(progress / duration, 1);
       const easeOut = 1 - Math.pow(1 - percentage, 3);
-      const currentNum = parsed.num * easeOut;
-
-      setDisplayValue(formatValue(currentNum, parsed));
+      setDisplayValue(formatValue(parsed.num * easeOut, parsed));
 
       if (percentage < 1) {
-        animationFrameId = requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(animate);
       } else {
         setDisplayValue(value);
       }
     };
 
-    animationFrameId = requestAnimationFrame(animate);
+    const startAnimation = () => {
+      if (started) return;
+      started = true;
+      setDisplayValue(formatValue(0, parsed));
+      rafId = requestAnimationFrame(animate);
+    };
 
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [inView, value, index, prefersReducedMotion, hasMounted]);
+    // No IntersectionObserver (very old browsers) → show final value.
+    if (typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          startAnimation();
+        }
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' },
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [value, index]);
 
   return (
-    <div ref={ref} className="relative inline-flex justify-center items-center w-full whitespace-nowrap" aria-label={value}>
-      <span className="invisible select-none pointer-events-none whitespace-nowrap" aria-hidden="true">{value}</span>
-      <motion.span 
-        className="absolute inset-0 flex justify-center items-center whitespace-nowrap"
-        initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-        animate={inView || prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-        transition={{ duration: 1.2, delay: index * 0.1, ease: "easeOut" }}
-        aria-hidden="true"
-      >
-        {hasMounted ? displayValue : value}
-      </motion.span>
+    <div ref={ref} className="relative inline-flex justify-center items-center w-full whitespace-nowrap">
+      <span className="whitespace-nowrap">{displayValue}</span>
     </div>
   );
 };

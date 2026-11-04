@@ -189,7 +189,7 @@ export const HomeStudentTestimonials = ({
   };
 
   return (
-    <section className="py-6 lg:py-8 bg-[#FAFDFB] overflow-hidden">
+    <section className="py-4 lg:py-6 bg-[#FAFDFB] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
           
@@ -207,7 +207,7 @@ export const HomeStudentTestimonials = ({
               </div>
             )}
             
-            <h2 className={`text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight ${subheading ? 'mb-4' : 'mb-8'}`}>
+            <h2 className={`text-[28px] md:text-[32px] lg:text-3xl font-bold text-gray-900 leading-[1.2] tracking-tight ${subheading ? 'mb-4' : 'mb-8'}`}>
               {heading}
             </h2>
 
@@ -216,20 +216,10 @@ export const HomeStudentTestimonials = ({
                 {subheading}
               </h3>
             )}
-
-            <div className="mt-2">
-              <button
-                type="button"
-                onClick={() => router.push('/student-testimonials')}
-                className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold bg-white text-[#15803D] border border-[#15803D] hover:bg-[#F0FDF4] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer w-fit"
-              >
-                View All
-              </button>
-            </div>
           </div>
 
           {/* Right Column (Slider) */}
-          <div className="w-full lg:w-2/3 -mr-[50vw]">
+          <div className="w-full lg:w-2/3 -mr-[50vw] xl:mr-0">
             <div 
               ref={sliderRef}
               onMouseEnter={() => setIsHovered(true)}
@@ -237,7 +227,7 @@ export const HomeStudentTestimonials = ({
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
               onTouchStart={() => triggerInteractionPause()}
-              className="flex items-stretch gap-5 overflow-x-auto scrollbar-none pb-6 px-4"
+              className="flex items-stretch gap-5 overflow-x-auto scrollbar-none pb-4 px-4"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {/* Duplicate multiple times for seamless infinite loop on any screen width */}
@@ -251,7 +241,7 @@ export const HomeStudentTestimonials = ({
                     return (
                       <div 
                         key={`${setIdx}-${student.id}-${index}`} 
-                        className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0 h-auto cursor-pointer transition-transform hover:-translate-y-1"
+                        className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0 h-auto cursor-pointer transition-transform hover:-translate-y-1 xl:w-[calc((100%-40px)/3)]"
                         onPointerDown={handlePointerDown}
                         onPointerUp={(e) => handlePointerUp(student, e)}
                         onPointerCancel={() => { dragStartXRef.current = null; }}
@@ -267,6 +257,7 @@ export const HomeStudentTestimonials = ({
                       >
                         <div className="pointer-events-none w-full h-full">
                           <TestimonialCard 
+                            truncateQuote
                             item={{
                               mediaType: 'image',
                               quote,
@@ -285,6 +276,15 @@ export const HomeStudentTestimonials = ({
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center mt-6 px-4">
+        <button
+          type="button"
+          onClick={() => router.push('/student-testimonials')}
+          className="flex items-center gap-2 px-6 py-2.5 text-[15px] font-bold bg-white text-[#15803D] border border-[#15803D] hover:bg-[#F0FDF4] rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 cursor-pointer w-fit"
+        >
+          View All
+        </button>
       </div>
       <TestimonialStoryDialog story={activeModalStudent} onClose={() => setActiveModalStudent(null)} />
     </section>

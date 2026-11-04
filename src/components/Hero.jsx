@@ -132,12 +132,14 @@ export const ALL_HERO_SLIDES = [
   },
 ];
 
-export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
+export const Hero = ({ onActionClick, onOpenContact, onNavigate, courseSlides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   // Active publicly visible slides
-  const activeSlides = ALL_HERO_SLIDES.filter((slide) => slide.isReady);
+  const isCourseMode = Array.isArray(courseSlides);
+  const slideSource = isCourseMode ? courseSlides : ALL_HERO_SLIDES;
+  const activeSlides = slideSource.filter((candidate) => candidate?.isReady);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
@@ -159,7 +161,11 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
   }, [activeSlides.length, isHovered]);
 
   const slide = activeSlides[currentSlide] || activeSlides[0];
+  if (!slide) return null;
+
   const isLight = slide.theme === 'light';
+  const HeadingTag = slide.headingTag || 'h1';
+  const badges = slide.badges || (slide.badge ? [slide.badge] : []);
 
   const handlePrimaryClick = (cta) => {
     if (cta.type === 'explore') {
@@ -185,6 +191,19 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
   const handleSecondaryClick = (cta) => {
     if (onOpenContact) {
       onOpenContact(cta.label, { source: cta.source || 'Hero Banner' });
+    } else if (onActionClick) {
+      onActionClick(cta.label);
+    }
+  };
+
+  const handleTertiaryClick = async (cta) => {
+    if (cta.type === 'share' && typeof navigator !== 'undefined') {
+      const shareData = { title: slide.heading, url: window.location.href };
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(shareData.url);
+      }
     } else if (onActionClick) {
       onActionClick(cta.label);
     }
@@ -272,7 +291,7 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
             />
           ) : (
             /* Static Base Viskool Gradient Background */
-            <div className="w-full h-full bg-gradient-to-br from-[#FFFDFE] via-[#FDF2F4] to-[#F3D0D7] relative overflow-hidden" />
+            <div className={`w-full h-full relative overflow-hidden ${slide.backgroundClass || 'bg-gradient-to-br from-[#FFFDFE] via-[#FDF2F4] to-[#F3D0D7]'}`} />
           )}
 
           {/* Overlay for Video / Image Slides */}
@@ -282,33 +301,35 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
         </div>
 
         {/* Left-Aligned Text Overlay Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-20 w-full flex items-center justify-start">
+        <div className={`relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-20 w-full items-center ${slide.rightMedia ? `grid gap-6 ${slide.rightMediaWide ? 'lg:grid-cols-[0.9fr_1.1fr] lg:gap-12' : 'lg:grid-cols-2 lg:gap-10'}` : 'flex justify-start'}`}>
           <div 
             key={`banner-content-${slide.id}-${currentSlide}`}
-            className="hero-copy max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-left space-y-3 sm:space-y-4"
+            className={`hero-copy max-w-md sm:max-w-xl md:max-w-2xl text-left space-y-3 sm:space-y-4 ${slide.rightMedia ? 'lg:max-w-none' : 'lg:max-w-3xl'}`}
           >
             
             {/* Optional Badge Pill (Stagger 1) */}
-            {slide.badge && (
-              <div className="animate-banner-stagger-1">
-                <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-xs ${
-                  isLight 
-                    ? 'bg-[#8B1538]/10 border border-[#8B1538]/20 text-[#8B1538]' 
-                    : 'bg-white/15 backdrop-blur-md border border-white/25 text-white'
-                }`}>
-                  <span className="w-2 h-2 rounded-full bg-[#8B1538] animate-pulse" />
-                  <span>{slide.badge}</span>
-                </div>
+            {badges.length > 0 && (
+              <div className="flex flex-wrap gap-2 animate-banner-stagger-1">
+                {badges.map((badge) => (
+                  <div key={badge} className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-xs ${
+                    isLight 
+                      ? 'bg-[#8B1538]/10 border border-[#8B1538]/20 text-[#8B1538]' 
+                      : 'bg-white/15 backdrop-blur-md border border-white/25 text-white'
+                  }`}>
+                    <span className="w-2 h-2 rounded-full bg-[#8B1538] animate-pulse" />
+                    <span>{badge}</span>
+                  </div>
+                ))}
               </div>
             )}
 
             {/* Headline (Stagger 2) */}
             <div className="animate-banner-stagger-2">
-              <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-[38px] font-extrabold tracking-tight !leading-[1.2] max-w-[360px] sm:max-w-[540px] md:max-w-[620px] ${
+              <HeadingTag className={`text-xl sm:text-2xl md:text-3xl lg:text-[38px] font-extrabold tracking-tight !leading-[1.2] max-w-[360px] sm:max-w-[540px] md:max-w-[620px] ${
                 isLight ? 'text-[#1A030C]' : 'text-white drop-shadow-md'
               }`}>
                 {slide.heading}
-              </h1>
+              </HeadingTag>
             </div>
 
             {/* Description (Stagger 3) */}
@@ -335,6 +356,15 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
                     {chip}
                   </span>
                 ))}
+              </div>
+            )}
+
+            {slide.pricing && (
+              <div className="flex flex-wrap items-end gap-x-3 gap-y-1 text-white animate-banner-stagger-4">
+                <span className="w-full text-[11px] font-semibold uppercase tracking-wider text-gray-300">{slide.pricing.label}</span>
+                <span className="text-2xl font-extrabold">{slide.pricing.price}</span>
+                <span className="pb-1 text-sm text-gray-300 line-through">{slide.pricing.originalPrice}</span>
+                <span className="mb-1 rounded-full bg-[#8B1538] px-2.5 py-1 text-[10px] font-bold">{slide.pricing.discount}</span>
               </div>
             )}
 
@@ -377,10 +407,41 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate }) => {
                     <span>{slide.ctaSecondary.label}</span>
                   </button>
                 )}
+
+                {slide.ctaTertiary && (
+                  <button
+                    type="button"
+                    onClick={() => handleTertiaryClick(slide.ctaTertiary)}
+                    className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-5 py-2.5 text-xs font-bold text-white shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/20 active:scale-95 sm:px-6 sm:py-3 sm:text-sm"
+                  >
+                    {slide.ctaTertiary.label}
+                  </button>
+                )}
               </div>
             </div>
 
+            {slide.courseInfo && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-medium text-gray-200 sm:text-xs">
+                {slide.courseInfo.map((item, index) => (
+                  <React.Fragment key={item}>
+                    {index > 0 && <span aria-hidden="true">•</span>}
+                    <span>{item}</span>
+                  </React.Fragment>
+                ))}
+              </div>
+            )}
+
           </div>
+
+          {slide.rightMedia && (
+            <div className="hidden min-w-0 overflow-hidden rounded-2xl bg-black/20 shadow-2xl lg:block">
+              <img
+                src={slide.rightMedia.src}
+                alt={slide.rightMedia.alt}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          )}
         </div>
 
         {/* Translucent Carousel Arrow Controls */}
