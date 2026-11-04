@@ -48,12 +48,12 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
               {[...Array(4)].map((_, groupIdx) => (
                 <div 
                   key={groupIdx} 
-                  className="flex items-center gap-8 sm:gap-12 md:gap-16 pr-8 sm:pr-12 md:pr-16"
+                  className="flex items-center gap-8 sm:gap-10 md:gap-14 pr-8 sm:pr-10 md:pr-14"
                 >
                   {MEDIA_LOGOS.map((logo) => (
                     <div 
                       key={logo.id} 
-                      className="w-[140px] h-[40px] sm:w-[160px] sm:h-[48px] lg:w-[180px] lg:h-[56px] flex items-center justify-center shrink-0"
+                      className="w-[100px] h-[28px] sm:w-[120px] sm:h-[32px] lg:w-[140px] lg:h-[40px] flex items-center justify-center shrink-0"
                     >
                       <img src={logo.src} alt={logo.alt} className="max-w-full h-full object-contain" />
                     </div>

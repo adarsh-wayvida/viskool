@@ -12,7 +12,7 @@ export const HeroMentorship = ({ onActionClick }) => {
               Viskool: Where Personal Mentorship Meets Proven Success
             </h2>
             
-            <p className="text-[#555555] text-sm sm:text-base lg:text-lg leading-relaxed mb-6 max-w-2xl mx-auto lg:mx-0 font-normal">
+            <p className="text-[#555555] text-sm sm:text-base leading-relaxed mb-6 max-w-2xl mx-auto lg:mx-0 font-normal">
               Experience smart, personalized, and results-driven education at Viskool, the best online learning platform.
             </p>
             
