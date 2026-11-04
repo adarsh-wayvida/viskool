@@ -8,7 +8,7 @@ export const HeroMentorship = ({ onActionClick }) => {
           
           {/* Left Side: Content */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left order-1 lg:order-2">
-            <h2 className="text-[26px] md:text-3xl lg:text-[34px] font-semibold text-gray-500 leading-relaxed tracking-tight mb-5">
+            <h2 className="text-[26px] md:text-3xl lg:text-[34px] font-semibold text-[#1A030C] leading-relaxed tracking-tight mb-5">
               Viskool: Where Personal Mentorship Meets Proven Success
             </h2>
             

@@ -227,7 +227,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
           </div>
 
           {/* Category Filter Chips Bar */}
-          <div className="flex items-center justify-center sm:justify-start flex-wrap gap-2.5 sm:gap-3">
+          <div className="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3">
             {CATEGORIES.map((category) => {
               const isSelected = selectedCategory === category;
               return (

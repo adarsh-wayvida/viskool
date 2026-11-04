@@ -610,7 +610,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
               Hear from Our Parents
             </h1>
             
-            <p className="text-lg sm:text-xl text-white/95 font-normal max-w-2xl font-sans drop-shadow-md">
+            <p className="text-lg sm:text-xl text-white/95 font-normal max-w-full font-sans drop-shadow-md">
               Trusted by thousands of parents for academic improvement and career growth.
             </p>
 

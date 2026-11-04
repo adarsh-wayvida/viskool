@@ -487,7 +487,7 @@ export const AboutViskoolPage = () => {
                 Across India
               </h4>
               <div className="flex flex-wrap gap-1.5">
-                {["Kerala", "Bangalore", "Chennai", "Coimbatore", "Hyderabad"].map((location) => (
+                {["Kerala", "Bangalore", "Chennai", "Coimbatore", "Hyderabad", "Mumbai"].map((location) => (
                   <span
                     key={location}
                     className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-sm font-medium text-[#102A43] border border-[#8B1538]/10"
@@ -504,7 +504,7 @@ export const AboutViskoolPage = () => {
                 Across the Gulf
               </h4>
               <div className="flex flex-wrap gap-1.5">
-                {["Dubai (UAE)", "Qatar", "Saudi Arabia", "Oman"].map((location) => (
+                {["Dubai (UAE)", "Qatar", "Saudi Arabia", "Oman", "Kuwait", "Bahrain"].map((location) => (
                   <span
                     key={location}
                     className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-sm font-medium text-[#102A43] border border-[#8B1538]/10"
