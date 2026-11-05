@@ -272,6 +272,8 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
+"
+
       <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
@@ -647,6 +649,239 @@ export default function AiIntegratedDigitalMarketingPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              4. Who is it for?
+            </p>
+
+            <h2 className="text-[28px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[34px] lg:text-[40px]">
+              Is This Course Made for You?{" "}
+              <span className="text-[#8B1538]">Probably Yes!</span>
+            </h2>
+
+            <div className="mt-7 space-y-5 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              <p>
+                Yes, if you are a student, graduate, job seeker, working
+                professional, or business owner who wants to market online. No
+                marketing background is needed.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                "Students and fresh graduates from any stream",
+                "Job seekers and career switchers",
+                "Working professionals who want a better role or a side income",
+                "Shop, clinic and business owners who want more customers",
+                "Freelancers who want to add marketing services",
+                "Homemakers planning to restart their careers",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-2xl border border-[#8B1538]/10 bg-[#FCF8F9] p-4"
+                >
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#8B1538] text-white">
+                    ✓
+                  </span>
+                  <p className="text-[15px] leading-6 text-[#102A43]">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 space-y-4 rounded-2xl bg-[#F8F0F2] p-5 sm:p-6">
+              <div>
+                <p className="text-[15px] font-bold leading-7 text-[#102A43] sm:text-base">
+                  Q: Can a commerce, arts or science student join?
+                </p>
+                <p className="mt-1 text-[15px] leading-7 text-gray-700 sm:text-base">
+                  A: Yes. Digital marketing needs creativity and basic computer
+                  skills, not a particular degree.
+                </p>
+              </div>
+              <div>
+                <p className="text-[15px] font-bold leading-7 text-[#102A43] sm:text-base">
+                  Q: I have a full-time job. Can I still attend?
+                </p>
+                <p className="mt-1 text-[15px] leading-7 text-gray-700 sm:text-base">
+                  A: Yes. Choose the evening batch, and use the recorded sessions,
+                  which you can watch for 6 months, to catch up.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              5. Minimum Requirements
+            </p>
+
+            <h2 className="text-[28px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[34px] lg:text-[40px]">
+              What Do You Need Before Day One?{" "}
+              <span className="text-[#8B1538]">Just These 5 Things</span>
+            </h2>
+
+            <div className="mt-7 space-y-5 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              <p>
+                You only need a laptop, an internet connection, and basic computer
+                skills. You do not need coding or earlier marketing knowledge.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-6">
+              {[
+                {
+                  img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80",
+                  title: "Laptop or Desktop",
+                  subtitle: "Smartphone useful for selected tasks",
+                },
+                {
+                  img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+                  title: "Stable Internet",
+                  subtitle: "Reliable connection for live learning",
+                },
+                {
+                  img: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=600&q=80",
+                  title: "Basic English",
+                  subtitle: "Reading and writing skills",
+                },
+                {
+                  img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80",
+                  title: "Basic Computer Skills",
+                  subtitle: "Email, browsers and simple apps",
+                },
+                {
+                  img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=600&q=80",
+                  title: "Daily Practice Time",
+                  subtitle: "Around 1-2 hours per day",
+                },
+              ].map((card) => (
+                <div
+                  key={card.title}
+                  className="flex w-full flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                >
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="mb-4 h-32 w-full rounded-xl object-cover"
+                  />
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {card.title}
+                  </h3>
+                  <div className="my-2 h-1 w-12 rounded-full bg-[#8B1538]"></div>
+                  <p className="text-sm font-medium text-[#8B1538]">
+                    {card.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              6. What You Get & Why Viskool
+            </p>
+
+            <h2 className="text-[28px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[34px] lg:text-[40px]">
+              Best Digital Marketing Institute in Kerala:{" "}
+              <span className="text-[#8B1538]">What You Get with Us</span>
+            </h2>
+
+            <div className="mt-7 space-y-5 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              <p>
+                Viskool gives you real work experience, 1 year of WhatsApp
+                community support, recorded classes, and real agency work. Here is
+                the full list of what is included.
+              </p>
+            </div>
+
+            <div className="mt-8 w-full overflow-x-auto rounded-2xl border border-[#8B1538]/15">
+              <table className="w-full min-w-[640px] border-collapse text-left text-sm sm:text-base">
+                <thead className="bg-[#F8F0F2] text-[#8B1538]">
+                  <tr>
+                    <th className="border-r border-[#8B1538]/15 px-5 py-4 font-bold">What you get</th>
+                    <th className="border-r border-[#8B1538]/15 px-5 py-4 font-bold">How long</th>
+                    <th className="px-5 py-4 font-bold">What it means for you</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white text-[#102A43]">
+                  <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">1-month internship</td>
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4">1 month</td>
+                    <td className="px-5 py-4">Work on real tasks and add experience to your CV</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">WhatsApp community support</td>
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4">1 year</td>
+                    <td className="px-5 py-4">Ask doubts and learn with other learners and mentors</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">WhatsApp group support</td>
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4">6 months</td>
+                    <td className="px-5 py-4">Quick answers from your mentors inside your batch group</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Technical support at your workplace</td>
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4">6 months</td>
+                    <td className="px-5 py-4">Stuck with an ad account or tracking set-up at your job? We help you fix it</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Recorded sessions</td>
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4">6 months</td>
+                    <td className="px-5 py-4">Watch missed or tricky classes again</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Live projects</td>
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4">During the course</td>
+                    <td className="px-5 py-4">Agency-based projects with real client briefs</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-10">
+              <h3 className="text-2xl font-bold text-[#102A43]">Why choose Viskool?</h3>
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {[
+                  "Personal attention from mentors who know your name and your goals",
+                  "Progress tracking, so you always know where you stand",
+                  "Regular tests and honest feedback to fix gaps early",
+                  "Placement assistance with resume, portfolio and mock interviews",
+                  "Day and evening batches to suit students and working people",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#8B1538] text-white">
+                      ✓
+                    </span>
+                    <p className="text-[15px] leading-6 text-gray-700">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-[#F8F0F2] px-6 py-5 text-center">
+              <p className="text-[15px] leading-7 text-[#102A43] sm:text-base">
+                If you are looking for digital marketing training Kerala learners
+                can join from home, Viskool's live online classes bring the
+                classroom to you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </>
   );
 }
