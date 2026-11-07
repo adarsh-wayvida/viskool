@@ -1,3 +1,5 @@
+"use client";
+
 // Learning Journey Form Section Component - Embedded inline enquiry form above FAQ section
 import React, { useState } from 'react';
 

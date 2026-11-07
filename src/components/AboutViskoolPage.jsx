@@ -190,8 +190,8 @@ export const AboutViskoolPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-y-4 sm:gap-y-5 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:items-center lg:gap-x-8 xl:gap-x-10">
             <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight text-center lg:col-span-2 lg:row-start-1 lg:whitespace-nowrap">
-              <span className="text-[#8B1538]">Welcome to Viskool</span>{" "}
-              Learning
+              Welcome to Viskool{" "}
+              <span className="text-[#8B1538]">Learning</span>
             </h2>
 
             {/* Image Container */}
@@ -222,7 +222,8 @@ export const AboutViskoolPage = () => {
       <section className="pt-4 lg:pt-5 pb-8 sm:pb-10 lg:pb-12 bg-[#FCFAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-[#102A43] leading-[1.2] tracking-tight mt-6 sm:mt-8 mb-5 sm:mb-7 text-center">
-            <span className="text-[#8B1538]">Discover</span> Our Story
+            Discover{" "}
+            <span className="text-[#8B1538]">Our Story</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
@@ -444,7 +445,8 @@ export const AboutViskoolPage = () => {
       <section className="bg-[#FAFAFA] py-5 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-4 sm:mb-5 text-center">
-            <span className="text-[#8B1538]">Our</span> Courses
+            Our{" "}
+            <span className="text-[#8B1538]">Courses</span>
           </h2>
 
           <CourseSection
@@ -472,8 +474,8 @@ export const AboutViskoolPage = () => {
         <div className="relative z-10 max-w-6xl mx-auto w-full">
           <div className="text-center max-w-6xl mx-auto mb-3 sm:mb-4">
             <h2 className="text-[28px] md:text-[34px] lg:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-2 lg:whitespace-nowrap">
-              <span className="text-[#8B1538]">Wherever You Are,</span> Your
-              Mentor Is Just a Click Away
+              Wherever You Are,{" "}
+              <span className="text-[#8B1538]">Your Mentor Is Just a Click Away</span>
             </h2>
             <h3 className="text-base sm:text-lg lg:text-base font-semibold text-gray-600 leading-relaxed max-w-4xl lg:max-w-none mx-auto lg:whitespace-nowrap">
               We are bringing one-to-one mentoring to students and professionals
@@ -591,8 +593,8 @@ export const AboutViskoolPage = () => {
       <LearningJourneyForm
         heading={
           <>
-            <span className="text-[#8B1538]">Let’s Plan Your Learning</span>{" "}
-            <span>Journey Together</span>
+            Let’s Plan Your Learning{" "}
+            <span className="text-[#8B1538]">Journey Together</span>
           </>
         }
         headingSizeClassName="text-[28px] md:text-[32px] lg:text-[36px]"
