@@ -29,7 +29,7 @@ export const HomeStudentVideoTestimonials = () => {
         <ParentVideoSlider
           title={
             <>
-              Hear What Students <span className="text-[#8B1538] leading-[1.2]">Have to Say</span>
+              Hear What <span className="text-[#8B1538] leading-[1.2]">Students Have to Say</span>
             </>
           }
           subtitle={
