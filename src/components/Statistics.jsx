@@ -155,7 +155,7 @@ export const Statistics = () => {
               {/* Subtle top inner highlight for 3D card effect on hover */}
               <div className="absolute inset-0 rounded-3xl border-t-2 border-white/80 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="text-3xl md:text-4xl font-extrabold text-[#8B1538] mb-4 tracking-tight leading-none relative z-10 group-hover:scale-105 transition-transform duration-300">
+              <div className="text-2xl md:text-3xl font-extrabold text-[#8B1538] mb-4 tracking-tight leading-none relative z-10 group-hover:scale-105 transition-transform duration-300">
                 <AnimatedStatValue value={stat.value} index={idx} />
               </div>
               <div className="text-[#1A1A1A] text-[15px] sm:text-base font-bold leading-snug mb-2.5 relative z-10">
