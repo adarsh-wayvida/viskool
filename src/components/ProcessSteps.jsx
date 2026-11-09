@@ -1,5 +1,6 @@
 // ProcessSteps Component - Value Proposition & 3 Steps
 import React from 'react';
+import StudentSuccessSlider from './StudentSuccessSlider.jsx';
 
 const MEDIA_LOGOS = [
   { id: 2, src: '/logos/benchmark.webp', alt: 'Benchmark' },
@@ -35,6 +36,10 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
         <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-6xl mx-auto font-normal">
           Master your goals with live and recorded classes taught by expert educators. Whether you are aiming for top marks in school, clearing competitive exams like NEET, JEE, KEAM and PSC, or advancing your career, Viskool delivers structured learning and personal guidance to ensure your success.
         </p>
+
+        <div className="my-10">
+          <StudentSuccessSlider />
+        </div>
 
 
         <div className="mt-16 lg:mt-20">

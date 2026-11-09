@@ -51,7 +51,6 @@ export default function HomePage() {
         onActionClick={handleActionClick}
         onOpenContact={handleOpenContact}
       />
-      <StudentSuccessSlider />
       <ProcessSteps 
         steps={PROCESS_STEPS} 
         onActionClick={handleActionClick}
