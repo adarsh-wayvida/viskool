@@ -402,7 +402,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
             {/* Card Thumbnail / Background */}
             <div className={`absolute inset-0 bg-gradient-to-br ${video.gradient} flex items-center justify-center`}>
               <img
-                src={video.thumbnail}
+                src={video.thumbnail ? (video.thumbnail.startsWith('/') || video.thumbnail.startsWith('http') || video.thumbnail.startsWith('data:') ? video.thumbnail : '/'+video.thumbnail) : ''}
                 alt={video.name}
                 onError={(e) => {
                   e.target.style.display = 'none';
@@ -535,7 +535,7 @@ export const TestimonialCard = ({ item, onPlayVideo, onReadMore, truncateQuote =
         
         <div className="flex items-center gap-2.5">
           <img
-            src={item.avatar}
+            src={item.avatar ? (item.avatar.startsWith('/') || item.avatar.startsWith('http') || item.avatar.startsWith('data:') ? item.avatar : `/${item.avatar}`) : ''}
             alt={item.parentRole}
             loading="lazy"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover object-top shrink-0 border border-[#8B1538]/10"
@@ -712,7 +712,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
               ✕
             </button>
             <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
-              <img src={activeVideo.image || 'parent-card-father-son.jpg'} alt="Video cover" className="w-full h-full object-cover opacity-60" />
+              <img src={activeVideo.image ? (activeVideo.image.startsWith('/') || activeVideo.image.startsWith('http') || activeVideo.image.startsWith('data:') ? activeVideo.image : '/'+activeVideo.image) : '/parent-card-father-son.jpg'} alt="Video cover" className="w-full h-full object-cover opacity-60" />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white bg-gradient-to-t from-black/80 via-black/30 to-transparent">
                 <div className="w-16 h-16 rounded-full bg-[#F5BA31] text-gray-900 flex items-center justify-center text-2xl font-bold mb-3 shadow-lg">
                   ▶

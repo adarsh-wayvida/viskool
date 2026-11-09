@@ -133,7 +133,7 @@ export const TestimonialStoryDialog = ({ story, onClose }) => {
             <div className="flex items-center gap-4 border-b border-gray-100 pb-4">
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
                 {story.image ? (
-                  <img src={story.image} alt={story.name} className="w-full h-full object-cover object-top scale-110" />
+                  <img src={story.image.startsWith('/') || story.image.startsWith('http') || story.image.startsWith('data:') ? story.image : `/${story.image}`} alt={story.name} className="w-full h-full object-cover object-top scale-110" />
                 ) : (
                   <FacelessStudentPlaceholder />
                 )}

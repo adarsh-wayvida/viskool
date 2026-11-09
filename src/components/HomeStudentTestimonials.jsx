@@ -262,7 +262,7 @@ export const HomeStudentTestimonials = ({
                               mediaType: 'image',
                               quote,
                               description,
-                              avatar: student.image || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"%3E%3Crect width="48" height="48" fill="%23F1E0E5"/%3E%3Ccircle cx="24" cy="17" r="8" fill="%238B1538"/%3E%3Cpath d="M8 46v-6a16 16 0 0132 0v6" fill="%238B1538"/%3E%3C/svg%3E',
+                              avatar: student.image ? (student.image.startsWith('/') || student.image.startsWith('http') || student.image.startsWith('data:') ? student.image : `/${student.image}`) : 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"%3E%3Crect width="48" height="48" fill="%23F1E0E5"/%3E%3Ccircle cx="24" cy="17" r="8" fill="%238B1538"/%3E%3Cpath d="M8 46v-6a16 16 0 0132 0v6" fill="%238B1538"/%3E%3C/svg%3E',
                               parentRole: student.name,
                               courseName: student.tag,
                             }}
