@@ -16,8 +16,10 @@ import { Hero } from '../components/Hero.jsx';
 import { ProcessSteps } from '../components/ProcessSteps.jsx';
 import { CourseSection } from '../components/CourseSection.jsx';
 import { HeroMentorship } from '../components/HeroMentorship.jsx';
+import StudentSuccessSlider from '../components/StudentSuccessSlider.jsx';
 import { Statistics } from '../components/Statistics.jsx';
 import { HomeParentVideoTestimonials } from '../components/HomeParentVideoTestimonials.jsx';
+import { HomeStudentVideoTestimonials } from '../components/HomeStudentVideoTestimonials.jsx';
 import { HomeStudentTestimonials } from '../components/HomeStudentTestimonials.jsx';
 import { SuccessCTA } from '../components/SuccessCTA.jsx';
 import { FAQSection } from '../components/FAQSection.jsx';
@@ -49,6 +51,7 @@ export default function HomePage() {
         onActionClick={handleActionClick}
         onOpenContact={handleOpenContact}
       />
+      <StudentSuccessSlider />
       <ProcessSteps 
         steps={PROCESS_STEPS} 
         onActionClick={handleActionClick}
@@ -57,7 +60,7 @@ export default function HomePage() {
         onActionClick={handleActionClick}
       />
       <Statistics />
-      <HomeParentVideoTestimonials />
+      <HomeStudentVideoTestimonials />
       <HomeStudentTestimonials />
       <CourseSection 
         categories={COURSE_CATEGORIES}
@@ -66,6 +69,7 @@ export default function HomePage() {
         onEnrollCourse={handleEnrollCourse}
         onActionClick={handleActionClick}
       />
+      <HomeParentVideoTestimonials />
       <FAQSection 
         faqs={FAQS} 
         onActionClick={handleActionClick}

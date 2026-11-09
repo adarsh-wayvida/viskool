@@ -27,10 +27,10 @@ export const Footer = ({ footerData }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* 4-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 items-start">
           
           {/* Column 1 - Viskool */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 col-span-2 lg:col-span-1">
             <img 
               src="/viskool-logo.png" 
               alt="Viskool" 
@@ -75,20 +75,19 @@ export const Footer = ({ footerData }) => {
           </div>
 
           {/* Column 2 - Courses */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 col-span-1">
             <h3 className="text-lg font-bold text-gray-900">Courses</h3>
             <ul className="space-y-2 text-sm text-gray-700">
               <li><a href="#" className="hover:text-[#8B1538] transition-colors">School Tuition</a></li>
               <li><a href="#" className="hover:text-[#8B1538] transition-colors">Digital Marketing</a></li>
               <li><a href="#" className="hover:text-[#8B1538] transition-colors">Kerala PSC</a></li>
               <li><a href="#" className="hover:text-[#8B1538] transition-colors">Upskill</a></li>
-              <li><a href="#" className="hover:text-[#8B1538] transition-colors">NEET</a></li>
-              <li><a href="#" className="hover:text-[#8B1538] transition-colors">JEE</a></li>
+              <li><a href="#" className="hover:text-[#8B1538] transition-colors">NEET & JEE</a></li>
             </ul>
           </div>
 
           {/* Column 3 - Quick Links */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 col-span-1">
             <h3 className="text-lg font-bold text-gray-900">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-700">
               {footerData.quickLinks.map((link) => (
@@ -102,7 +101,7 @@ export const Footer = ({ footerData }) => {
           </div>
 
           {/* Column 4 - Contact Us */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 col-span-2 lg:col-span-1">
             <h3 className="text-lg font-bold text-gray-900">Contact Us</h3>
             <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
