@@ -12,6 +12,7 @@ const CATEGORIES = [
   'NEET/JEE',
   'Competitive Exams',
   'Career Upskilling',
+  'Digital Marketing',
 ];
 
 export const STUDENT_TESTIMONIALS_DATA = [
