@@ -24,14 +24,21 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
         
         {/* Main Section Headline - 2-Line Structure */}
         <h3 className="text-2xl md:text-4xl font-bold text-center leading-tight">
-            <span className="block">India’s Online Learning &</span>
-            <span className="block">Education Platform for</span>
-            <span className="block text-[#800020] mt-1">School Tuition, NEET, JEE,</span>
-            <span className="block text-[#800020]">KEAM, PSC & Career Upskilling</span>
+            {/* TOP HALF: Navy Text */}
+            <span className="block">
+              <span className="block md:inline">India’s Online Learning & </span>
+              <span className="block md:inline">Education Platform for</span>
+            </span>
+
+            {/* BOTTOM HALF: Burgundy Text */}
+            <span className="block text-[#800020] mt-1 md:mt-2">
+              <span className="block md:inline">School Tuition, NEET, JEE, </span>
+              <span className="block md:inline">KEAM, PSC & Career Upskilling</span>
+            </span>
           </h3>
 
         {/* Informative Subtext matching screenshot */}
-        <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-6xl mx-auto font-normal">
+        <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-6xl mx-auto font-normal mt-4 md:mt-6">
           Master your goals with live and recorded classes taught by expert educators. Whether you are aiming for top marks in school, clearing competitive exams like NEET, JEE, KEAM and PSC, or advancing your career, Viskool delivers structured learning and personal guidance to ensure your success.
         </p>
 
