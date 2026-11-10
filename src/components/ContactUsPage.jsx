@@ -160,15 +160,15 @@ export function ContactUsPage() {
       {/* Social Media Section */}
       <section className="w-full pt-1 sm:pt-1 lg:pt-1.5 pb-8 sm:pb-10 lg:pb-12 font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             
             {/* Facebook Card */}
             <div className="bg-white rounded-3xl p-3 sm:p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
               <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandFacebook size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On Facebook</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
+              <h3 className="text-sm md:text-lg font-bold text-[#102A43] mb-3">Follow On Facebook</h3>
+              <a href="#" className="mt-auto px-3 py-1.5 bg-[#8B1538] text-white font-bold text-xs rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 FOLLOW
               </a>
             </div>
@@ -178,8 +178,8 @@ export function ContactUsPage() {
               <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandInstagram size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On Instagram</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
+              <h3 className="text-sm md:text-lg font-bold text-[#102A43] mb-3">Follow On Instagram</h3>
+              <a href="#" className="mt-auto px-3 py-1.5 bg-[#8B1538] text-white font-bold text-xs rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 FOLLOW
               </a>
             </div>
@@ -189,8 +189,8 @@ export function ContactUsPage() {
               <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandYoutube size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-3">Subscribe On YouTube</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
+              <h3 className="text-sm md:text-lg font-bold text-[#102A43] mb-3">Subscribe On YouTube</h3>
+              <a href="#" className="mt-auto px-3 py-1.5 bg-[#8B1538] text-white font-bold text-xs rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 SUBSCRIBE
               </a>
             </div>
@@ -200,8 +200,8 @@ export function ContactUsPage() {
               <div className="w-14 h-14 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110">
                 <IconBrandLinkedin size={28} className="text-[#8B1538]" stroke={1.5} />
               </div>
-              <h3 className="text-lg font-bold text-[#102A43] mb-3">Follow On LinkedIn</h3>
-              <a href="#" className="mt-auto px-8 py-2.5 bg-[#8B1538] text-white font-bold text-sm rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
+              <h3 className="text-sm md:text-lg font-bold text-[#102A43] mb-3">Follow On LinkedIn</h3>
+              <a href="#" className="mt-auto px-3 py-1.5 bg-[#8B1538] text-white font-bold text-xs rounded-full transition-all duration-300 hover:shadow-md hover:bg-[#73152C]">
                 FOLLOW
               </a>
             </div>

@@ -194,7 +194,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
       <section id="student-testimonials-grid" className="w-full bg-[#FCFCFD] py-10 sm:py-14 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
           
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
+          <div className="flex flex-row justify-between items-center w-full border-b border-gray-100 pb-3 gap-4">
             <h3 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-gray-900 tracking-tight">
               Every student has a{' '}
               <span className="text-[#8B1538] font-bold">
@@ -228,7 +228,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
           </div>
 
           {/* Category Filter Chips Bar */}
-          <div className="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap justify-center gap-3 w-full">
             {CATEGORIES.map((category) => {
               const isSelected = selectedCategory === category;
               return (

@@ -301,7 +301,7 @@ export const Hero = ({ onActionClick, onOpenContact, onNavigate, courseSlides })
         </div>
 
         {/* Left-Aligned Text Overlay Content */}
-        <div className={`relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-20 w-full items-center ${slide.rightMedia ? `grid gap-6 ${slide.rightMediaWide ? 'lg:grid-cols-[0.9fr_1.1fr] lg:gap-12' : 'lg:grid-cols-2 lg:gap-10'}` : 'flex justify-start'}`}>
+        <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full items-center ${slide.rightMedia ? `grid gap-6 ${slide.rightMediaWide ? 'lg:grid-cols-[0.9fr_1.1fr] lg:gap-12' : 'lg:grid-cols-2 lg:gap-10'}` : 'flex justify-start'}`}>
           <div 
             key={`banner-content-${slide.id}-${currentSlide}`}
             className={`hero-copy max-w-md sm:max-w-xl md:max-w-2xl text-left space-y-3 sm:space-y-4 ${slide.rightMedia ? 'lg:max-w-none' : 'lg:max-w-3xl'}`}
