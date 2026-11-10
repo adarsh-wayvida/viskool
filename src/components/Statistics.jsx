@@ -146,11 +146,11 @@ export const Statistics = () => {
         <div className="absolute inset-0 bg-gray-50/50 rounded-[2.5rem] scale-[0.98] translate-y-3 -z-10 border border-gray-100 hidden lg:block"></div>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 items-stretch">
           {stats.map((stat, idx) => (
             <div 
               key={idx} 
-              className={`${stat.bgColor} rounded-3xl p-6 flex flex-col items-center justify-center text-center border border-white/60 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full relative group`}
+              className={`${stat.bgColor} rounded-3xl p-4 flex flex-col items-center justify-center text-center border border-white/60 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full relative group`}
             >
               {/* Subtle top inner highlight for 3D card effect on hover */}
               <div className="absolute inset-0 rounded-3xl border-t-2 border-white/80 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -158,7 +158,7 @@ export const Statistics = () => {
               <div className="text-2xl md:text-3xl font-extrabold text-[#8B1538] mb-4 tracking-tight leading-none relative z-10 group-hover:scale-105 transition-transform duration-300">
                 <AnimatedStatValue value={stat.value} index={idx} />
               </div>
-              <div className="text-[#1A1A1A] text-[15px] sm:text-base font-bold leading-snug mb-2.5 relative z-10">
+              <div className="text-[#1A1A1A] text-xs md:text-sm font-bold leading-snug mb-2.5 relative z-10">
                 {stat.title}
               </div>
               <div className="text-[#666666] text-[11px] font-bold tracking-widest uppercase relative z-10 lg:whitespace-nowrap">

@@ -340,7 +340,7 @@ export const ParentVideoSlider = ({ onPlayVideo, isModalOpen = false, videos = P
               {title}
             </h2>
           ) : (
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+            <h3 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-gray-900 tracking-tight">
               Hear It From the{' '}
               <span className="text-[#8B1538] font-bold">
                 {audience}
@@ -622,7 +622,7 @@ export const ParentTestimonialsPage = ({ onOpenContact }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 sm:space-y-6">
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
-            <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight">
+            <h3 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-gray-900 tracking-tight">
               Every family has a{' '}
               <span className="text-[#8B1538] font-bold">
                 story

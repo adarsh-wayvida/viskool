@@ -195,7 +195,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-gray-100 pb-3 gap-4">
-            <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight">
+            <h3 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-gray-900 tracking-tight">
               Every student has a{' '}
               <span className="text-[#8B1538] font-bold">
                 story
@@ -364,7 +364,7 @@ export const StudentTestimonialsPage = ({ onOpenContact, onNavigate }) => {
             
             {/* Left Content */}
             <div className="space-y-2 max-w-2xl">
-              <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
+              <h3 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-gray-900 tracking-tight leading-tight">
                 Your Story Could Be{' '}
                 <span className="text-[#8B1538] font-bold">
                   Next

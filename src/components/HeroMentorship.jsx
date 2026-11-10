@@ -16,7 +16,7 @@ export const HeroMentorship = ({ onActionClick }) => {
               Experience smart, personalized, and results-driven education at Viskool, the best online learning platform.
             </p>
             
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 list-none p-0 m-0 mb-8 mx-auto lg:mx-0 text-left">
+            <ul className="grid grid-cols-2 gap-3 md:gap-4 w-full text-sm md:text-base list-none p-0 m-0 mb-8 mx-auto lg:mx-0 text-left">
               {[
                 "100% Personalized Attention",
                 "Real-Time Progress Tracking",

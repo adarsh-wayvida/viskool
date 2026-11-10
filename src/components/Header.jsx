@@ -78,6 +78,8 @@ const COURSE_CATEGORIES_WITH_ITEMS = [
 export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, currentPage = 'home' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null); // 'Courses' | 'About Us' | null
+  const [openMobileDropdown, setOpenMobileDropdown] = useState(null); // mobile accordion state
+  const [openNestedDropdown, setOpenNestedDropdown] = useState(null); // nested accordion state
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const closeTimerRef = React.useRef(null);
@@ -373,35 +375,104 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
 
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg animate-fadeIn">
-          {navLinks.map((link) => (
+        <>
+          <div
+            className="fixed inset-0 bg-black/50 z-[90] transition-opacity"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white z-[100] shadow-2xl overflow-y-auto flex flex-col p-6 transform transition-transform duration-300">
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
+            >
+              ✕
+            </button>
+            {navLinks.map((link) => (
             <div key={link.label}>
               {link.hasDropdown ? (
                 <div className="py-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#8B1538]">
-                    {link.label}
-                  </span>
-                  {link.items && (
+                  <button
+                    type="button"
+                    onClick={() => setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)}
+                    className={`w-full flex items-center justify-between py-2 text-base font-medium ${openMobileDropdown === link.label ? 'text-[#8B1538]' : 'text-gray-800'}`}
+                  >
+                    <span>{link.label}</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${openMobileDropdown === link.label ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openMobileDropdown === link.label && (
                     <div className="mt-1 pl-3 space-y-1.5 border-l-2 border-[#8B1538]/20">
-                      {link.items.map((subItem) => (
-                        <a
-                          key={subItem.label}
-                          href={subItem.href}
-                          onClick={(e) => {
-                              setIsMobileMenuOpen(false);
-                              if (subItem.href && subItem.href.startsWith('/')) {
-                                e.preventDefault();
-                                if (onNavigate) {
-                                  const route = subItem.href.substring(1);
-                                  onNavigate(route || 'home');
+                      {link.label === 'Courses'
+                        ? COURSE_CATEGORIES_WITH_ITEMS.map((cat) => (
+                            <div key={cat.id} className="py-0.5">
+                              <button
+                                type="button"
+                                onClick={() => setOpenNestedDropdown(openNestedDropdown === cat.id ? null : cat.id)}
+                                className="w-full flex items-center justify-between text-sm text-gray-700 hover:text-[#8B1538] py-1"
+                              >
+                                <span>{cat.name}</span>
+                                <svg
+                                  className={`w-3.5 h-3.5 transition-transform duration-200 ${openNestedDropdown === cat.id ? 'rotate-180' : ''}`}
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </button>
+                              {openNestedDropdown === cat.id && (
+                                <div className="mt-1 pl-3 space-y-1 border-l-2 border-[#8B1538]/20">
+                                  {cat.items.map((item, idx) => (
+                                    <button
+                                      key={idx}
+                                      type="button"
+                                      onClick={() => {
+                                        setIsMobileMenuOpen(false);
+                                        if (item === 'AI Integrated Digital Marketing' && onNavigate) {
+                                          onNavigate('courses/ai-integrated-digital-marketing');
+                                          return;
+                                        }
+                                        onActionClick(`Selected Course: ${item}`);
+                                      }}
+                                      className="block w-full text-left text-xs text-gray-600 hover:text-[#8B1538] py-1"
+                                    >
+                                      {item}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))
+                        : link.items?.map((subItem) => (
+                            <a
+                              key={subItem.label}
+                              href={subItem.href}
+                              onClick={(e) => {
+                                setIsMobileMenuOpen(false);
+                                if (subItem.href && subItem.href.startsWith('/')) {
+                                  e.preventDefault();
+                                  if (onNavigate) {
+                                    const route = subItem.href.substring(1);
+                                    onNavigate(route || 'home');
+                                  }
                                 }
-                              }
-                            }}
-                          className="block text-sm text-gray-700 hover:text-[#8B1538] py-1"
-                        >
-                          {subItem.label}
-                        </a>
-                      ))}
+                              }}
+                              className="block text-sm text-gray-700 hover:text-[#8B1538] py-1"
+                            >
+                              {subItem.label}
+                            </a>
+                          ))}
                     </div>
                   )}
                 </div>
@@ -429,7 +500,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                     }
                   }}
                   className={`block py-2 text-base font-medium ${
-                    link.active ? 'text-[#8B1538] font-bold' : 'text-gray-800'
+                    (link.label === 'Home' && currentPage === 'home') || (link.href && link.href !== '#' && link.href === currentPage) ? 'text-[#8B1538] font-bold' : 'text-gray-800'
                   }`}
                 >
                   {link.label}
@@ -449,6 +520,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
             </button>
           </div>
         </div>
+        </>
       )}
     </header>
   );

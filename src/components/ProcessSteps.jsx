@@ -23,14 +23,12 @@ export const ProcessSteps = ({ steps, onActionClick }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Main Section Headline - 2-Line Structure */}
-        <h3 className="mb-6 max-w-6xl mx-auto text-[26px] font-bold leading-[1.3] tracking-tight text-gray-900 md:text-3xl lg:text-[34px]">
-          <span className="block">
-            India’s Online Learning & Education Platform for
-          </span>
-          <span className="mt-3 block text-[#8B1538]">
-            School Tuition, NEET, JEE, KEAM, PSC &amp; Career Upskilling
-          </span>
-        </h3>
+        <h3 className="text-2xl md:text-4xl font-bold text-center leading-tight">
+            <span className="block">India’s Online Learning &</span>
+            <span className="block">Education Platform for</span>
+            <span className="block text-[#800020] mt-1">School Tuition, NEET, JEE,</span>
+            <span className="block text-[#800020]">KEAM, PSC & Career Upskilling</span>
+          </h3>
 
         {/* Informative Subtext matching screenshot */}
         <p className="text-[#555555] text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-6xl mx-auto font-normal">

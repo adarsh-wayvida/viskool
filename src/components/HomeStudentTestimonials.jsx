@@ -195,7 +195,7 @@ export const HomeStudentTestimonials = ({
           
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col pt-4">
-            <div className="font-serif text-[80px] leading-none text-gray-200 mb-2 pointer-events-none select-none">
+            <div className="hidden md:block font-serif text-[80px] leading-none text-gray-200 mb-2 pointer-events-none select-none">
               “
             </div>
             
@@ -227,7 +227,7 @@ export const HomeStudentTestimonials = ({
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
               onTouchStart={() => triggerInteractionPause()}
-              className="flex items-stretch gap-5 overflow-x-auto scrollbar-none pb-4 px-4"
+              className="flex items-stretch gap-5 overflow-x-auto scrollbar-none pb-4 pl-0 md:pl-0 pr-4"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {/* Duplicate multiple times for seamless infinite loop on any screen width */}
