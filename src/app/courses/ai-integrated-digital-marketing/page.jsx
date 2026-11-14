@@ -5,6 +5,7 @@ import SyllabusTabs from "../../../components/SyllabusTabs";
 import CourseReviewSlider from "../../../components/CourseReviewSlider";
 import DigitalMarketingLeadForm from "../../../components/DigitalMarketingLeadForm";
 import FloatingCourseCTA from "../../../components/FloatingCourseCTA";
+import StickyCourseNav from "../../../components/StickyCourseNav.jsx";
 import {
   IconArrowLeft,
   IconCrown,
@@ -145,15 +146,17 @@ export default function AiIntegratedDigitalMarketingPage() {
   return (
     <>
       <section className="bg-[#FCFAFA] px-4 pb-7 pt-3 font-sans sm:px-6 sm:pb-10 sm:pt-5 lg:px-8 lg:pb-12 lg:pt-6">
-        <div className="mx-auto grid max-w-7xl items-start gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+          <a
+            href="/#courses"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#3F4D5A] transition-colors hover:text-[#8B1538] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1538] focus-visible:ring-offset-2 sm:text-base mb-4 md:mb-6"
+          >
+            <IconArrowLeft className="h-5 w-5" stroke={1.8} aria-hidden="true" />
+            Back to courses
+          </a>
+
+          <div className="mx-auto grid max-w-7xl items-start gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-12">
           <div className="order-2 lg:order-1">
-            <a
-              href="/#courses"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#3F4D5A] transition-colors hover:text-[#8B1538] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1538] focus-visible:ring-offset-2 sm:text-base"
-            >
-              <IconArrowLeft className="h-5 w-5" stroke={1.8} aria-hidden="true" />
-              Back to courses
-            </a>
 
             <div className="mt-5 flex flex-wrap items-center gap-2.5">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-800 sm:text-sm">
@@ -249,38 +252,13 @@ export default function AiIntegratedDigitalMarketingPage() {
             />
           </div>
         </div>
+      </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 py-10 font-sans sm:px-6 sm:py-12 lg:px-8 lg:py-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] lg:whitespace-nowrap">
-              Your Path to{" "}
-              <span className="text-[#8B1538]">Digital Marketing</span>
-            </h4>
-
-            <div className="mt-7 space-y-5 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              <p>
-                At Viskool, you learn online marketing step by step—from the
-                basics and advanced AI tools to running live ad campaigns. Our
-                hands-on training is designed for beginners, so you do not need
-                any previous marketing experience.
-              </p>
-
-              <p>
-                By the end of the course, you will have the digital marketing
-                skills employers look for, along with a certificate and real
-                project work to showcase. Read on to explore the syllabus,
-                course fee, duration, and career opportunities.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-"
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <div className="hidden md:block">
+        <StickyCourseNav />
+      </div>
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="overview">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -397,7 +375,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="objectives">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -426,13 +404,13 @@ export default function AiIntegratedDigitalMarketingPage() {
                 return (
                   <article
                     key={goal.title}
-                    className="flex min-h-[280px] h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_8px_24px_rgba(16,42,67,0.10)]"
+                    className="flex min-h-0 md:min-h-[280px] h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_8px_24px_rgba(16,42,67,0.10)]"
                   >
                     <div
-                      className={`relative flex h-32 shrink-0 items-center justify-center ${goal.headerClass}`}
+                      className={`relative flex h-20 md:h-32 shrink-0 items-center justify-center ${goal.headerClass}`}
                     >
                       <GoalIcon
-                        className={`relative z-10 h-16 w-16 ${goal.iconClass}`}
+                        className={`relative z-10 h-10 w-10 md:h-16 md:w-16 ${goal.iconClass}`}
                         stroke={1.7}
                         aria-hidden="true"
                       />
@@ -442,12 +420,12 @@ export default function AiIntegratedDigitalMarketingPage() {
                       />
                     </div>
 
-                    <div className="flex flex-1 flex-col px-5 pb-7 pt-6 text-center sm:px-6">
-                      <h3 className="text-lg font-bold leading-snug text-[#102A43] sm:text-xl">
+                    <div className="flex flex-col justify-start px-4 md:px-5 pb-5 md:pb-7 pt-4 md:pt-6 text-center sm:px-6 gap-1 md:gap-2">
+                      <h3 className="text-base md:text-lg font-bold leading-snug text-[#102A43] sm:text-xl">
                         {goal.title}
                       </h3>
-                      <div className="mx-auto my-4 h-px w-full bg-[#102A43]/12" />
-                      <p className="text-[15px] font-normal leading-7 text-[#102A43] sm:text-base">
+                      <div className="mx-auto my-1 md:my-2 h-px w-full bg-[#102A43]/12" />
+                      <p className="text-sm md:text-[15px] font-normal leading-6 md:leading-7 text-[#102A43] sm:text-base mt-1 md:mt-2">
                         {goal.text}
                       </p>
                     </div>
@@ -459,7 +437,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="curriculum">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -656,7 +634,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="who-is-it-for">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -724,7 +702,7 @@ export default function AiIntegratedDigitalMarketingPage() {
       </section>
 
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="requirements">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -743,8 +721,8 @@ export default function AiIntegratedDigitalMarketingPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+            <div className="grid grid-cols-1 gap-2 md:gap-4 mt-8">
+              <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
@@ -753,7 +731,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                   <p className="text-sm text-gray-500 mt-1">Smartphone useful for selected tasks</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
@@ -762,7 +740,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                   <p className="text-sm text-gray-500 mt-1">Reliable connection for live learning</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
@@ -771,7 +749,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                   <p className="text-sm text-gray-500 mt-1">Reading and writing skills</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
@@ -780,7 +758,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                   <p className="text-sm text-gray-500 mt-1">Email, browsers and simple apps</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
@@ -789,7 +767,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                   <p className="text-sm text-gray-500 mt-1">Around 1-2 hours per day</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+              <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
@@ -802,7 +780,7 @@ export default function AiIntegratedDigitalMarketingPage() {
           </div>
         </div>
       </section>
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="what-you-get">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -868,7 +846,7 @@ export default function AiIntegratedDigitalMarketingPage() {
             <div className="mt-10">
               <h3 className="text-2xl font-bold text-[#102A43]">Why choose Viskool?</h3>
               <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
@@ -876,7 +854,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <p className="text-slate-900 font-medium">Personal attention from mentors who know your name and your goals</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
@@ -884,7 +862,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <p className="text-slate-900 font-medium">Progress tracking, so you always know where you stand</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
@@ -892,7 +870,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <p className="text-slate-900 font-medium">Regular tests and honest feedback to fix gaps early</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
@@ -900,7 +878,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <p className="text-slate-900 font-medium">Placement assistance with resume, portfolio and mock interviews</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
@@ -923,7 +901,7 @@ export default function AiIntegratedDigitalMarketingPage() {
       </section>
 
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="fees">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -1003,7 +981,7 @@ export default function AiIntegratedDigitalMarketingPage() {
           </div>
         </div>
       </section>
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="syllabus">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -1037,7 +1015,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="career">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -1106,27 +1084,43 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+            <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="certifications">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <div className="flex flex-col gap-8 md:flex-row md:items-center">
-              <div className="flex-1">
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-                  10. CERTIFICATIONS
-                </p>
+            <div className="mb-8">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+                10. CERTIFICATIONS
+              </p>
 
-                <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-                  Certificates That Open Doors
-                </h4>
+              <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+                Certificates That Open Doors
+              </h4>
 
-                <p className="mt-7 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-                  You receive a Viskool course completion certificate after you finish the classes, projects, and final assessment.
-                </p>
+              <p className="mt-4 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8 max-w-3xl">
+                You receive dual certifications upon finishing the classes, projects, and final assessment. These certificates validate your skills and enhance your resume for top employers.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Viskool Certificate */}
+              <div className="flex flex-col gap-4">
+                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
+                  <span className="font-medium text-gray-400">Viskool Certificate Placeholder</span>
+                </div>
+                <div className="text-center">
+                  <h5 className="font-bold text-[#102A43]">Viskool Course Certificate</h5>
+                  <p className="text-sm text-gray-500">Awarded upon successful course completion</p>
+                </div>
               </div>
 
-              <div className="flex-1">
-                <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100">
-                  <span className="font-medium text-gray-400">Certificate Preview Image</span>
+              {/* Board Certificate */}
+              <div className="flex flex-col gap-4">
+                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
+                  <span className="font-medium text-gray-400">Board Certificate Placeholder</span>
+                </div>
+                <div className="text-center">
+                  <h5 className="font-bold text-[#102A43]">Official Board Certification</h5>
+                  <p className="text-sm text-gray-500">Recognized by industry leaders</p>
                 </div>
               </div>
             </div>
@@ -1134,7 +1128,300 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="reviews">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              13. REVIEWS
+            </p>
+
+            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+              What Our{" "}
+              <span className="text-[#8B1538]">Learners Say</span>
+            </h4>
+
+            <p className="mt-7 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              Our learners share their experiences of the course, mentors, and support in the reviews below.
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full mt-8 overflow-hidden">
+          <CourseReviewSlider />
+        </div>
+      </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="tools">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              14. TOOLS
+            </p>
+
+            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+              Master the Tools That{" "}
+              <span className="text-[#8B1538]">Actually Get You Hired</span>
+            </h4>
+
+            <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              You will learn 9 core tools that marketing teams use every day, from ad managers to analytics and design.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Google Ads</h4>
+                <p className="mt-2 text-sm text-gray-600">Create and manage ads that appear when people search on Google</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Meta Ads Manager</h4>
+                <p className="mt-2 text-sm text-gray-600">Run ads on Facebook and Instagram and track the results</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Google Analytics 4 (GA4)</h4>
+                <p className="mt-2 text-sm text-gray-600">See who visits your website and what they do there</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Google Search Console</h4>
+                <p className="mt-2 text-sm text-gray-600">Check how your site appears and performs in Google search</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Google Tag Manager</h4>
+                <p className="mt-2 text-sm text-gray-600">Add tracking codes without editing website code</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Canva</h4>
+                <p className="mt-2 text-sm text-gray-600">Design posts, banners and ad creatives quickly</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">WordPress</h4>
+                <p className="mt-2 text-sm text-gray-600">Build and manage a simple website or blog</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Mailchimp</h4>
+                <p className="mt-2 text-sm text-gray-600">Send email newsletters and automated campaigns to your subscribers</p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
+                <h4 className="text-lg font-bold text-[#102A43]">Google Sheets</h4>
+                <p className="mt-2 text-sm text-gray-600">Plan content calendars and track basic campaign data</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="prepare">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              15. HOW WE PREPARE YOU
+            </p>
+
+            <div>
+              <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+                How We Prepare You for the{" "}
+                <span className="text-[#8B1538]">Real Industry</span>
+              </h4>
+
+              <p className="mt-7 w-full text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+                We train you through projects, not just classes: learn a skill, use it on a real brief, get feedback, and repeat. Our practical digital marketing training follows a simple 5-step loop:
+              </p>
+            </div>
+
+            <div className="mt-10 overflow-x-auto min-w-full">
+              <div className="relative z-0 flex flex-row justify-between items-start gap-6 min-w-[700px] px-4 py-4">
+                
+
+                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
+                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
+                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
+                    1
+                  </div>
+                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Learn</h4>
+                  <p className="text-sm text-gray-500 mt-1">A live class explains the idea in simple words.</p>
+                </div>
+
+                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
+                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
+                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
+                    2
+                  </div>
+                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Practise</h4>
+                  <p className="text-sm text-gray-500 mt-1">You try it yourself with a guided task.</p>
+                </div>
+
+                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
+                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
+                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
+                    3
+                  </div>
+                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Launch</h4>
+                  <p className="text-sm text-gray-500 mt-1">You apply it on a real brief or a sample account.</p>
+                </div>
+
+                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
+                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
+                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
+                    4
+                  </div>
+                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Review</h4>
+                  <p className="text-sm text-gray-500 mt-1">Your mentor checks the result and gives feedback.</p>
+                </div>
+
+                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
+                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
+                    5
+                  </div>
+                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Present</h4>
+                  <p className="text-sm text-gray-500 mt-1">You explain your work the way you would to a client.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="why-viskool">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              16. DIGITAL MARKETING INSTITUTE IN KERALA
+            </p>
+
+            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+              What Makes Viskool One of the Best{" "}
+              <span className="text-[#8B1538]">Digital Marketing Academies in Kerala?</span>
+            </h4>
+
+            <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              Viskool stands out for personal attention, practical projects, long support and placement help. When you search for a digital marketing academy Kerala has many options, so use the 5-point checklist below.
+            </p>
+
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left text-[15px] text-[#102A43]">
+                <thead className="bg-[#F8F0F2] text-[#8B1538]">
+                  <tr>
+                    <th className="border-r border-[#8B1538]/15 px-5 py-4 font-bold">What to check</th>
+                    <th className="px-5 py-4 font-bold">How Viskool answers</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white text-[#102A43]">
+                  <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Are the projects real?</td>
+                    <td className="px-5 py-4 text-gray-700">Yes. You work on real client-style briefs, not only slides.</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Is support long enough?</td>
+                    <td className="px-5 py-4 text-gray-700">1 year of WhatsApp community support and 6 months of group and workplace support</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Can I see a class first?</td>
+                    <td className="px-5 py-4 text-gray-700">Yes. Book a free demo class.</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Is the fee clear?</td>
+                    <td className="px-5 py-4 text-gray-700">Yes. Everything included is listed on this page.</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Will someone help me find a job?</td>
+                    <td className="px-5 py-4 text-gray-700">Yes. Placement assistance, ATS resume help and mock interviews.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="timings">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+              17. MODE & TIMINGS
+            </p>
+
+            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+              Mode, Duration, and{" "}
+              <span className="text-[#8B1538]">Class Timings</span>
+            </h4>
+
+            <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+              Classes are live online and last 90 days, with 90 hours in total and 1 hour per day. You can choose a day batch or an evening batch. Our digital marketing classes for Kerala learners are live online; every class is recorded, and you can watch it again for 6 months.
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Mode</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">Live online + Recordings</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Duration</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">90 Days</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Total Course Hours</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">90 Hours</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Daily Class Time</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">1 hour per day</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Days Per Week</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">5 Days</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Day Batch</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[Time]</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Evening Batch</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">7pm-8pm, 8pm-9pm, 9pm-10pm</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Weekend Batch</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[If available]</span>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Next Batch Starts</span>
+                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[Soon]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="cta">
+        <div className="mx-auto max-w-7xl">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
+                  18. READY TO START?
+                </p>
+
+                <h4 className="text-2xl md:text-3xl font-bold leading-[1.2] tracking-tight text-[#102A43]">
+                  Ready to Launch Your Marketing Journey?{" "}
+                  <span className="text-[#8B1538]">Book Your Free Demo Class</span>
+                </h4>
+
+                <p className="mt-7 mb-6 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
+                  Not sure if this course is right for you? Talk to our mentors directly or book a free demo class to see how we teach.
+                </p>
+
+                <button type="button" className="bg-transparent border-2 border-[#102A43] text-[#102A43] rounded-md px-6 py-3 font-semibold hover:bg-[#102A43] hover:text-white transition-colors">
+                  Talk to an Expert: Call Now
+                </button>
+              </div>
+
+              <div>
+                <DigitalMarketingLeadForm />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="faq">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -1271,300 +1558,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              13. REVIEWS
-            </p>
-
-            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-              What Our{" "}
-              <span className="text-[#8B1538]">Learners Say</span>
-            </h4>
-
-            <p className="mt-7 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              Our learners share their experiences of the course, mentors, and support in the reviews below.
-            </p>
-          </div>
-        </div>
-
-        <div className="w-full mt-8 overflow-hidden">
-          <CourseReviewSlider />
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              14. TOOLS
-            </p>
-
-            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-              Master the Tools That{" "}
-              <span className="text-[#8B1538]">Actually Get You Hired</span>
-            </h4>
-
-            <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              You will learn 9 core tools that marketing teams use every day, from ad managers to analytics and design.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Ads</h4>
-                <p className="mt-2 text-sm text-gray-600">Create and manage ads that appear when people search on Google</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Meta Ads Manager</h4>
-                <p className="mt-2 text-sm text-gray-600">Run ads on Facebook and Instagram and track the results</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Analytics 4 (GA4)</h4>
-                <p className="mt-2 text-sm text-gray-600">See who visits your website and what they do there</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Search Console</h4>
-                <p className="mt-2 text-sm text-gray-600">Check how your site appears and performs in Google search</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Tag Manager</h4>
-                <p className="mt-2 text-sm text-gray-600">Add tracking codes without editing website code</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Canva</h4>
-                <p className="mt-2 text-sm text-gray-600">Design posts, banners and ad creatives quickly</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">WordPress</h4>
-                <p className="mt-2 text-sm text-gray-600">Build and manage a simple website or blog</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Mailchimp</h4>
-                <p className="mt-2 text-sm text-gray-600">Send email newsletters and automated campaigns to your subscribers</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Sheets</h4>
-                <p className="mt-2 text-sm text-gray-600">Plan content calendars and track basic campaign data</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              15. HOW WE PREPARE YOU
-            </p>
-
-            <div>
-              <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-                How We Prepare You for the{" "}
-                <span className="text-[#8B1538]">Real Industry</span>
-              </h4>
-
-              <p className="mt-7 w-full text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-                We train you through projects, not just classes: learn a skill, use it on a real brief, get feedback, and repeat. Our practical digital marketing training follows a simple 5-step loop:
-              </p>
-            </div>
-
-            <div className="mt-10 overflow-x-auto min-w-full">
-              <div className="relative z-0 flex flex-row justify-between items-start gap-6 min-w-[700px] px-4 py-4">
-                
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    1
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Learn</h4>
-                  <p className="text-sm text-gray-500 mt-1">A live class explains the idea in simple words.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    2
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Practise</h4>
-                  <p className="text-sm text-gray-500 mt-1">You try it yourself with a guided task.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    3
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Launch</h4>
-                  <p className="text-sm text-gray-500 mt-1">You apply it on a real brief or a sample account.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    4
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Review</h4>
-                  <p className="text-sm text-gray-500 mt-1">Your mentor checks the result and gives feedback.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    5
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Present</h4>
-                  <p className="text-sm text-gray-500 mt-1">You explain your work the way you would to a client.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              16. DIGITAL MARKETING INSTITUTE IN KERALA
-            </p>
-
-            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-              What Makes Viskool One of the Best{" "}
-              <span className="text-[#8B1538]">Digital Marketing Academies in Kerala?</span>
-            </h4>
-
-            <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              Viskool stands out for personal attention, practical projects, long support and placement help. When you search for a digital marketing academy Kerala has many options, so use the 5-point checklist below.
-            </p>
-
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[640px] border-collapse text-left text-[15px] text-[#102A43]">
-                <thead className="bg-[#F8F0F2] text-[#8B1538]">
-                  <tr>
-                    <th className="border-r border-[#8B1538]/15 px-5 py-4 font-bold">What to check</th>
-                    <th className="px-5 py-4 font-bold">How Viskool answers</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white text-[#102A43]">
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Are the projects real?</td>
-                    <td className="px-5 py-4 text-gray-700">Yes. You work on real client-style briefs, not only slides.</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Is support long enough?</td>
-                    <td className="px-5 py-4 text-gray-700">1 year of WhatsApp community support and 6 months of group and workplace support</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Can I see a class first?</td>
-                    <td className="px-5 py-4 text-gray-700">Yes. Book a free demo class.</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Is the fee clear?</td>
-                    <td className="px-5 py-4 text-gray-700">Yes. Everything included is listed on this page.</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-semibold text-[#102A43]">Will someone help me find a job?</td>
-                    <td className="px-5 py-4 text-gray-700">Yes. Placement assistance, ATS resume help and mock interviews.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              17. MODE & TIMINGS
-            </p>
-
-            <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-              Mode, Duration, and{" "}
-              <span className="text-[#8B1538]">Class Timings</span>
-            </h4>
-
-            <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              Classes are live online and last 90 days, with 90 hours in total and 1 hour per day. You can choose a day batch or an evening batch. Our digital marketing classes for Kerala learners are live online; every class is recorded, and you can watch it again for 6 months.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Mode</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">Live online + Recordings</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Duration</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">90 Days</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Total Course Hours</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">90 Hours</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Daily Class Time</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">1 hour per day</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Days Per Week</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">5 Days</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Day Batch</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[Time]</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Evening Batch</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">7pm-8pm, 8pm-9pm, 9pm-10pm</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Weekend Batch</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[If available]</span>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Next Batch Starts</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[Soon]</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-                  18. READY TO START?
-                </p>
-
-                <h4 className="text-2xl md:text-3xl font-bold leading-[1.2] tracking-tight text-[#102A43]">
-                  Ready to Launch Your Marketing Journey?{" "}
-                  <span className="text-[#8B1538]">Book Your Free Demo Class</span>
-                </h4>
-
-                <p className="mt-7 mb-6 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-                  Not sure if this course is right for you? Talk to our mentors directly or book a free demo class to see how we teach.
-                </p>
-
-                <button type="button" className="bg-transparent border-2 border-[#102A43] text-[#102A43] rounded-md px-6 py-3 font-semibold hover:bg-[#102A43] hover:text-white transition-colors">
-                  Talk to an Expert: Call Now
-                </button>
-              </div>
-
-              <div>
-                <DigitalMarketingLeadForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="conclusion">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-[#F8F0F2] px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -1590,6 +1584,7 @@ export default function AiIntegratedDigitalMarketingPage() {
     </>
   );
 }
+
 
 
 
