@@ -75,20 +75,33 @@ const COURSE_CATEGORIES_WITH_ITEMS = [
   }
 ];
 
-export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, currentPage = 'home' }) => {
+export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, currentPage = 'home', hideOnDeepScroll = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null); // 'Courses' | 'About Us' | null
   const [openMobileDropdown, setOpenMobileDropdown] = useState(null); // mobile accordion state
   const [openNestedDropdown, setOpenNestedDropdown] = useState(null); // nested accordion state
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const closeTimerRef = React.useRef(null);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+      
+      // Hide header if scrolling down past 200px. Show if scrolling up.
+      if (hideOnDeepScroll && currentScrollY > 600) {
+        setIsHidden(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -134,7 +147,9 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
   };
 
   return (
-    <header className={`sticky top-0 z-50 w-full bg-white/80 backdrop-blur-lg transition-all duration-300 ${
+    <>
+      
+      <header className={`fixed top-0 z-50 w-full bg-white/80 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'} ${
       isScrolled ? 'shadow-md border-b border-gray-100' : 'border-b border-gray-100/80'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -523,6 +538,10 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
         </>
       )}
     </header>
+    </>
   );
 };
+
+
+
 

@@ -77,6 +77,7 @@ export function SiteLayout({ children }) {
         onActionClick={handleActionClick}
         onNavigate={handleNavigate}
         currentPage={currentPage}
+        hideOnDeepScroll={pathname && pathname.includes('/courses/')}
       />
 
       {pathname === '/' && (<AnnouncementBar 

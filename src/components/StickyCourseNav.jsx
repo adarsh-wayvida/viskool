@@ -25,15 +25,27 @@ const SECTIONS = [
 
 export default function StickyCourseNav() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [activeSection, setActiveSection] = useState("overview");
   const navRef = useRef(null);
 
-  // Sticky state based on scroll position
+    // Sticky state based on scroll position
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    let lastScrollY = window.scrollY;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 600);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 600);
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        setIsHidden(true); // Scrolling down
+      } else {
+        setIsHidden(false); // Scrolling up
+      }
+      lastScrollY = currentScrollY;
     };
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -60,12 +72,27 @@ export default function StickyCourseNav() {
     return () => observer.disconnect();
   }, []);
 
+  // Auto-scroll the active nav item into the center of the bar
+  useEffect(() => {
+    const activeBtn = document.getElementById(`nav-btn-${activeSection}`);
+    if (activeBtn && navRef.current) {
+      const container = navRef.current;
+      // Calculate how far to scroll to center the button in the container
+      const scrollPos = activeBtn.offsetLeft - (container.offsetWidth / 2) + (activeBtn.offsetWidth / 2);
+
+      container.scrollTo({
+        left: scrollPos,
+        behavior: "smooth"
+      });
+    }
+  }, [activeSection]);
+
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
       // Calculate the offset to account for the main header and the sticky nav
       const y = el.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: y - 160, behavior: "smooth" });
+      window.scrollTo({ top: y - 80, behavior: "smooth" });
     }
   };
 
@@ -83,11 +110,7 @@ export default function StickyCourseNav() {
 
   return (
     <nav
-      className={`${
-        isScrolled
-          ? "fixed top-24 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-2 z-50 transition-all duration-300"
-          : "w-full bg-white border-b py-2"
-      }`}
+      className={isScrolled ? "fixed top-2 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-2 z-40 transition-all duration-300" : "w-full bg-white border-b py-2 relative z-40"}
     >
       <div className="relative flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <button
@@ -99,16 +122,17 @@ export default function StickyCourseNav() {
         </button>
         <div
           ref={navRef}
-          className="flex-1 overflow-x-auto hide-scrollbar whitespace-nowrap flex gap-8 px-12"
+          className="relative flex-1 overflow-x-auto hide-scrollbar whitespace-nowrap flex gap-8 px-12"
         >
           {SECTIONS.map(({ id, label }) => (
             <button
+              id={`nav-btn-${id}`}
               key={id}
               onClick={() => scrollToSection(id)}
-              className={`inline-block py-3 text-sm font-bold whitespace-nowrap transition-colors ${
+              className={`inline-block px-4 py-2 text-sm font-bold whitespace-nowrap transition-all duration-300 ${
                 activeSection === id
-                  ? "text-[#102A43]"
-                  : "text-gray-600 hover:text-[#102A43]"
+                  ? "text-[#8B1538] bg-[#8B1538]/10 rounded-full"
+                  : "text-gray-500 hover:text-[#102A43]"
               }`}
             >
               {label}
@@ -126,6 +150,13 @@ export default function StickyCourseNav() {
     </nav>
   );
 }
+
+
+
+
+
+
+
 
 
 
