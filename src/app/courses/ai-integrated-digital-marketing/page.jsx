@@ -145,13 +145,50 @@ export default function AiIntegratedDigitalMarketingPage() {
 
   return (
     <>
-            <section className="relative w-full bg-[#FBFCFF] font-sans overflow-hidden min-h-[760px] flex flex-col items-center pt-[40px] md:pt-[56px] lg:pt-[64px] pb-[40px] md:pb-[42px] lg:pb-[52px] px-[20px] md:px-[48px] lg:px-[64px]" id="hero">
+            <section className="relative w-full bg-[#FBFCFF] font-sans overflow-hidden min-h-[auto] lg:min-h-[500px] flex flex-col items-center pt-[24px] md:pt-[32px] lg:pt-[40px] pb-[16px] md:pb-[24px] lg:pb-[32px] px-[20px] md:px-[48px] lg:px-[64px]" id="hero">
+        
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes waveFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
+        }
+        .animate-wave-float {
+          animation: waveFloat 4s ease-in-out infinite;
+        }
+        .glitter-hover {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+        .glitter-hover::before {
+          content: '';
+          position: absolute;
+          top: 0; left: -150%;
+          width: 100%; height: 100%;
+          background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9), transparent);
+          transform: skewX(-20deg);
+          z-index: 10;
+        }
+        .glitter-hover:hover {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 20px rgba(5,221,225,0.5);
+        }
+        .glitter-hover:hover::before {
+          animation: shine 1.5s infinite;
+        }
+        @keyframes shine {
+          0% { left: -150%; }
+          20% { left: 150%; }
+          100% { left: 150%; }
+        }
+      `}} />
+
         {/* Radial Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#93C5FD] rounded-full blur-[140px] opacity-[0.15] pointer-events-none"></div>
         <div className="absolute top-[10%] right-[5%] w-[400px] h-[400px] bg-[#67E8F9] rounded-full blur-[120px] opacity-[0.15] pointer-events-none"></div>
         <div className="absolute bottom-[5%] left-[5%] w-[500px] h-[500px] bg-[#E9D5FF] rounded-full blur-[130px] opacity-[0.14] pointer-events-none"></div>
 
-        <div className="w-full max-w-[1520px] mx-auto z-20 flex justify-start mb-4 md:mb-8">
+        <div className="w-full max-w-[1520px] mx-auto z-20 flex justify-start mb-2 md:mb-4">
           <a
             href="/#courses"
             className="inline-flex items-center gap-2 text-sm font-medium text-[#3F4D5A] transition-colors hover:text-[#9B0F38] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B0F38] focus-visible:ring-offset-2 sm:text-base"
@@ -163,7 +200,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
         <div className="relative mx-auto w-full max-w-[1440px] flex flex-col items-center z-10 flex-1 justify-center">
           {/* Eyebrow */}
-          <h2 className="text-[#071534] font-bold text-[13px] md:text-[15px] lg:text-[16px] tracking-[0.05em] text-center mb-[16px] md:mb-[20px] uppercase">
+          <h2 className="text-[#071534] font-bold text-[13px] md:text-[15px] lg:text-[16px] tracking-[0.05em] text-center mb-[8px] md:mb-[12px] uppercase">
             AI-INTEGRATED DIGITAL MARKETING
           </h2>
 
@@ -173,12 +210,12 @@ export default function AiIntegratedDigitalMarketingPage() {
           </h3>
 
           {/* Description */}
-          <p className="text-[#10213E] font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] text-center max-w-[800px] mx-auto mt-[16px] md:mt-[20px]">
+          <p className="text-[#10213E] font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] text-center max-w-[800px] mx-auto mt-[8px] md:mt-[12px]">
             Learn SEO, social media, Google Ads, analytics and AI through expert-led live training and practical campaign projects.
           </p>
 
           {/* Feature Area */}
-          <div className="relative w-full mt-[40px] md:mt-[56px] flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4">
+          <div className="relative w-full mt-[16px] md:mt-[24px] flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4">
             
             {/* Connector Lines (Decorative) */}
             <div className="absolute inset-0 z-0 hidden lg:block pointer-events-none">
@@ -218,26 +255,30 @@ export default function AiIntegratedDigitalMarketingPage() {
             </div>
 
             {/* Channel Icons (Absolute decorative) */}
-            <div className="absolute hidden lg:flex items-center justify-center w-[42px] h-[42px] rounded-[10px] bg-white shadow-md left-[15%] top-[65%] rotate-[-6deg]">
+            <div className="absolute hidden lg:block left-[15%] top-[65%] animate-wave-float" style={{ animationDelay: "0s" }}><div className="flex items-center justify-center w-[42px] h-[42px] rounded-[10px] bg-white shadow-md rotate-[-6deg] glitter-hover cursor-pointer">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </div>
-            <div className="absolute hidden lg:flex items-center justify-center w-[46px] h-[46px] rounded-[12px] bg-white shadow-md left-[28%] bottom-[10%] rotate-[8deg]">
+            </div>
+            <div className="absolute hidden lg:block left-[28%] bottom-[10%] animate-wave-float" style={{ animationDelay: "0.8s" }}><div className="flex items-center justify-center w-[46px] h-[46px] rounded-[12px] bg-white shadow-md rotate-[8deg] glitter-hover cursor-pointer">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </div>
-            <div className="absolute hidden lg:flex items-center justify-center w-[42px] h-[42px] rounded-[10px] bg-white shadow-md right-[15%] top-[60%] rotate-[5deg]">
+            </div>
+            <div className="absolute hidden lg:block right-[15%] top-[60%] animate-wave-float" style={{ animationDelay: "1.6s" }}><div className="flex items-center justify-center w-[42px] h-[42px] rounded-[10px] bg-white shadow-md rotate-[5deg] glitter-hover cursor-pointer">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </div>
-            <div className="absolute hidden lg:flex items-center justify-center w-[46px] h-[46px] rounded-[12px] bg-white shadow-md right-[28%] bottom-[15%] rotate-[-8deg]">
+            </div>
+            <div className="absolute hidden lg:block right-[28%] bottom-[15%] animate-wave-float" style={{ animationDelay: "2.4s" }}><div className="flex items-center justify-center w-[46px] h-[46px] rounded-[12px] bg-white shadow-md rotate-[-8deg] glitter-hover cursor-pointer">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="#F9AB00"><path d="M21 12.001c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9 9-4.03 9-9zm-13.5-3h9v6h-9v-6z" fill="#E37400"/></svg>
+            </div>
             </div>
 
           </div>
 
           {/* Pricing and Actions */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-[18px] lg:gap-[24px] mt-[40px] md:mt-[48px] lg:mt-[34px] w-full z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-[18px] lg:gap-[24px] mt-[16px] md:mt-[24px] lg:mt-[16px] w-full z-10">
             <div className="flex items-center gap-[16px] lg:gap-[12px]">
-              <span className="text-[#071534] font-bold text-[28px] md:text-[32px] leading-none">?15,000</span>
-              <span className="text-[#8190AA] font-semibold text-[16px] md:text-[18px] line-through leading-none">?20,000</span>
+              <span className="text-[#071534] font-bold text-[28px] md:text-[32px] leading-none">₹15,000</span>
+              <span className="text-[#8190AA] font-semibold text-[16px] md:text-[18px] line-through leading-none">₹20,000</span>
             </div>
             
             <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-[16px] items-center lg:ml-[8px]">
