@@ -202,22 +202,7 @@ export default function AiIntegratedDigitalMarketingPage() {
             <div className="relative z-10 w-[220px] md:w-[280px] lg:w-[320px] flex justify-center order-first lg:order-none mb-4 lg:mb-0">
               <div className="relative w-full aspect-square flex items-center justify-center">
                 <div className="absolute inset-0 bg-[#05DDE1] blur-[70px] opacity-[0.2] rounded-full pointer-events-none"></div>
-                <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="growthGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#123DEB" />
-                      <stop offset="100%" stopColor="#05DDE1" />
-                    </linearGradient>
-                  </defs>
-                  {/* Infinity Loop */}
-                  <path d="M 120 200 C 60 140, 60 260, 120 200 C 180 140, 220 260, 280 200 C 340 140, 340 260, 280 200 C 220 140, 180 260, 120 200" stroke="url(#growthGrad)" strokeWidth="28" fill="none" strokeLinecap="round" />
-                  {/* Upward Arrow */}
-                  <path d="M 200 240 L 200 110 M 150 160 L 200 110 L 250 160" stroke="url(#growthGrad)" strokeWidth="24" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                  {/* Ascending Bars */}
-                  <rect x="270" y="220" width="18" height="40" rx="9" fill="url(#growthGrad)" />
-                  <rect x="300" y="180" width="18" height="80" rx="9" fill="url(#growthGrad)" />
-                  <rect x="330" y="130" width="18" height="130" rx="9" fill="url(#growthGrad)" />
-                </svg>
+                <img src="/images/digital-growth-symbol.webp" alt="Blue-cyan digital growth symbol" className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
             </div>
 
