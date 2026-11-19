@@ -199,7 +199,7 @@ export default function AiIntegratedDigitalMarketingPage() {
             </div>
 
             {/* Central Illustration */}
-            <div className="relative z-10 w-[280px] md:w-[360px] lg:w-[420px] flex justify-center order-first lg:order-none mb-4 lg:mb-0">
+            <div className="relative z-10 w-[220px] md:w-[280px] lg:w-[320px] flex justify-center order-first lg:order-none mb-4 lg:mb-0">
               <div className="relative w-full aspect-square flex items-center justify-center">
                 <div className="absolute inset-0 bg-[#05DDE1] blur-[70px] opacity-[0.2] rounded-full pointer-events-none"></div>
                 <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
@@ -233,17 +233,17 @@ export default function AiIntegratedDigitalMarketingPage() {
             </div>
 
             {/* Channel Icons (Absolute decorative) */}
-            <div className="absolute hidden lg:flex items-center justify-center w-[54px] h-[54px] rounded-[14px] bg-white shadow-md left-[15%] top-[65%] rotate-[-6deg]">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <div className="absolute hidden lg:flex items-center justify-center w-[42px] h-[42px] rounded-[10px] bg-white shadow-md left-[15%] top-[65%] rotate-[-6deg]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </div>
-            <div className="absolute hidden lg:flex items-center justify-center w-[60px] h-[60px] rounded-[14px] bg-white shadow-md left-[28%] bottom-[10%] rotate-[8deg]">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <div className="absolute hidden lg:flex items-center justify-center w-[46px] h-[46px] rounded-[12px] bg-white shadow-md left-[28%] bottom-[10%] rotate-[8deg]">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </div>
-            <div className="absolute hidden lg:flex items-center justify-center w-[54px] h-[54px] rounded-[14px] bg-white shadow-md right-[15%] top-[60%] rotate-[5deg]">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <div className="absolute hidden lg:flex items-center justify-center w-[42px] h-[42px] rounded-[10px] bg-white shadow-md right-[15%] top-[60%] rotate-[5deg]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </div>
-            <div className="absolute hidden lg:flex items-center justify-center w-[60px] h-[60px] rounded-[14px] bg-white shadow-md right-[28%] bottom-[15%] rotate-[-8deg]">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="#F9AB00"><path d="M21 12.001c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9 9-4.03 9-9zm-13.5-3h9v6h-9v-6z" fill="#E37400"/></svg>
+            <div className="absolute hidden lg:flex items-center justify-center w-[46px] h-[46px] rounded-[12px] bg-white shadow-md right-[28%] bottom-[15%] rotate-[-8deg]">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#F9AB00"><path d="M21 12.001c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9 9-4.03 9-9zm-13.5-3h9v6h-9v-6z" fill="#E37400"/></svg>
             </div>
 
           </div>
@@ -251,8 +251,8 @@ export default function AiIntegratedDigitalMarketingPage() {
           {/* Pricing and Actions */}
           <div className="flex flex-col lg:flex-row items-center justify-center gap-[18px] lg:gap-[24px] mt-[40px] md:mt-[48px] lg:mt-[34px] w-full z-10">
             <div className="flex items-center gap-[16px] lg:gap-[12px]">
-              <span className="text-[#071534] font-[800] text-[38px] md:text-[42px] leading-none">?15,000</span>
-              <span className="text-[#8190AA] font-semibold text-[22px] md:text-[24px] line-through leading-none">?20,000</span>
+              <span className="text-[#071534] font-bold text-[28px] md:text-[32px] leading-none">?15,000</span>
+              <span className="text-[#8190AA] font-semibold text-[16px] md:text-[18px] line-through leading-none">?20,000</span>
             </div>
             
             <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-[16px] items-center lg:ml-[8px]">
@@ -263,7 +263,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                     source: "AI Integrated Digital Marketing Course",
                   })
                 }
-                className="h-[50px] md:h-[56px] min-w-full sm:min-w-[165px] px-[30px] md:px-[38px] bg-[#9B0F38] text-white font-bold text-[17px] md:text-[19px] rounded-full transition-transform hover:-translate-y-1 hover:bg-[#8B0D32] flex items-center justify-center shadow-sm"
+                className="h-[44px] md:h-[48px] min-w-full sm:min-w-[140px] px-[24px] md:px-[32px] bg-[#9B0F38] text-white font-bold text-[15px] md:text-[16px] rounded-full transition-transform hover:-translate-y-1 hover:bg-[#8B0D32] flex items-center justify-center shadow-sm"
               >
                 Enroll Now
               </button>
@@ -273,7 +273,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                   const el = document.getElementById("curriculum");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="h-[50px] md:h-[56px] min-w-full sm:min-w-[165px] px-[30px] md:px-[38px] bg-transparent border-[2px] border-[#9B0F38] text-[#9B0F38] font-bold text-[17px] md:text-[19px] rounded-full transition-colors hover:bg-[#9B0F38]/5 flex items-center justify-center"
+                className="h-[44px] md:h-[48px] min-w-full sm:min-w-[140px] px-[24px] md:px-[32px] bg-transparent border-[1.5px] border-[#9B0F38] text-[#9B0F38] font-bold text-[15px] md:text-[16px] rounded-full transition-colors hover:bg-[#9B0F38]/5 flex items-center justify-center"
               >
                 View Syllabus
               </button>
