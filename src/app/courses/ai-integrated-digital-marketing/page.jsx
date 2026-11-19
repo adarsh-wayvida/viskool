@@ -152,6 +152,16 @@ export default function AiIntegratedDigitalMarketingPage() {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-12px); }
         }
+        
+        @keyframes bgWaveTranslate {
+          0% { transform: translate(-45%, -50%); }
+          50% { transform: translate(-55%, -50%); }
+          100% { transform: translate(-45%, -50%); }
+        }
+        .animate-bg-wave {
+          animation: bgWaveTranslate 20s ease-in-out infinite;
+        }
+
         .animate-wave-float {
           animation: waveFloat 4s ease-in-out infinite;
         }
@@ -182,6 +192,39 @@ export default function AiIntegratedDigitalMarketingPage() {
           100% { left: 150%; }
         }
       `}} />
+
+        
+        {/* Full-width Animated Background Waves */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-100">
+          <svg className="absolute w-[200vw] min-w-[2000px] h-[800px] left-1/2 top-1/2 animate-bg-wave" viewBox="0 0 2000 800" fill="none" preserveAspectRatio="none">
+            <path d="M0 400 C 400 200, 600 600, 1000 400 C 1400 200, 1600 600, 2000 400" stroke="url(#wave-grad-1)" strokeWidth="3" fill="none" />
+            <path d="M0 500 C 300 700, 700 100, 1000 500 C 1300 700, 1700 100, 2000 500" stroke="url(#wave-grad-2)" strokeWidth="2" fill="none" />
+            <path d="M0 300 C 500 100, 500 700, 1000 300 C 1500 100, 1500 700, 2000 300" stroke="url(#wave-grad-3)" strokeWidth="2" fill="none" />
+            <defs>
+              <linearGradient id="wave-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#93C5FD" stopOpacity="0" />
+                <stop offset="25%" stopColor="#93C5FD" stopOpacity="1" />
+                <stop offset="50%" stopColor="#93C5FD" stopOpacity="0" />
+                <stop offset="75%" stopColor="#93C5FD" stopOpacity="1" />
+                <stop offset="100%" stopColor="#93C5FD" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="wave-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#67E8F9" stopOpacity="0" />
+                <stop offset="25%" stopColor="#67E8F9" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#67E8F9" stopOpacity="0" />
+                <stop offset="75%" stopColor="#67E8F9" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#67E8F9" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="wave-grad-3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#E9D5FF" stopOpacity="0" />
+                <stop offset="25%" stopColor="#E9D5FF" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#E9D5FF" stopOpacity="0" />
+                <stop offset="75%" stopColor="#E9D5FF" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#E9D5FF" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
 
         {/* Radial Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#93C5FD] rounded-full blur-[140px] opacity-[0.15] pointer-events-none"></div>
@@ -217,13 +260,7 @@ export default function AiIntegratedDigitalMarketingPage() {
           {/* Feature Area */}
           <div className="relative w-full mt-[16px] md:mt-[24px] flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4">
             
-            {/* Connector Lines (Decorative) */}
-            <div className="absolute inset-0 z-0 hidden lg:block pointer-events-none">
-              <svg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px]" viewBox="0 0 900 400" fill="none">
-                <path d="M100 200 Q 300 50, 450 200 T 800 200" stroke="#BFDBFE" strokeWidth="1.5" opacity="0.6" fill="none" />
-                <path d="M150 250 Q 350 350, 450 200 T 750 150" stroke="#E9D5FF" strokeWidth="1.5" opacity="0.5" fill="none" />
-              </svg>
-            </div>
+            
 
             {/* Left Benefit */}
             <div className="relative z-10 flex items-center gap-[16px] lg:absolute lg:left-[5%] xl:left-[12%] lg:top-[15%]">
