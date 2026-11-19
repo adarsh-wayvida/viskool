@@ -163,17 +163,17 @@ export default function AiIntegratedDigitalMarketingPage() {
 
         <div className="relative mx-auto w-full max-w-[1440px] flex flex-col items-center z-10 flex-1 justify-center">
           {/* Eyebrow */}
-          <h2 className="text-[#071534] font-bold text-[14px] md:text-[24px] lg:text-[28px] tracking-[0.02em] text-center mb-[20px] md:mb-[28px]">
+          <h2 className="text-[#071534] font-bold text-[13px] md:text-[15px] lg:text-[16px] tracking-[0.05em] text-center mb-[16px] md:mb-[20px] uppercase">
             AI-INTEGRATED DIGITAL MARKETING
           </h2>
 
           {/* Main Heading */}
-          <h1 className="text-[#061330] font-[800] text-[36px] md:text-[54px] lg:text-[clamp(54px,5vw,78px)] leading-[1.12] tracking-[-0.035em] text-center max-w-[1100px] mx-auto">
+          <h3 className="text-[#061330] font-[800] text-[30px] md:text-[38px] lg:text-[46px] leading-[1.15] tracking-[-0.02em] text-center max-w-[900px] mx-auto">
             Master Digital Marketing.<br className="hidden lg:block" /> Build Your Career.
-          </h1>
+          </h3>
 
           {/* Description */}
-          <p className="text-[#10213E] font-medium text-[17px] md:text-[23px] lg:text-[27px] leading-[1.42] text-center max-w-[900px] mx-auto mt-[24px] md:mt-[28px]">
+          <p className="text-[#10213E] font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] text-center max-w-[800px] mx-auto mt-[16px] md:mt-[20px]">
             Learn SEO, social media, Google Ads, analytics and AI through expert-led live training and practical campaign projects.
           </p>
 
@@ -190,9 +190,9 @@ export default function AiIntegratedDigitalMarketingPage() {
 
             {/* Left Benefit */}
             <div className="relative z-10 flex items-center gap-[16px] lg:absolute lg:left-[5%] xl:left-[12%] lg:top-[15%]">
-              <span className="text-[#0868E8] font-bold text-[21px] lg:text-[24px] whitespace-nowrap">90-Day Live Training</span>
-              <div className="flex items-center justify-center w-[52px] h-[52px] lg:w-[56px] lg:h-[56px] bg-[#0868E8] rounded-full shadow-lg shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <span className="text-[#0868E8] font-bold text-[16px] lg:text-[18px] whitespace-nowrap">90-Day Live Training</span>
+              <div className="flex items-center justify-center w-[40px] h-[40px] lg:w-[46px] lg:h-[46px] bg-[#0868E8] rounded-full shadow-lg shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
@@ -223,12 +223,12 @@ export default function AiIntegratedDigitalMarketingPage() {
 
             {/* Right Benefit */}
             <div className="relative z-10 flex flex-row items-center lg:absolute lg:right-[5%] xl:right-[12%] lg:top-[15%]">
-              <div className="flex items-center justify-center w-[62px] h-[62px] lg:w-[66px] lg:h-[66px] rounded-[16px] bg-gradient-to-br from-[#0868E8] to-[#05DDE1] shadow-lg shrink-0">
-                <IconBriefcase size={32} stroke={1.8} color="white" />
+              <div className="flex items-center justify-center w-[48px] h-[48px] lg:w-[52px] lg:h-[52px] rounded-[14px] bg-gradient-to-br from-[#0868E8] to-[#05DDE1] shadow-lg shrink-0">
+                <IconBriefcase size={26} stroke={1.8} color="white" />
               </div>
               <div className="ml-4 flex flex-col justify-center text-left">
-                <span className="text-[#071534] font-bold text-[23px] lg:text-[26px] leading-tight whitespace-nowrap">Placement Assistance</span>
-                <span className="text-[#5F6F8C] font-medium text-[17px] lg:text-[19px] mt-[2px] leading-tight">Career Support</span>
+                <span className="text-[#071534] font-bold text-[17px] lg:text-[19px] leading-tight whitespace-nowrap">Placement Assistance</span>
+                <span className="text-[#5F6F8C] font-medium text-[14px] lg:text-[15px] mt-[2px] leading-tight">Career Support</span>
               </div>
             </div>
 
