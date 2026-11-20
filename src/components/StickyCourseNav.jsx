@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const SECTIONS = [
   { id: "course-overview", label: "COURSE OVERVIEW" },
+  { id: "syllabus", label: "SYLLABUS" },
   { id: "overview", label: "WHAT IS DIGITAL MARKETING?" },
   { id: "objectives", label: "OBJECTIVES" },
   { id: "curriculum", label: "WHAT WILL YOU LEARN?" },
@@ -11,7 +12,6 @@ const SECTIONS = [
   { id: "requirements", label: "MINIMUM REQUIREMENTS" },
   { id: "what-you-get", label: "WHAT YOU GET & WHY VISKOOL" },
   { id: "fees", label: "FEE" },
-  { id: "syllabus", label: "SYLLABUS" },
   { id: "career", label: "CAREER OPPORTUNITIES" },
   { id: "certifications", label: "CERTIFICATIONS" },
   { id: "reviews", label: "REVIEWS" },
