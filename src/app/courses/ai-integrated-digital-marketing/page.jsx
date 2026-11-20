@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import SyllabusTabs from "../../../components/SyllabusTabs";
 import CourseReviewSlider from "../../../components/CourseReviewSlider";
 import DigitalMarketingLeadForm from "../../../components/DigitalMarketingLeadForm";
@@ -145,7 +146,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
   return (
     <>
-            <section className="relative w-full bg-[#FBFCFF] font-sans overflow-hidden min-h-[auto] lg:min-h-[500px] flex flex-col items-center pt-[24px] md:pt-[32px] lg:pt-[40px] pb-[16px] md:pb-[24px] lg:pb-[32px] px-[20px] md:px-[48px] lg:px-[64px]" id="hero">
+            <section className="relative w-full bg-[#FBFCFF] font-sans overflow-hidden min-h-[auto] lg:min-h-[500px] flex flex-col items-center pt-[50px] md:pt-[60px] lg:pt-[90px] pb-[16px] md:pb-[24px] lg:pb-[32px] px-[20px] md:px-[48px] lg:px-[64px]" id="hero">
         
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes waveFloat {
@@ -231,17 +232,19 @@ export default function AiIntegratedDigitalMarketingPage() {
         <div className="absolute top-[10%] right-[5%] w-[400px] h-[400px] bg-[#67E8F9] rounded-full blur-[120px] opacity-[0.15] pointer-events-none"></div>
         <div className="absolute bottom-[5%] left-[5%] w-[500px] h-[500px] bg-[#E9D5FF] rounded-full blur-[130px] opacity-[0.14] pointer-events-none"></div>
 
-        <div className="w-full max-w-[1520px] mx-auto z-20 flex justify-start mb-2 md:mb-4">
-          <a
-            href="/#courses"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#3F4D5A] transition-colors hover:text-[#9B0F38] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B0F38] focus-visible:ring-offset-2 sm:text-base"
-          >
-            <IconArrowLeft className="h-5 w-5" stroke={1.8} aria-hidden="true" />
-            Back to courses
-          </a>
-        </div>
+        
 
         <div className="relative mx-auto w-full max-w-[1440px] flex flex-col items-center z-10 flex-1 justify-center">
+          {/* Back to courses - Absolute positioned */}
+          <div className="absolute top-0 left-0 lg:left-4 z-20">
+            <a
+              href="/#courses"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#3F4D5A] transition-colors hover:text-[#9B0F38] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B0F38] focus-visible:ring-offset-2 sm:text-base"
+            >
+              <IconArrowLeft className="h-5 w-5" stroke={1.8} aria-hidden="true" />
+              Back to courses
+            </a>
+          </div>
           {/* Eyebrow */}
           <h2 className="text-[#071534] font-bold text-[13px] md:text-[15px] lg:text-[16px] tracking-[0.05em] text-center mb-[8px] md:mb-[12px] uppercase">
             AI-INTEGRATED DIGITAL MARKETING
@@ -263,12 +266,15 @@ export default function AiIntegratedDigitalMarketingPage() {
             
 
             {/* Left Benefit */}
-            <div className="relative z-10 flex items-center gap-[16px] lg:absolute lg:left-[5%] xl:left-[12%] lg:top-[15%]">
-              <span className="text-[#0868E8] font-bold text-[16px] lg:text-[18px] whitespace-nowrap">90-Day Live Training</span>
-              <div className="flex items-center justify-center w-[40px] h-[40px] lg:w-[46px] lg:h-[46px] bg-[#0868E8] rounded-full shadow-lg shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <div className="relative z-10 flex flex-col items-start lg:absolute lg:left-[5%] xl:left-[12%] lg:top-[15%]">
+              <span className="text-[#0868E8] font-bold text-[18px] lg:text-[22px] whitespace-nowrap leading-none tracking-tight">90-Day Live Training</span>
+              <div className="flex items-center gap-1.5 mt-2">
+                <svg className="w-[16px] h-[16px] text-[#FBBF24] fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
+                <span className="text-[#334155] font-semibold text-[14px]">4.7</span>
+                <span className="text-[#94A3B8] text-[14px] leading-none px-1">&bull;</span>
+                <span className="text-[#334155] font-medium text-[14px]">1 rating</span>
               </div>
             </div>
 
@@ -276,18 +282,18 @@ export default function AiIntegratedDigitalMarketingPage() {
             <div className="relative z-10 w-[220px] md:w-[280px] lg:w-[320px] flex justify-center order-first lg:order-none mb-4 lg:mb-0">
               <div className="relative w-full aspect-square flex items-center justify-center">
                 <div className="absolute inset-0 bg-[#05DDE1] blur-[70px] opacity-[0.2] rounded-full pointer-events-none"></div>
-                <img src="/images/digital-growth-symbol.webp" alt="Blue-cyan digital growth symbol" className="w-full h-full object-contain drop-shadow-2xl" />
+                <DotLottieReact src="/images/digital-marketing.lottie" loop autoplay className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
             </div>
 
             {/* Right Benefit */}
-            <div className="relative z-10 flex flex-row items-center lg:absolute lg:right-[5%] xl:right-[12%] lg:top-[15%]">
-              <div className="flex items-center justify-center w-[48px] h-[48px] lg:w-[52px] lg:h-[52px] rounded-[14px] bg-gradient-to-br from-[#0868E8] to-[#05DDE1] shadow-lg shrink-0">
-                <IconBriefcase size={26} stroke={1.8} color="white" />
-              </div>
-              <div className="ml-4 flex flex-col justify-center text-left">
-                <span className="text-[#071534] font-bold text-[17px] lg:text-[19px] leading-tight whitespace-nowrap">Placement Assistance</span>
-                <span className="text-[#5F6F8C] font-medium text-[14px] lg:text-[15px] mt-[2px] leading-tight">Career Support</span>
+            <div className="relative z-10 flex flex-col items-center lg:items-start lg:absolute lg:right-[5%] xl:right-[12%] lg:top-[15%]">
+              <span className="text-[#0868E8] font-bold text-[18px] lg:text-[22px] whitespace-nowrap leading-none tracking-tight">Placement Assistance</span>
+              <div className="flex items-center gap-1.5 mt-2">
+                <div className="flex items-center justify-center w-[18px] h-[18px] bg-[#0CA5E9] rounded-sm shrink-0">
+                  <IconBriefcase size={12} stroke={2} color="white" />
+                </div>
+                <span className="text-[#334155] font-medium text-[14px]">Career Support</span>
               </div>
             </div>
 
@@ -560,26 +566,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 different ways.
               </p>
 
-              <div>
-                <p className="font-semibold text-[#102A43]">
-                  Is digital marketing only for big companies?
-                </p>
-                <p className="mt-1">
-                  No. Small shops, clinics, schools, and freelancers use it
-                  because it costs less than TV or newspaper ads and shows clear
-                  results.
-                </p>
-              </div>
-
-              <div>
-                <p className="font-semibold text-[#102A43]">
-                  Do I need a degree to learn it?
-                </p>
-                <p className="mt-1">
-                  No. You need curiosity, basic computer skills, and the
-                  willingness to practise.
-                </p>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -1053,59 +1040,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-10">
-              <h3 className="text-2xl font-bold text-[#102A43]">Why choose Viskool?</h3>
-              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-                  <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-medium">Personal attention from mentors who know your name and your goals</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-                  <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-medium">Progress tracking, so you always know where you stand</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-                  <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-medium">Regular tests and honest feedback to fix gaps early</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-                  <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-medium">Placement assistance with resume, portfolio and mock interviews</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 md:gap-4 py-3 px-4 md:p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-                  <div className="mt-1 bg-rose-900 text-white rounded-full p-1 flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-medium">Day and evening batches to suit students and working people</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 rounded-2xl bg-[#F8F0F2] px-6 py-5 text-center">
-              <p className="text-[15px] leading-7 text-[#102A43] sm:text-base">
-                If you are looking for digital marketing training Kerala learners
-                can join from home, Viskool's live online classes bring the
-                classroom to you.
-              </p>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -1115,7 +1050,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              7. Fee
+              7. Course Fee
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
@@ -1149,6 +1084,10 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <td className="px-5 py-4">Full payment / Partial Payment</td>
                   </tr>
                   <tr className="border-t border-[#8B1538]/10">
+                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">EMI Options</td>
+                    <td className="px-5 py-4">No EMI</td>
+                  </tr>
+                  <tr className="border-t border-[#8B1538]/10">
                     <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">What is included</td>
                     <td className="px-5 py-4">Everything in the "What You Get with Us" table above, plus live classes and your certificate</td>
                   </tr>
@@ -1164,30 +1103,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               </table>
             </div>
 
-            <p className="mt-7 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              Fees depend on the course length, the mentors, and the support you
-              get after class.
-            </p>
-
-            <div className="mt-8 space-y-4 rounded-2xl bg-[#F8F0F2] p-5 sm:p-6">
-              <div>
-                <p className="text-[15px] font-bold leading-7 text-[#102A43] sm:text-base">
-                  Q: Is EMI available?
-                </p>
-                <p className="mt-1 text-[15px] leading-7 text-gray-700 sm:text-base">
-                  A: No, We provide partial payment facility only.
-                </p>
-              </div>
-              <div>
-                <p className="text-[15px] font-bold leading-7 text-[#102A43] sm:text-base">
-                  Q: Can I see a class before paying?
-                </p>
-                <p className="mt-1 text-[15px] leading-7 text-gray-700 sm:text-base">
-                  A: Yes. Book a free demo class and decide after you have seen how
-                  we teach.
-                </p>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -1238,9 +1154,7 @@ export default function AiIntegratedDigitalMarketingPage() {
             </h4>
 
             <div className="mt-7 space-y-5 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              <p className="mb-4">
-                After this course, you can apply for roles like Digital Marketing Executive, SEO Executive, Social Media Executive, or Performance Marketer in Kerala or anywhere in the world. You can also freelance or grow your own business.
-              </p>
+              
               <p className="mb-4">
                 Digital marketing jobs are available in agencies, startups, schools, hospitals, e-commerce brands, and IT companies in Kerala. Many learners start with a digital marketing internship, then move into a full-time role as they gain experience.
               </p>
@@ -1311,10 +1225,10 @@ export default function AiIntegratedDigitalMarketingPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Viskool Certificate */}
               <div className="flex flex-col gap-4">
-                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
+                <div className="flex aspect-[16/11] w-full max-w-[420px] mx-auto items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
                   <span className="font-medium text-gray-400">Viskool Certificate Placeholder</span>
                 </div>
                 <div className="text-center">
@@ -1325,7 +1239,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
               {/* Board Certificate */}
               <div className="flex flex-col gap-4">
-                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
+                <div className="flex aspect-[16/11] w-full max-w-[420px] mx-auto items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
                   <span className="font-medium text-gray-400">Board Certificate Placeholder</span>
                 </div>
                 <div className="text-center">
@@ -1342,7 +1256,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              13. REVIEWS
+              11. REVIEWS
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
@@ -1365,7 +1279,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              14. TOOLS
+              12. TOOLS
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
@@ -1377,124 +1291,35 @@ export default function AiIntegratedDigitalMarketingPage() {
               You will learn 9 core tools that marketing teams use every day, from ad managers to analytics and design.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Ads</h4>
-                <p className="mt-2 text-sm text-gray-600">Create and manage ads that appear when people search on Google</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Meta Ads Manager</h4>
-                <p className="mt-2 text-sm text-gray-600">Run ads on Facebook and Instagram and track the results</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Analytics 4 (GA4)</h4>
-                <p className="mt-2 text-sm text-gray-600">See who visits your website and what they do there</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Search Console</h4>
-                <p className="mt-2 text-sm text-gray-600">Check how your site appears and performs in Google search</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Tag Manager</h4>
-                <p className="mt-2 text-sm text-gray-600">Add tracking codes without editing website code</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Canva</h4>
-                <p className="mt-2 text-sm text-gray-600">Design posts, banners and ad creatives quickly</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">WordPress</h4>
-                <p className="mt-2 text-sm text-gray-600">Build and manage a simple website or blog</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Mailchimp</h4>
-                <p className="mt-2 text-sm text-gray-600">Send email newsletters and automated campaigns to your subscribers</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300">
-                <h4 className="text-lg font-bold text-[#102A43]">Google Sheets</h4>
-                <p className="mt-2 text-sm text-gray-600">Plan content calendars and track basic campaign data</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="prepare">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              15. HOW WE PREPARE YOU
-            </p>
-
-            <div>
-              <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-                How We Prepare You for the{" "}
-                <span className="text-[#8B1538]">Real Industry</span>
-              </h4>
-
-              <p className="mt-7 w-full text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-                We train you through projects, not just classes: learn a skill, use it on a real brief, get feedback, and repeat. Our practical digital marketing training follows a simple 5-step loop:
-              </p>
-            </div>
-
-            <div className="mt-10 overflow-x-auto min-w-full">
-              <div className="relative z-0 flex flex-row justify-between items-start gap-6 min-w-[700px] px-4 py-4">
+                        {/* Tools Carousel Grid */}
+            <div className="mt-10 overflow-hidden">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-12 items-center justify-items-center opacity-80">
+                <img src="/images/tools/icons8-google-ads-48.png" alt="Google Ads" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/facebook_ads_logo_1291.webp" alt="Meta" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/google analytics_1456.png" alt="Google Analytics 4" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/mail_chimp_logo (2)_4550.webp" alt="Mailchimp" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/Search_ads_logo_2508.webp" alt="Search Ads" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/moz_digital_marketing_course_3909.webp" alt="Moz" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
                 
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    1
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Learn</h4>
-                  <p className="text-sm text-gray-500 mt-1">A live class explains the idea in simple words.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    2
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Practise</h4>
-                  <p className="text-sm text-gray-500 mt-1">You try it yourself with a guided task.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    3
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Launch</h4>
-                  <p className="text-sm text-gray-500 mt-1">You apply it on a real brief or a sample account.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="absolute top-6 left-[50%] w-full h-[2px] bg-gray-200 -z-10"></div>
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    4
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Review</h4>
-                  <p className="text-sm text-gray-500 mt-1">Your mentor checks the result and gives feedback.</p>
-                </div>
-
-                <div className="relative flex-1 flex flex-col items-center text-center group min-w-[120px]">
-                  <div className="w-12 h-12 rounded-full bg-white border-4 border-rose-100 text-[#800020] font-bold flex items-center justify-center relative z-10 transition-all duration-300 group-hover:bg-[#800020] group-hover:border-[#800020] group-hover:text-white group-hover:scale-110">
-                    5
-                  </div>
-                  <h4 className="font-bold text-[#102A43] group-hover:text-[#800020] mt-4">Present</h4>
-                  <p className="text-sm text-gray-500 mt-1">You explain your work the way you would to a client.</p>
-                </div>
+                <img src="/images/tools/Hoot_Suite_logo_7138.webp" alt="Hootsuite" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/Google_ads_planner_logo_7253.webp" alt="Google Keyword Planner" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/microsoft_clarity_image_4216.webp" alt="Clarity by Microsoft" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/Helium_logo_9422.webp" alt="Helium 10" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/Amazon_ads_logo (1)_9237.webp" alt="Amazon Ads" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
+                <img src="/images/tools/gtm_logo (1)_4348.webp" alt="Google Tag Manager" className="h-8 md:h-12 object-contain transition-transform duration-300 hover:scale-110" />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      
 
       <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="why-viskool">
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              16. DIGITAL MARKETING INSTITUTE IN KERALA
+              13. DIGITAL MARKETING INSTITUTE IN KERALA
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
@@ -1546,7 +1371,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              17. MODE & TIMINGS
+              14. MODE & TIMINGS
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
@@ -1606,7 +1431,7 @@ export default function AiIntegratedDigitalMarketingPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-                  18. READY TO START?
+                  15. READY TO START?
                 </p>
 
                 <h4 className="text-2xl md:text-3xl font-bold leading-[1.2] tracking-tight text-[#102A43]">
@@ -1635,7 +1460,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              12. FAQ
+              16. FAQ
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">

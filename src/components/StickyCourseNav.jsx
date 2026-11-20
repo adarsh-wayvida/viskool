@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const SECTIONS = [
+  { id: "course-overview", label: "COURSE OVERVIEW" },
   { id: "overview", label: "WHAT IS DIGITAL MARKETING?" },
   { id: "objectives", label: "OBJECTIVES" },
   { id: "curriculum", label: "WHAT WILL YOU LEARN?" },
@@ -15,8 +16,7 @@ const SECTIONS = [
   { id: "certifications", label: "CERTIFICATIONS" },
   { id: "reviews", label: "REVIEWS" },
   { id: "tools", label: "TOOLS" },
-  { id: "prepare", label: "HOW WE PREPARE YOU" },
-  { id: "why-viskool", label: "DIGITAL MARKETING INSTITUTE IN KERALA" },
+{ id: "why-viskool", label: "DIGITAL MARKETING INSTITUTE IN KERALA" },
   { id: "timings", label: "MODE & TIMINGS" },
   { id: "cta", label: "READY TO START?" },
   { id: "faq", label: "FAQ" },
@@ -110,7 +110,7 @@ export default function StickyCourseNav() {
 
   return (
     <nav
-      className={isScrolled ? "fixed top-2 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-2 z-40 transition-all duration-300" : "w-full bg-white border-b py-2 relative z-40"}
+      className={isScrolled ? "fixed top-2 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-4 z-40 transition-all duration-300" : "w-full bg-white border-b py-4 relative z-40"}
     >
       <div className="relative flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <button
@@ -129,7 +129,7 @@ export default function StickyCourseNav() {
               id={`nav-btn-${id}`}
               key={id}
               onClick={() => scrollToSection(id)}
-              className={`inline-block px-4 py-2 text-sm font-bold whitespace-nowrap transition-all duration-300 ${
+              className={`inline-block px-5 py-3 text-sm font-bold whitespace-nowrap transition-all duration-300 ${
                 activeSection === id
                   ? "text-[#8B1538] bg-[#8B1538]/10 rounded-full"
                   : "text-gray-500 hover:text-[#102A43]"

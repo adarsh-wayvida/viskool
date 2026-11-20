@@ -150,7 +150,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
     <>
       
       <header className={`fixed top-0 z-50 w-full bg-white/80 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'} ${
-      isScrolled ? 'shadow-md border-b border-gray-100' : 'border-b border-gray-100/80'
+      isScrolled ? 'shadow-sm' : ''
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
