@@ -956,41 +956,133 @@ export default function AiIntegratedDigitalMarketingPage() {
               </p>
             </div>
 
-            <div className="mt-8 w-full overflow-x-auto rounded-2xl border border-[#8B1538]/15">
-              <table className="w-full min-w-[640px] border-collapse text-left text-sm sm:text-base">
-                <thead className="bg-[#F8F0F2] text-[#8B1538]">
-                  <tr>
-                    <th className="border-r border-[#8B1538]/15 px-5 py-4 font-bold">Item</th>
-                    <th className="px-5 py-4 font-bold">Details</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white text-[#102A43]">
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Course fee</td>
-                    <td className="px-5 py-4 font-bold text-[#102A43]">₹15000</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Payment options</td>
-                    <td className="px-5 py-4">Full payment / Partial Payment</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">EMI Options</td>
-                    <td className="px-5 py-4">No EMI</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">What is included</td>
-                    <td className="px-5 py-4">Everything in the "What You Get with Us" table above, plus live classes and your certificate</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10 bg-[#FCF8F9]/60">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Free demo class</td>
-                    <td className="px-5 py-4">Yes, Free demo class is available</td>
-                  </tr>
-                  <tr className="border-t border-[#8B1538]/10">
-                    <td className="border-r border-[#8B1538]/10 px-5 py-4 font-medium">Current offer</td>
-                    <td className="px-5 py-4">No offer available currently</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              <article
+                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#EEF6FF]`}
+                  >
+                    <IconCurrencyRupee
+                      className={`h-6 w-6 text-[#1A73E8]`}
+                      stroke={2}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] text-left">
+                    Course fee
+                  </h3>
+                </div>
+                <p className="text-sm md:text-[16px] font-bold leading-relaxed text-[#102A43] text-left">
+                  &#8377;15000
+                </p>
+              </article>
+              <article
+                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#E6FBF7]`}
+                  >
+                    <IconUserDollar
+                      className={`h-6 w-6 text-[#12B8A6]`}
+                      stroke={2}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] text-left">
+                    Payment options
+                  </h3>
+                </div>
+                <p className="text-sm md:text-[14px] font-normal leading-relaxed text-slate-700 text-left">
+                  Full payment / Partial Payment
+                </p>
+              </article>
+              <article
+                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FEF2F2]`}
+                  >
+                    <IconCalendarEvent
+                      className={`h-6 w-6 text-[#F25C54]`}
+                      stroke={2}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] text-left">
+                    EMI Options
+                  </h3>
+                </div>
+                <p className="text-sm md:text-[14px] font-normal leading-relaxed text-slate-700 text-left">
+                  No EMI
+                </p>
+              </article>
+              <article
+                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF8E6]`}
+                  >
+                    <IconSparkles
+                      className={`h-6 w-6 text-[#F59E0B]`}
+                      stroke={2}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] text-left">
+                    What is included
+                  </h3>
+                </div>
+                <p className="text-sm md:text-[14px] font-normal leading-relaxed text-slate-700 text-left">
+                  Everything in the "What You Get with Us" table above, plus live classes and your certificate
+                </p>
+              </article>
+              <article
+                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F5F0FF]`}
+                  >
+                    <IconVideo
+                      className={`h-6 w-6 text-[#A855F7]`}
+                      stroke={2}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] text-left">
+                    Free demo class
+                  </h3>
+                </div>
+                <p className="text-sm md:text-[14px] font-normal leading-relaxed text-slate-700 text-left">
+                  Yes, Free demo class is available
+                </p>
+              </article>
+              <article
+                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#EAF8F0]`}
+                  >
+                    <IconTargetArrow
+                      className={`h-6 w-6 text-[#22C55E]`}
+                      stroke={2}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] text-left">
+                    Current offer
+                  </h3>
+                </div>
+                <p className="text-sm md:text-[14px] font-normal leading-relaxed text-slate-700 text-left">
+                  No offer available currently
+                </p>
+              </article>
             </div>
 
             
