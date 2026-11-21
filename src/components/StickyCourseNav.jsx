@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 const SECTIONS = [
   { id: "course-overview", label: "COURSE OVERVIEW" },
   { id: "syllabus", label: "SYLLABUS" },
+  { id: "faculty", label: "FACULTY" },
   { id: "overview", label: "WHAT IS DIGITAL MARKETING?" },
   { id: "objectives", label: "OBJECTIVES" },
   { id: "curriculum", label: "WHAT WILL YOU LEARN?" },
@@ -110,7 +111,7 @@ export default function StickyCourseNav() {
 
   return (
     <nav
-      className={isScrolled ? "fixed top-4 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-4 z-40 transition-all duration-300" : "w-full bg-white border-b py-4 relative z-40"}
+      className={isScrolled ? "fixed top-4 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-2 md:py-4 z-40 transition-all duration-300" : "w-full bg-white border-b py-2 md:py-4 relative z-40"}
     >
       <div className="relative flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <button
@@ -122,14 +123,14 @@ export default function StickyCourseNav() {
         </button>
         <div
           ref={navRef}
-          className="relative flex-1 overflow-x-auto hide-scrollbar whitespace-nowrap flex gap-8 px-12"
+          className="relative flex-1 overflow-x-auto hide-scrollbar whitespace-nowrap flex gap-4 md:gap-8 px-4 md:px-12"
         >
           {SECTIONS.map(({ id, label }) => (
             <button
               id={`nav-btn-${id}`}
               key={id}
               onClick={() => scrollToSection(id)}
-              className={`inline-block px-5 py-3 text-sm font-bold whitespace-nowrap transition-all duration-300 ${
+              className={`inline-block px-3 py-2 md:px-5 md:py-3 text-xs md:text-sm font-bold whitespace-nowrap transition-all duration-300 ${
                 activeSection === id
                   ? "text-[#8B1538] bg-[#8B1538]/10 rounded-full"
                   : "text-gray-500 hover:text-[#102A43]"

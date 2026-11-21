@@ -246,7 +246,7 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <div className="hidden md:block">
+      <div className="block">
         <StickyCourseNav />
       </div>
       <section id="course-overview" className="bg-[#FCF8F9] px-4 pb-5 pt-5 font-sans sm:px-6 sm:pb-6 lg:px-8 lg:pb-7">
@@ -257,11 +257,18 @@ export default function AiIntegratedDigitalMarketingPage() {
                 <div className="absolute top-10 right-20 w-32 h-32 rounded-full bg-gradient-to-bl from-green-100/50 to-blue-50/50 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 -ml-12 -mb-12 w-48 h-48 rounded-full bg-gradient-to-tr from-purple-100/40 to-pink-50/40 pointer-events-none"></div>
 
-                <div className="relative mb-10">
-                  <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-                    Course <span className="text-[#8B1538]">Overview</span>
-                  </h3>
-                </div>
+                <div className="relative mb-8 flex items-center w-full overflow-hidden">
+                    <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] whitespace-nowrap pr-4">
+                      Course <span className="text-[#8B1538]">Overview</span>
+                    </h3>
+                    <div className="flex-1 flex justify-end items-center h-full">
+                      <div className="w-1/2 flex flex-col justify-center gap-1.5 md:gap-2 opacity-80">
+                        <div className="h-[3px] md:h-1 w-full bg-gradient-to-r from-[#1A73E8] to-[#12B8A6] rounded-full"></div>
+                        <div className="h-[3px] md:h-1 w-4/5 ml-auto bg-gradient-to-r from-[#8B1538] to-pink-500 rounded-full"></div>
+                        <div className="h-[3px] md:h-1 w-3/5 ml-auto bg-gradient-to-r from-[#F59E0B] to-yellow-400 rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
                 
                 <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 w-full">
                   {/* 1. Duration */}
@@ -999,7 +1006,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
             <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               <article
-                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-full flex-col justify-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div
@@ -1020,7 +1027,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 </p>
               </article>
               <article
-                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-full flex-col justify-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div
@@ -1041,7 +1048,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 </p>
               </article>
               <article
-                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-full flex-col justify-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div
@@ -1062,7 +1069,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 </p>
               </article>
               <article
-                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-full flex-col justify-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div
@@ -1083,7 +1090,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 </p>
               </article>
               <article
-                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-full flex-col justify-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div
@@ -1104,7 +1111,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 </p>
               </article>
               <article
-                className="flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-full flex-col justify-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div
@@ -1216,10 +1223,10 @@ export default function AiIntegratedDigitalMarketingPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
               {/* Viskool Certificate */}
               <div className="flex flex-col gap-4">
-                <div className="flex aspect-[16/11] w-full max-w-[420px] mx-auto items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
+                <div className="flex aspect-[16/11] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
                   <span className="font-medium text-gray-400">Viskool Certificate Placeholder</span>
                 </div>
                 <div className="text-center">
@@ -1230,7 +1237,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
               {/* Board Certificate */}
               <div className="flex flex-col gap-4">
-                <div className="flex aspect-[16/11] w-full max-w-[420px] mx-auto items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
+                <div className="flex aspect-[16/11] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
                   <span className="font-medium text-gray-400">Board Certificate Placeholder</span>
                 </div>
                 <div className="text-center">
@@ -1374,7 +1381,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               Classes are live online and last 90 days, with 90 hours in total and 1 hour per day. You can choose a day batch or an evening batch. Our digital marketing classes for Kerala learners are live online; every class is recorded, and you can watch it again for 6 months.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
               <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
                 <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Mode</span>
                 <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">Live online + Recordings</span>
@@ -1407,10 +1414,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                 <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Weekend Batch</span>
                 <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[If available]</span>
               </div>
-              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow group">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Next Batch Starts</span>
-                <span className="text-[#102A43] font-semibold transition-colors duration-300 group-hover:text-[#800020]">[Soon]</span>
-              </div>
+              
             </div>
           </div>
         </div>
