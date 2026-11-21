@@ -394,13 +394,13 @@ export default function AiIntegratedDigitalMarketingPage() {
 
             <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
               {/* Card 1: Ammu */}
-              <div className="group flex h-fit flex-col sm:flex-row items-center sm:items-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-4 sm:gap-6">
-                <div className="relative shrink-0 h-24 w-24 sm:h-28 sm:w-28 overflow-hidden rounded-full border-[3px] border-[#F8CDD2]/50 p-1">
+              <div className="group flex h-fit flex-row items-start rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-3 sm:gap-6">
+                <div className="relative shrink-0 h-20 w-20 sm:h-28 sm:w-28 overflow-hidden rounded-full border-[3px] border-[#F8CDD2]/50 p-0.5 sm:p-1">
                   <div className="h-full w-full rounded-full bg-[#FCF8F9] overflow-hidden">
                     <img src="/images/faculty/AMMU.png" alt="Ammu" className="h-full w-full object-cover object-top" />
                   </div>
                 </div>
-                <div className="flex flex-col text-center sm:text-left">
+                <div className="flex flex-col text-left">
                   <h3 className="text-[18px] md:text-xl font-bold text-[#102A43] leading-snug">Ammu</h3>
                   <p className="text-[13px] md:text-sm font-semibold text-[#8B1538] mt-0.5 mb-2">Digital Marketing Expert</p>
                   <p className="text-[13px] md:text-[14px] leading-relaxed text-slate-600">
@@ -410,13 +410,13 @@ export default function AiIntegratedDigitalMarketingPage() {
               </div>
 
               {/* Card 2: Haritha */}
-              <div className="group flex h-fit flex-col sm:flex-row items-center sm:items-start rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-4 sm:gap-6">
-                <div className="relative shrink-0 h-24 w-24 sm:h-28 sm:w-28 overflow-hidden rounded-full border-[3px] border-[#CDEBFA]/50 p-1">
+              <div className="group flex h-fit flex-row items-start rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-3 sm:gap-6">
+                <div className="relative shrink-0 h-20 w-20 sm:h-28 sm:w-28 overflow-hidden rounded-full border-[3px] border-[#CDEBFA]/50 p-0.5 sm:p-1">
                   <div className="h-full w-full rounded-full bg-[#EEF6FF] overflow-hidden">
                     <img src="/images/faculty/HARITHA.png" alt="Haritha" className="h-full w-full object-cover object-top" />
                   </div>
                 </div>
-                <div className="flex flex-col text-center sm:text-left">
+                <div className="flex flex-col text-left">
                   <h3 className="text-[18px] md:text-xl font-bold text-[#102A43] leading-snug">Haritha</h3>
                   <p className="text-[13px] md:text-sm font-semibold text-[#1A73E8] mt-0.5 mb-2">Digital Marketing Expert</p>
                   <p className="text-[13px] md:text-[14px] leading-relaxed text-slate-600">
@@ -557,28 +557,22 @@ export default function AiIntegratedDigitalMarketingPage() {
                 return (
                   <article
                     key={goal.title}
-                    className="flex min-h-0 md:min-h-[280px] h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_8px_24px_rgba(16,42,67,0.10)]"
+                    className="flex h-fit flex-row items-start gap-4 rounded-2xl border border-gray-100 bg-white p-5 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.10)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
                   >
                     <div
-                      className={`relative flex h-20 md:h-32 shrink-0 items-center justify-center ${goal.headerClass}`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${goal.headerClass}`}
                     >
                       <GoalIcon
-                        className={`relative z-10 h-10 w-10 md:h-16 md:w-16 ${goal.iconClass}`}
-                        stroke={1.7}
-                        aria-hidden="true"
-                      />
-                      <div
-                        className="absolute -bottom-5 left-[-10%] h-10 w-[120%] rounded-[50%] bg-white"
+                        className={`h-6 w-6 ${goal.iconClass}`}
+                        stroke={2}
                         aria-hidden="true"
                       />
                     </div>
-
-                    <div className="flex flex-col justify-start px-4 md:px-5 pb-5 md:pb-7 pt-4 md:pt-6 text-center sm:px-6 gap-1 md:gap-2">
-                      <h3 className="text-base md:text-lg font-bold leading-snug text-[#102A43] sm:text-xl">
+                    <div className="flex flex-col text-left">
+                      <h3 className="text-base md:text-[17px] font-bold leading-snug text-[#102A43] mb-1.5">
                         {goal.title}
                       </h3>
-                      <div className="mx-auto my-1 md:my-2 h-px w-full bg-[#102A43]/12" />
-                      <p className="text-sm md:text-[15px] font-normal leading-6 md:leading-7 text-[#102A43] sm:text-base mt-1 md:mt-2">
+                      <p className="text-sm md:text-[14px] font-normal leading-relaxed text-slate-700">
                         {goal.text}
                       </p>
                     </div>
