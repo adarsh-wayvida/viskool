@@ -263,103 +263,85 @@ export default function AiIntegratedDigitalMarketingPage() {
                   </h3>
                 </div>
                 
-                <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+                <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 w-full">
                   {/* 1. Duration */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#EEF6FF] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#1A73E8] text-white shadow-sm">
-                      <IconCalendarEvent size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#EEF6FF] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#1A73E8] text-white shadow-sm">
+                      <IconCalendarEvent size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">90 Days</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Duration</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">90 Days</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Duration</p>
                     </div>
                   </div>
-
                   {/* 2. Learning Mode */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#E6FBF7] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#12B8A6] text-white shadow-sm">
-                      <IconDeviceDesktop size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#E6FBF7] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#12B8A6] text-white shadow-sm">
+                      <IconDeviceDesktop size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">Live Online</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Learning Mode</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">Live Online</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Learning Mode</p>
                     </div>
                   </div>
-
                   {/* 3. Live Training */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#FEF2F2] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#F25C54] text-white shadow-sm">
-                      <IconClock size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#FEF2F2] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#F25C54] text-white shadow-sm">
+                      <IconClock size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">90 Hours</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Live Training</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">90 Hours</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Live Training</p>
                     </div>
                   </div>
-
                   {/* 4. Internship */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#FFF8E6] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#F59E0B] text-white shadow-sm">
-                      <IconSchool size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#FFF8E6] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#F59E0B] text-white shadow-sm">
+                      <IconSchool size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">1 Month</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Internship</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">1 Month</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Internship</p>
                     </div>
                   </div>
-
                   {/* 5. Recording Access */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#F5F0FF] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#A855F7] text-white shadow-sm">
-                      <IconVideo size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#F5F0FF] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#A855F7] text-white shadow-sm">
+                      <IconVideo size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">6 Months</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Recording Access</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">6 Months</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Recording Access</p>
                     </div>
                   </div>
-
                   {/* 6. Community Support */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#EAF8F0] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#22C55E] text-white shadow-sm">
-                      <IconUsers size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#EAF8F0] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#22C55E] text-white shadow-sm">
+                      <IconUsers size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">1 Year</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Community Support</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">1 Year</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Community Support</p>
                     </div>
                   </div>
-
                   {/* 7. Certification */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#FFF0F5] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#EC4899] text-white shadow-sm">
-                      <IconCertificate size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#FFF0F5] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#EC4899] text-white shadow-sm">
+                      <IconCertificate size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">Dual Certificates</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Certification</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">2</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Certification</p>
                     </div>
                   </div>
-
                   {/* 8. Career Support */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#EBF5FF] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#0EA5E9] text-white shadow-sm">
-                      <IconBriefcase size={26} stroke={1.5} />
+                  <div className="flex flex-col items-center justify-center text-center gap-3 p-4 md:p-5 rounded-[24px] bg-[#EBF5FF] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
+                    <div className="flex-shrink-0 flex items-center justify-center w-[48px] h-[48px] md:w-[52px] md:h-[52px] rounded-2xl bg-[#0EA5E9] text-white shadow-sm">
+                      <IconBriefcase size={24} stroke={1.5} />
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">Placement Assistance</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Career Support</p>
-                    </div>
-                  </div>
-
-                  {/* 9. Course Fees */}
-                  <div className="flex items-center gap-4 p-4 rounded-[20px] bg-[#FFF6EB] transition-transform duration-300 hover:-translate-y-1 hover:shadow-sm">
-                    <div className="flex-shrink-0 flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-[#F97316] text-white shadow-sm">
-                      <IconCurrencyRupee size={26} stroke={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-[#0F172A] leading-tight">₹15,000</p>
-                      <p className="text-[14px] text-slate-600 mt-0.5">Course Fees</p>
+                    <div className="flex flex-col items-center mt-1">
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">Placement Assistance</p>
+                      <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Career Support</p>
                     </div>
                   </div>
                 </div>
@@ -801,26 +783,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               ))}
             </div>
 
-            <div className="mt-8 space-y-4 rounded-2xl bg-[#F8F0F2] p-5 sm:p-6">
-              <div>
-                <p className="text-[15px] font-bold leading-7 text-[#102A43] sm:text-base">
-                  Q: Can a commerce, arts or science student join?
-                </p>
-                <p className="mt-1 text-[15px] leading-7 text-gray-700 sm:text-base">
-                  A: Yes. Digital marketing needs creativity and basic computer
-                  skills, not a particular degree.
-                </p>
-              </div>
-              <div>
-                <p className="text-[15px] font-bold leading-7 text-[#102A43] sm:text-base">
-                  Q: I have a full-time job. Can I still attend?
-                </p>
-                <p className="mt-1 text-[15px] leading-7 text-gray-700 sm:text-base">
-                  A: Yes. Choose the evening batch, and use the recorded sessions,
-                  which you can watch for 6 months, to catch up.
-                </p>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>

@@ -110,7 +110,7 @@ export default function StickyCourseNav() {
 
   return (
     <nav
-      className={isScrolled ? "fixed top-2 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-4 z-40 transition-all duration-300" : "w-full bg-white border-b py-4 relative z-40"}
+      className={isScrolled ? "fixed top-4 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl bg-white/95 backdrop-blur-md shadow-lg rounded-full py-4 z-40 transition-all duration-300" : "w-full bg-white border-b py-4 relative z-40"}
     >
       <div className="relative flex items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <button
