@@ -146,7 +146,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
   return (
     <>
-            <section className="relative w-full bg-[#FBFCFF] font-sans pt-[100px] pb-[40px] lg:pt-[120px] lg:pb-[60px] overflow-hidden" id="hero">
+            <section className="relative w-full bg-[#FBFCFF] font-sans pt-[80px] pb-[20px] lg:pt-[100px] lg:pb-[40px] overflow-hidden" id="hero">
         <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 z-10 relative">
           
           {/* Left Column */}
@@ -249,7 +249,7 @@ export default function AiIntegratedDigitalMarketingPage() {
       <div className="hidden md:block">
         <StickyCourseNav />
       </div>
-      <section id="course-overview" className="bg-[#FCF8F9] px-4 pb-10 pt-10 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+      <section id="course-overview" className="bg-[#FCF8F9] px-4 pb-6 pt-6 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10">
           <div className="mx-auto max-w-7xl">
             <MagicCursorContainer>
                 {/* Decorative Background Elements */}
@@ -348,9 +348,9 @@ export default function AiIntegratedDigitalMarketingPage() {
               </MagicCursorContainer>
             </div>
         </section>
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="syllabus">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="syllabus">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               Syllabus
             </p>
@@ -383,9 +383,9 @@ export default function AiIntegratedDigitalMarketingPage() {
       </section>
 
 
-        <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="overview">
+        <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="overview">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               1. What is Digital Marketing?
             </p>
@@ -481,9 +481,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="objectives">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="objectives">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               2. Objectives
             </p>
@@ -543,9 +543,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="curriculum">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="curriculum">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               3. What Will You Learn?
             </p>
@@ -740,9 +740,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="who-is-it-for">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="who-is-it-for">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               4. Who is it for?
             </p>
@@ -789,9 +789,9 @@ export default function AiIntegratedDigitalMarketingPage() {
       </section>
 
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="requirements">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="requirements">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               5. Minimum Requirements
             </p>
@@ -867,9 +867,9 @@ export default function AiIntegratedDigitalMarketingPage() {
           </div>
         </div>
       </section>
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="what-you-get">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="what-you-get">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               6. What You Get & Why Viskool
             </p>
@@ -936,9 +936,9 @@ export default function AiIntegratedDigitalMarketingPage() {
       </section>
 
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="fees">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="fees">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               7. Course Fee
             </p>
@@ -1091,9 +1091,9 @@ export default function AiIntegratedDigitalMarketingPage() {
       </section>
       
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="career">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="career">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               8. CAREER OPPORTUNITIES
             </p>
@@ -1158,9 +1158,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-            <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="certifications">
+            <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="certifications">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <div className="mb-8">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
                 9. CERTIFICATIONS
@@ -1202,9 +1202,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="reviews">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="reviews">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               10. REVIEWS
             </p>
@@ -1225,9 +1225,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="tools">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="tools">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               11. TOOLS
             </p>
@@ -1265,9 +1265,9 @@ export default function AiIntegratedDigitalMarketingPage() {
 
       
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="why-viskool">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="why-viskool">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               12. DIGITAL MARKETING INSTITUTE IN KERALA
             </p>
@@ -1317,9 +1317,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="timings">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="timings">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               13. MODE & TIMINGS
             </p>
@@ -1375,9 +1375,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="cta">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="cta">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
@@ -1406,9 +1406,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="faq">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="faq">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-white px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               15. FAQ
             </p>
@@ -1543,9 +1543,9 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-14" id="conclusion">
+      <section className="bg-[#FCF8F9] px-4 pb-6 pt-0 font-sans sm:px-6 sm:pb-8 lg:px-8 lg:pb-10" id="conclusion">
         <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-[#F8F0F2] px-6 py-7 shadow-sm sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-[#F8F0F2] px-6 py-5 shadow-sm sm:px-8 sm:py-6 lg:px-10 lg:py-8">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
               CONCLUSION
             </p>
