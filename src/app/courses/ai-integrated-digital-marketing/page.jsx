@@ -261,13 +261,25 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] whitespace-nowrap pr-4">
                       Course <span className="text-[#8B1538]">Overview</span>
                     </h3>
-                    <div className="flex-1 flex justify-end items-center h-full">
-                      <div className="w-1/2 flex flex-col justify-center gap-1.5 md:gap-2 opacity-80">
-                        <div className="h-[3px] md:h-1 w-full bg-gradient-to-r from-[#1A73E8] to-[#12B8A6] rounded-full"></div>
-                        <div className="h-[3px] md:h-1 w-4/5 ml-auto bg-gradient-to-r from-[#8B1538] to-pink-500 rounded-full"></div>
-                        <div className="h-[3px] md:h-1 w-3/5 ml-auto bg-gradient-to-r from-[#F59E0B] to-yellow-400 rounded-full"></div>
+                    <div className="flex-1 flex justify-end items-center h-full opacity-60">
+                        <style>{`
+                          @keyframes subtleWave {
+                            0%, 100% { transform: translateY(0px); }
+                            50% { transform: translateY(-8px); }
+                          }
+                          .animate-wave {
+                            animation: subtleWave 2.5s ease-in-out infinite;
+                          }
+                        `}</style>
+                        <div className="flex justify-between items-center w-[80%] md:w-[60%] pr-2">
+                          <div className="animate-wave w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#1A73E8]/30 mix-blend-multiply" style={{ animationDelay: '0ms' }}></div>
+                          <div className="animate-wave w-7 h-7 md:w-10 md:h-10 rounded-full bg-[#8B1538]/30 mix-blend-multiply" style={{ animationDelay: '200ms' }}></div>
+                          <div className="animate-wave w-6 h-6 md:w-9 md:h-9 rounded-full bg-[#F59E0B]/30 mix-blend-multiply" style={{ animationDelay: '400ms' }}></div>
+                          <div className="animate-wave w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#12B8A6]/30 mix-blend-multiply" style={{ animationDelay: '600ms' }}></div>
+                          <div className="animate-wave w-5 h-5 md:w-8 md:h-8 rounded-full bg-pink-500/30 mix-blend-multiply" style={{ animationDelay: '800ms' }}></div>
+                          <div className="animate-wave w-6 h-6 md:w-10 md:h-10 rounded-full bg-indigo-500/30 mix-blend-multiply" style={{ animationDelay: '1000ms' }}></div>
+                        </div>
                       </div>
-                    </div>
                   </div>
                 
                 <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 w-full">
@@ -1215,7 +1227,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               </p>
 
               <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-                Certificates That Open Doors
+                Certificates That <span className="text-[#8B1538]">Open Doors</span>
               </h4>
 
               <p className="mt-4 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8 max-w-3xl">
@@ -1226,9 +1238,9 @@ export default function AiIntegratedDigitalMarketingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
               {/* Viskool Certificate */}
               <div className="flex flex-col gap-4">
-                <div className="flex aspect-[16/11] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
-                  <span className="font-medium text-gray-400">Viskool Certificate Placeholder</span>
-                </div>
+                <div className="flex aspect-[4/3] max-w-[500px] mx-auto w-full items-center justify-center rounded-xl border border-gray-200 shadow-sm transition-transform hover:scale-[1.02] overflow-hidden relative" style={{ backgroundColor: '#ffffff', backgroundImage: 'radial-gradient(at 0% 0%, rgba(147, 197, 253, 0.6) 0px, transparent 70%), radial-gradient(at 100% 0%, rgba(233, 213, 255, 0.8) 0px, transparent 70%), radial-gradient(at 100% 100%, rgba(253, 230, 138, 0.7) 0px, transparent 70%), radial-gradient(at 0% 100%, rgba(191, 219, 254, 0.6) 0px, transparent 70%)' }}>
+                      <img src="/images/Digital-Marketing-Certificate.webp" alt="Viskool Course Certificate" className="w-full h-full object-contain p-4 md:p-6 drop-shadow-md" />
+                    </div>
                 <div className="text-center">
                   <h5 className="font-bold text-[#102A43]">Viskool Course Certificate</h5>
                   <p className="text-sm text-gray-500">Awarded upon successful course completion</p>
@@ -1237,9 +1249,9 @@ export default function AiIntegratedDigitalMarketingPage() {
 
               {/* Board Certificate */}
               <div className="flex flex-col gap-4">
-                <div className="flex aspect-[16/11] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
-                  <span className="font-medium text-gray-400">Board Certificate Placeholder</span>
-                </div>
+                <div className="flex aspect-[4/3] max-w-[500px] mx-auto w-full items-center justify-center rounded-xl border border-gray-200 shadow-sm transition-transform hover:scale-[1.02] overflow-hidden relative" style={{ backgroundColor: '#ffffff', backgroundImage: 'radial-gradient(at 0% 0%, rgba(147, 197, 253, 0.6) 0px, transparent 70%), radial-gradient(at 100% 0%, rgba(233, 213, 255, 0.8) 0px, transparent 70%), radial-gradient(at 100% 100%, rgba(253, 230, 138, 0.7) 0px, transparent 70%), radial-gradient(at 0% 100%, rgba(191, 219, 254, 0.6) 0px, transparent 70%)' }}>
+                      <img src="/images/board-certificate.webp" alt="Board Course Certificate" className="w-full h-full object-contain p-4 md:p-6 drop-shadow-md" />
+                    </div>
                 <div className="text-center">
                   <h5 className="font-bold text-[#102A43]">Official Board Certification</h5>
                   <p className="text-sm text-gray-500">Recognized by industry leaders</p>

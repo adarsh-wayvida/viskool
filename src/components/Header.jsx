@@ -247,9 +247,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
                           {/* Right Panel: Sub-items */}
                           {hoveredCategory && (
                             <div className="p-5 bg-white min-w-[380px] animate-fadeIn">
-                              <h4 className="text-[12px] font-extrabold uppercase tracking-wider text-[#8B1538] mb-4 border-b border-gray-100 pb-2">
-                                {hoveredCategory.name}
-                              </h4>
+                              
                               <div className="space-y-3.5">
                                 {hoveredCategory.items.map((itemTitle, idx) => (
                                   <a
