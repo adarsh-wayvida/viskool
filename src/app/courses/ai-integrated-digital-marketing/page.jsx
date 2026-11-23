@@ -1294,7 +1294,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               </h4>
 
             <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
-              You will learn 9 core tools that marketing teams use every day, from ad managers to analytics and design.
+              You will learn 12 core tools that marketing teams use every day, from ad managers to analytics and design.
             </p>
 
                         {/* Tools Carousel Grid */}
