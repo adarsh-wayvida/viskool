@@ -262,9 +262,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] whitespace-nowrap pr-4 relative z-10">
                       Course <span className="text-[#8B1538]">Overview</span>
                     </h3>
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[45%] sm:w-[60%] md:w-[50%] lg:w-[45%] xl:w-[40%] flex justify-end pointer-events-none z-0">
-                      <img src="/images/learning-to-career-journey.webp" alt="Learning Journey" className="h-auto w-full object-contain object-right max-h-[50px] sm:max-h-[80px] md:max-h-[110px] lg:max-h-[130px]" />
-                    </div>
+                    
                   </div>
                 
                 <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 w-full">
