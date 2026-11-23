@@ -262,8 +262,8 @@ export default function AiIntegratedDigitalMarketingPage() {
                     <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] whitespace-nowrap pr-4 relative z-10">
                       Course <span className="text-[#8B1538]">Overview</span>
                     </h3>
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[70%] sm:w-[60%] md:w-[50%] lg:w-[45%] xl:w-[40%] flex justify-end pointer-events-none z-0">
-                      <img src="/images/learning-to-career-journey.webp" alt="Learning Journey" className="h-auto w-full object-contain object-right max-h-[80px] md:max-h-[110px] lg:max-h-[130px]" />
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[45%] sm:w-[60%] md:w-[50%] lg:w-[45%] xl:w-[40%] flex justify-end pointer-events-none z-0">
+                      <img src="/images/learning-to-career-journey.webp" alt="Learning Journey" className="h-auto w-full object-contain object-right max-h-[50px] sm:max-h-[80px] md:max-h-[110px] lg:max-h-[130px]" />
                     </div>
                   </div>
                 
@@ -398,7 +398,7 @@ export default function AiIntegratedDigitalMarketingPage() {
 
             <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
               {/* Card 1: Ammu */}
-              <div className="group flex h-fit flex-row items-start rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-3 sm:gap-6">
+              <div className="group flex h-full flex-row items-start rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-3 sm:gap-6">
                 <div className="relative shrink-0 h-20 w-20 sm:h-28 sm:w-28 overflow-hidden rounded-full border-[3px] border-[#F8CDD2]/50 p-0.5 sm:p-1">
                   <div className="h-full w-full rounded-full bg-[#FCF8F9] overflow-hidden">
                     <img src="/images/faculty/AMMU.png" alt="Ammu" className="h-full w-full object-cover object-top" />
@@ -407,14 +407,21 @@ export default function AiIntegratedDigitalMarketingPage() {
                 <div className="flex flex-col text-left">
                   <h3 className="text-[18px] md:text-xl font-bold text-[#102A43] leading-snug">Ammu</h3>
                   <p className="text-[13px] md:text-sm font-semibold text-[#8B1538] mt-0.5 mb-2">Digital Marketing Expert</p>
-                  <p className="text-[13px] md:text-[14px] leading-relaxed text-slate-600">
-                    Passionate about helping students master the art of digital marketing through practical, hands-on learning.
-                  </p>
+                  <div className="flex flex-col gap-2 mt-2">
+                    <div className="flex items-start gap-2 text-[13px] md:text-[14px] text-slate-600">
+                      <IconBriefcase className="shrink-0 w-4 h-4 mt-0.5 text-[#8B1538]" />
+                      <span>7 Years of Experience</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-[13px] md:text-[14px] text-slate-600">
+                      <IconSchool className="shrink-0 w-4 h-4 mt-0.5 text-[#8B1538]" />
+                      <span>Education: MBA</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Card 2: Haritha */}
-              <div className="group flex h-fit flex-row items-start rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-3 sm:gap-6">
+              <div className="group flex h-full flex-row items-start rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-[0_8px_24px_rgba(16,42,67,0.06)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-md gap-3 sm:gap-6">
                 <div className="relative shrink-0 h-20 w-20 sm:h-28 sm:w-28 overflow-hidden rounded-full border-[3px] border-[#CDEBFA]/50 p-0.5 sm:p-1">
                   <div className="h-full w-full rounded-full bg-[#EEF6FF] overflow-hidden">
                     <img src="/images/faculty/HARITHA.png" alt="Haritha" className="h-full w-full object-cover object-top" />
@@ -423,9 +430,16 @@ export default function AiIntegratedDigitalMarketingPage() {
                 <div className="flex flex-col text-left">
                   <h3 className="text-[18px] md:text-xl font-bold text-[#102A43] leading-snug">Haritha</h3>
                   <p className="text-[13px] md:text-sm font-semibold text-[#1A73E8] mt-0.5 mb-2">Digital Marketing Expert</p>
-                  <p className="text-[13px] md:text-[14px] leading-relaxed text-slate-600">
-                    Bringing years of industry experience to the classroom, focusing on campaign management and analytics.
-                  </p>
+                  <div className="flex flex-col gap-2 mt-2">
+                    <div className="flex items-start gap-2 text-[13px] md:text-[14px] text-slate-600">
+                      <IconBriefcase className="shrink-0 w-4 h-4 mt-0.5 text-[#1A73E8]" />
+                      <span>5 Years of Experience</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-[13px] md:text-[14px] text-slate-600">
+                      <IconSchool className="shrink-0 w-4 h-4 mt-0.5 text-[#1A73E8]" />
+                      <span>Education: Diploma in Computer Science, BBA, Diploma in Digital Marketing, SEO & WordPress</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
