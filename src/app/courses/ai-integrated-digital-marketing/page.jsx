@@ -119,6 +119,7 @@ const MARKETING_METRICS = [
 ];
 
 export default function AiIntegratedDigitalMarketingPage() {
+  const [selectedCertificate, setSelectedCertificate] = React.useState(null);
   const openContact = (label, details) => {
     window.dispatchEvent(
       new CustomEvent("openContactModal", {
@@ -257,29 +258,13 @@ export default function AiIntegratedDigitalMarketingPage() {
                 <div className="absolute top-10 right-20 w-32 h-32 rounded-full bg-gradient-to-bl from-green-100/50 to-blue-50/50 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 -ml-12 -mb-12 w-48 h-48 rounded-full bg-gradient-to-tr from-purple-100/40 to-pink-50/40 pointer-events-none"></div>
 
-                <div className="relative mb-8 flex items-center w-full overflow-hidden">
-                    <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] whitespace-nowrap pr-4">
+                <div className="relative mb-8 flex items-center justify-between w-full">
+                    <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px] whitespace-nowrap pr-4 relative z-10">
                       Course <span className="text-[#8B1538]">Overview</span>
                     </h3>
-                    <div className="flex-1 flex justify-end items-center h-full opacity-60">
-                        <style>{`
-                          @keyframes subtleWave {
-                            0%, 100% { transform: translateY(0px); }
-                            50% { transform: translateY(-8px); }
-                          }
-                          .animate-wave {
-                            animation: subtleWave 2.5s ease-in-out infinite;
-                          }
-                        `}</style>
-                        <div className="flex justify-between items-center w-[80%] md:w-[60%] pr-2">
-                          <div className="animate-wave w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#1A73E8]/30 mix-blend-multiply" style={{ animationDelay: '0ms' }}></div>
-                          <div className="animate-wave w-7 h-7 md:w-10 md:h-10 rounded-full bg-[#8B1538]/30 mix-blend-multiply" style={{ animationDelay: '200ms' }}></div>
-                          <div className="animate-wave w-6 h-6 md:w-9 md:h-9 rounded-full bg-[#F59E0B]/30 mix-blend-multiply" style={{ animationDelay: '400ms' }}></div>
-                          <div className="animate-wave w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#12B8A6]/30 mix-blend-multiply" style={{ animationDelay: '600ms' }}></div>
-                          <div className="animate-wave w-5 h-5 md:w-8 md:h-8 rounded-full bg-pink-500/30 mix-blend-multiply" style={{ animationDelay: '800ms' }}></div>
-                          <div className="animate-wave w-6 h-6 md:w-10 md:h-10 rounded-full bg-indigo-500/30 mix-blend-multiply" style={{ animationDelay: '1000ms' }}></div>
-                        </div>
-                      </div>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[70%] sm:w-[60%] md:w-[50%] lg:w-[45%] xl:w-[40%] flex justify-end pointer-events-none z-0">
+                      <img src="/images/learning-to-career-journey.webp" alt="Learning Journey" className="h-auto w-full object-contain object-right max-h-[80px] md:max-h-[110px] lg:max-h-[130px]" />
+                    </div>
                   </div>
                 
                 <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 w-full">
@@ -349,7 +334,7 @@ export default function AiIntegratedDigitalMarketingPage() {
                       <IconCertificate size={24} stroke={1.5} />
                     </div>
                     <div className="flex flex-col items-center mt-1">
-                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">2</p>
+                      <p className="text-[14px] md:text-[17px] font-bold text-[#0F172A] leading-tight">Dual</p>
                       <p className="text-[12px] md:text-[14px] text-slate-600 mt-1">Certification</p>
                     </div>
                   </div>
@@ -1239,7 +1224,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               {/* Viskool Certificate */}
               <div className="flex flex-col gap-4">
                 <div className="flex aspect-[4/3] max-w-[500px] mx-auto w-full items-center justify-center rounded-xl border border-gray-200 shadow-sm transition-transform hover:scale-[1.02] overflow-hidden relative" style={{ backgroundColor: '#ffffff', backgroundImage: 'radial-gradient(at 0% 0%, rgba(147, 197, 253, 0.6) 0px, transparent 70%), radial-gradient(at 100% 0%, rgba(233, 213, 255, 0.8) 0px, transparent 70%), radial-gradient(at 100% 100%, rgba(253, 230, 138, 0.7) 0px, transparent 70%), radial-gradient(at 0% 100%, rgba(191, 219, 254, 0.6) 0px, transparent 70%)' }}>
-                      <img src="/images/Digital-Marketing-Certificate.webp" alt="Viskool Course Certificate" className="w-full h-full object-contain p-4 md:p-6 drop-shadow-md" />
+                      <img src="/images/Digital-Marketing-Certificate.webp" alt="Viskool Course Certificate" className="w-full h-full object-contain p-4 md:p-6 drop-shadow-md cursor-pointer" onClick={() => setSelectedCertificate('/images/Digital-Marketing-Certificate.webp')} />
                     </div>
                 <div className="text-center">
                   <h5 className="font-bold text-[#102A43]">Viskool Course Certificate</h5>
@@ -1250,7 +1235,7 @@ export default function AiIntegratedDigitalMarketingPage() {
               {/* Board Certificate */}
               <div className="flex flex-col gap-4">
                 <div className="flex aspect-[4/3] max-w-[500px] mx-auto w-full items-center justify-center rounded-xl border border-gray-200 shadow-sm transition-transform hover:scale-[1.02] overflow-hidden relative" style={{ backgroundColor: '#ffffff', backgroundImage: 'radial-gradient(at 0% 0%, rgba(147, 197, 253, 0.6) 0px, transparent 70%), radial-gradient(at 100% 0%, rgba(233, 213, 255, 0.8) 0px, transparent 70%), radial-gradient(at 100% 100%, rgba(253, 230, 138, 0.7) 0px, transparent 70%), radial-gradient(at 0% 100%, rgba(191, 219, 254, 0.6) 0px, transparent 70%)' }}>
-                      <img src="/images/board-certificate.webp" alt="Board Course Certificate" className="w-full h-full object-contain p-4 md:p-6 drop-shadow-md" />
+                      <img src="/images/board-certificate.webp" alt="Board Course Certificate" className="w-full h-full object-contain p-4 md:p-6 drop-shadow-md cursor-pointer" onClick={() => setSelectedCertificate('/images/board-certificate.webp')} />
                     </div>
                 <div className="text-center">
                   <h5 className="font-bold text-[#102A43]">Official Board Certification</h5>
@@ -1293,9 +1278,8 @@ export default function AiIntegratedDigitalMarketingPage() {
             </p>
 
             <h4 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
-              Master the Tools That{" "}
-              <span className="text-[#8B1538]">Actually Get You Hired</span>
-            </h4>
+                Master the <span className="text-[#8B1538]">Tools That Actually Get You Hired</span>
+              </h4>
 
             <p className="mt-7 mb-8 text-[15px] leading-7 text-gray-700 sm:text-base sm:leading-8">
               You will learn 9 core tools that marketing teams use every day, from ad managers to analytics and design.
@@ -1600,29 +1584,63 @@ export default function AiIntegratedDigitalMarketingPage() {
         </div>
       </section>
 
-      <section className="bg-[#FCF8F9] px-4 pb-5 pt-0 font-sans sm:px-6 sm:pb-6 lg:px-8 lg:pb-7" id="conclusion">
-        <div className="mx-auto max-w-7xl">
-          <div className="w-full max-w-none rounded-3xl border border-[#8B1538]/10 bg-[#F8F0F2] px-6 py-3 shadow-sm sm:px-8 sm:py-4 lg:px-10 lg:py-5">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8B1538] sm:text-sm">
-              CONCLUSION
-            </p>
+      <section className="bg-[#FCF8F9] px-4 pb-10 pt-0 font-sans sm:px-6 sm:pb-12 lg:px-8 lg:pb-16" id="conclusion">
+          <div className="mx-auto max-w-7xl">
+            <div className="relative w-full max-w-none rounded-[2rem] border border-[#f5e6d3] bg-[#FCF8F4] px-6 py-8 shadow-sm sm:px-10 sm:py-12 lg:px-14 lg:py-14 overflow-hidden">
+              
+              {/* Content Wrapper to stay above background image */}
+              <div className="relative z-10">
+                <p className="mb-4 text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#8B1538]">
+                  CONCLUSION
+                </p>
+    
+                <h3 className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#102A43] sm:text-[30px] lg:text-[36px]">
+                  Conclusion: <span className="text-[#8B1538]">Learn Digital Marketing</span> in{" "}
+                  <span className="text-[#166534]">God's Own Country</span>
+                </h3>
+    
+                <div className="mt-6 md:mt-8 space-y-6 text-gray-700 leading-relaxed text-[15px] md:text-[16px] md:leading-8 max-w-[90%]">
+                  <p>Keralam, God's Own Country, is known for its backwaters, green hills and a deep love for learning, and today that love for learning is moving online.</p>
+                  <p>From Trivandrum, Kollam, Pathanamthitta, Alappuzha, Kottayam, Idukki, Ernakulam, Thrissur, Palakkad, Malappuram, Kozhikode, Wayanad, Kannur and Kasaragod, learners can now join the Best Digital Marketing Course from their own homes.</p>
+                  <p>At Viskool, you simply book a free demo class, learn through live and recorded classes with expert mentors, work on real projects and finish with a certificate and placement support, all in a course and learning experience made just for Keralam learners.</p>
+                </div>
+              </div>
 
-            <h3 className="text-2xl md:text-4xl font-bold leading-[1.2] tracking-tight text-[#102A43]">
-              Conclusion: Learn Digital Marketing in{" "}
-              <span className="text-[#800020]">God's Own Country</span>
-            </h3>
-
-            <div className="mt-7 space-y-6 text-gray-700 leading-relaxed text-lg">
-              <p>Kerala, God's Own Country, is known for its backwaters, green hills and a deep love for learning, and today that love for learning is moving online.</p>
-              <p>From Trivandrum, Kollam, Pathanamthitta, Alappuzha, Kottayam, Idukki, Ernakulam, Thrissur, Palakkad, Malappuram, Kozhikode, Wayanad, Kannur and Kasaragod, learners can now join the Best Digital Marketing Course from their own homes.</p>
-              <p>At Viskool, you simply book a free demo class, learn through live and recorded classes with expert mentors, work on real projects and finish with a certificate and placement support, all in a course and learning experience made just for Kerala learners.</p>
+              {/* Background Illustration Placeholder */}
+              <div className="absolute bottom-0 right-0 w-full max-w-[600px] pointer-events-none opacity-100 mix-blend-multiply">
+                <img src="/images/kerala-illustration.webp" alt="" className="w-full h-auto object-contain object-bottom translate-y-[5%]" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <FloatingCourseCTA />
 
+
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm transition-opacity"
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <div className="relative max-w-5xl w-full h-full flex items-center justify-center p-4">
+            <button 
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black/50 rounded-full p-2"
+              onClick={() => setSelectedCertificate(null)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img 
+              src={selectedCertificate} 
+              alt="Certificate Full Size" 
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()} 
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
