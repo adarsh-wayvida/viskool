@@ -91,8 +91,11 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
       
+      const isCoursePage = typeof window !== 'undefined' && window.location.pathname.includes('/courses/');
+      
       // Hide header if scrolling down past 200px. Show if scrolling up.
-      if (hideOnDeepScroll && currentScrollY > 600) {
+      // EXCEPTION: If we are on a course page, hide it permanently past a threshold, even when scrolling up.
+      if (isCoursePage && currentScrollY > 200) {
         setIsHidden(true);
       } else if (currentScrollY > lastScrollY && currentScrollY > 200) {
         setIsHidden(true);
@@ -149,7 +152,7 @@ export const Header = ({ navLinks, onOpenContact, onActionClick, onNavigate, cur
   return (
     <>
       
-      <header className={`fixed top-0 z-50 w-full bg-white/80 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'} ${
+      <header className={`fixed top-0 z-50 w-full bg-white/80 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full pointer-events-none' : 'translate-y-0'} ${
       isScrolled ? 'shadow-sm' : ''
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
