@@ -9,6 +9,7 @@ import { Header } from './Header.jsx';
 import { Footer } from './Footer.jsx';
 import { FloatingActions } from './FloatingActions.jsx';
 import { ContactModal } from './ContactModal.jsx';
+import { AutoPopupModal } from './AutoPopupModal.jsx';
 
 export function SiteLayout({ children }) {
   const pathname = usePathname();
@@ -97,6 +98,7 @@ export function SiteLayout({ children }) {
         onPhoneClick={handlePhone}
       />
 
+      <AutoPopupModal />
       <ContactModal 
         isOpen={modalState.isOpen}
         onClose={handleCloseContact}
