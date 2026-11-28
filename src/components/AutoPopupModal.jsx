@@ -18,7 +18,7 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
   return (
     <div className="relative" ref={ref}>
       <div
-        className={`w-full text-left text-[14px] px-3.5 py-2.5 rounded-lg border focus-within:border-[#8B1538] focus-within:ring-1 focus-within:ring-[#8B1538] outline-none transition-all flex items-center justify-between bg-white ${isOpen ? 'border-[#8B1538] ring-1 ring-[#8B1538]' : 'border-gray-300'} ${value ? 'text-gray-800' : 'text-gray-500'}`}
+        className={`w-full text-left text-[13px] sm:text-[14px] px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg border focus-within:border-[#8B1538] focus-within:ring-1 focus-within:ring-[#8B1538] outline-none transition-all flex items-center justify-between bg-white ${isOpen ? 'border-[#8B1538] ring-1 ring-[#8B1538]' : 'border-gray-300'} ${value ? 'text-gray-800' : 'text-gray-500'}`}
       >
         <button type="button" className="flex-1 text-left truncate outline-none" onClick={() => setIsOpen(!isOpen)}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -54,7 +54,7 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
                 onChange(opt.value);
                 setIsOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 text-[14px] transition-colors ${value === opt.value ? 'bg-[#8B1538]/5 text-[#8B1538] font-semibold' : 'text-gray-700 hover:bg-gray-50 hover:text-[#8B1538]'}`}
+              className={`w-full text-left px-3 sm:px-4 py-2 sm:py-2.5 text-[13px] sm:text-[14px] transition-colors ${value === opt.value ? 'bg-[#8B1538]/5 text-[#8B1538] font-semibold' : 'text-gray-700 hover:bg-gray-50 hover:text-[#8B1538]'}`}
             >
               {opt.label}
             </button>
@@ -146,16 +146,16 @@ export const AutoPopupModal = () => {
         </div>
 
         {/* Right Column: Form */}
-        <div className="w-full md:w-7/12 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white rounded-r-[24px]">
-          <h2 className="text-2xl sm:text-[28px] font-bold text-[#102A43] tracking-tight mb-6">
+        <div className="w-full md:w-7/12 p-4 sm:p-8 lg:p-10 flex flex-col justify-center bg-white rounded-[24px] md:rounded-none md:rounded-r-[24px]">
+          <h2 className="text-xl sm:text-[28px] font-bold text-[#102A43] tracking-tight mb-4 sm:mb-6">
             Start Your Learning Journey
           </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             {/* Name & Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[14px] font-semibold text-[#102A43] mb-1.5">
+                <label className="block text-[12px] sm:text-[14px] font-semibold text-[#102A43] mb-1 sm:mb-1.5">
                   Full Name
                 </label>
                 <input
@@ -164,11 +164,11 @@ export const AutoPopupModal = () => {
                   placeholder="Enter your name"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full text-[14px] px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#8B1538] focus:ring-1 focus:ring-[#8B1538] outline-none transition-all placeholder:text-gray-400 text-gray-800"
+                  className="w-full text-[13px] sm:text-[14px] px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg border border-gray-300 focus:border-[#8B1538] focus:ring-1 focus:ring-[#8B1538] outline-none transition-all placeholder:text-gray-400 text-gray-800"
                 />
               </div>
               <div>
-                <label className="block text-[14px] font-semibold text-[#102A43] mb-1.5">
+                <label className="block text-[12px] sm:text-[14px] font-semibold text-[#102A43] mb-1 sm:mb-1.5">
                   Email Address
                 </label>
                 <input
@@ -177,7 +177,7 @@ export const AutoPopupModal = () => {
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full text-[14px] px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#8B1538] focus:ring-1 focus:ring-[#8B1538] outline-none transition-all placeholder:text-gray-400 text-gray-800"
+                  className="w-full text-[13px] sm:text-[14px] px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg border border-gray-300 focus:border-[#8B1538] focus:ring-1 focus:ring-[#8B1538] outline-none transition-all placeholder:text-gray-400 text-gray-800"
                 />
               </div>
             </div>
@@ -185,11 +185,11 @@ export const AutoPopupModal = () => {
             {/* Phone & Contact Method */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[14px] font-semibold text-[#102A43] mb-1.5">
+                <label className="block text-[12px] sm:text-[14px] font-semibold text-[#102A43] mb-1 sm:mb-1.5">
                   Phone Number
                 </label>
                 <div className="flex rounded-lg border border-gray-300 focus-within:border-[#8B1538] focus-within:ring-1 focus-within:ring-[#8B1538] overflow-hidden bg-white">
-                  <div className="flex items-center px-3 border-r border-gray-300 text-[14px] font-medium text-gray-700 select-none bg-white">
+                  <div className="flex items-center px-3 border-r border-gray-300 text-[13px] sm:text-[14px] font-medium text-gray-700 select-none bg-white">
                     <span className="text-[11px] text-gray-600 font-semibold mr-1.5 tracking-wider">IN</span>
                     +91
                     <svg className="w-2.5 h-2.5 ml-1.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
@@ -200,19 +200,19 @@ export const AutoPopupModal = () => {
                     placeholder="phone number"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full text-[14px] px-3.5 py-2.5 outline-none placeholder:text-gray-400 text-gray-800"
+                    className="w-full text-[13px] sm:text-[14px] px-3 sm:px-3.5 py-2 sm:py-2.5 outline-none placeholder:text-gray-400 text-gray-800"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-[14px] font-semibold text-[#102A43] mb-1.5">
+                <label className="block text-[12px] sm:text-[14px] font-semibold text-[#102A43] mb-1 sm:mb-1.5">
                   Preferred Contact Method
                 </label>
                 <div className="flex p-1 rounded-lg border border-gray-300 bg-white">
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, contactMethod: 'Call' })}
-                    className={`flex-1 py-1.5 text-[14px] font-semibold rounded-md transition-colors ${
+                    className={`flex-1 py-1 sm:py-1.5 text-[12px] sm:text-[14px] font-semibold rounded-md transition-colors ${
                       formData.contactMethod === 'Call'
                         ? 'bg-[#8B1538]/10 text-[#8B1538]'
                         : 'text-gray-600 hover:bg-gray-50'
@@ -223,7 +223,7 @@ export const AutoPopupModal = () => {
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, contactMethod: 'WhatsApp' })}
-                    className={`flex-1 py-1.5 text-[14px] font-semibold rounded-md transition-colors ${
+                    className={`flex-1 py-1 sm:py-1.5 text-[12px] sm:text-[14px] font-semibold rounded-md transition-colors ${
                       formData.contactMethod === 'WhatsApp'
                         ? 'bg-[#8B1538]/10 text-[#8B1538]'
                         : 'text-gray-600 hover:bg-gray-50'
@@ -238,7 +238,7 @@ export const AutoPopupModal = () => {
             {/* Course Selection & Contact Time */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[14px] font-semibold text-[#102A43] mb-1.5">
+                <label className="block text-[12px] sm:text-[14px] font-semibold text-[#102A43] mb-1 sm:mb-1.5">
                   Course Selection
                 </label>
                 <CustomSelect
@@ -249,7 +249,7 @@ export const AutoPopupModal = () => {
                 />
               </div>
               <div>
-                <label className="block text-[14px] font-semibold text-[#102A43] mb-1.5">
+                <label className="block text-[12px] sm:text-[14px] font-semibold text-[#102A43] mb-1 sm:mb-1.5">
                   Preferred Contact Time
                 </label>
                 <CustomSelect
@@ -265,11 +265,11 @@ export const AutoPopupModal = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-6 pt-2">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3 bg-[#8B1538] hover:bg-[#73152C] text-white text-[14px] font-bold rounded-xl transition-all shadow-md active:scale-95"
+                className="w-full sm:w-auto px-8 py-2.5 sm:py-3 bg-[#8B1538] hover:bg-[#73152C] text-white text-[13px] sm:text-[14px] font-bold rounded-xl transition-all shadow-md active:scale-95"
               >
                 Submit Enquiry
               </button>
-              <p className="text-[12px] text-gray-500 font-medium">
+              <p className="text-[11px] sm:text-[12px] text-gray-500 font-medium">
                 We'll contact you shortly. No spam.
               </p>
             </div>
